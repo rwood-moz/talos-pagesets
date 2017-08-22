@@ -1,0 +1,171 @@
+
+body, body * {
+  vertical-align: baseline;
+  border: 0 none;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 9pt;
+  color: #333;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#main-container {
+  position: absolute;
+  width: 970px;
+  height: 250px;
+  top: 0px;
+  left: 0px;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  background: #000;
+  overflow:hidden;
+}
+
+#exit {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+ z-index:9;
+}
+#yt-close {
+  z-index: 999;
+}
+
+#ytp-1, #ytp-2, #ytp-3 , #ytp-4  {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 500;
+ 
+}
+
+:focus {
+  outline:none;
+}
+::-moz-focus-inner {
+  border:0;
+}
+
+#logo{position:absolute;top:0;left:0;width:inherit;height:inherit;background:url("ford_logo.png");display:none;cursor:pointer;}
+.headline1{background:url("plug_in_headline_lg.png");width:501px;height:62px;position:absolute;top:87px;left:434px;display:none;cursor:pointer;}
+.headline_plugin{background:url("plug_in_headline_lg.png");width:137px;height:29px;position:absolute;top:87px;left:434px;display:none;}
+/* *** VIDEO PLAYER STYLES *** */
+#movie-gallery{position: absolute;top:5px;left:10px;width:800px;height:240px;display:none;}
+
+#movie-gallery-title{background:url("plug_in_headline_small.png");width:362px;height:43px;position:absolute;top:8px;right:-35px;cursor:pointer;}
+
+#movie-gallery-close{position: absolute;top:-2px;left:438px;height:27px;width:27px;background:url("video_close_btn.png");padding:0;cursor: pointer;}
+#movie-gallery-previous{position: absolute;top:112px;left:5px;height:14px;width:14px;background:url("arrow.png");padding:0;cursor:pointer;}
+#movie-gallery-next{position: absolute;top:112px;left:445px;height:14px;width:14px;background:url("arrow.png");padding:0;cursor:pointer;
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+}
+
+.button-hover:hover{opacity:0.75;}
+
+#video-player1,#video-player2,#video-player3,#video-player4{position: absolute;top:0px;left:20px;background:#000;width:420px;height:240px;display:none;}
+
+#video-thumbnails{height:200px;width:350px;position:absolute;top:45px;right:-14px;}
+.video-thumb{width:153px;height:64px;float:left;margin:10px;}
+.thumbnail-img{width:151px;height:62px;border:2px solid #000;clear:right;}
+.active{border:2px solid #e1fdff;}
+#video-thumb1 .thumbnail-img{background:url("thumb1.png");}
+#video-thumb2 .thumbnail-img{background:url("thumb2.png");}
+#video-thumb3 .thumbnail-img{background:url("thumb3.png");}
+#video-thumb4 .thumbnail-img{background:url("thumb4.png");}
+.thumbnail-img-hover{cursor:pointer;width:151px;height:62px;position:absolute;top:24px;left:14px;background:url("thumb-overlay.png");opacity:1;}
+.thumbnail-img-hover:hover, .thumbnail-img-hover-active{opacity:0.8;}
+
+#video-thumb2 .thumbnail-img-hover{left:185px;}
+#video-thumb3 .thumbnail-img-hover, #video-thumb4 .thumbnail-img-hover{top:14px;left:2px;}
+#video-thumb3, #video-thumb4{position:relative;top:8px;}
+
+.thumbnail-title img{float:right;}
+
+/* *************** */
+/* *** PLUG & LOGO ANIMATION STYLES *** */
+
+#plug-sequence{width:600px;height:338px;position:absolute;top:-35px;left:145px;display:none;cursor:pointer;}
+#plugImageHolder{width:600px;height:338px;position:absolute;}
+#plug-drag{cursor:pointer;width:80px;height:80px;position:absolute;top:170px;left:450px;z-index:10;display:none;}
+#plug-sequence-overlay{width:600px;height:338px;position:absolute;top:-35px;left:145px;background-image:url('frd061_Plug_Premult_v009_0001-over.png');display:none;}
+
+#video-container-logo_anim{position:absolute;top:-43px;left:-55px;width:640px;height:360px;display:none;cursor:pointer;}
+#logo-interact{/*background:blue;opacity:0.4;*/width:250px;height:200px;position:absolute;top:40px;left:140px;z-index:10;visibility:hidden;cursor:pointer;}
+
+#plug_logo_scale_container, #plug_logo_move_container{position:absolute;top:0;left:0;}
+#plug_logo_container{position:absolute;top:0;left:0;
+  transform:translate(0px,0px);
+  -webkit-transform:translate(0px,0px);
+  -moz-transform:translate(0px,0px);
+  -ms-transform:translate(0px,0px);
+}
+
+/* LOGO INTERACT */
+.anim_bob_up_down{
+  animation: floatY 2s ease-in-out;
+  -webkit-animation: floatY 2s ease-in-out;
+  -moz-animation: floatY 2s ease-in-out;
+  -ms-animation: floatY 2s ease-in-out;
+}
+
+.anim_poke{
+  animation: scale_poke 0.4s ease-in-out;
+  -webkit-animation: scale_poke 0.4s ease-in-out;
+  -moz-animation: scale_poke 0.4s ease-in-out;
+  -ms-animation: scale_poke 0.4s ease-in-out;	
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@keyframes floatY {
+    from { transform:translate(0px,0px) scale(1); }
+    50%   { transform:translate(-2px,-10px) scale(0.99);}
+    to { transform:translate(0px,0px) scale(1); }
+}
+@-webkit-keyframes floatY {
+    from { -webkit-transform:translate(0px,0px) scale(1); }
+    50%   { -webkit-transform:translate(-2px,-10px) scale(0.99);}
+    to { -webkit-transform:translate(0px,0px) scale(1); }  
+}
+@-moz-keyframes floatY {
+    from { -moz-transform:translate(0px,0px) scale(1); }
+    50%   { -moz-transform:translate(-2px,-10px) scale(0.99);}
+    to { -moz-transform:translate(0px,0px) scale(1); }
+}
+@-ms-keyframes floatY {
+    from { -ms-transform:translate(0px,0px) scale(1); }
+    50%   { -ms-transform:translate(-2px,-10px) scale(0.99);}
+    to { -ms-transform:translate(0px,0px) scale(1); }
+}
+
+@keyframes scale_poke {
+    from { transform:scale(1); }
+    40%   {transform:scale(0.98);}
+    to { transform:scale(1); }
+}
+@-webkit-keyframes scale_poke {
+    from { -webkit-transform:scale(1); }
+    40%   {-webkit-transform:scale(0.98);}
+    to { -webkit-transform:scale(1); }
+}
+@-moz-keyframes scale_poke {
+    from { -moz-transform:scale(1); }
+    40%   {-moz-transform:scale(0.98);}
+    to { -moz-transform:scale(1); }
+}
+@-ms-keyframes scale_poke {
+    from { -ms-transform:scale(1); }
+    40%   {-ms-transform:scale(0.98);}
+    to { -ms-transform:scale(1); }
+}
