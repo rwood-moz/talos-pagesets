@@ -1,0 +1,1 @@
+void("<a href=\'http://www.easethink.com\' target=\'_blank\'><img src=\'/images/gg/easethink.gif\' alt=\'易想团购系统\' border=\'0\'></a>");

@@ -1,0 +1,380 @@
+/*common styles that are shared with the Mine side*/
+
+
+/*-----LIGHTBOX-----*/
+
+
+/* --- HELPER POSITIONING STYLES ---*/
+
+.clear {
+    clear: both;
+}
+.top {
+    margin-top: 0;
+}
+.last
+{
+    margin-right: 0;
+}
+
+/* --- LAYOUT ---*/
+.floatbox
+{
+    float:left;
+    overflow:hidden;
+    margin-right:40px;
+}
+.two60
+{
+    width:260px;
+}
+.two40
+{
+    width:240px;
+}
+
+/* --- TEXT STYLES --- */
+
+.defaultPageTerms
+{
+	font-size:10px;
+	color:#666666;
+	white-space: nowrap;
+}
+a.defaultPageTerms
+{
+	text-decoration:underline;
+}
+
+.fineprint 
+{
+    font-size:80%;
+    padding-bottom:10px;
+}
+
+.error, .field-validation-error
+{
+    color:Red;
+    font-weight: bold;
+    font-size:105%;
+}
+
+.loginForm .field-validation-error 
+{
+    display: block;
+    margin-bottom: 6px;
+}
+
+.success
+{
+    color: Green;
+    font-weight: bold;
+}
+
+
+/* --- TROPHIES --- */
+
+.badgegrid {
+float:left;
+margin-right:10px;
+padding-bottom:10px;
+text-align:center;
+width:115px;
+position: relative;
+}
+.badgelist li
+{
+border-bottom:1px dotted #DBC69F;
+list-style:none outside none;
+margin:0 0 10px;
+padding:0 0 10px 50px;
+overflow: hidden;
+}
+.badgelist img
+{
+display:block;
+float:left;
+margin-left:-50px;
+}
+ul.badgelist
+{
+    padding: 0px;
+    margin: 0px;
+}
+.badgelist .badgename
+{
+    font-weight: bold;
+}
+
+.see-more-trophies
+{
+    margin-bottom:20px;
+    text-align:right;
+}
+
+/*-----LIGHTBOX-----*/
+.ui-widget, .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button
+{
+    font-family:'Lucida Grande',Verdana,Arial,Sans-Serif;
+}
+.purchase-popup, .done-popup, .giftdone-popup
+{
+    width: 260px;
+}
+
+.ui-widget-content a, .ui-widget-content h3 a {
+color:#1263A8;
+}
+button.popupButton
+{
+    background:url("../images/bg-button.jpg") repeat scroll left top #604028;
+    color:#FFFFFF;
+    font-size:1.4em;
+    font-weight:normal;
+    margin:10px 0 10px 8px;
+    padding:4px 8px;
+    font-family:'Lucida Grande',Verdana,Arial,Sans-Serif;
+    border: none;
+}
+.ui-corner-all
+{
+    -moz-border-radius:0;
+}
+.ui-widget-header
+{
+background: none repeat scroll 0 0 #d4f1f9;
+border: none;
+color: #000;
+}
+.ui-widget-overlay
+{
+    background: black;
+    opacity: 0.5;
+}
+.ui-dialog
+{
+    -moz-border-radius:6px 6px 6px 6px;
+border:10px solid #CCCCCC;
+padding:10px;
+}
+.ui-dialog .ui-dialog-content
+{
+    padding:20px 40px;
+}
+.ui-dialog .ui-dialog-titlebar-close {
+background-color:#97daf0;
+}
+img.img-center
+{
+display:block;
+margin:10px auto;
+}
+.ui-widget-content
+{
+    background:#eefafe;
+}
+.ui-dialog h3
+{
+margin-top:10px;
+}
+/*-----login popup-----*/
+
+.loginForm input[type=password], .loginForm input[type=text] 
+{
+    width:93%;
+    margin-bottom:10px;
+}
+.loginForm 
+{
+    background:none repeat scroll 0 0 white;
+border:1px solid #CCCCCC;
+padding:10px 20px 20px;
+font-size: 12px;
+}
+.ui-dialog h2 {
+    color: #000;
+    border-bottom: 8px solid #acdeca;
+    padding: 0 0 4px;
+    margin: 15px 0 6px 0;
+    font-family: Georgia,'Times New Roman',serif;
+    font-style: italic;
+    font-size: 18px;
+	position:relative;
+	font-weight:normal;
+}
+
+#dlglogin h2
+{
+	background: none;
+	border: 0;
+	margin: 10px 0 10px 0;
+	padding: 0;
+}
+
+/* push-down popup styles */
+.pushDownPopupClosed
+{
+	width:100%;
+	height:50px;
+	overflow:hidden;
+	background-color:#FFFFFF;
+}
+
+.pushDownPopupOpen
+{
+	width:100%;
+	height:100px;
+	overflow:hidden;
+	background-color:#33CC33;
+}
+
+div.slide-notification {
+bottom:35px;
+padding:20px;
+position:fixed;
+left:-500;
+width:400px;
+-moz-box-shadow: -2px 2px 6px black;
+-webkit-box-shadow: -2px 2px 6px black;
+border: 8px solid #ccc;
+border-left: none;
+-moz-border-radius: 0 6px 6px 0;
+-webkit-border-radius: 0 6px 6px 0;
+background: url('../images/BG_pattern3.jpg@v=1') repeat top left #EEFAFE;
+font-size: 13px;
+z-index: 9999;
+text-align:center;
+}
+div.slide-notification-right{
+	bottom:35px;
+	padding:20px;
+	position:fixed;
+	right:-500;
+	width:400px;
+	-moz-box-shadow: 2px 2px 6px black;
+	-webkit-box-shadow: 2px 2px 6px black;
+	border: 8px solid #ccc;
+	border-right: none;
+	-moz-border-radius: 6px 0 0 6px;
+	-webkit-border-radius: 6px 0 0 6px;
+	background: url('http://static.cheezburger.com/style/images/BG_pattern3.jpg?v=1') repeat top left #EEFAFE;
+	font-size: 13px;
+	z-index: 9999;
+	text-align:center;
+}
+div.register-success-text 
+{
+    display: none;
+}
+div.register-success-image
+{
+    width:302px;
+    height:245px;
+    background-image: url(../Images/success-tacocat.png);
+    margin: 0 auto 30px auto;
+}
+.ichc div.register-success-image, .fail div.register-success-image, .meme div.register-success-image, .none div.register-success-image
+{
+    background-image: url(../../i.chzbgr.com/Images/success-tacocat.png);
+}
+.login-register-cta 
+{
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+/* profile edit */
+
+input.boxed, .profileEdit .txtAboutMe, .loginForm input
+{
+    border: 4px solid #ddd;
+    margin: 4px 0;
+    padding: 4px 2px;
+    display:block;
+}
+
+input.boxed, .profileEdit .txtAboutMe
+{
+    width:348px;
+    float: left;
+}
+
+.profileEdit label, .profileEdit .picture
+{
+clear:left;
+display:block;
+float:left;
+font-size:11px;
+margin:4px 20px 4px 0;
+line-height:24px;
+width:120px;
+}
+.profileEdit select
+{
+    margin: 4px 0;
+    padding: 2px;
+}
+
+/* --- CHEETOH BUTTONS --- */
+
+a.orange-button, input.orange-button, form a.orange-button, form input.orange-button, .ui-widget-content a.orange-button
+{
+ text-align:right;
+ background: #f5ac40;
+ border:none;
+ color:#fefed7;
+ cursor:pointer;
+ display: inline-block;
+ padding:3px 8px;
+ margin: 0 6px 0 0;
+ -moz-border-radius:4px;
+ -webkit-border-radius:4px;
+ -moz-box-shadow:1px 1px 3px #CCCCCC;
+ -webkit-box-shadow:1px 1px 3px #CCCCCC;
+ text-shadow: 0px 1px 0px #7F4104;
+ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5ac40', endColorstr='#bf7800'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#f5ac40), to(#bf7800)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #f5ac40,  #bf7800  ); /* for firefox 3.6+ */
+text-decoration:none;
+font-family: 'Lucida Grande' , Verdana, Arial, Sans-Serif;
+font-weight:normal;
+line-height: 130%;
+}
+a.orange-button:hover, input.orange-button:hover
+{
+     background: #f79100;
+ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f79100', endColorstr='#c96300'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#f79100), to(#c96300)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #f79100,  #c96300); /* for firefox 3.6+ */
+text-decoration:none;
+color:#fefed7;
+}
+a.orange-button:active, input.orange-button:active {
+	background: #f79100;
+	 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c96300', endColorstr='#f79100'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#c96300), to(#f79100)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,#c96300, #f79100); /* for firefox 3.6+ */
+	text-decoration:none;
+	color:#fefed7;
+}
+a.secondary, form a.secondary
+{
+    color:White;
+    text-shadow:1px 1px 2px #666666;
+    background-color: #ccc;
+    background: -moz-linear-gradient(top,  #ccc,  #999  ); /* for firefox 3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#999)); /* for webkit browsers */
+}
+
+a.secondary:hover, form a.secondary:hover
+{
+    background-color: #aaa;
+    background: -moz-linear-gradient(top,  #aaa,  #777  ); /* for firefox 3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, from(#aaa), to(#777)); /* for webkit browsers */
+}
+
+a.small, form a.small
+{
+    padding:1px 4px;
+    font-size:10px;
+}

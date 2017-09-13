@@ -1,0 +1,22 @@
+.mod-terratv { position:relative; padding:3px 5px 6px 5px; background:#191917; }
+.mod-terratv h4 a { display:block; padding:3px 11px 6px 0; background:url("../../../_img/ico-general.png") no-repeat scroll right -262px transparent; cursor:pointer; width:72px;}
+.mod-terratv h4 span { display:block; height:17px; width:75px; background:url("../_img/skin-thumbs.png") 0 0 no-repeat; text-indent:-9999px; overflow:hidden; }
+
+.mod-terratv h4 span:hover, 
+.mod-terratv h4 span:focus { background-position:0 -20px; }
+.mod-terratv .spot img { width:288px; height:162px; border:1px solid #ff9900; border-bottom:0; padding:0; display: block;}
+.mod-terratv .spot .play-video { position:absolute; left:101px; top:81px; display:none; width:99px; height:68px; background:url("../../../_img/btn-play-large.png") no-repeat; cursor:pointer; }
+.mod-terratv .spot a:hover .play-video { display:block; }
+.mod-terratv .footer { display:block; clear:left; width:275px; height:29px; border:1px solid #ff9900; border-top:0; padding:4px 5px 0 8px; background:#282623; color:#FFFFFF; font-weight:bold; font-size:11px;}
+.mod-terratv ul.thumbs { margin:8px 0 0 1px; }
+.mod-terratv .thumbs li { float:left; position:relative; margin-right:10px; }
+.mod-terratv .thumbs li .arrow { position:absolute; z-index:10; display:none; width:33px; height:18px; left:28px; top:-9px; background:url("../_img/skin-thumbs.png") 0 -40px no-repeat; text-indent:-99999px; }
+.mod-terratv .thumbs li.active .arrow { display:block; }
+.mod-terratv .thumbs li.active a { border:3px solid #FF9900; }
+.mod-terratv .thumbs li.active img { margin:-3px; }
+.mod-terratv .advertising { display:none; position:absolute; z-index:11; top:25px; left:2px; padding:7px 0 25px 0; width:296px; background-color:#191917; }
+.mod-terratv .advertising.active { display:block; }
+.mod-terratv .advertising span { float:left; width:285px; margin:10px 0 5px 5px; font-size:10px; color:#FFFFFF; }
+.mod-terratv .advertising a.lnk-close { float:right; width:9px; height:9px; background:url("../_img/skin-thumbs.png") 0 -60px no-repeat; text-indent:-9999px; overflow:hidden; }
+.mod-terratv .advertising iframe { height:202px; width:296px; }
+.mod-terratv .ctn-image { margin-bottom:0 !important; }

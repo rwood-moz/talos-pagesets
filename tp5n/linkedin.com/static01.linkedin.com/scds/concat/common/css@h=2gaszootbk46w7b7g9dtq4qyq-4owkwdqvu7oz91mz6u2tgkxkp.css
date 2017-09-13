@@ -1,0 +1,716 @@
+
+
+/* css/profile.css */
+
+.edit-my-profile #extra,.view-my-profile #extra{margin:0;_overflow:hidden;}
+.showhide-link{display:none;}
+#main .alert.attention{background:#FFF5CC url('../../common/u/img/icon/icon_status_info_16x16_v2.gif') no-repeat 8px 6px;}
+#main .alert.attention a{white-space:nowrap;color:#039;}
+#main .alert.attention strong{color:#000;}
+#main .alert.attention a strong{color:#039;}
+#main .section .alert.attention{margin-top:10px;}
+#content .alert.attention,#extra .alert.attention{margin-bottom:15px;}
+#main .alert.notice p{padding:0;margin:0;}
+#main #accept-invitation{padding:7px 7px 7px 35px;margin-bottom:30px;}
+#main #accept-invitation p{padding:7px 21px 0 7px;}
+#main .alert.updates{background:#FFF5CC url('../../../../static02.linkedin.com/scds/common/u/img/icon/icon_status_info_26x26.gif') no-repeat 8px 6px;zoom:1;}
+#extra .note{font-size:110%;color:#555;margin:-6px 0 12px 10px;clear:both;}
+#extra .note.solo{margin:0 0 12px;}
+.alert h4{margin:0 0 5px 0;}
+.alert ul{list-style-type:disc;margin:.5em 0 .5em .8em;padding:0 0 0 .8em;}
+div.alert-details{padding-left:40px;}
+.related-links li{border:none;margin:0;padding:0;zoom:1;}
+.related-links li.direction{border-left:1px solid #fff;padding-left:.5em;*padding-right:.35em;margin-left:.25em;}
+#content .related-links{float:none;margin:0;}
+#content .related-links li{color:#039;font-size:110%;font-weight:normal;}
+#content .related-links li.direction{border-color:#ccc;}
+.profile-header{background-color:#ddf0f8;padding:15px;min-height:90px;margin:0 0 15px;zoom:1;}
+.edit-my-profile .profile-header,.view-my-profile .profile-header{margin-top:0;}
+.profile-header h1{margin:0 0 4px;padding:0;color:#000;font-size:180%;font-weight:bold;border:none;}
+.profile-header h1 a{color:#000!important;}
+#pagekey-full_profile .profile-header h1 a{text-decoration:none;cursor:text;}
+.profile-header .fp-degree-icon{display:inline-block;zoom:1;*display:inline;}
+.profile-header h1 img{vertical-align:middle;}
+.profile-header .image{float:left;margin:0 10px 10px 0;}
+.profile-header .image img{border:5px solid #fff;padding:0;}
+.profile-header p{font-size:130%;}
+.profile-header p.title{margin:0 0 6px;}
+.profile-header .demographic-info{color:#666;font-size:130%;margin:4px 0 6px 0;padding:0;}
+.profile-header .demographic-info a{color:#666;}
+.profile-header .demographic-info dt{display:none;}
+.profile-header .demographic-info dd{display:inline;margin:0;padding:0 4px 0 0;}
+.profile-header .demographic-info dd.industry{border-left:1px solid #ccc;padding-left:6px;}
+.profile-header .profile-status{margin:0;padding:10px;border:1px solid #c8e4f1;border-width:0 1px 2px 0;background-color:#fff;clear:both;overflow:hidden;zoom:1;}
+.profile-header .comments{font-size:85%;}
+.profile-header .profile-status p{margin:0;padding:0;}
+.profile-header .profile-status .status{font-family:"Trebuchet MS","Lucida Sans";}
+.profile-header .profile-status .timestamp{font-size:85%;color:#999;white-space:nowrap;}
+.at{font-weight:normal!important;}
+.larger-profile-photo-control{width:22px;height:22px;background-color:white;position:absolute;background:white url('../../../../static02.linkedin.com/scds/common/u/img/sprite/sprite_profile_v9.png') 4px -1195px no-repeat;cursor:pointer;visibility:hidden;}
+.profile-photo-hover .larger-profile-photo-control{visibility:visible;}
+.larger-profile-photo .dialog-content .loaddisableding{background:#fff url('../../common/u/img/anim/anim_loaddisableding_75x75.gif') no-repeat center center;}
+.larger-profile-photo .dialog-content{padding:25px;}
+.profile-header #overview,.profile-header .readmore,.profile-header .view-full-profile,.inv-status{margin:10px 0 0 0;padding:10px;border:1px solid #c8e4f1;border-width:0 1px 2px 0;background-color:#fff;overflow:hidden;clear:both;}
+.profile-header .section-title{display:none;}
+#overview dt{font-size:130%;color:#666;margin:0 0 10px;position:relative;z-index:1;width:10em;}
+#overview dd{background:url('../../../../static02.linkedin.com/scds/common/u/img/bg/bg_grey_dotted_h-line_3x1.png') repeat-x 0 100%;margin:-2.6em 0 6px 0;overflow:hidden;padding:0 0 6px 13em;}
+#overview dd:last-child{background:none;margin-bottom:-6px;}
+#overview dd.last{background:none;margin-bottom:-6px;}
+#overview ul{list-style-type:disc;color:#555;margin-left:1.3em;}
+#overview ul.current{font-weight:bold;}
+#overview li{color:#000;}
+#overview ul.current a,#overview ul.past a{color:#000;}
+#overview ul.past a{font-weight:normal;}
+#overview ul.current a:hover,#overview ul.past a:hover{text-decoration:underline;}
+#overview ul.current .miniprofile-container a:hover,#overview ul.past .miniprofile-container a:hover{text-decoration:none;}
+#overview ul.past .miniprofile-container a:hover span{text-decoration:none;font-weight:normal!important;}
+#overview p,#overview li{font-size:130%;}
+#overview p.seeall{font-size:110%;text-align:right;}
+#nudge p.suggest-update{background:url('../../common/u/img/sprite/sprite_profile_v8.png') no-repeat 5px -850px;color:#555;margin:10px 0;padding:0 0 10px 18px;border-bottom:2px solid #ddd;}
+.nudge{zoom:1;overflow:hidden;}
+.nudge .sidebar{float:left;width:20%;margin-right:15px;}
+.nudge .content{float:left;width:75%;}
+.nudge .navigation li{margin:2px 0 2px 2px;padding:2px 8px;font-size:130%;}
+.nudge .navigation li.selected{background-color:#dceefa;}
+.nudge-header{background:#eee;font-size:13px;padding:10px;margin-bottom:10px;}
+.nudge-header .headline{color:#666;text-indent:22px;}
+.nudge-type{display:none;}
+.dialog-content .nudge-type{display:block;}
+.nudge-form.sided{margin-top:0;}
+.nudge-form .to{font-size:13px;}
+.nudge-form textarea{padding:8px;width:95%;}
+.nudge-form p.actions{margin-left:0;}
+.nudge-form .note label{position:absolute;left:-12345px;}
+.nudged #nudge,#nudge-undo{display:none;}
+.nudged #nudge-undo{display:block;}
+.typeahead-results-container .yui-ac-content{z-index:10001;}
+.profile-header .readmore .title h3{font-size:160%;font-weight:normal;margin:2px 0 4px;}
+.profile-header .readmore .content,.section .readmore .content{margin-right:0;padding:0 0 15px 15px;}
+.profile-header .readmore .content ul,.section .readmore .content ul{list-style-type:disc;}
+.profile-header .readmore .content li,.section .readmore .content li{margin-bottom:5px;}
+.profile-header .readmore p,.section .readmore p{margin:20px auto 0;}
+.profile-new{color:#c60;font-size:11px;font-style:italic;font-weight:bold;}
+.actions{margin-bottom:5px;}
+.actions ul,.actions ul li,.actions ul li a{margin:0;padding:0;}
+.actions ul{padding:0;}
+.actions ul li{font-size:130%;list-style-type:none;border-bottom:1px solid #ddd;padding:5px 0;}
+.actions ul li a{background:url('../../common/u/img/sprite/sprite_profile_v8.png') no-repeat 0 -850px;padding:0 0 0 14px;zoom:1;}
+.actions ul li .free{color:#C60;font-size:85%;padding-left:3px;}
+#body #extra .actions ul li.saved a{color:#060;}
+#body #extra .actions .saved a:hover{color:#069;}
+.actions ul li.new-profile-action a:hover span{text-decoration:underline;}
+.actions ul li.new-profile-action a,.actions ul li.new-profile-action a:hover{text-decoration:none;}
+.new{background-color:#c60;color:#fff;font-size:9px;padding:1px 3px;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;position:relative;top:-1px;font-style:normal;}
+.actions ul li.new-profile-action .new-feature-learn-more{background-position:0 -1122px;display:block;float:right;height:16px;text-indent:-9999em;width:14px;}
+.recommend-dialog h3{margin:0 0 10px;padding:0;font-size:14px;}
+.recommend-dialog li{margin-bottom:10px;color:#666;font-size:13px;}
+.recommend-dialog li strong{color:#000;}
+.recommend-dialog li input{vertical-align:middle;float:left;}
+.recommend-dialog label{color:#666;padding-right:25px;font-size:13px;}
+.recommend-dialog .actions{margin:15px 0 0 0;padding:0;font-size:13px;}
+.recommend-dialog .actions input{font-size:13px;vertical-align:middle;}
+#nav-profile-lang{clear:both;position:relative;zoom:1;margin-top:2px;margin-bottom:10px;font-size:110%;overflow:visible;zoom:1;*z-index:10;}
+#nav-profile-lang:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+#nav-profile-lang .lang{float:right;text-align:right;clear:both;background:url('../../../../static02.linkedin.com/scds/common/u/img/sprite/sprite_global_v5.png') 100% -2076px no-repeat;padding-right:16px;}
+#nav-profile-lang #current-locale{color:#069;cursor:pointer;}
+#nav-profile-lang #nav-profile-lang-list{*width:auto;overflow:hidden;z-index:100;padding:5px;background:#fff;position:absolute;right:8px;top:1.2em;border:1px solid #016799;box-shadow:0 6px 10px #888;-moz-box-shadow:0 6px 10px #888;-webkit-box-shadow:0 6px 10px #888;}
+.js #nav-profile-lang #nav-profile-lang-list{display:none;}
+#nav-profile-lang.hover #nav-profile-lang-list{display:block;}
+#nav-profile-lang li li{text-align:left;font-size:100%;margin:0;}
+#nav-profile-lang li li a{color:#069;background:none;display:block;padding:5px;text-decoration:none!important;}
+#nav-profile-lang li li a:hover{background-color:#016799;color:#fff;color:#fff!important;}
+#nav-profile-lang li li strong{color:#000;}
+#nav-profile-lang li li a:hover strong{color:#fff;}
+#nav-profile-lang .remove-secondary-profile{float:right;margin-right:.7em;}
+#nav-profile-lang .remove-secondary-profile a{padding-right:.7em;border-right:1px solid #666;}
+.profile-control{padding:4px 0 10px;margin-bottom:0;clear:both;}
+.profile-void{position:relative;}
+.profile-control:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.profile-control ul{list-style-type:none;margin:0;padding:0;}
+.profile-control li{float:left;margin:0 10px 0 0;font-size:110%;zoom:1;}
+.profile-control a{float:left;padding:2px 0;text-decoration:none;height:12px;}
+.profile-control a:hover{text-decoration:underline;}
+.utilities{zoom:1;}
+void .utilities{margin-bottom:170px;}
+.utilities a{background-repeat:no-repeat;outline:none;}
+.utilities .print{text-indent:-12345px;width:16px;}
+.utilities .print a{background-image:url('../../common/u/img/sprite/sprite_profile_v8.png');background-position:0 -301px;width:16px;padding-left:0;}
+.utilities .references{text-indent:-12345px;width:16px;}
+.utilities .references a{background-image:url('../../common/u/img/icon/icon_check_green_18x16.gif');width:16px;padding-left:0;}
+.utilities .pdf{text-indent:-12345px;width:16px;}
+.utilities .pdf a{background-image:url('../../common/u/img/sprite/sprite_profile_v8.png');background-position:0 -442px;width:16px;padding-left:0;}
+.utilities .permalink{display:none;text-indent:-12345px;width:16px;}
+.utilities .permalink a{background-image:url('../../common/u/img/sprite/sprite_profile_v8.png');background-position:0 -665px;padding-left:16px;width:1%;}
+.utilities .bookmark{text-indent:-12345px;width:7px;}
+.utilities .bookmark a{background-image:url('../../common/u/img/sprite/sprite_profile_v8.png');background-position:0 -347px;padding-left:11px;width:1%;}
+.utilities .downloaddisabled-vcard{text-indent:-12345px;width:22px;}
+.utilities .downloaddisabled-vcard a{background-image:url('../../common/u/img/sprite/sprite_profile_v8.png');background-position:0 -488px;padding-left:30px;width:1%;}
+.utilities .flag-photo{margin-left:14px;}
+.utilities .flag-photo a{background-image:url('../../common/u/img/sprite/sprite_profile_v8.png');background-position:0 -760px;padding-left:20px;}
+.utilities .flag-photo a:hover{background-position:0 -71px;}
+void .utilities .flag-photo form{display:block;}
+.utilities .flag-photo form{display:none;position:absolute;left:0;top:26px;width:100%;}
+.utilities .flag-photo fieldset{border:2px solid #ccc;background-color:#f2f2f2;padding:15px;zoom:1;}
+.utilities .flag-photo legend{display:none;}
+.utilities .flag-photo .fieldgroup{float:left;margin:0 16px 12px 0;*margin:0 16px 0 0;padding:0;}
+.utilities .flag-photo .fieldgroup input{width:200px;}
+.utilities .flag-photo .fieldgroup select{width:200px;}
+.utilities .flag-photo .fieldgroup textarea{height:1.3em;*height:1.2em;overflow:hidden;width:450px;margin-top:3px;}
+.utilities .flag-photo .buttongroup{clear:both;margin:0!important;padding:0;font-size:120%;line-height:1.5;}
+.utilities .flag-photo .buttongroup input{font-size:95%;}
+.utilities .flag-photo label{font-weight:bold;display:block;font-size:110%;*margin:4px 0 2px;}
+.utilities .flag-photo label em{font-style:normal;font-weight:normal;}
+.utilities .flag-photo form a{float:none;background:none;text-decoration:underline;padding:0;margin:0;}
+.updated,.highlight{background:#FFF5CC!important;}
+.updated{padding:10px!important;}
+.profile-header .title.updated{margin-right:100px;padding:0!important;}
+.profile-header .industry.updated{padding:0 0 0 6px!important;}
+span.updated,strong.updated,li.updated{padding:2px!important;}
+.keyhilite{background:#D4FBFD;}
+p.pupnote{background:#FFF5CC;padding:5px;margin:0 0 10px;}
+.resume .updated,.draggable .updated,.resume .highlight,.draggable .highlight{border-bottom:1px solid #fc3!important;}
+.resume .updated,.draggable .updated{padding:5px 10px;}
+.resume .update-icon,.draggable .update-icon{display:none;}
+.resume .section,.draggable .section,.view-my-profile .gadget,.full-profile .gadget,#overview{margin:10px 0;padding:0 0 10px 0;border-bottom:2px solid #ddd;}
+.resume .section:last-child,.draggable .section:last-child,.resume .installed-apps,.draggable .installed-apps{border-bottom:none;}
+.resume h2,.draggable h2,.view-my-profile .gadget h3,.full-profile .gadget h3{margin:0 0 10px;font-size:180%;font-weight:normal;color:#555;}
+.view-my-profile .gadget h3 strong,.full-profile .gadget h3 strong{font-weight:normal;}
+.resume h3,.draggable h3{margin:10px 0 2px;font-size:140%;font-weight:bold;clear:both;overflow:hidden;}
+.resume .updated h3,.draggable .updated h3{margin-top:0;}
+.resume h3 a,.draggable h3 a{color:#000;}
+#profile-summary h3,#profile-contact h3,.draggable #profile-summary h3,.draggable #profile-contact h3{margin:0 0 5px;color:#555;}
+#profile-summary p,#profile-contact p{margin:0 0 10px;}
+#profile-dimension p{margin:0;}
+.resume h4,.draggable h4{font-size:130%;font-weight:bold;clear:both;line-height:1.4;}
+#profile-education h4{font-weight:normal;}
+.resume em,.draggable em{font-style:italic;}
+.resume p,.draggable p,.resume .rich-text,.draggable .rich-text{font-size:130%;line-height:1.2;}
+.resume p.period,.draggable p.period{color:#555;margin-bottom:6px;font-size:120%;}
+.resume p.orgstats,.draggable p.orgstats{color:#999;font-size:110%;margin-bottom:1px;}
+.resume p.desc,.draggable p.desc{margin-bottom:5px;}
+.resume p.recommendations,.draggable p.recommendations{color:#555;margin:5px 0;}
+.resume p.reflink,.draggable p.reflink{font-size:110%;color:#555;}
+.resume p.reflink a,.draggable p.reflink a{color:#555;}
+.resume p.reflink a:hover,.draggable p.reflink a:hover{color:#069;}
+.resume p.reflink a strong,.draggable p.reflink a strong{color:#069;}
+.resume li,.draggable li{font-size:13px;}
+.draggable #add-primary-experience{display:none;}
+.resume .summary ul,.draggable .summary ul,.resume .desc ul,.draggable .desc ul{list-style-type:disc;list-style-position:inside;}
+.resume .summary ol,.draggable .summary ol,.resume .desc ol,.draggable .desc ol{list-style-type:decimal;list-style-position:inside;}
+.resume .position,.draggable .position,#pagekey-my_profile .gadget{background:url('../../../../static02.linkedin.com/scds/common/u/img/bg/bg_grey_dotted_h-line_3x1.png') repeat-x 0 0;margin:10px 0 0;padding:5px 0 0;}
+.resume .position:first-child,.draggable .position:first-child{background:none;margin:0;padding:0;}
+#pagekey-full_profile #profile-applications{display:none;}
+#pagekey-full_profile .installed-apps,#pagekey-nprofile-view-success .installed-apps{display:block!important;border:none;padding-bottom:0;margin-bottom:0;}
+#pagekey-full_profile #profile-applications h2{display:none;}
+#pagekey-full_profile #profile-applications .edit{display:none;}
+#body div.rich-text{margin-bottom:1em;}
+#body div.rich-text *{font-size:100%;margin:0;padding:0;}
+#body div.rich-text ul,#body div.rich-text ol{margin:0 0 1em 15px;}
+#body div.rich-text ul li{list-style-type:disc;list-style-position:outside;}
+#body div.rich-text ol li{list-style-type:decimal;list-style-position:outside;}
+#body div.rich-text strong{font-weight:bold;color:#555;}
+#body div.rich-text em{font-style:italic;}
+.resume .reference-position,.draggable .reference-position{padding-bottom:5px;}
+.resume .reference-position h3 .update-icon,.draggable .reference-position h3 .update-icon{display:none;}
+.resume .reference-position .postitle p,.draggable .reference-position .postitle p{margin:0 0 5px;}
+.resume .reference-position .postitle h4,.draggable .reference-position .postitle h4{margin:0 0 8px;}
+.resume .reference,.draggable .reference{margin:-1px 0 0 0;padding:10px;border:1px solid #C8E4F1;}
+.resume .reference p,.draggable .reference p{margin:0 0 5px;}
+.resume .reference p.hidden,.draggable .reference p.hidden{color:#060;font-size:110%;margin:5px 0 0 0;}
+.resume .reference span.date,.draggable .reference span.date{color:#666;font-style:italic;}
+.resume .reference .qualities,.draggable .reference .qualities{color:#666;}
+.resume .reference .qualities em,.draggable .reference .qualities em{color:#999;font-weight:normal;}
+.resume .reference .distance,.draggable .reference .distance{padding-left:10px;color:#666;margin-bottom:0;}
+.resume voidrec,.draggable voidrec{font-size:110%;}
+.resume .reflist,.draggable .reflist{margin:0 0 0 10px;list-style:none;}
+.resume .reflist li,.draggable .reflist li{margin-bottom:5px;padding:0;background-position:0 1px;background-repeat:no-repeat;font-size:130%;color:#666;}
+.company-profile{background:url('../../common/u/img/sprite/sprite_profile_v8.png') no-repeat 100% -806px;padding-right:31px;*white-space:nowrap;}
+.company-profile-public{text-decoration:none;}
+.resume .interested,.draggable .interested{clear:both;overflow:hidden;zoom:1;margin-bottom:10px;}
+.resume .interested ul,.draggable .interested ul{margin:0;}
+.resume .interested li,.draggable .interested li{width:45%;float:left;margin-bottom:.25em;padding:0 0 0 1em;}
+.resume .interested li:before,.draggable .interested li:before{content:'\25CF';color:#000;margin-left:-.75em;margin-right:.5em;font-size:11px;line-height:13px;}
+.section dl dt{color:#666;font-size:130%;margin:0 0 10px;position:relative;z-index:1;width:10em;}
+.section dl dd{background:url('../../../../static02.linkedin.com/scds/common/u/img/bg/bg_grey_dotted_h-line_3x1.png') repeat-x 0 100%;_background-image:none;margin:-2.6em 0 6px 0;padding:0 0 6px 14em;overflow:hidden;zoom:1;}
+.es .section dl dd{padding-left:18em;}
+.section dl dd:last-child,.section dl dd.last{background:none;}
+.section dl ul{list-style-type:disc;color:#555;margin-left:1.3em;}
+#websites ul{margin:0;padding:0 0 0 1em;}
+.section .content .first{background:none;padding-top:0;}
+dd#pubgroups{margin-top:-4.2em;}
+.it dd#pubgroups{margin-top:-2.6em;}
+dd#pubgroups ul.groups{list-style-type:none;margin:10px 0 0;}
+dd#pubgroups ul.groups li{font-size:110%;overflow:hidden;margin-bottom:10px;clear:both;}
+dd#pubgroups ul.groups a:hover{text-decoration:none;}
+dd#pubgroups ul.groups .group-logo{float:left;width:60px;}
+dd#pubgroups ul.groups .group-data{margin-left:65px;}
+dd#pubgroups ul.groups strong,dd#pubgroups ul.groups p.hint{font-weight:normal;width:210px;margin-top:5px;}
+dd#pubgroups ul.groups p.hint{font-size:100%;}
+dd#pubgroups ul.groups strong{font-size:110%;color:#333;}
+dd#pubgroups ul.groups a:hover strong{text-decoration:underline;}
+dd#pubgroups ul.groups .group-data .join,dd#pubgroups ul.groups .group-data .pending,dd#pubgroups ul.groups .group-data .shared{font-size:100%;font-weight:bold;display:block;}
+dd#pubgroups ul.groups .group-data .join{margin-top:1px;padding-left:15px;background:url('../../common/u/img/sprite/sprite_global_v4.png') repeat-x 0 -1032px transparent;}
+dd#pubgroups ul.groups .group-data .pending{color:#666;}
+dd#pubgroups ul.groups .group-data .shared{color:#060!important;}
+#profile-contact .message{zoom:1;border:1px solid #baddee;margin-top:15px;padding:10px;}
+#profile-contact .message:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+#profile-contact .message h3{margin:0 0 6px;color:#069;}
+#profile-personal .type{text-transform:lowercase;}
+.section .content{padding-left:10px;}
+.section.draggable .content{padding-left:30px;}
+#profile-applications .content{padding-left:0;}
+#profile-applications .content .content{padding-left:10px;}
+#profile-applications .content .tip{padding-left:30px;}
+.resume ul.competencies li,.draggable ul.competencies li{font-size:100%;list-style-type:disc;list-style-position:inside;margin-bottom:2px;}
+.resume ul.competencies h3,.draggable ul.competencies h3{font-weight:normal;font-size:130%;display:inline;}
+.resume ul.competencies .proficiency,.draggable ul.competencies .proficiency{font-size:110%;color:#666;}
+.resume ul.documents li,.draggable ul.documents li{font-size:100%;}
+.resume ul.documents li.publication,.draggable ul.documents li.publication,.resume ul.documents li.certification,.draggable ul.documents li.certification,.resume ul.documents li.patent,.draggable ul.documents li.patent{background:url('../../../../static02.linkedin.com/scds/common/u/img/bg/bg_grey_dotted_h-line_3x1.png') repeat-x 0 0 transparent;margin:10px 0 0;padding:5px 0 0;}
+.resume ul.documents li.first,.draggable ul.documents li.first{background:none;margin:0;padding:0;}
+.resume ul.documents h3,.draggable ul.documents h3{font-size:140%;}
+.resume ul.documents h3 a,.draggable ul.documents h3 a{color:#069;}
+.resume ul.documents .specifics,.draggable ul.documents .specifics{font-size:110%;color:#666;margin:4px 0;}
+.resume ul.documents .specifics li,.draggable ul.documents .specifics li{display:inline;*background:url('../../../../static02.linkedin.com/scds/common/u/img/bg/bg_grey_dotted_h-line_3x1.png') no-repeat 0 7px;padding-right:5px;*padding-left:6px;}
+.resume ul.documents .specifics li:before,.draggable ul.documents .specifics li:before{content:'\00B7';padding-right:5px;}
+.resume ul.documents .specifics li:first-child,.draggable ul.documents .specifics li:first-child{*padding-left:0;*background-image:none;}
+.resume ul.documents .specifics li:first-child:before,.draggable ul.documents .specifics li:first-child:before{content:'';padding-right:0;}
+.resume ul.documents .attribution,.draggable ul.documents .attribution{font-size:110%;margin:4px 0;}
+.resume ul.documents .summary,.draggable ul.documents .summary{margin-top:3px;}
+#main .resume ul.documents .summary .toggle-show-more,.draggable ul.documents .summary .toggle-show-more,#main .resume ul.documents .summary.toggle-show-less,.draggable ul.documents .summary.toggle-show-less{font-size:11px;}
+.message ul li{border:0;padding:0 0 5px;*padding:0;}
+.message .cntbtn{position:relative;}
+.message voidlink{display:inline;background:none;font-size:85%;padding:0;}
+.message .bubble{display:none;position:absolute;top:-40px;left:5px;width:284px;background:url('../../../../static02.linkedin.com/scds/common/u/img/bg/bg_bubble_bot_284x16.gif') 0 100% no-repeat;text-align:left;}
+.message .bubble-in{position:relative;top:-16px;padding:7px 10px;background:url('../../../../static02.linkedin.com/scds/common/u/img/bg/bg_bubble_top_284x100.gif') no-repeat;}
+.acctwarn{border:1px solid #CCC;border-width:1px 0;padding:10px 25px 10px 65px;margin:15px 0;background:url('../../common/u/img/icon/icon_profile_summary_28x35.gif') 25px 8px no-repeat;}
+.upgrade{background:url('../../../../static02.linkedin.com/scds/common/u/img/icon/icon_upgrade_62x65.gif') 5px 50% no-repeat;border:3px solid #FFF6CF;font-size:108%;margin:15px 0;padding:5px 10px 5px 75px;}
+.upgrade p{margin:15px 0;}
+.notinimg{float:left;display:block;margin:20px 20px 0 0;}
+.notinhead{color:#AC0000;font-size:125%;}
+.notin{width:280px;float:left;}
+.notinp{*margin-top:auto;}
+.flag-position{float:left;text-indent:-123456px;background:url('../../common/u/img/sprite/sprite_profile_v8.png') no-repeat 0 -760px;height:16px;width:20px;outline:none;}
+.flag-position:hover{background-position:0 -71px;}
+#anet-flag-error{display:none;}
+.position-title.anet span.title{float:left;margin-right:2px;}
+.view-my-profile #extra .ad-block .content,.full-profile #extra .ad-block .content,.edit-my-profile #extra .ad-block .content{width:380px;}
+.panel,.panel .modules,.panel div.title,.panel div.title *{background:none;padding:0;margin:0;}
+.panel div.title{position:absolute;left:-9999em;top:-9999em;}
+.leo-module.mod-highlight{width:98%;}
+.panel .modules:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.panel .module{margin:0 0 10px;padding:0 0 10px;}
+.panel .header{position:relative;}
+.panel .module .header{color:#fff;background:#ACACAC url('../../../../static02.linkedin.com/scds/common/u/img/sprite/sprite_global_v5.png') repeat-x 0 -30px;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;color:#fff;margin:0 0 -4px;padding:6px 8px;zoom:1;}
+.panel .module .content{background:#fff;margin:0;padding:8px 8px 0;position:relative;top:4px;}
+.panel .module .header h3,.panel .module .header h4{font-size:13px;font-weight:bold;line-height:1;}
+.panel .header ul{position:absolute;right:8px;top:6px;}
+.panel .module .header li a{color:#fff!important;font-size:11px;}
+.en .panel .module .header li a{text-transform:lowercase;}
+.panel .content p{font-size:13px;margin-bottom:10px;}
+.panel .content li{font-size:13px;margin-bottom:10px;}
+.panel .content h4{color:#666;margin:0 0 5px;font-weight:bold;font-size:13px;}
+.panel void .header strong,.panel .close .header strong{background:url('../../common/u/img/pic/pic_hp_sprites_v1.gif') no-repeat -3px -206px;padding-left:17px;cursor:pointer;}
+.panel void .content{display:block;}
+.panel .close .header strong{background-position:-3px -173px;}
+.panel .close .content{display:none;}
+.panel .mod-util .header h3,.panel .mod-basic .header h3,.panel .mod-util .header h4,.panel .mod-basic .header h4{font-size:13px;font-weight:bold;}
+.panel .mod-util .edit{font-size:11px;}
+.panel .mod-util .with-photo{position:relative;margin-top:5px;padding-left:56px;min-height:46px;_height:46px;}
+.panel .mod-util .with-photo img.photo{position:absolute;left:0;top:0;}
+.panel .content p.quote{margin-top:-5px;background:url('../../common/u/img/sprite/sprite_profile_v8.png') no-repeat 4px -712px;padding:0 0 0 40px;min-height:17px;_height:17px;}
+.panel .content .meta{font-size:11px;color:#555;}
+.panel .content .more{background:url('../../../../static02.linkedin.com/scds/common/u/img/bg/bg_grey_dotted_h-line_3x1.png') repeat-x 0 0;margin:5px 0 0;padding:5px 0 0;text-align:right;font-size:11px;}
+.panel .content ul.more li{font-size:11px;margin:0;line-height:1.6;}
+.panel .content li em.headline{color:#666;font-style:italic;}
+.panel .hiring h4{color:#666;font-size:130%;font-weight:normal;margin-bottom:10px;}
+.panel .hiring ul li{margin:5px 0;}
+.panel .hiring ul.job-list{list-style-type:none;margin:5px 0 10px 0;color:#666;}
+.panel .hiring ul.job-list li{padding:0 0 0 1em;}
+.panel .hiring ul.job-list li:before{content:'\25AA';color:#555;margin-left:-.75em;margin-right:.3em;}
+.panel .shared-groups .content li{margin-bottom:10px;overflow:hidden;_height:1%;}
+.panel .shared-groups .content li img{float:left;width:60px;}
+.panel .shared-groups .content li a{float:left;width:210px;margin:5px 0 0 10px;}
+.panel .qanda .more span{float:left;text-align:left;}
+.panel .qanda .q ul{padding:2px 0 0 40px;background:url('../../../../static02.linkedin.com/scds/common/u/img/icon/icon_q_v2_30x30.png') no-repeat;}
+.panel .qanda .a ul{padding:2px 0 8px 34px;background:url('../../common/u/img/icon/icon_expert_26x26.gif') no-repeat 4px 0;}
+.panel .qanda .a li{margin-bottom:2px;padding:0 0 0 1em;}
+.panel .qanda .a ul li:before{content:'\25AA';color:#555;margin-left:-.75em;margin-right:.3em;}
+.panel .qanda .a li em{color:#666;whitespace:nowrap;}
+.panel .qanda #nobullet{display:none;font-size:85%;}
+.panel .qanda #nobullet:before{content:'';display:none;}
+.panel .ape li a{text-decoration:none;}
+.panel .ape li a:hover strong{text-decoration:underline;}
+.panel .ape li span.title{color:#666;text-decoration:none;}
+.panel .connection-path .content{text-align:center;}
+.panel .connection-path .content p,.panel .connection-path .content li{margin:3px 0;}
+.panel .connection-path .content strong{color:#666;}
+.panel .connection-path .content img{vertical-align:-7px;}
+.panel .connections .content .headline{color:#555;}
+.profile-subpage{float:left;width:770px;font-size:13px;}
+.profile-subpage .clearfix{overflow:hidden;zoom:1;}
+.profile-subpage h2{font-weight:bold;font-size:20px;margin-bottom:10px;}
+.profile-subpage h2 span{font-weight:normal;}
+.profile-subpage .iconkey{margin:0 0 5px;font-size:85%;color:#666;text-align:right;}
+.showlinks{margin:0 0 20px;padding-top:5px;font-size:13px;color:#666;}
+.showlinks h3,.showlinks ul,.showlinks li{color:#000;display:inline;}
+.showlinks li{border-left:1px solid #666;padding:0 4px 0 8px;}
+.showlinks li:first-child{border-left:none;padding:0 4px 0 0;}
+.promobar{float:right;width:170px;}
+.adverts{margin-top:20px;border-left:1px solid #CCC;padding-left:9px;}
+.adblock{margin-bottom:20px;}
+#browse .cnxset{border:5px solid #eee;margin-bottom:5px;overflow:hidden;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px;}
+#browse .cnxset .listbox-in{padding:10px 10px 0;}
+#browse .cnxset h3{margin:0 0 10px;font-size:100%;font-weight:bold;}
+#browse .cnxset ul{margin:0 0 10px;padding:0;list-style:none;font-size:95%;overflow:hidden;zoom:1;}
+#browse .cnxset li{display:block;float:left;width:175px;margin:0 10px 10px 0;}
+#browse .cnxset li.row-start{clear:left;}
+#browse .cnxset li a{font-weight:bold;}
+#browse .cnxset li .headline{font-size:95%;color:#666;}
+#browse .cnxset li img{vertical-align:middle;}
+#browse h3{background:url('../../common/u/img/sprite/sprite_profilecnx_v1.png') no-repeat;padding:2px 0 0 21px;}
+#browse #shared h3{background-position:0 -32px;}
+#browse #other h3{background-position:0 -64px;}
+#browse #new{margin-bottom:20px;}
+#browse #new h3{color:#C60;}
+#browse .combo #other{border-top:5px solid #eee;margin-top:5px;}
+#browse .combo #shared,#browse .combo #other .module .content-in{overflow:hidden;background-image:none;}
+#browse-connections .connection-header{overflow:hidden;zoom:1;*margin-bottom:.5em;}
+#browse-connections .connection-header h2{width:400px;float:left;}
+#browse-connections .connection-header .iconkey{float:right;margin-top:7px;}
+#browse-connections .tabs strong .count{font-weight:normal;color:#999;}
+#browse-connections #filter{border-bottom:1px solid #cecece;font-size:1px;}
+#browse-connections ul.all-connections{padding-bottom:1px;background:transparent url('../../../../static02.linkedin.com/scds/common/u/img/bg/bg_grey_dotted_h-line_3x1.png') repeat-x 0 100%;}
+#browse-connections h3{color:#666;font-size:140%;font-weight:normal;margin:0 0 8px;}
+#browse-connections h3.all{border-top:2px solid #ddd;margin-top:8px;padding-top:15px;}
+#browse-connections .vcard{padding:11px 8px 6px 65px;line-height:1.2;margin:0 0 3px;*margin-bottom:0;background:#fff url('../../common/u/img/bg/bg_dots_horiz_whitebg_3x4.png') repeat-x top left;overflow:hidden;zoom:1;position:relative;}
+#browse-connections h4,#browse-connections dd{width:365px;}
+#browse-connections .first{background:none;padding-top:5px;margin-top:3px;}
+#browse-connections .first .actions{top:3px;}
+#browse-connections h4{font-size:110%;margin-bottom:0;font-weight:bold;margin-right:5px;}
+#browse-connections h4 .badges{display:inline;}
+#browse-connections h4 a,#browse-connections h4 .badges img{margin-right:3px;}
+#browse-connections h4 .badges img{vertical-align:middle;}
+#browse-connections h4 .oon{color:#666;font-weight:normal;font-size:80%;}
+#browse-connections .demographic-info{color:#666;padding:0;}
+#browse-connections .url{display:none;}
+#browse-connections dt{display:none;}
+#browse-connections .split{color:#999;margin:0 .2em;}
+#browse-connections a.profile-photo{float:left;margin-left:-57px;overflow:hidden;font-size:75%;}
+#browse-connections a.profile-photo img{padding:2px;border:1px solid #e6e6e6;background-color:#fff;}
+#browse-connections .actions{position:absolute;top:11px;right:8px;font-size:85%;}
+#browse-connections .page{margin-top:12px;}
+#browse-connections .hover{background-color:#ddf0f8;}
+.js #browse-connections .actions{visibility:hidden;}
+.js #browse-connections .hover .actions{visibility:visible;}
+#recommends .showlinks .chosen{font-weight:bold;color:#000;}
+#recommends .showlinks .chosen:hover{text-decoration:none;}
+#recommends .rec{margin-bottom:20px;}
+#recommends .rec h3,#recommends .rec h4,#recommends .rec p{margin:0 0 2px;}
+#recommends .rec h3{font-size:114%;}
+#recommends .rec h4{font-size:100%;}
+#recommends .rec blockquote p{background:url('../../common/u/img/icon/icon_quote_14x12.gif') 0 2px no-repeat;padding-left:18px;}
+#recommends .rec p.quals,#recommends .rec p.reviewer{padding-left:18px;color:#666;}
+#recommends .rec p.reviewer{font-size:85%;}
+#recommends .rec p.reviewer strong{font-weight:normal;}
+#recommends .rec .abbr,#recommends .rec abbr{color:#666;font-style:italic;}
+#recommends .rec .family-name{display:none;}
+.de #recommends .rec .family-name{display:inline;}
+#recommends .rec .more{margin:5px 0 0;text-align:right;font-size:85%;}
+#recommends p.foruser{margin-top:0;border:1px solid #FBDFB4;padding:10px;font-size:95%;text-align:center;}
+#qa-tab{font-size:inherit;}
+#qa-tab .hdr-ayn{font-size:180%;}
+#qa-tab .showlinks{font-size:13px;}
+#qa-tab .showlinks .on{font-weight:bold;color:#000;}
+#qa-tab .showlinks .unbold{font-weight:normal;}
+#qa-tab .showlinks .on:hover{text-decoration:none;}
+#qa-tab .answers h4{font-weight:normal;}
+#qa-tab .answers ul{margin:0 0 10px 0;padding:0;}
+#qa-tab .answers .experts li{background:url('../../common/u/img/icon/icon_bullet_grey_4x4.gif') 2px 4px no-repeat;padding:0 0 0 10px;font-size:120%;margin:0;}
+#qa-tab .answers .links li{margin:0;padding:0;list-style:none;}
+#qa-tab .rating{background:#FFF8DB;padding:2px 5px;font-size:110%;color:#666;display:inline;}
+#qa-tab .best{background:#E8F7D9 url('../../common/u/img/icon/icon_star_green_13x11.gif') 2px 2px no-repeat;padding-left:18px;color:#060;}
+#qa-tab .meta{margin-bottom:5px;}
+#login-profile{margin:40px 0 20px 0;text-align:left;}
+#login-profile .guest{width:380px;float:left;background:url('../../common/u/img/pic/pic_login_network_v2_167x130.png') no-repeat 0 35px;padding-right:10px;border-right:1px solid #999;font-size:95%;}
+#login-profile .guest h2{color:#339FCE;font-size:100%;width:225px;text-align:center;padding-left:115px;}
+#login-profile .guest h3{color:#006597;font-size:130%;margin:10px 0;padding-left:180px;}
+#login-profile .guest ul{padding-left:200px;margin-top:0;}
+#login-profile .guest p{padding-left:180px;}
+#login-profile .guest strong{color:#666;}
+#login-profile .user{width:300px;float:left;padding-left:15px;}
+#login-profile .user h1{color:#C60;border:0;margin:0 0 8px 0;padding:0;}
+#login-profile .user p{margin-top:0;}
+#login-profile #nonuser{margin-left:200px;}
+#login-profile .forgotpwd{display:block;background:url('../../common/u/img/v2/icon_help_sm.gif') 0 1px no-repeat;padding:2px 0 0 22px;font-size:85%;}
+.profile-job-applicant .date{margin:5px 0 0;}
+.profile-job-applicant .references .reference-count{float:left;height:24px;width:24px;padding-top:26px;margin-right:10px;text-align:center;font-weight:bold;font-size:130%;color:#666;}
+.profile-job-applicant .references .off{background:url('../../../../static02.linkedin.com/scds/common/u/img/icon/icon_reference_off_24x24.gif') no-repeat 50% 0;}
+.profile-job-applicant .references .on{background:url('../../../../static02.linkedin.com/scds/common/u/img/icon/icon_reference_on_24x24.gif') no-repeat 50% 0;}
+.profile-job-applicant .contact-info dl{display:block;margin-top:4px;margin-bottom:4px;color:#555;}
+.profile-job-applicant .contact-info dl dt,.profile-job-applicant .contact-info dl dd{display:inline;font-size:130%;}
+.profile-job-applicant .contact-info dl dt{margin:0;font-weight:bold;z-index:1;}
+.profile-job-applicant .contact-info dl dd{background:none;}
+.profile-job-applicant .mod-action h5{font-size:130%;color:#555;font-weight:bold;}
+.profile-job-applicant .contact-info .address{font-size:130%;margin-top:8px;color:#555;}
+.profile-job-poster .mod-highlight{margin-top:18px;}
+#profile-contact-poster p{font-size:130%;color:#555;overflow:hidden;margin:5px 0 0;}
+#profile-contact-poster p.date{font-size:110%;color:#666;}
+#profile-contact-poster p.button-row{margin-top:10px;overflow:hidden;zoom:1;}
+#profile-contact-poster ul{margin:5px 0 0;*list-style-type:disc;*margin-left:15px;}
+#profile-contact-poster li{font-size:130%;color:#555;margin:0 0 5px;}
+#profile-contact-poster li:before{content:'\25AA';color:#555;margin-right:5px;}
+#abook-widget .abook-placeholder{min-height:175px;_height:175px;}
+#abook-widget .alert,#abook-widget .alert p{font-size:12px;}
+#abook-widget .alert.attention{background:#fff url('../../common/u/img/icon/icon_status_info_16x16_v2.gif') no-repeat!important;border:0!important;padding:0 0 0 22px!important;margin-bottom:0;}
+#abook-widget .mergerule{margin-bottom:10px;background:url('../../../../static02.linkedin.com/scds/common/u/img/bg/bg_grey_dotted_h-line_3x1.png') 0 100% repeat-x;padding-bottom:10px;}
+#abook-widget .view-abook{display:block;float:right;background:url('../../../../static02.linkedin.com/scds/common/u/img/sprite/sprite_personalnav_v1.png') no-repeat 0 -72px;text-indent:-123456px;width:20px;min-height:16px;_height:16px;}
+#abook-widget h4.notes{margin-top:7px;background:url('../../../../static02.linkedin.com/scds/common/u/img/bg/bg_grey_dotted_h-line_3x1.png') repeat-x;padding-top:7px;}
+#abook-widget h4.tags{margin-top:10px;}
+#abook-widget ul li{zoom:1;margin:0!important;display:inline;}
+#abook-widget ul li.abook-email,#abook-widget ul li.abook-phone{display:block;}
+#abook-widget ul li .note{font-size:85%;color:#666;padding-left:12px;}
+#abook-widget ul li.abook-email{margin:0;}
+#abook-widget .btn-primary,#abook-widget li img{vertical-align:middle;}
+#abook-widget #abook-notes{width:95%;}
+#abook-widget .warning{display:block;margin:2px 0;padding:2px 0;font-size:90%;color:#900;}
+#abook-widget #abook-note-view{max-height:80px;_height:80px;overflow:auto;cursor:pointer;width:95%;}
+#abook-widget #abook-buttons{padding:10px 0 0 0;*margin:0!important;}
+#abook-widget .more{margin-top:10px;}
+#abook-widget .content noscript{font-size:130%;}
+.modules #merged-contact-modal{display:none!important;}
+#merged-contact-modal .alert img{vertical-align:middle;}
+#merged-contact-modal .alert p{font-size:13px;margin:6px 6px 0 6px;_margin-bottom:6px;}
+#merged-contact-modal p{font-size:130%;margin-bottom:3px;color:#666;}
+#merged-contact-modal p strong{_color:#000;}
+#merged-contact-modal .vcard{padding:15px;max-height:375px;_height:375px;overflow-y:auto;*overflow-x:hidden;border:1px solid #ccc;margin:5px 0 10px;}
+#merged-contact-modal .vcard h3{font-size:175%;font-weight:bold;margin:0;}
+#merged-contact-modal .vcard ul{padding-bottom:2px;}
+#merged-contact-modal .vcard li{margin-bottom:15px;}
+#merged-contact-modal .vcard li.rule{margin-top:15px;background:url('../../../../static02.linkedin.com/scds/common/u/img/bg/bg_grey_dotted_h-line_3x1.png') repeat-x;padding-top:15px;}
+#merged-contact-modal .vcard label{font-weight:bold;color:#666;display:block;font-size:130%;margin-bottom:2px;}
+#merged-contact-modal .vcard li li{font-size:130%;margin-bottom:2px;overflow:hidden;width:100%;color:#333;margin-bottom:3px;}
+#merged-contact-modal .vcard li li .note{padding-left:5px;font-size:85%;color:#999;}
+#merged-contact-modal .vcard li li textarea{font-size:100%;}
+#merged-contact-modal .vcard li li img{padding-left:5px;vertical-align:bottom;}
+#merged-contact-modal .buttons{font-size:120%;}
+#merged-contact-modal .buttons .btn-primary{vertical-align:middle;font-size:100%;}
+#merged-contact-modal .vcard li li.default-error{color:#999;font-style:italic;}
+#merged-contact-modal .vcard li li.error{font-weight:bold;color:#900;font-style:normal;}
+#abook-widget .abook-tagging ul .tag-list{display:inline;}
+.same-name-search .content li{margin-bottom:1em;}
+.same-name-search .content h4{font-size:13px;margin:0;}
+.same-name-search .content p{font-size:11px;color:#666;}
+.inbox-list{border-collapse:collapse;width:100%;clear:both;}
+.inbox-list th{background:url('../../common/u/img/sprite/sprite_inbox_v1.png') 0 -257px repeat-x;border-top:1px solid #ccc;border-bottom:1px solid #ccc;border-right:1px solid #ccc;font-weight:normal;font-size:85%;padding:5px 7px;}
+.inbox-list th.tr{border-right:0;}
+.inbox-list td{border-bottom:1px solid #CCC;padding:5px 7px;vertical-align:top;}
+.inbox-list td.icon{width:16px;padding:5px 1px 5px 0;}
+.inbox-list .accepted{color:#090;}
+@media print{#nav-utility,#nav-primary,#global-search,#nav-footer,#terms-of-use,#nav-legal,#feedback-request,#sidebar,#section-header,#page-title,#extra,.related-links,.reflink,voidrec,.dialog-container,#header .account,#header .util,#header .bar,.alert,.nav-footer{display:none!important;}
+#body,#body .wrapper,#content,#footer{width:95%!important;clear:both!important;padding:0 20px;}
+}
+.fp-degree-icon .balloon-dialog-container .balloon-dialog-content a,.profile-header h1 .balloon-dialog-container .close-icon{cursor:pointer!important;color:#069!important;}
+.fp-degree-icon .balloon-dialog-container .balloon-dialog-content{margin:5px;}
+.fp-degree-icon .balloon-dialog-container a:hover{text-decoration:underline!important;}
+.fp-degree-icon .balloon-dialog-container *{line-height:1;}
+.fp-degree-icon .balloon-dialog-container h4{font-weight:normal;1em;font-size:110%;color:#cf8033;}
+.fp-degree-icon .balloon-dialog-container p{font-size:95%;margin-top:5px;}
+.wrapper #content .see-full-name a{cursor:pointer;color:#069!important;}
+.wrapper #content .see-full-name a:hover{text-decoration:underline;}
+.modal-lnl-content{display:none;}
+.dialog-window .modal-lnl-content{display:block;}
+.dialog-window .modal-lnl-content *{font-size:14px;color:#444;}
+.dialog-window .modal-lnl-content a,.dialog-window .modal-lnl-content a *{color:#069;}
+.dialog-window .modal-lnl-content ul{list-style:disc inside none;margin:15px 0 25px;}
+.dialog-window .modal-lnl-content h2 strong{font-size:20px;color:#069;}
+.dialog-window .modal-lnl-content h5{margin-top:15px;}
+.dialog-window .modal-lnl-content .alert{background:url('../../../../static02.linkedin.com/scds/common/u/img/sprite/sprite_global_v5.png') no-repeat 7px -803px #ddf0f8;}
+.dialog-window .modal-lnl-content .divider{border-top:2px dotted #ddd;height:1px;margin:15px 0;}
+.dialog-window .upgrade-wrap .price-learn *{font-size:12px;}
+.dialog-window .upgrade-wrap a.action{height:30px;display:inline-block;padding:0 10px;}
+.dialog-window .upgrade-wrap a.action strong{font-weight:bold;font-size:16px;line-height:30px;color:#444;}
+.dialog-window p.info{margin:15px 0;}
+.see-full-name,.upgrade-wrap .note strong{font-size:12px;}
+.upgrade-wrap .note{line-height:32px;}
+.upgrade-wrap .action,.upgrade-wrap .note{float:left;cursor:pointer;}
+.upgrade-wrap{overflow:hidden;}
+.dialog-window #see-full-dual .wrap{overflow:hidden;}
+.dialog-window #see-full-dual .wrap>*{float:left;}
+.dialog-window #see-full-dual .wrap #lowconn-inner,.dialog-window #see-full-dual .wrap #highconn-inner{width:390px;}
+.dialog-window #see-full-dual .wrap #split{width:50px;height:165px;position:relative;margin:0 10px;}
+.dialog-window #see-full-dual .wrap #splitter{width:1px;height:inherit;border-left:2px dotted #ddd;position:absolute;z-index:1;left:25px;}
+.dialog-window #see-full-dual .wrap #splitter-text{background-color:#fff;position:absolute;z-index:2;top:65px;width:50px;height:30px;font-size:24px;line-height:30px;text-align:center;}
+.profile-actions-primary{overflow:hidden;zoom:1;padding-bottom:15px;margin-bottom:15px;background:url('../../../../static02.linkedin.com/scds/common/u/img/bg/bg_grey_dotted_h-line_3x1.png') repeat-x 0 100%;}
+.profile-actions-primary a.action{font-size:130%;}
+.profile-actions-primary div.alert{margin-bottom:0;}
+.profile-actions-primary .free,.profile-actions-secondary .free{color:#c60;font-size:11px;padding-left:3px;}
+.profile-actions-secondary{padding-bottom:15px;margin-bottom:15px;background:url('../../../../static02.linkedin.com/scds/common/u/img/bg/bg_grey_dotted_h-line_3x1.png') repeat-x 0 100%;}
+.profile-actions-secondary li{font-size:130%;padding-bottom:5px;}
+.profile-actions-secondary li:last-child{padding-bottom:0;}
+.profile-actions-secondary li.nudged{background:url('../../common/u/img/sprite/sprite_profile_v8.png') no-repeat scroll 0 -1245px;padding-left:20px;color:#666;}
+.profile-actions-secondary li.nudged a{font-size:11px;}
+.profile-actions-secondary li.saved a{color:#060;}
+.profile-actions-secondary .saved a:hover{color:#069;}
+.profile-actions-secondary li.new-profile-action .new-feature-learn-more{padding:0 0 0 14px;background:url('../../../../static02.linkedin.com/scds/common/u/img/sprite/sprite_profile_v9.png') no-repeat 0 -1122px;display:block;float:right;height:16px;text-indent:-9999em;width:14px;}
+.profile-actions-tertiary span{padding:2px 0 2px 23px;outline:none;background:url('../../common/u/img/sprite/sprite_profile_v8.png') no-repeat;}
+.profile-actions-tertiary .print span{background-position:0 -1445px;}
+.profile-actions-tertiary .print a:hover span{background-position:0 -301px;}
+.profile-actions-tertiary .pdf span{background-position:0 -1395px;}
+.profile-actions-tertiary .pdf a:hover span{background-position:0 -442px;}
+.profile-actions-tertiary .share span{background-position:0 -1295px;}
+.profile-actions-tertiary .share a:hover span{background-position:0 -1345px;}
+.profile-actions-tertiary .save-vcard span{padding-left:27px;background-position:0 -1493px;}
+.profile-actions-tertiary .save-vcard a:hover span{background-position:0 -488px;}
+.profile-actions-tertiary .flag span{background-position:0 -760px;}
+.profile-actions-tertiary .flag a:hover span{background-position:0 -70px;}
+.profile-header .profile-actions-tertiary-container{display:table;border-collapse:collapse;width:100%;margin-top:10px;}
+.profile-header .profile-actions-tertiary{display:table-row;}
+.profile-header .profile-actions-tertiary li{display:table-cell;font-size:110%;text-align:center;}
+.profile-header .profile-actions-tertiary a{display:block;line-height:27px;background-color:#edf8fb;zoom:1;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',endColorstr='#e0f1f9');background:-webkit-gradient(linear,left top,left bottom,from(#fbfffc),to(#e0f1f9));background:-moz-linear-gradient(top,#fbfffc,#e0f1f9);border:1px solid #c8e4f1;border-left:1px solid #fff;}
+.profile-header .profile-actions-tertiary a:hover{background:none;background-color:#f7fcfd;}
+.profile-header .profile-actions-tertiary li{*display:block;*float:left;}
+.profile-header .profile-actions-tertiary li:first-child a{-moz-border-radius-topleft:7px;-moz-border-radius-bottomleft:7px;-webkit-border-top-left-radius:7px;-webkit-border-bottom-left-radius:7px;-khtml-border-top-left-radius:7px;-khtml-border-bottom-left-radius:7px;-border-top-left-radius:7px;-border-bottom-left-radius:7px;border-left:1px solid #c8e4f1;}
+.profile-header .profile-actions-tertiary li:last-child a{-moz-border-radius-topright:7px;-moz-border-radius-bottomright:7px;-webkit-border-top-right-radius:7px;-webkit-border-bottom-right-radius:7px;-khtml-border-top-right-radius:7px;-khtml-border-bottom-right-radius:7px;border-top-right-radius:7px;border-bottom-right-radius:7px;}
+.profile-header .profile-actions-tertiary li:last-child span{margin-left:3px;}
+.profile-header .profile-actions-tertiary li:last-child span{margin-right:7px;}
+.profile-header .profile-actions-tertiary.has-2 li{width:50%;*width:49.9%;}
+.profile-header .profile-actions-tertiary.has-3 li{width:33%;*width:32.9%;}
+.profile-header .profile-actions-tertiary.has-4 li{width:25%;*width:24.9%;}
+.profile-header .profile-actions-tertiary.has-5 li{width:20%;*width:19.9%;}
+.profile-header .profile-actions-tertiary .print{display:none;}
+.js .profile-header .profile-actions-tertiary .print{display:table-cell;}
+.js .profile-header .profile-actions-tertiary .print{*display:block;}
+
+/* css/public_profile.css */
+
+.wrapper h1#page-title{font-size:180%;color:#333;background:none;}
+.contain p{font-size:13px;margin:1em 0;}
+.dir .getpro{float:right;width:315px;text-align:right;color:#CB6517;margin:10px 0 0 0;font-size:13px;}
+.dir table{width:100%;}
+.dir thead tr{background:#CCC;}
+.dir th{border-right:1px solid #FFF;font-size:15px;padding:4px;font-weight:bold;}
+.dir tr.first td{border-top:0;}
+.dir td{border-top:1px solid #CCC;padding:10px 4px;font-size:13px;vertical-align:top;}
+.dir h2{font-size:110%;}
+.dir h3{font-size:100%;margin:0 0 5px;font-weight:normal;}
+.dir .updated{margin:5px 0 0;font-size:11px;color:#666;}
+.dir .profilelinks{margin:0;font-size:13px;}
+.dir .history{padding:10px 0 0 50px;}
+.dir .history p{margin:0;color:#666;}
+.dir .indyloc{color:#666;margin-left:20px;}
+.dir .indyloc li{list-style-type:disc;}
+.dir .sidebar{margin-left:15px;padding-left:15px;border-left:1px solid #CCC;width:165px;}
+p.more{text-align:right;font-size:11px;font-weight:bold;}
+p.no-updates{text-align:center;}
+.profoot div#footer{padding-bottom:0;}
+.profoot div#footer p{margin-bottom:0;}
+.nothing{font-size:11px;margin:0;padding-bottom:15px;}
+.nothing a:link,.nothing a:visited{color:#BBB;text-decoration:none;}
+.public-profile #content a,.public-profile #content a:visited{color:#000;}
+.public-profile #nav-utility{background:none;padding:0;margin:0;text-align:right;}
+.public-profile #nav-utility ul{line-height:40px;}
+.public-profile #nav-utility-join{background:none;}
+.public-profile #nav-utility-join:before{content:'';}
+.public-profile #header{background:url('../../../../static02.linkedin.com/scds/common/u/img/bg/bg_border_3x1.png') repeat-x 0 100%;margin-top:0;}
+.public-profile #add-to-network{border:none;}
+.public-profile .mod-action h3{font-size:180%;padding:10px 0 5px 15px;}
+.public-profile .profile-header .view-full-profile h3{margin:0;font-size:160%;color:#000;}
+.public-profile .view-full-profile h3{font-size:180%;color:#555;font-weight:normal;}
+.public-profile .section .header h3{margin-bottom:10px;}
+.public-profile .view-full-profile p{font-size:130%;margin:0 0 10px;overflow:hidden;}
+.public-profile .view-full-profile ul{margin:5px 0 10px 20px;}
+.public-profile .view-full-profile li{list-style-type:disc;font-size:130%;margin-bottom:3px;}
+.public-profile .mod-action.name-search p{font-size:130%;margin:0 0 10px;overflow:hidden;}
+.public-profile .mod-action.name-search ul,.public-profile .mod-action.name-search li,.public-profile .mod-action.name-search .action{display:inline;}
+.public-profile #extra .view-full-profile .content{padding-bottom:10px;}
+.public-profile #extra .mod-action.name-search li input{font-size:130%;width:150px;_width:145px;}
+.public-profile #extra .mod-action .note{font-size:110%;color:#666;margin:5px 0 0 0;}
+.join-linkedin{background:#fff;border:1px solid #94C4DD;-moz-border-radius:6px;border-radius:6px;clear:both;overflow:hidden;padding:15px 20px;zoom:1;}
+.join-linkedin .content{display:table-cell;*float:left;width:67%;}
+.join-linkedin h2{font-weight:bold;margin:0 0 10px;}
+.join-linkedin h2 a{color:#069!important;}
+.join-linkedin p{margin:0 0 10px;}
+.join-linkedin ul{margin-left:15px;list-style-type:disc;}
+.join-linkedin li{margin-bottom:5px;}
+.join-linkedin .actions{display:table-cell;*float:right;*margin-top:50px;padding-left:15px;vertical-align:middle;}
+.join-linkedin .action,.join-linkedin .btn-action{color:#333!important;font-size:12px;font-weight:bold;line-height:16px;padding:5px 0;*width:130px;}
+.join-linkedin.banner{background:#DDF0F8;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF',endColorstr='#DDF0F8');background:-moz-linear-gradient(top,#FFF,#DDF0F8);background:-webkit-gradient(linear,left top,left bottom,from(#FFF),to(#DDF0F8));margin-bottom:20px;}
+.join-linkedin.banner p{margin:0;}
+.join-linkedin.banner .intro{font-size:17px;font-weight:bold;}
+.join-linkedin.banner .detail{color:#666;font-size:13px;}
+.join-linkedin.banner .content{width:71%;}
+.join-linkedin.banner .actions{*float:none;*margin-top:10px;}
+.join-linkedin.banner .action{*width:auto;}
+.join-linkedin.banner .sign-in{display:inline;font-size:11px;vertical-align:-4px;}
+.join-linkedin.banner .sign-in a{display:block;padding-top:2px;}
+.join-linkedin.reg-form{background:#E6E6E6;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF',endColorstr='#E6E6E6');background:-moz-linear-gradient(top,#FFF,#E6E6E6);background:-webkit-gradient(linear,left top,left bottom,from(#FFF),to(#E6E6E6));border-color:#CDCDCD;margin-bottom:20px;}
+.join-linkedin.reg-form .content{display:block;float:none;width:auto;}
+.join-linkedin.reg-form h3{color:#069!important;font-size:18px;margin-bottom:10px;}
+.join-linkedin.reg-form ul,.join-linkedin.reg-form p{font-size:13px;list-style-type:none;margin-left:0;}
+.join-linkedin.reg-form li{overflow:hidden;zoom:1;}
+.join-linkedin.reg-form li label{color:#333;float:left;font-weight:bold;line-height:2.3;margin-right:10px;text-align:right;width:80px;}
+.es .join-linkedin.reg-form li#email-address label,.it .join-linkedin.reg-form li#email-address label,.fr .join-linkedin.reg-form li#password label{line-height:1;}
+.join-linkedin.reg-form li .fieldgroup{padding-left:90px;}
+.join-linkedin.reg-form li .error{font-size:12px;}
+.join-linkedin.reg-form li input{font-size:12px;margin:3px 7px 0 0;width:175px;_width:160px;}
+.join-linkedin.reg-form .content p{margin:10px 0;padding-left:90px;_padding-left:95px;}
+.join-linkedin.reg-form .btn-action{font-weight:bold;height:32px;margin-bottom:5px;width:auto;}
+.join-linkedin.reg-form p.member-sign-in{color:#666;font-size:11px;margin:0;}
+#agreement{border-top:1px solid #CCC;clear:both;color:#666;font-size:11px;padding:20px 0 10px;text-align:left;}
+.js #public-profile-settings-form .actions{display:none;}
+.js .vanity-name-setting-cntr{display:none;_display:block;}
+#profile-invisible{color:#666;display:none;min-height:0;}
+#profile-invisible .non-visible-msg{font-size:18px;margin-bottom:8px;}
+.inv-status{background:#fff url('../../../../static02.linkedin.com/scds/common/u/img/sprite/sprite_global_v5.png') no-repeat scroll 7px -719px;margin:0;padding-left:48px;}
+#re-visible{color:#069;}
+#re-visible:hover{cursor:pointer;text-decoration:underline;}
+.auto-save{background:#fff;display:inline-block;*display:inline;color:#4B911C;margin-left:16px;}
+.callout-notch{background:url('../../common/u/img/bg/bg_blue_notch_15x8.png') no-repeat;bottom:-8px;*bottom:-7px;_display:none;height:8px;left:24px;position:absolute;width:15px;}
+.public-profile p.feature-callout{color:#fff;padding:10px 25px;background:#4B99C1;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6CBAD9',endColorstr='#4B99C1');background:-moz-linear-gradient(top,#6CBAD9,#4B99C1);background:-webkit-gradient(linear,left top,left bottom,from(#6CBAD9),to(#4B99C1));-moz-border-radius:6px;-webkit-border-radius:6px;-o-border-radius:6px;border-radius:6px;font-size:18px;margin-bottom:20px;position:relative;}
+.panel .content .profile-content{margin-bottom:0;}
+.profile-content h4{display:inline;}
+.save-confirmation{color:#4B911C;margin-left:6px;}
+.profile-feature .feature-summary{color:#555;display:block;margin-left:24px;_margin-left:26px;}
+.profile-feature .profile-url{margin-top:4px;}
+.profile-feature li{margin-top:18px;zoom:1;}
+.profile-feature ul,.profile-feature ul ul,.profile-feature .profile-content ul ul{margin:4px 0;padding-left:18px;}
+.profile-feature .profile-content ul ul{padding-left:30px;}
+.panel .content .profile-feature li li{margin:0 0 2px;}
+.panel .content .profile-content .dimensions ul{padding-left:25px;}
+.js .panel .content .profile-content .dimensions ul{display:none;}
+.panel .content .profile-content .dimensions ul li{background:url('../../common/u/img/icon/icon_arrow_7x9.png') 0 0 no-repeat;padding:0 0 0 6px;margin-top:-4px;}
+.panel .content .profile-content .dimensions ul li:not(:first-of-type){background:none;}
+.profile-feature .profile-content ul{padding-left:0;}
+.profile-url-bit,.profile-url-action,.profile-url-set p{color:#555;}
+.profile-url-action,.profile-feature .feature-summary,.save-confirmation,.panel .content #vanity-note{font-size:11px;}
+.profile-url-customize{font-weight:bold;border-right:1px solid #545454;margin-right:4px;padding-right:6px;}
+.profile-url-bit,.profile-url-action,.profile-item p,.profile-item img{margin-left:8px;}
+.panel .content .profile-feature li.divide{background:#fff url('../../../../static02.linkedin.com/scds/common/u/img/bg/bg_grey_dotted_h-line_3x1.png') repeat-x top;margin:12px 0 4px;padding-top:12px;}
+.js .profile-url-set{display:none;_display:list-item;}
+.vanity-prefix{font-size:13px;padding:6px 4px 0 0;}
+.customize-public-profile .vanity-name #vanity-name-input{border:1px solid #919191;}
+.customize-public-profile .vanity-name #vanity-name-input.error,.customize-public-profile .vanity-name #vanity-name-input.success{background:transparent url('../../common/u/img/icon/icon_warning_16x16.gif') 292px 2px no-repeat;}
+.customize-public-profile .vanity-name #vanity-name-input.success{background:transparent url('../../../../static02.linkedin.com/scds/common/u/img/icon/icon_check_green_15x17.png') 292px 2px no-repeat;}
+.customize-public-profile .vanity-name p.error{color:#900!important;}
+#customize-pub-prof{background:url('../../common/u/img/icon/icon_bullet_gray_5x5.gif') no-repeat right 4px;display:none;font-weight:bold;line-height:1.25;margin-right:1px;padding-right:8px;}
+.js #customize-pub-prof{display:inline;_display:none;}
+#vanity-name-form #suggestions{margin-bottom:12px;}
+#vanity-name-form #suggestions li{font-size:12px;list-style-type:none;margin-bottom:0;}
+#vanity-name-form #suggestions input{display:inline;margin-right:10px;}
+.js #vanity-name-setting{left:-999em;position:absolute;_position:static;top:-999em;}
+.js .dialog-window #vanity-name-setting{position:static;}
+#vanity-name-input{width:200px;padding:4px 2px;}
+#vanity-name-form{overflow:hidden;margin:-4px 0 12px 0;zoom:1;}
+#vanity-name-form.loaddisableding{background:url('../../common/u/img/anim/anim_loaddisableding_16x16.gif') no-repeat right 4px;}
+#vanity-name-form div{float:left;width;}
+#vanity-name-form input{display:block;}
+#vanity-name-form #vanity-name-submit{display:inline;}
+#vanity-name-form .dialog-actions{margin:0;}
+.panel .content .profile-content p.actions{margin:10px 0 4px;}
+#main .edit-profile{background:none;border-bottom:1px solid #ccc;}
+#main .edit-profile h1{display:block;float:left;}
+.customize-public-profile p{font-size:13px;margin-bottom:10px;}
+.customize-public-profile li{font-size:13px;margin-bottom:10px;}
+.customize-public-profile #vanity-note{color:#666;font-size:11px;margin-top:8px;width:320px;}
+.customize-public-profile #vanity-name-input{padding-right:24px;width:284px;}
+.customize-public-profile .vanity-prefix{color:#666;}

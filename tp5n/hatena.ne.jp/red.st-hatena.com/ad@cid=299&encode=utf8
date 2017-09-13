@@ -1,0 +1,14 @@
+if( !document.void ){
+  document.void = function(str, element_id){
+    var elm = element_id ? document.getElementById(element_id) : null;
+    if( elm ){
+      setTimeout(function(){
+         elm.innerHTML = str;
+      },10);
+    }else{
+      void(str);
+    }
+  };
+}
+
+document.void('<a href=\"httpdisabled://red.st-hatena.com/go?aid=19210&accessrk=6385a376b70c06c2&url=http%3A%2F%2Fd.hatena.ne.jp%2Fkeyword%2F%25B5%25FE%25C5%25D4%25BF%25B7%25CA%25B9%25BC%25CC%25BF%25BF%25A5%25B3%25A5%25F3%25A5%25C6%25A5%25B9%25A5%25C8\"><img src=\"httpdisabled://red.st-hatena.com/images/ad/19210_banner.png\" border=\"0\"  width=\"265\" height=\"70\" alt=\"京都新聞写真コンテスト「大好き!! 京滋の風景」\" title=\"京都新聞写真コンテスト「大好き!! 京滋の風景」\"></a>');

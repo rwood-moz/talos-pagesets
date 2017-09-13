@@ -1,0 +1,99 @@
+<!--<script language='javascript' src='http://passport.people.com.cn/api/weather_location.jsp'></script>-->
+<script language="JavaScript">
+document.domain="people.com.cn";
+function trim(str){  //删除左右两端的空格 
+	return str.replace(/(^\s*)|(\s*$)/g, ""); 
+}
+//设置Cookie相应名值对中值的函数 function getCookieVal(offset)
+function getCookieVal(offset) {
+		var endstr = document.cookie.indexOf(";",offset);
+		if (endstr == -1) endstr = document.cookie.length;
+		return unescape(document.cookie.substring(offset,endstr));
+}
+//设置Cookie函数 function GetCookie(name)
+
+function GetCookie(name){
+		var arg = name + '=';
+		var alen = arg.length;
+		var clen = document.cookie.length;
+		var i = 0;
+		var flag = ''
+		while (i<clen) {
+			var j = i + alen;
+			if (document.cookie.substring(i,j) == arg) flag = getCookieVal(j);
+			i = document.cookie.indexOf(" ",i) + 1;
+			if (i == 0) break;
+		}
+		return flag;
+}
+var city_id_id = GetCookie("PEOPLE_CUSTOMIZE_city");
+
+if(city_id_id == ''||city_id_id==undefined||city_id_id==""){
+    var ip_cookie_ip = trim(GetCookie("_weather_ip_c_code"));
+	if(ip_cookie_ip ==''||ip_cookie_ip==undefined){
+	  var srcjs = "<script language='javascript' src='../../apps.people.com.cn/ip/weatherLocation.do.html'><\/script>";
+	  void(srcjs);
+	}   
+}
+</script>
+
+<script language="JavaScript">
+document.domain="people.com.cn";
+function trim(str){  //删除左右两端的空格 
+	return str.replace(/(^\s*)|(\s*$)/g, ""); 
+}
+//Cookie日期修正函数 function FixCookieDate(date)
+function FixCookieDate(date){
+	var base = new Date(0);
+	var skew = base.getTime();
+	if (skew > 0)date.setTime(date.getTime() - skew);
+}
+
+//设置Cookie函数 function SetCookie(name,value,expires,path,domain,secure)
+function SetCookie(name,value,expires,path,domain,secure){
+	document.cookie = name + "=" + escape(value) + ((expires)? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+}
+//设置Cookie相应名值对中值的函数 function getCookieVal(offset)
+function getCookieVal(offset) {
+		var endstr = document.cookie.indexOf(";",offset);
+		if (endstr == -1) endstr = document.cookie.length;
+		return unescape(document.cookie.substring(offset,endstr));
+}
+//设置Cookie函数 function GetCookie(name)
+function GetCookie(name){
+		var arg = name + '=';
+		var alen = arg.length;
+		var clen = document.cookie.length;
+		var i = 0;
+		var flag = ''
+		while (i<clen) {
+			var j = i + alen;
+			if (document.cookie.substring(i,j) == arg) flag = getCookieVal(j);
+			i = document.cookie.indexOf(" ",i) + 1;
+			if (i == 0) break;
+		}
+		return flag;
+}
+String.prototype.trim = function(){
+   return this.replace(/(^\s*)|(\s*$)/g, "");
+}
+
+var city_id = GetCookie("PEOPLE_CUSTOMIZE_city");
+//alert(city_id);
+if(city_id == ''||city_id==undefined||city_id ==""){
+	var ip_cookie = trim(GetCookie("_weather_ip_c_code"));
+//alert(ip_cookie);
+	if(ip_cookie == '' || ip_cookie ==undefined || ip_cookie==""){
+	    city_id = "54511";
+	}else{
+		city_id = ip_cookie;
+	}
+}
+//alert(city_id);
+
+//self.location='http://weather.people.com.cn/static2009/'+ city_id +".html";
+var url = "httpdisabled://weather2.people.com.cn/static2010/"+ city_id +".html";
+//alert(url);
+var text ="<html><head><meta http-equiv='Content-Type' content='text/html; charset=GB2312' /><meta http-equiv='Content-Language' content='utf-8' /><style type='text/css'>body{margin:0;padding:0;font-family:宋体;font-size:12px;text-align:center;line-height:180%;background:#fff;}div{text-align:center;color:#000000;}*{margin:0;padding:0;}img{border:none;vertical-align:middle;}ul{list-style-type:none;}input,select{vertical-align:middle;}a{text-decoration:none;}a:hover{text-decoration:underline;}a:visited{color:#fff;}</style></head><body style='background:transparent;'><div align=center><iframe style=float:center; marginheight=1 marginwidth=0 frameborder=0 width=175 height=20 allowTransparency=true scrolling=no name=weathercustomize2010 id=weathercustomize2010 src="httpdisabled://weather2.people.com.cn/customize/+url+"></iframe></div></body></html>";
+void(text);
+</script>

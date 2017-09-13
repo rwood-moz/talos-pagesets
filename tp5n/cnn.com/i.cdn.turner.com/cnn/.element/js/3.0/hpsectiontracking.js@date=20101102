@@ -1,0 +1,71 @@
+var divObjArr = new Array();
+var divObjArrTag = new Array();
+divObjArr[0] = $$('#cnn_maintt1imgbul a');
+divObjArrTag[0] = 'T1';
+divObjArr[1] = $$('#cnn_maintt2bul a');
+divObjArrTag[1] = 'T2';
+divObjArr[2] = $$('#cnn_mtlplaylist a');
+divObjArrTag[2] = 'C2';
+divObjArr[3] = $$('div.cnn_mtl3vidbx1 a');
+divObjArrTag[3] = 'C2';
+divObjArr[4] = $$('div.cnn_mtl3vidbx2 a');
+divObjArrTag[4] = 'C2';
+divObjArr[5] = $$('div.cnn_mtl3vidbx3 a');
+divObjArrTag[5] = 'C2';
+divObjArr[6] = $$('#cnn_maintoplive a');
+divObjArrTag[6] = 'C1';
+divObjArr[7] = $$('#pmSlidebox a');
+divObjArrTag[7] = 'P1';
+divObjArr[8] = $$('div.cnn_sectbin1 a');
+divObjArrTag[8] = 'Sbin';
+divObjArr[9] = $$('div.cnn_sectbin2 a');
+divObjArrTag[9] = 'Sbin';
+divObjArr[10] = $$('div.cnn_sectbin3 a');
+divObjArrTag[10] = 'Sbin';
+divObjArr[11] = $$('div.cnn_sbhottopics a');
+divObjArrTag[11] = 'htopic';
+divObjArr[12] = $$('div.cnn_tvsectionbin a');
+divObjArrTag[12] = 'Tv';
+divObjArr[13] = $$('#cnn_fabcontent a');
+divObjArrTag[13] = 'Mid';
+
+try{
+	for (i in divObjArr) {
+	processLinks(divObjArr[i],divObjArrTag[i],'hpt');
+	}
+	processLinks($$('#pmNewspulse a'),'NS1','iref');
+}
+catch(err){};
+
+function processNewspulseLinks(){
+	
+	}
+
+function processLinks(divElement, hpsValue,query) {
+	var x=0;
+
+	for (x in divElement)
+	  {	  
+	    if (divElement[x].href && divElement[x].href.indexOf('/ELECTION/2010/results/') === -1) {
+	
+		  var queryCharStart;
+
+		  if (divElement[x].href.indexOf(';?'+query+'=') > -1){
+			  var queryregEx = (query=='hpt')?new RegExp(/;\?hpt=../):new RegExp(/;\?iref=../);
+			  divElement[x].href = divElement[x].href.replace(queryregEx, "");
+			  }
+			
+		  if (divElement[x].href.indexOf(query+'=') < 0) {		
+			  if (divElement[x].href.indexOf('?')> -1) {queryCharStart = '&'; }
+			  else {queryCharStart = '?'; }
+			  if (divElement[x].href.indexOf('javascript:')<0){
+			  divElement[x].href = divElement[x].href + queryCharStart + query+"="+hpsValue; }
+			  if (divElement[x].href.indexOf('javascript:cnnLiveVideo')>-1) {
+				divElement[x].href = divElement[x].href.replace("')", "&"+query+"="+hpsValue+"')");}
+		  }		 
+		} else if(divElement[x].href && divElement[x].href.indexOf('/ELECTION/2010/results/') > -1) {
+					  var queryregEx = new RegExp(/\?hpt=.+/);
+		divElement[x].href = divElement[x].href.replace(queryregEx, "");
+		}
+	}
+ } 

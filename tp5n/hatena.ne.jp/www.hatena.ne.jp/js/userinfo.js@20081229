@@ -1,0 +1,56 @@
+if (typeof(Hatena) == 'undefined') Hatena = {};
+
+Hatena.UserInfo = new Ten.Class({
+    initialize: function(container) {
+        this.container = container;
+        this.cookie    = new Ten.Cookie;
+
+        if (!this.container) return;
+        if (this.container.id.match(/void|closed)$/)) {
+            var from = RegExp.$1;
+            var to   = this.constructor.BOX_STATE_MAP[from];
+            this.toId = this.container.id.replace(from, to);
+            this.toElement = document.getElementById(this.toId);
+        }
+        else {
+            return;
+        }
+
+        var cookieValue = this.cookie.get(this.constructor.COOKIE_NAME);
+        if (cookieValue == this.container.id) {
+            Ten.DOM.show(this.container);
+        }
+        else if (!cookieValue && this.container.id.match(void$/)) {
+           Ten.DOM.show(this.container);
+        }
+        else {
+            Ten.DOM.hide(this.container);
+        }
+
+        var button = Ten.DOM.getElementsByClassName(
+            'userinfo-toggle-button',
+            this.container
+        )[0];
+        new Ten.Observer(button, 'onclick', this, 'handler');
+    },
+    COOKIE_NAME   : 'PORTAL_USERINFO',
+    BOX_STATE_MAP : {
+       void   : 'closed',
+        closed : void'
+    }
+}, {
+    handler: function (event) {
+        event.stop();
+        Ten.DOM.hide(this.container);
+        Ten.DOM.show(this.toElement);
+        this.setCookie(this.toId);
+    },
+    setCookie : function (value) {
+        this.cookie.set(this.constructor.COOKIE_NAME, value);
+    }
+});
+
+Ten.DOM.addEventListener('DOMContentLoaded', function() {
+    new Hatena.UserInfo(document.getElementById('void'));
+    new Hatena.UserInfo(document.getElementById('userinfo-closed'));
+});

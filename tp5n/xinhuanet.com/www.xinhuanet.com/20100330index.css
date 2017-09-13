@@ -1,0 +1,92 @@
+body { margin: 0px; padding: 0px;}
+FORM { PADDING: 0px; MARGIN: 0px; }
+a:hover { color: #d90002; text-decoration: underline }
+
+.bian01 {
+	background-color: #FFFFFF;
+	border-width: 0 1px 0 1px;
+	border-style: solid;
+	border-color: #133471;
+}
+.bian02 {   background-color: #FFFFFF; border: 1px #D8D5D5 solid}
+.bian03 {
+	background-color: #FFFFFF;
+	border-width: 0 1px 1px 1px;
+	border-style: solid;
+	border-color: #133471;
+	background-attachment: fixed;
+	background-image: url(../news.xinhuanet.com/test2009/img/bj_2.gif);
+	background-repeat: repeat-x;
+	background-position: center bottom;
+}
+
+.bai13 { font-family: "宋体"; font-size: 13px; line-height: 24px; font-weight: normal; color: #FFFFFF; text-decoration: none; text-align: left; }
+.bai13 a, .bai13 a:link { font-family: "宋体"; font-size: 13px; line-height: 24px; font-weight: normal; color: #FFFFFF; text-decoration: none}
+.bai13 a:hover { color: #FFFFFF; text-decoration: underline }
+
+.hong13 { font-family: "宋体"; font-size: 13px; line-height: 24px; font-weight: normal; color: #D70202; text-decoration: none; text-align: left; }
+.hong13 a, .hong13 a:link { font-family: "宋体"; font-size: 13px; line-height: 24px; font-weight: normal; color: #D70202; text-decoration: none}
+.hong13 a:hover { color: #d90002; text-decoration: underline }
+
+.hui13 { font-family: "宋体"; font-size: 13px; line-height: 22px; font-weight: normal; color: #1E1E1E; text-decoration: none; text-align: left; }
+.hui13 a, .hui13 a:link { font-family: "宋体"; font-size: 13px; line-height: 22px; font-weight: normal; color: #1E1E1E; text-decoration: none}
+.hui13 a:hover { color: #d90002; text-decoration: underline }
+
+.hui12 { font-family: "宋体"; font-size: 12px; line-height: 18px; font-weight: normal; color: #1E1E1E; text-decoration: none; text-align: left; }
+.hui12 a, .hui12 a:link { font-family: "宋体"; font-size: 12px; line-height: 18px; color: #1E1E1E; text-decoration: none}
+.hui12 a:hover { color: #d90002; text-decoration: underline }
+
+.w12 { font-family: "宋体"; font-size: 12px; line-height: 18px; font-weight: normal; color: #1E1E1E; text-decoration: none; text-align: left; }
+.w12 a, .w12 a:link { font-family: "宋体"; font-size: 12px; line-height: 18px; font-weight: normal; color: #1E1E1E; text-decoration: none}
+.w12 a:hover { color: #d90002; text-decoration: underline }
+
+.lan13 { font-family: "宋体"; font-size: 13px; line-height: 20px; font-weight: normal; color: #002864; text-decoration: none; text-align: left; }
+.lan13 a, .lan13 a:link { font-family: "宋体"; font-size: 13px; line-height: 20px; font-weight: normal; color: #002864; text-decoration: none}
+.lan13 a:hover { color: #d90002; text-decoration: underline }
+
+.lan12 { font-family: "宋体"; font-size: 12px; line-height: 18px; font-weight: normal; color: #013698; text-decoration: none; text-align: left; }
+.lan12 a, .lan12 a:link { font-family: "宋体"; font-size: 12px; line-height: 18px; font-weight: normal; color: #013698; text-decoration: none}
+.lan12 a:hover { color: #d90002; text-decoration: underline }
+
+.qlan13 { font-family: "宋体"; font-size: 13px; line-height: 20px; font-weight: normal; color: #008CCB; text-decoration: none; text-align: left; }
+.qlan13 a, .qlan13 a:link { font-family: "宋体"; font-size: 13px; line-height: 20px; font-weight: bold; color: #008CCB; text-decoration: none}
+.qlan13 a:hover { color: #d90002; text-decoration: underline }
+
+.lan14 { font-family: "宋体"; font-size: 14px; line-height: 24px; font-weight: normal; color: #000000; text-decoration: none; text-align: left; }
+.lan14 a, .lan14 a:link { font-family: "宋体"; font-size: 14px; line-height: 24px;color: #000000; text-decoration: none}
+.lan14 a:hover { color: #d90002; text-decoration: underline }
+
+.lan14_h { font-family: "宋体"; font-size: 14px; line-height: 24px; font-weight: normal; color: #000000; text-decoration: none; text-align: left; }
+.lan14_h a, .lan14_h a:link { font-family: "宋体"; font-size: 14px; line-height: 24px; font-weight: normal; color: #000000; text-decoration: none}
+.lan14_h a:hover { color: #d90002; text-decoration: underline }
+
+.lan14c { font-family: "宋体"; font-size: 14px; line-height: 24px; font-weight: bold; color: #013698; text-decoration: none; text-align: left; }
+.lan14c a, .lan14c a:link { font-family: "宋体"; font-size: 14px; line-height: 24px; font-weight: bold; color: #013698; text-decoration: none}
+.lan14c a:hover { color: #d90002; text-decoration: underline }
+
+.lan14c_2010 { font-family: "SimHei"; font-size: 16px; line-height: 24px; color: #013698; text-decoration: none; text-align: left; }
+.lan14c_2010 a, .lan14c a:link { font-family: "SimHei"; font-size: 16px; line-height: 24px; color: #013698; text-decoration: none}
+.lan14c_2010 a:hover { color: #d90002; text-decoration: underline }
+
+.hong14 { font-family: "宋体"; font-size: 14px; line-height: 22px; font-weight: bold; color: #C00000; text-decoration: none; text-align: left; }
+.hong14 a, .hong14 a:link { font-family: "宋体"; font-size: 14px; line-height: 22px; font-weight: bold; color: #C00000; text-decoration: none}
+.hong14 a:hover { color: #d90002; text-decoration: underline }
+
+.hei16 { font-family: "SimHei"; font-size: 16px; line-height: 26px; font-weight: normal; color: #013698; text-decoration: none; text-align: left; }
+.hei16 a, .hei16 a:link { font-family: "SimHei"; font-size: 16px; line-height: 26px; font-weight: normal; color: #013698; text-decoration: none}
+.hei16 a:hover { color: #d90002; text-decoration: underline }
+
+.yahei { font-family: "SimHei"; font-size: 18px; line-height: 26px; font-weight: normal; color: #0D50CD; text-decoration: none; text-align: left; }
+.yahei a, .yahei a:link { font-family: "SimHei"; font-size: 18px; line-height: 26px; font-weight: normal; color: #0D50CD; text-decoration: none;}
+.yahei a:hover { color: #d90002; text-decoration: underline }
+
+.yahei_1 { font-family: "SimHei"; font-size: 16px; line-height: 24px; font-weight: normal; color: #383838; text-decoration: none; text-align: left; }
+.yahei_1 a, .yahei_1 a:link { font-family: "SimHei"; font-size: 16px; line-height: 24px; font-weight: normal; color: #383838; text-decoration: none;}
+.yahei_1 a:hover { color: #d90002; text-decoration: underline }
+
+.lv13 { font-family: "宋体"; font-size: 13px; line-height: 20px; font-weight: normal; color: #008000; text-decoration: none; text-align: left; }
+.lv13 a, .lv13 a:link { font-family: "宋体"; font-size: 13px; line-height: 20px; font-weight: normal; color: #008000; text-decoration: none}
+.lv13 a:hover { color: #d90002; text-decoration: underline }
+
+.dian { background-attachment: fixed; background-image: url(../news.xinhuanet.com/test2009/img/dian.gif); background-repeat: repeat; background-position: center center; }
+.landian { background-attachment: fixed; background-image: url(../news.xinhuanet.com/test2009/img/landian.gif); background-repeat: repeat; background-position: center center; }

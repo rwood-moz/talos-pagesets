@@ -1,0 +1,90 @@
+if (typeof(Hatena) == 'undefined') Hatena = {};
+
+Hatena.TabSelect = new Ten.Class({
+    initialize: function(container, cookieName, cookieValues) {
+        this.container    = container;
+        this.cookie       = new Ten.Cookie;
+        this.cookieName   = cookieName;
+        this.cookieValues = cookieValues;
+        this.tabs         = Ten.DOM.getElementsByClassName(
+            'tab-menu',
+            this.container
+        )[0].getElementsByTagName('a');
+
+        for (var i = 0; i < this.tabs.length; i++) {
+            new Ten.Observer(this.tabs[i], 'onclick', this, 'handler');
+        }
+
+        var value = this.cookie.get(this.cookieName);
+        if (!value || !value.match('(' + this.cookieValues.join('|') + ')')) {
+            value = this.cookieValues[0];
+        }
+        this.selectTab(value);
+    }
+}, {
+    handler: function (event) {
+        event.stop();
+        var target = event.target;
+        var value  = target.parentNode.className;
+        this.selectTab(value);
+    },
+    setCookie : function (value) {
+        this.cookie.set(this.cookieName, value);
+    },
+    selectTab : function (value) {
+        var target      = Ten.DOM.getElementsByClassName(value, this.container)[0];
+        var targetImage = target.getElementsByTagName('img')[0];
+        this.container.className = value;
+
+
+        for (var i = 0; i < this.tabs.length; i++) {
+            var image = this.tabs[i].getElementsByTagName('img')[0];
+            this.changeTabBackgroundImage(image, 'off');
+        }
+        this.changeTabBackgroundImage(targetImage, 'on');
+        this.setCookie(value);
+    },
+    changeTabBackgroundImage : function (target, flag) {
+        if (target.src.match(/_(on|off)(\-\w{2})?\.gif/)) {
+            target.src = target.src.replace(
+                '_' + RegExp.$1,
+                '_' + flag
+            );
+        }
+    }
+});
+
+Hatena.SynchronousInput = Ten.Class({
+    initialize : function (inputs) {
+        if (!inputs) return;
+        this.inputs = inputs;
+        for (var i = 0; i < inputs.length; i++) {
+            new Ten.Observer(inputs[i], 'onchange', this, 'handler');   
+        }
+    }
+},{
+    handler : function (event) {
+        var self = event.target;
+        for (var i = 0; i < this.inputs.length; i++) {
+            if (this.inputs[i].id != self.id) {
+                this.inputs[i].value = self.value;
+            }
+        }
+    }
+});
+
+Ten.DOM.addEventListener('DOMContentLoaded', function() {
+    new Hatena.TabSelect(
+        document.getElementById('p1'),
+        'PORTAL_TAB',
+        ['hatena-search', 'bookmark', 'keyword', 'quest', 'asin']
+    );
+    new Hatena.TabSelect(
+        document.getElementById('p2'),
+        'PORTAL_BOOKMARK_TAB',
+        ['hotentry', 'social', 'economics', 'life', 'entertainment', 'knowledge']
+    );
+    new Hatena.SynchronousInput(
+        Ten.DOM.getElementsByClassName('txt')
+    );
+});

@@ -1,0 +1,14 @@
+if( !document.void ){
+  document.void = function(str, element_id){
+    var elm = element_id ? document.getElementById(element_id) : null;
+    if( elm ){
+      setTimeout(function(){
+         elm.innerHTML = str;
+      },10);
+    }else{
+      void(str);
+    }
+  };
+}
+
+document.void('<a href=\"httpdisabled://red.st-hatena.com/go?aid=12638&accessrk=d56ec04a401709dd&url=http%3A%2F%2Fwww.hatena.ne.jp%2Ftool%2Ftoolbar\"><img src=\"httpdisabled://red.st-hatena.com/images/ad/12638_banner.gif\" border=\"0\"  width=\"263\" height=\"68\" alt=\"はてなツールバー for IEを無料ダウンロードしよう！\" title=\"はてなツールバー for IEを無料ダウンロードしよう！\"></a>');

@@ -1,0 +1,190 @@
+
+
+/* js/profile.js */
+
+var profileSwitch=function(){function a(){var c=document.getElementById("nav-profile-lang");
+var d=document.getElementById("current-locale");
+var b=document.getElementById("nav-profile-lang-list");
+YEvent.on(d,"mouseover",function(){YDom.addClass(c,"hover")
+});
+YEvent.on(b,"mouseover",function(){YDom.addClass(c,"hover")
+});
+YEvent.on(c,"mouseout",function(){YDom.removeClass(c,"hover")
+})
+}return{init:function(){if(!document.getElementById("nav-profile-lang")){return false
+}a()
+}}
+}();
+YEvent.on(window,"loaddisabled",profileSwitch.init);
+var toggleWarning=function(){var b=document.getElementById("locale-createInternationalProfile");
+var a=document.getElementById("unsupported");
+var d=function(){b.onchange=function(){c()
+}
+};
+var c=function(){for(var e=0;
+supportedLanguages.length>e;
+e++){var f=supportedLanguages[e];
+if(b.options[b.selectedIndex].value==f){LI.hide(a);
+break
+}else{LI.show(a)
+}}};
+return{init:function(){if(!document.getElementById||!document.getElementById("locale-createInternationalProfile")){return
+}d()
+}}
+}();
+YEvent.on(window,"loaddisabled",toggleWarning.init);
+var flagPhotoForm={init:function(){if(!document.getElementById||!document.getElementById("flag-form")){return
+}var a=YDom.getElementsByClassName("flag-photo","li")[0].getElementsByTagName("a")[0];
+var c=YDom.getElementsByClassName("profile-control","div")[0];
+var b=document.getElementById("cancel-flag");
+a.onclick=function(){YDom.addClass(c,void");
+return false
+};
+b.onclick=function(){YDom.removeClass(c,void");
+return false
+}
+}};
+YEvent.on(window,"loaddisabled",flagPhotoForm.init);
+var bubbleInfo=function(){return{init:function(){if(!YDom.get("introlink-bot")){return
+}var a=YDom.get("introlink-bot");
+if(a.nextSibling&&/bubble/.test(a.nextSibling.className)){a.onmouseover=a.onmouseout=function(){LI.toggle(this.nextSibling)
+}
+}}}
+}();
+YEvent.on(window,"loaddisabled",bubbleInfo.init);
+var profileExperts={init:function(){if(!document.getElementById||!document.getElementById("experts")){return
+}var e=document.getElementById("experts");
+var d=e.getElementsByTagName("li");
+if(d.length>4){var b=document.getElementById("nobullet").style.display="list-item";
+var c=document.getElementById("see-more-experts");
+var a=d.length-1;
+c.onclick=function(){profileExperts.toggleExperts(d,a);
+return false
+};
+profileExperts.showExpertsOnInit(d,a)
+}},toggleExperts:function(c,a){var d=0;
+if(c[3].style.display=="list-item"){profileExperts.showExpertsOnInit(c,a)
+}else{for(var b=0;
+c.length>b;
+b++){if(b<a){if(b>2){c[b].style.display="list-item";
+d++
+}}}document.getElementById("see-more-experts").innerHTML=i18n.seeLess
+}},showExpertsOnInit:function(d,b){var f=0;
+for(var c=0;
+d.length>c;
+c++){if(c<b){if(c>2){LI.hide(d[c]);
+f++
+}}}var a;
+if(f==1){a=i18n.other
+}else{a=i18n.others
+}var e=i18n.and+" "+f+" "+a;
+document.getElementById("see-more-experts").innerHTML=e
+}};
+var profileRecs={sets:null,showlinks:null,selectedSet:null,init:function(){if(!document.getElementById||!document.getElementById("showlinks-rec")){return
+}profileRecs.showlinks=document.getElementById("showlinks-rec").getElementsByTagName("a");
+for(var a=0;
+a<profileRecs.showlinks.length;
+a++){profileRecs.showlinks[a].onclick=function(){profileRecs.toggleSets(this);
+return false
+}
+}profileRecs.sets=YDom.getElementsByClassName("recset","div");
+profileRecs.hideAllSets();
+profileRecs.showSet(profileRecs.selectedSet);
+profileRecs.updateLinkClasses(profileRecs.selectedSet)
+},toggleSets:function(a){profileRecs.hideAllSets();
+var b=a.href.split("#")[1];
+profileRecs.showSet(b);
+profileRecs.updateLinkClasses(b)
+},showSet:function(a){LI.show("recset_"+a)
+},hideAllSets:function(){for(var a=0;
+a<profileRecs.sets.length;
+a++){LI.hide(profileRecs.sets[a])
+}},updateLinkClasses:function(b){for(var a=0;
+a<profileRecs.showlinks.length;
+a++){YDom.removeClass(profileRecs.showlinks[a],"chosen");
+if(profileRecs.showlinks[a].href.split("#")[1]==b){YDom.addClass(profileRecs.showlinks[a],"chosen")
+}}}};
+var profileQa={init:function(){if(!document.getElementById||!document.getElementById("showlinks-qa")){return
+}LI.hide("hdr-q");
+LI.hide("hdr-a");
+var c=YDom.get("showlinks-qa");
+var a=c.getElementsByTagName("a");
+for(var b=0;
+a.length>b;
+b++){a[b].onclick=function(){profileQa.toggleQA(this.id);
+return false
+}
+}if(isQuestionMode){profileQa.toggleQA("qLink")
+}else{profileQa.toggleQA("aLink")
+}},toggleQA:function(a){if(a=="qLink"){if(YDom.get("my-q")){LI.show("my-q")
+}if(YDom.get("my-a")){LI.hide("my-a")
+}if(YDom.get("qLink")){YDom.get("qLink").className="on"
+}if(YDom.get("aLink")){YDom.get("aLink").className="off"
+}}else{if(YDom.get("my-q")){LI.hide("my-q")
+}if(YDom.get("my-a")){LI.show("my-a")
+}if(YDom.get("qLink")){YDom.get("qLink").className="off"
+}if(YDom.get("aLink")){YDom.get("aLink").className="on"
+}}}};
+YEvent.on(window,"loaddisabled",profileQa.init);
+(function(){function b(){var f=YDom.getElementsByClassName("primary-profile-content");
+var d;
+for(var c=0;
+c<f.length;
+c++){d=f[c];
+var e=document.createElement("span");
+e.className="control";
+d.appendChild(e);
+YDom.addClass(d,"void");
+e._content=d;
+f._control=e;
+YEvent.on(e,"click",a)
+}}function a(){var d=this;
+var c=d._content;
+if(YDom.hasClass(c,"void")){YDom.replaceClass(c,"void","collapse-close")
+}else{YDom.replaceClass(c,"collapse-close","void")
+}}YEvent.onDOMReady(b)
+})();
+function ToggleModuleVisibility(b,a){YEvent.on(b,"click",this.toggle,a)
+}ToggleModuleVisibility.prototype={toggle:function(a,b){var c=YDom.get(b.parentID);
+if(YDom.hasClass(c,void")){YDom.removeClass(c,void");
+YDom.addClass(c,"close");
+oUISettings.saveSettings(b.setting,"true")
+}else{YDom.removeClass(c,"close");
+YDom.addClass(c,void");
+oUISettings.saveSettings(b.setting,"false")
+}}};
+function ConnectionBrowseVcard(c,b){var a=c.getElementsByTagName("li");
+YAHOO.util.Event.addListener(a,"mouseover",function(d){YAHOO.util.Dom.addClass(this,"hover")
+});
+YAHOO.util.Event.addListener(a,"mouseout",function(d){YAHOO.util.Dom.removeClass(this,"hover")
+})
+};
+
+/* js/showhide.js */
+
+var showHide={init:function(k){var g=(k)?YDom.get(k):document;
+var h=YDom.getElementsByClassName("showhide-block","*",g);
+for(var f=0;
+f<h.length;
+f++){LI.hide(h[f])
+}var b=YDom.getElementsByClassName("showhide-link","*",g);
+for(var e=0;
+e<b.length;
+e++){var d=b[e].getElementsByTagName("a");
+for(var c=0;
+c<d.length;
+c++){YEvent.on(d[c],"click",showHide.toggle);
+d[c].onclick=function(){return false
+};
+if(/-show/.test(d[c].id)){b[e].style.display="block"
+}}}},toggle:function(d){var b=YEvent.getTarget(d);
+var a=b.id;
+var g=a.split("-")[0];
+var c=a.split("-")[1];
+var f=YDom.get(g);
+if(c=="show"){LI.show(f);
+if(YDom.get(g+"-hide")){YDom.get(g+"-hide").parentNode.style.display="block"
+}}else{LI.hide(f);
+YDom.get(g+"-show").parentNode.style.display="block"
+}LI.hide(b.parentNode)
+}};

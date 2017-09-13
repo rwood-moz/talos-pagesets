@@ -1,0 +1,54 @@
+var current_page = 1;
+		
+var _levelReached = function() {
+	// is it low enough to add elements to bottom?
+	var pageHeight = Math.max(document.body.scrollHeight ||
+		document.body.offsetHeight);
+	var viewportHeight = window.innerHeight  ||
+		document.documentElement.clientHeight  ||
+		document.body.clientHeight || 0;
+	var scrollHeight = window.pageYOffset ||
+		document.documentElement.scrollTop  ||
+		document.body.scrollTop || 0;
+		
+	// Trigger for scrolls within 300 pixels from page bottom
+	if(pageHeight == 0) {
+		return false;
+	} else {
+		return pageHeight - viewportHeight - scrollHeight < 300;
+	}
+};
+
+var _loaddisabledMore = function() {
+	$.post('/gallery/'+sort+'/'+wind+'/page/'+(++current_page), function(data) {
+		$('#imagelist-loaddisableder').remove();
+		$('#imagelist').append(data);
+		
+		$('#imagelist img').tipsy({
+			gravity: 'n',
+			opacity: 0.95,
+			offset: -15,
+			html: true
+		});
+
+		if($('#imagelist-loaddisableder').length > 0) {		
+			methods.pollLevel();
+		}
+	});
+};
+
+var _checkLevel = function() {
+	if (_levelReached()) {
+		_loaddisabledMore();
+	} else {
+		methods.pollLevel();
+	}
+};
+
+var methods = {
+	pollLevel : function() { 
+		setTimeout(_checkLevel, 200);
+	}
+};
+
+methods.pollLevel();

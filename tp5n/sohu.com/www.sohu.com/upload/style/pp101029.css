@@ -1,0 +1,68 @@
+.ssblog{padding-top:3px;}
+.sspp{float:left;font-size: 12px;width:490px;height:17px;margin-top:3px;padding-left:10px;position: relative;text-align:left;}
+.sspp input{font-size:12px;vertical-align: middle;}
+.sspp .login{padding-top:0px!important;padding-top:1px;height:20px;width:35px;margin-top:-2px;}
+.sspp .left{padding-top:4px;}
+.sspp a{}
+.mid{width:200px;float:left;padding-top:4px;margin-left:10px}
+.mid .err{display:inline;padding:0;margin:0;border:0;}
+.mid p{color: #ff6600;display:inline;}
+.mid p span{color: #000;}
+.close,void {font-size: 12px;background: url(../../passport/images/ppsohu_bg1.gif) no-repeat;vertical-align: middle;height: 23px;width: 49px;border:0;padding:0!important;padding:5px 0 0 0;margin:0;position: absolute;left:381px!important;left:377px;top:0px;}
+.close, void {top:-2px;*top:0;}
+
+void{background: url(../images/void.gif) no-repeat;padding:0}
+.hidden{display:none}
+.posr {position:relative}
+.posa {position:absolute;margin:22px 0 0 150px;*margin: 22px 0 0 -290px;_margin: 22px 0 0 -294px;padding:0px;}
+.posa{>margin-left:-350px;_margin-left:-354px}
+
+
+/* 登录前 */
+.passportc {width:278px;height:158px;font-size:12px;border:1px #C6CFCE solid;background:#FFF;border:1px solid #f00;text-align:left;}
+.passportc b{color:#FF0000;}
+.passportc_title{margin:6px 10px -8px 10px!important;margin:8px 10px 0px 10px;color:#333}
+.passportc_title span{font-weight: bold;}
+.passportc_title img{margin-left:8px;}
+.passportc_title a{color:#999999!important }
+.ppthree{display:inline;color:#999999;margin:auto 39px;font-weight: bold;font-family: Verdana, Arial, Helvetica, sans-serif;}
+.passportc_content{width:268px;height:136px;padding:15px 0px 0px 10px!important;padding:0px 0px 0px 10px;background:url(../../passport/images/blogpic001.gif) no-repeat center;position: relative;}
+.passportc .err {color:#313031;}
+.passportc .card {font-weight: normal;padding:3px 0px 0px 23px!important;padding:10px 0px 0px 23px;}
+.passportc .card li{margin:0px 0px 5px 0px!important;margin:0px 0px 3px 0px;color:#333;}
+.passportc .card li a:link,.passportc .card li a:visited{margin-right:27px;}
+.passportc .card .login{margin:5px 34px 0px 38px!important;margin:5px 31px 0px 38px;color: #313031;float:left;}
+.passportc .card .info{padding-top:2px!important;padding-top:5px;}
+.passportc .card .info a{color:#333!important}
+.passportc .card .ppinput {border:1px #C6CFCE solid;height:19px;width:166px;background:#fff;font-size:12px;}
+.ppselecter, .ppselecter * {font-size:12px; font-family:"宋体", Verdana, Arial, Helvetica, sans-serif; line-height:normal;}
+.ppselecter {border: 1px solid #C6CFCE; width: 166px;margin-left:1px;}
+.ppselecter .ppseltit {background-color: #C6CFCE;height:15px;padding-top:4px;text-indent:6px; color:#313031;}
+.ppselecter table td table td {padding: 3px;color:#000}
+.ppselecter .active {background:#FF7921; color:#fff; font-weight: normal;}
+
+/* 登录中 */
+.ppWaitMsg{background:url(../../passport/images/load.gif) no-repeat 110px 30px;color:#FF6000;padding-top:90px;padding-left:50px;font-size:12px;width:190px;font-weight: normal;}
+/* 登录后 */
+.passportc .listContA{width:258px;height:71px;border:1px #C6CFCE solid;background:#fff;margin:1px 3px 0px -1px!important;margin:8px 3px 0px -1px;color:#FF6000;}
+.passportc .listContA ul{margin-top:7px!important;margin-top:9px;margin-left:8px;}
+.passportc .listContA li{margin-bottom:7px;}
+.passportc .listContA li p{color:#313031;}
+.passportc .listContA :link,.passportc .listContA :visit{color:#313031;}
+.passportc .listContA :hover{color:#313031;}
+.passportc .middle{color:#636563;margin-left:-1px;}
+.passportc .middle a{color:#636563!important}
+.passportc .middle li{float:left;margin-top:6px;margin-left:5px;}
+.passportc .middle .current{padding:6px 7px 2px 7px;margin:-1px 0px 0px 0px;background:#fff;border:1px #C6CFCE solid;border-top:0px;}
+.passportc .bottom{color:#636563;width:258px;clear: both;}
+.passportc .bottom ul{margin-left:0px!important;margin-left:-10px;}
+.passportc .bottom li{float:left;margin-top:6px;margin-left:5px;}
+.passportc .bottom li a{color:#636563!important;}
+.passportc .bottom .dabenying{float:right;margin-top:1px;}
+/*2007.9.11增加*/
+.passportc .candle{position: absolute;top:12px;left:220px;}
+/* 狐首通行证样式 结束 */
+.passpord_content .letter{color:#333!important;}
+
+#pemail{width:105px}
+#ppwd{width:75px}

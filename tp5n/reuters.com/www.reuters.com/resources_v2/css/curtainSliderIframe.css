@@ -1,0 +1,342 @@
+body {background-color:#edf5f9 !important;}
+
+#curtainMainContent {
+	float:left;
+	margin-left:70px;
+	position:absolute;
+	top:0;
+	width:874px;
+	padding: 15px 0px;
+	background: #edf5f9 url(../images/spriteCurtain.gif) -79px -95px repeat-y;
+}
+
+#curtainMainContent .tabs {
+	margin:0;
+	width:853px;
+}
+#searchCurtain {
+	float:right;
+	height:27px;
+	position:absolute;
+	right:12px;
+	top: 12px;
+}
+.section.chartRow, .section.chartRowWTabs  {margin:0px;}
+.tabs {width:852px !important; background:transparent url(http://www.reuters.com/resources_v2/images/bg_gray2.gif) repeat-x scroll left bottom;}
+
+.tabs ul li {margin-bottom: 2px;}
+.tabs ul li.current {border:2px solid #CCCCCC; border-bottom: none; margin-bottom: 0px; margin:0 2px 0 0; height:43px;}
+
+#mapVert1, #mapVert2, #mapVert3 {
+	position:absolute;
+	left:7px;
+	top: -113px;
+	width:1px;
+	height:510px;
+	background-color: #c7d1d5;
+}
+#mapVert2 {left:305px;}
+#mapVert3 {left:573px;}
+.module .moduleHeader {border-top:none;}
+.module .moduleHeader h3 {text-align:left;}
+.marketsNews {
+	position:absolute;
+	z-index:1;
+}
+table.dataTable {border-bottom:0px;}
+
+.chartRow .indexQuoteChart, .chartRowWTabs .indexQuoteChart, .indexRankings {
+	width:167px;
+	padding-right:17px;
+	margin-right:17px;
+	border-right: 1px solid #e5e5e5;
+	float:left;
+	display:inline;
+	background-color:#fff;
+}
+
+.chartRowWTabs.fourUp .indexQuoteChart {
+	padding-right:25px;
+	margin-right:27px;
+}
+
+.chartRow .indexQuoteChart.last, .chartRowWTabs .indexQuoteChart.last {
+border-right: none;
+margin-right:0;
+padding-right:0;
+}
+.indexQuoteChart {height: 150px;}
+.indexRankings {width:117px;}
+
+.chartRow .indexQuoteChart .chart, .chartRowWTabs .indexQuoteChart .chart {
+	clear:both;
+	border-bottom:2px solid #000;
+	padding-bottom:2px;
+	width:100%;
+	height:100px;
+	text-align:center;
+}
+.chartRow .indexQuoteChart.alt1 {
+	padding-right:8px;
+	margin-right:8px;
+	width: 172px;
+}
+.indexQuoteChart.alt2 {
+	padding: 0;
+	margin: 0 !important;
+	border: none;
+	width:255px;
+	border-right-width: 0 !important;
+	
+}
+.indexQuoteChart.alt2 .chart {
+	height: 145px;
+}
+/*.chartRow .indexQuoteChart, .chartRowWTabs .indexQuoteChart, .indexRankings {*/
+.withRtBorder {margin-right:10px; padding-right:10px;}
+.gridPanel  {margin:5px;}
+.grid1 { width: 50px; }
+.grid2 { width: 130px; }
+.grid3 { width: 210px; }
+.grid3plus { width: 250px; }
+.grid4 { width: 290px; }
+.grid5 { width: 370px; }
+.grid5plus29 { width: 398px; } /* really just plus 28px */
+.grid5plus40 { width: 410px; }
+.grid6 { width: 450px; }
+.grid7 { width: 530px; }
+.grid8 { width: 610px; }
+.grid9 { width: 690px; }
+.grid10 { width: 770px; }
+.grid11 { width: 850px; }
+.grid12 { width: 930px; }
+table.dataTable tr.stripe td {background: #fff;}
+.dataTable tr:hover {background-color: transparent;}
+table.dataTable tr th {background-color: transparent;}
+.headerNoBorder .module .moduleHeader {border:none !important;}
+h5.size4 {font-size:13px !important;}
+.horizontalTitle .module .moduleHeader {
+	border: none;
+	background: none;
+	width: 100px;
+	display: inline;
+	float: left;
+	padding-top:12px;
+}
+.horizontalTitle .module .moduleBody {
+	display: inline;
+	float: left;
+	width: 454px;
+}
+.horizontalTitle .module {
+	border-top: 1px solid #e5e5e5;
+	padding-top: 3px;
+	margin: 0 0 5px;
+}
+.horizontalTitle .module .moduleBody .gridPanel {margin:5px 30px 5px 5px;}
+.horizontalTitle .module .moduleHeader h3 {font-size:13px;}
+#commodityChart {width:440px;}
+.chartRowBigChart,.chartRow3Charts {float: left;display: inline;}
+.chartRowBigChart {
+	width: 265px; 
+	height: 246px;
+	background-color:#FFFFFF;
+	border-right:1px solid #E5E5E5;
+}
+.chartRow3Charts {width: 554px; padding:0 0 0 10px; height: 205px;}
+.chartRow3Charts .module, .sectorTopPerformers .module {margin-bottom:5px;}
+#mainContentFooter {height:11px;clear:both;width:100%;}
+.curtainMainContentTitle {
+	font-weight:normal;
+	color: #000;
+	font-size: 14px;
+	margin-top: 28px;
+}
+.curtainMainContentTitle {text-transform:uppercase;font-weight:bold;color:#015372;}
+.moduleHeader.curtainMainContentTitle h3, .curtainMainContentTitle .module .moduleHeader h3, .curtainMainContentTitle .module .moduleHeader h3 a, .moduleHeader.curtainMainContentTitle h3 a  {font-size:14px; color: #000; margin:0 0 6px;}
+.hidden {visibility: hidden;}
+
+.marketsNews {
+	/*border-left:1px solid #c7d1d5;*/
+	padding-left:8px;
+	/*height:510px;*/
+	float:left;
+	/*position:absolute;
+	z-index:1;*/
+	overflow:visible;
+}
+* html #globalMarketsNews  {zoom: 1;}
+* html #usMarketsNews {zoom: 1;}
+#marketsNewsAmericas {width:277px;left:0px;}
+#marketsNewsEurope {width:248px;left:298px;}
+#marketsNewsAsia {width:256px;left:566px;}
+#usMarketsNews {
+	left:1px;
+	width:425px;
+	margin:0;
+	padding:0;
+
+}
+#globalMarketsNews {
+	width:425px;
+	margin:0;
+	padding:0;
+}
+#globalMarketsNews .module .moduleHeader, #usMarketsNews .module .moduleHeader {border: none;background-image: none;}
+#globalMarketsNews, #usMarketsNews {min-height: 1px; position: relative; display: inline;}
+#mapContainer {
+	background: transparent url(http://www.reuters.com/resources_v2/images/bg_map01.gif) 0 0 no-repeat;
+	overflow:visible;
+	position: relative;
+	width:100%;
+	height:400px;
+	margin-top:-55px;
+	float:left;
+}
+.moduleHeader.noBackground, .noBackground .module .moduleHeader {background-image: none !important;}
+.mapIndex {
+	float:left;
+	position:absolute;
+	width:195px;
+	height:25px;
+}
+.mapIndex div {display:inline;padding-right:3px;float:left}
+.mapIndex.left {margin-left:-185px;}
+.mapIndex.left div {float:right;}
+.mapIndexQuote {font-size:11px; position: relative;}
+.mapIndexQuote.above {margin-top:-15px;}
+.mapIndexQuote.below {margin-top:8px;}
+
+#mapIndex0 {top:145px; left:195px;}
+#mapIndex1 {top:288px; left:262px;}
+#mapIndex2 {top:114px; left:373px;}
+#mapIndex3 {top:122px; left:405px;}
+#mapIndex4 {top:149px; left:369px;}
+#mapIndex5 {top:158px; left:674px;}
+#mapIndex6 {top:177px; left:630px;}
+#mapIndex7 {top:307px; left:701px;}
+#iframeMainContent {width:852px; float: left;}
+h5.size4 {margin:0;}
+table.dataTable tr td {padding:10px 0 0 !important;}
+#usMarketsNews .module .moduleBody ul li, #globalMarketsNews .module .moduleBody ul li {padding:5px 0 !important;}
+.sectorContainer {
+	color:#FFF;
+	float:left;
+	width:166px;
+	height:90px;
+	margin: 1px 2px;
+	display:inline;
+	text-align:center;
+	font-size:12px;
+	font-weight:bold;
+	background-color:#CFCCCF;
+	position:relative;
+}
+.sectorTitle {padding: 18px 5px 0;}
+.sectorTitle a {color: #fff; font-size: 11px;}
+.sectorContent {padding: 5px;margin-top: 15px}
+.sectorPercentage {font-size: 30px; position:absolute; text-align:center; width:100%; bottom:8px; left:0;}
+
+.neg0 {background-color:#FD9898}
+.neg1 {background-color:#FB8484}
+.neg2 {background-color:#F56868}
+.neg3 {background-color:#E43E3E}
+.neg4 {background-color:#DD1212}
+.neutral {background-color:#CFCCCF}
+.pos0 {background-color:#9AE370}
+.pos1 {background-color:#85D85B}
+.pos2 {background-color:#76D14D}
+.pos3 {background-color:#66C83D}
+.pos4 {background-color:#35AD0F}
+
+.mostActives table.dataTable {margin:0;}
+.mostActives table.dataTable tr td {
+	background: url("../images/dotsHorizontal.gif") bottom left repeat-x;
+	padding: 5px 0 !important;
+}
+.mostActives table.dataTable tr:last-child td {background: none;}
+.mostActives {
+	width:215px;
+	float:left;
+}
+.mostActives .module .moduleHeader {padding:0 0;}
+.chartRow, .chartRowWTabs {
+	background-color:#fff;
+	border: 1px solid #CCCCCC;
+	padding:10px;
+	width:830px !important;
+}
+.mostActiveStrip {
+	
+	overflow: auto;
+	width: 100%;
+	padding-top: 10px;
+	clear:both;
+}
+.mostActiveStrip .mostActives {
+	width: 100%;
+	padding-top: 10px;
+	background: url("../images/dotsHorizontal.gif") top left repeat-x;
+}
+.mostActiveStrip .module .moduleHeader {
+	width: 155px;
+	background: none;
+}
+.mostActiveStrip .module .moduleBody {
+	width: 650px;
+	padding-top: 2px;
+}
+.mostActiveStrip .mostActiveItem {
+	float: left;
+	width: 91px;
+	font-size: 11px;
+	border-right: solid 1px #999;
+	font-weight: bold;
+	text-align: center;
+}
+.mostActiveStrip .mostActiveItem.last { border-right: none;}
+.mostActiveStrip .mostActiveItem .data {
+	margin-left: 5px;
+}
+
+.chartRowWTabs {
+	border:2px solid #CCCCCC;
+	border-top: none;
+	width:828px !important;	
+}
+#searchboxCurtain {
+	-moz-background-clip: border;
+	-moz-background-inline-policy: continuous;
+	-moz-background-origin: padding;
+	background:#fff none repeat scroll 0 0;
+	border:1px solid #ccc;
+	display:inline;
+	float:left;
+	margin:0 10px 5px;
+	padding:1px;
+	width:210px;
+}
+#searchfieldCurtain {
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+	background:#FFFFFF none repeat scroll 0 0;
+	border:medium none;
+	color:#000000;
+	display:inline;
+	float:left;
+	font-size:11px;
+	font-weight:bold;
+	margin:0;
+	padding:4px 0 0 2px;
+	width:130px;
+}
+#searchbuttonCurtain {
+	display:inline;
+	float:right;
+	margin:2px;
+	padding:0;
+}
+#curtainCommodities, #curtainCurrencies {float:left;display:inline;padding-right:10px;border-right:1px solid #ccc;}
+#curtainCurrencies table {width:100%;}
+#curtainSectors .module {margin-bottom:10px !important;}

@@ -1,0 +1,258 @@
+
+
+if (!$['rating']) {
+
+    IchcRatingWidget = function(placeholder, options) {
+        
+        var $this = this;
+        this._widget = placeholder;
+        this._options = options;
+        
+        this._rating = $("<div class='rating'></div>");
+        this._label = $("<div class='label'></div>");
+        
+        this._widget.addClass('rating-widget');
+        this._widget.append(this._rating);
+        this._widget.append(this._label);
+        
+        function save(r) {
+            var votes = $.rating._toObject($.rating._toObject(document.cookie, ';')['votes'], '|') || {};
+            var votesString = encodeURIComponent($this._options.placeholder) + "=" + encodeURIComponent(r.toString());
+            for (var uid in votes)
+                if (uid && uid != $this._options.placeholder && votesString.length < 512)
+                    votesString += "|" + encodeURIComponent(uid) + "=" + encodeURIComponent(votes[uid]);
+           
+            document.cookie = "votes=" + votesString + "; expires=Wed, 01 Jan 2020 15:19:30 GMT; Path=/";
+        }
+        
+        function loaddisabled() {
+            var votes = $.rating._toObject(document.cookie, ';')['votes'];
+            var rating = $.rating._toObject(votes, '|')[$this._options.placeholder];
+            return rating;
+        }
+        
+        if (this._options.type == "stars") {
+            this._rating.append("<div class='icon' vote='1'></div>");
+            this._rating.append("<div class='icon' vote='2'></div>");
+            this._rating.append("<div class='icon' vote='3'></div>");
+            this._rating.append("<div class='icon' vote='4'></div>");
+            this._rating.append("<div class='icon' vote='5'></div>");
+            
+            function _update(score, offset) {
+                var full = Math.floor(score);
+                var half = Math.floor(score + 0.5);
+                $('.icon', $this._rating).each(function() {
+                    var icon = $(this);
+                    var starValue = parseInt(icon.attr('vote'));
+                    if (starValue <= full) // full
+                        icon.css('background-position', $.rating.starsprites[0 + offset]);
+                    else if (starValue == half) // half or hovered
+                        icon.css('background-position', $.rating.starsprites[1 + offset]);
+                    else // empty
+                        icon.css('background-position', $.rating.starsprites[2 + offset]);
+                });
+            }
+            
+            this.update = function() {
+                score = $this._options['score'] || [0, 0];
+                $this._options['score'] = score;
+                if (score[1] > 0)
+                    $this._label.text($this._options['{0} Votes'].replace('{0}', score[1]));
+                else
+                    $this._label.text($this._options['Rate This']);
+                
+                var s = parseFloat(score[0]);
+                _update(s, 0);
+            };
+            
+            this.hover = function() {
+                var icon = $(this);
+                var vote = icon.attr('vote');
+                
+                $this._label.text($this._options[vote]);
+                _update(vote, 3);
+            };
+            
+            this.cast = function() {
+                var score = $this._options['score'] || [0, 0];
+                var c = parseFloat(score[1]);
+                var cnext = c + 1;
+                var t = parseFloat(score[0]);
+                var v = parseInt($(this).attr('vote'));
+                
+                var oldv = parseInt(loaddisabled() || "0");
+                if (oldv > 0) cnext = c;
+                $this._options['score'] = [(t * c + v - oldv) / (cnext), cnext];
+                save(v);
+                
+                $this.update();
+                $.rating.cast(v, $this._options);
+            };
+        } else {
+            this._rating.append("<div class='icon up' vote='1'></div>");
+            this._rating.append("<div class='score up' style='font-weight:bold'>0</div>");
+            this._rating.append("<div class='icon down' vote='2'></div>");
+            this._rating.append("<div class='score down' style='font-weight:bold'>0</div>");
+            
+            this.update = function() {
+                score = $this._options['score'] || [0, 0];
+                $this._options['score'] = score;
+                $this._label.text($this._options['Rate This']);
+                
+                $('.icon.up', $this._rating).css('background-position', $.rating.nerosprites[0]);
+                $('.score.up', $this._rating).text(score[0].toString());
+                $('.icon.down', $this._rating).css('background-position', $.rating.nerosprites[1]);
+                $('.score.down', $this._rating).text(score[1].toString());
+            };
+            
+            this.hover = function() {
+                var ix = parseInt($(this).attr('vote')) - 1;
+                var t = ['up', 'down'][ix];
+                
+                $this._label.text($this._options[t]);
+                $('.icon.' + t, $this._rating).css('background-position', $.rating.nerosprites[ix+2]);
+            };
+            
+            this.cast = function() {
+                var score = $this._options['score'] || [0, 0];
+
+                var v = parseInt($(this).attr('vote'));
+                score[v-1]++;
+                
+                var oldv = loaddisabled();
+                if (oldv)
+                    score[parseInt(oldv)-1]--;
+                save(v);
+                
+                $this.update();
+                $.rating.cast(v, $this._options);
+            };
+        }
+        $('.label, .score', this._widget).css({
+            height:$.rating.spritesize,
+            'vertical-align':'middle',
+            'font-size':$.rating.fontsize
+        });
+        $('.label', this._widget).css({
+            'padding-left':'0.5em',
+            'padding-right':'0.5em'
+        });
+        $('.score', this._widget).css({
+            float:'left',
+            'padding-right':'0.5em'
+        });
+        this._rating.css({clear:'both'});
+        this._widget.css({width:'400px'});
+        $('.icon', this._rating).css({
+            float:'left',
+            width:$.rating.spritesize,
+            height:$.rating.spritesize,
+            'background-image': "url('" + this._options['img'] + "')"
+        }).hover(this.hover, this.update).click(this.cast);
+        this.update();
+    };
+
+    var rating = {
+        server: "httpdisabled://cheezburger.com",
+        cacheServer: "httpdisabled://cheezburger.com",
+        
+        defaults: {
+            'Rate This': 'Rate This',
+            '1': 'Awful',
+            '2': 'Poor',
+            '3': 'Average',
+            '4': 'Good',
+            '5': 'Excellent',
+            '{0} Votes': '{0} Votes',
+            'up': 'Rate Up',
+            'down': 'Rate Down'
+        },
+        
+        fontsize: '20px',
+        spritesize: '24px',
+        starsprites: ['0px 0px', '0px -24px', '0px -48px', '-24px 0px', '-24px -24px', '-24px -48px'],
+        nerosprites: ['0px -24px', '-24px -24px', '0px 0px', '-24px 0px'],
+        
+        _json: function(server, verb, data) {
+            if (data) {
+                var ratingData = {
+                    'placeholder' : data.placeholder,
+                    'vsid' : data.vsid,
+                    'section' : data.section,
+                    'assetid' : data.assetid || '',
+                    'permalink' : data.permalink || '',
+                    'title' : data.title || '',
+                    'r' : data.r || ''
+                };
+                data = '?' + $.param(ratingData);
+            } else
+                data = '';
+            
+            jsonPath = server + '/rating/' + verb + data;
+            $.getScript(jsonPath);
+        },
+        
+        _toObject: function(s, itemsep) {
+            var data = {};
+            if (!s) return data;
+            
+            var qs = s.split(itemsep);
+            for (var ix = 0; ix < qs.length; ix++)
+            {
+                var eq = qs[ix].indexOf('=');
+                var key = qs[ix].substr(0, eq);
+                var value = qs[ix].substr(eq + 1);
+                if (key)
+                    data[decodeURIComponent($.trim(key))] = decodeURIComponent(value.replace(/\+/g, '%20'));
+            }
+            
+            return data;
+        },
+        
+        init: function() {
+            var widgets = $("div[id^='pd_rating_holder_'], div[id^='ichc_rating_holder_']");
+            widgets = widgets.not('.inited');
+            
+            widgets.each(function() {
+                var w = $(this);
+                w.addClass('inited');
+                
+                var id = w.attr('id')
+                    .replace('pd_rating_holder_', 'ICHCRTJS_settings_')
+                    .replace('ichc_rating_holder_', 'ICHCRTJS_settings_');
+                var o = window[id];
+                
+                if (o.callback) {
+                    var cb = o.callback.substr(o.callback.indexOf('?') + 1)
+                    o = $.extend({}, $.rating._toObject(s, '&'), o);
+                }
+
+                o.placeholder = id.replace('ICHCRTJS_settings_', '');
+                
+                w.data('options', o);
+                w.addClass(o.placeholder);
+                
+                $.rating._json($.rating.cacheServer, 'result', o);
+            });
+        },
+        
+        finishInit: function(placeholder, options) {
+            var widget = $('.' + placeholder);
+            var rating = widget.data('rating');
+            if (rating)
+                rating.update(options['score']);
+            else {
+                var o = $.extend({}, $.rating.defaults, options, widget.data('options'));
+                widget.data('rating', new IchcRatingWidget(widget, o));
+            }
+        },
+        
+        cast: function(vote, options) {
+            var data = $.extend({}, options, {'r': vote});
+            $.rating._json($.rating.server, 'cast', data);
+        }
+    };
+
+    $.extend({rating:rating});    
+}
+$.rating.init();

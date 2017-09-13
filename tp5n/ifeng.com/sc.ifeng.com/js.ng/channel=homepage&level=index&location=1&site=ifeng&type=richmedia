@@ -1,0 +1,14 @@
+void('<!--SmartCreative Begin:-->\n<SCRIPT type=\"text/javascript\" SRC=\"httpdisabled://smcommon.allyes.com/smcreative/newff/flashpop3.js\"><\/SCRIPT>\n<SCRIPT SRC=\"httpdisabled://smcommon.allyes.com/smcreative/newff/flashpop2_div.js\"><\/SCRIPT>\n');
+var tem11 = 'AllyeSCviewtvExpquantonesc_930';
+function getCookiesc(name){var search,offset;search=name+"=";offset=document.cookie.indexOf(search);if(offset!=-1){offset+=search.length;end=document.cookie.indexOf(";",offset);if(end==-1)end=document.cookie.length;return unescape(document.cookie.substring(offset,end));}else return false;}
+function creativeCookie(){setCookiesc(tem11, AllyesviewtvCookieVal, AllyesviewtvExpDate);}
+var AllyesviewtvCookieVal = getCookiesc(tem11);
+var AllyesviewtvExpDate=  new Date();
+AllyesviewtvExpDate.setTime(AllyesviewtvExpDate.getTime() + 60000*10);
+if (!AllyesviewtvCookieVal || AllyesviewtvCookieVal <= 1)
+{
+	if(!AllyesviewtvCookieVal) AllyesviewtvCookieVal=1;
+	AllyesviewtvCookieVal = parseInt(AllyesviewtvCookieVal)+1;
+	void("<SCRIPT LANGUAGE='JavaScript1.1' SRC='http://quantonesc.allyes.com/main/adfshow?user=quantonesc|ifeng|venusxingyeifenghp110406&db=quantonesc&border=0&local=yes&js=ie' charset='GBK'></SCR"+"IPT>");
+	}
+void('<!--SmartCreative End-->');

@@ -1,0 +1,711 @@
+// ===========
+// = PLUGINS =
+// ===========
+//******** jCarousel Lite ( http://gmarwaha.com/jquery/jcarousellite/ ) ******** //
+(function($) {
+  $.fn.jCarouselLite = function(o) {
+    o = $.extend({btnPrev:null,btnNext:null,btnGo:null,mouseWheel:false,auto:null,speed:200,easing:null,vertical:false,circular:true,visible:3,start:0,scroll:1,beforeStart:null,afterEnd:null}, o || {});
+    return this.each(function() {
+      var b = false, animCss = o.vertical ? "top" : "left",sizeCss = o.vertical ? "height" : "width",
+        c = $(this),ul = $("ul", c),tLi = $("li", ul),tl = tLi.size(),v = o.visible;
+
+      if (o.circular) {
+        ul.prepend(tLi.slice(tl - v - 1 + 1).clone()).append(tLi.slice(0, v).clone());
+        o.start += v;
+      }
+      var f = $("li", ul),itemLength = f.size(),curr = o.start;
+      c.css("visibility", "visible");
+      f.css({overflow:"hidden", 'float' :o.vertical ? "none" : "left"});
+      ul.css({margin:"0",padding:"0",position:"relative","list-style-type":"none","z-index":"1"});
+      c.css({overflow:"hidden",position:"relative","z-index":"2",left:"0px"});
+      var g = o.vertical ? height(f) : width(f),
+        h = g * itemLength,
+        j = g * v;
+      f.css({width:f.width(),height:f.height()});
+      ul.css(sizeCss, h + "px").css(animCss, -(curr * g));
+      c.css(sizeCss, j + "px");
+      if (o.btnPrev) {
+        $(o.btnPrev).click(function() {
+          return go(curr - o.scroll);
+        });
+      }
+      if (o.btnNext) {
+        $(o.btnNext).click(function() {
+          return go(curr + o.scroll);
+        });
+      }
+      if (o.btnGo) {
+        $.each(o.btnGo, function(i, a) {
+          $(a).click(function() {
+            return go(o.circular ? o.visible + i : i);
+          });
+        });
+      }
+      if (o.mouseWheel && c.mousewheel) {
+        c.mousewheel(function(e, d) {
+          return d > 0 ? go(curr - o.scroll) : go(curr + o.scroll);
+        });
+      }
+      if (o.auto) {
+        setInterval(function() {
+          go(curr + o.scroll);
+        }, o.auto + o.speed);
+      }
+      function vis() {
+        return f.slice(curr).slice(0, v);
+      }
+
+      function go(a) {
+        if (!b) {
+          if (o.beforeStart) {
+            o.beforeStart.call(this, vis());
+          }
+          if (o.circular) {
+            if (a <= o.start - v - 1) {
+              ul.css(animCss, -((itemLength - (v * 2)) * g) + "px");
+              curr = a == o.start - v - 1 ? itemLength - (v * 2) - 1 : itemLength - (v * 2) - o.scroll;
+            } else if (a >= itemLength - v + 1) {
+              ul.css(animCss, -((v) * g) + "px");
+              curr = a == itemLength - v + 1 ? v + 1 : v + o.scroll;
+            } else {
+              curr = a;
+            }
+          } else {
+            if (a < 0 || a > itemLength - v) {
+              return;
+            } else {
+              curr = a;
+            }
+          }
+          b = true;
+          ul.animate(animCss == "left" ? {left:-(curr * g)} : {top:-(curr * g)}, o.speed, o.easing, function() {
+            if (o.afterEnd) {
+              o.afterEnd.call(this, vis());
+            }
+            b = false;
+          });
+          if (!o.circular) {
+            $(o.btnPrev + "," + o.btnNext).removeClass("");
+            $((curr - o.scroll < 0 && o.btnPrev) || (curr + o.scroll > itemLength - v && o.btnNext) || []).addClass("");
+          }
+        }
+        return false;
+      }
+    });
+  };
+  function css(a, b) {
+    return parseInt($.css(a[0], b), 10) || 0;
+  }
+
+  function width(a) {
+    return a[0].offsetWidth + css(a, 'marginLeft') + css(a, 'marginRight');
+  }
+
+  function height(a) {
+    return a[0].offsetHeight + css(a, 'marginTop') + css(a, 'marginBottom');
+  }
+})(jQuery);
+
+// ******** Date Helper ******** //
+/*
+ * Returns a description of this past date in relative terms.
+ * Example: '3 years ago'
+ */
+Date.prototype.toRelativeTime = function() {
+  var delta = new Date() - this;
+
+  if (delta > 1000 * 60 * 60 * 24 * 30) { return; } //do not convert dates older than 30 days
+  var units = null;
+  var conversions = {
+    millisecond: 1, // ms    -> ms
+    second: 1000,   // ms    -> sec
+    minute: 60,     // sec   -> min
+    hour:   60,     // min   -> hour
+    day:    24,     // hour  -> day
+    month:  365/12, // day   -> month (roughly)
+    year:   12      // month -> year
+  };
+
+  for (var key in conversions) {
+    if (delta < conversions[key]) {
+      break;
+    } else {
+      units = key; // keeps track of the selected key over the iteration
+      delta = delta / conversions[key];
+    }
+  }
+
+  // pluralize a unit when the difference is greater than 1.
+  delta = Math.floor(delta);
+  var approx = '';
+  if (delta !== 1) { units += "s"; }
+  delta = approx + delta;
+  return [delta, units, "ago"].join(" ");
+};
+
+/*
+ * Wraps up a common pattern used with this plugin whereby you take a String
+ * representation of a Date, and want back a date object.
+ */
+Date.fromString = function(str) {
+  return new Date(Date.parse(str));
+};
+
+/* jQuery relative time method */
+(function($) {
+  /*
+   * A handy jQuery wrapper for converting tags with JavaScript parse()-able
+   * time-stamps into relative time strings.
+   *
+   * Usage:
+   *   Suppose numerous Date.parse()-able time-stamps are available in the
+   *   inner-HTML of some <span class="rel"> elements...
+   *
+   *   $("span.rel").toRelativeTime()
+   *
+   * Examples: '5 years ago', '45 minutes ago'
+   *
+   * Requires date.extensions.js to be loaded first.
+   */
+  $.fn.toRelativeTime = function() {
+    this.each(function() {
+      var $this = $(this);
+      $this.text(Date.fromString($this.html()).toRelativeTime());
+    });
+  };
+  $.fn.toRelativeTimeFromAttr = function(my_attr) {
+    this.each(function() {
+      var $this = $(this);
+      $this.text(Date.fromString($this.attr(my_attr)).toRelativeTime());
+    });
+  };
+})(jQuery);
+
+
+// ==========
+// = CUSTOM =
+// ==========
+(function($) {
+  // Dom Ready
+  $(function() {
+    $('.post.short.category-sponsored-post.channel-battles').each(function(i, e) {
+      $(e).prev().css('border', 'none');
+    });
+
+    // Fix Mozilla Firefox IFRAME switching bug
+    // CMH - turned off, is causing ads to blank often.
+    /*
+    var count = 1;
+    if (!$.browser.msie) {
+      $('iframe').each(function(i, e) {
+        var $e = $(e);
+        var id = $e.attr('id');
+        var name = $e.attr('name');
+
+        if ($e.attr('src') !== undefined) {
+          if ($e.attr('src').length > 0) {
+            $e.attr('src', $e.attr('src'));
+          }
+        }
+
+        if (id.length === 0 && name.length > 0) {
+          $e.attr('id', name);
+        } else if (id.length > 0 && name.length === 0) {
+          $e.attr('name', id);
+        }
+        if (id.length > 0) {
+          $e.attr('id', 'msh_frame_' + count);
+        }
+
+        if ($e.attr('name').length === 0) {
+          $e.attr('name', 'msh_frame_' + count);
+        }
+        count++;
+      });
+    }
+    */
+
+    // Relative times
+    $('.dtreviewed').toRelativeTimeFromAttr('datetime');
+    $('.comment-meta time').toRelativeTimeFromAttr('datetime');
+
+    // Dropdowns
+    var $ads = $('#google_ads_div_Leaderboard_header_728x90 object, #google_ads_div_Leaderboard_header_728x90 embed, #google_ads_div_FM_970x66_Live_expanding object, #google_ads_div_FM_970x66_Live_expanding embed');
+    $('.dropdown').hover(function() {
+      $(this).addClass('hover');
+      $ads.css({display: 'none'});
+    }, function() {
+      $(this).removeClass('hover');
+      $ads.css({display: 'block'});
+    });
+
+    // Quick about section in sidebar
+    $('#subscribe_options .quick_about span:eq(0)').append(' <a class="slide" href="#">[+]</a>');
+    $('#subscribe_options .quick_about span:eq(1)').append(' <a class="slide" href="#">[-]</a>');
+    $('#subscribe_options .quick_about .slide:eq(0)').click(function() {
+      var $this = $(this);
+      $this.hide();
+      $this.parents('p').find('span.more').hide().fadeTo(0, 0).slideDown(150, function() {
+        $this.fadeTo(500, 1);
+      });
+      return false;
+    });
+
+    $('#subscribe_options .quick_about .slide:eq(1)').click(function() {
+      $(this).parent().fadeTo(250, 0).slideUp(250);
+      $('#subscribe_options .quick_about .slide:eq(0)').show();
+      return false;
+    });
+
+    if ($('#toggle_container').length > 0 && $('.toggle-action').length > 0) {
+      $('.toggle-action').click(function() {
+        var id = $(this).attr('id');
+        if ($(this).hasClass('active')) {
+          $(this).removeClass('active');
+          if ($('#toggle_container').css('display') != 'none') {
+            $('#toggle_container').slideToggle();
+          }
+        } else {
+          $('.toggle-action').each(function(i, e) {
+            if ($(e).hasClass('active')) {
+              $(e).removeClass('active');
+            }
+          });
+          $(this).addClass('active');
+
+          if ($('#toggle_container').css('display') == 'none') {
+            $('#toggle_container').css('height', 0);
+            $('#toggle_container').slideToggle();
+          } else {
+            var height = $('#toggle_container').height();
+            $('#toggle_container').css('height', height);
+          }
+          $('#active_toggle').html($('.' + id).html());
+          $("#toggle_container").animate({
+            height: $('#active_toggle').height()
+          }, 1200);
+        }
+      });
+    }
+
+    var alone, iWidth;
+    //Gallery Landing Page. Featured Galleries scrolling box
+    if ($(".featured-box .jCarouselLite").length > 0) {
+      if ($('li.jcl-item').length <= 3) {
+        $('.featured-box .browse').addClass('');
+      } else {
+        $('.featured-box .browse').addClass('enabled');
+      }
+      alone = $('li.jcl-item').length == 1;
+      $(".featured-box .jCarouselLite").jCarouselLite({
+        btnNext: ".nextPage.enabled",
+        btnPrev: ".prevPage.enabled"
+      });
+      if (alone) {
+        iWidth = ( parseInt($('.jCarouselLite ul').css('left'), 10) / $('li.jcl-item').length );
+        $('.jCarouselLite ul').css('left', parseInt($('.jCarouselLite ul').css('left'), 10) - iWidth);
+      }
+    }
+
+    //Gallery Landing Page. Featured Galleries scrolling box
+    if ($(".featured-box .jCarouselLite").length > 0) {
+      var $jcl = $('li.jcl-item');
+      $('.featured-box .browse').addClass($jcl.length <= 3 ? '' : 'enabled');
+      alone = $jcl.length == 1;
+
+      $(".featured-box .jCarouselLite").jCarouselLite({
+        btnNext: ".nextPage.enabled",
+        btnPrev: ".prevPage.enabled"
+      });
+
+      if (alone) {
+        iWidth = ( parseInt($('.jCarouselLite ul').css('left'), 10) / $('li.jcl-item').length );
+        $('.jCarouselLite ul').css('left', parseInt($('.jCarouselLite ul').css('left'), 10) - iWidth);
+      }
+    }
+
+    $(".toggle-div").click(function() {
+      var id = $(this).attr("data-id");
+      $(".footer-toggle-div:not(#footer-" + id + ")").animate({height: 'hide'}, 250, function() {
+        $("#footer-" + id + ":not(:visible)").
+          hide().
+          removeClass("hidden").
+          animate({height: 'show', opacity: '1'}, 250);
+      });
+      return false;
+    });
+    mashable_tooltip();
+
+    // Inits
+    $('a[rel*=external]').each(function() {
+      $(this).attr('target', '_blank');
+    });
+
+    $('body.home, body.page-template-page-channel-php, body.page-template-page-channel-sub-php').each(function() {
+      window.setTimeout('window.location.reload()', 900000);
+    });
+
+    initRailScroll();
+    initVisibleMeasures();
+    initPageRefresh();
+    initDefaultInputs();
+  });
+
+  function initPageRefresh() {
+    $('body.home, body.page-template-page-channel-php, body.page-template-page-channel-sub-php').each(function() {
+      window.setTimeout('window.location.reload()', 900000);
+    });
+  }
+
+  /* Visible Measures */
+  //loading popup with jQuery magic!
+  var popupStatus = 0;
+  function loadPopup() {
+    if (popupStatus === 0) {
+      $("#backgroundPopup").fadeIn("slow");
+      $("#popupBody").fadeIn("slow");
+      popupStatus = 1;
+    }
+  }
+
+  //disabling popup with jQuery magic!
+  function disablePopup() {
+    if (popupStatus == 1) {
+      $("#backgroundPopup").fadeOut("slow");
+      $("#popupBody").fadeOut("slow");
+      popupStatus = 0;
+    }
+  }
+
+  //centering popup
+  function centerPopup() {
+    //request data for centering
+    var windowHeight = document.documentElement.clientHeight;
+    $("#backgroundPopup").css({
+      "height": windowHeight
+    });
+  }
+
+  /* -------- Function Definitions -------- */
+
+  function initVisibleMeasures() {
+    if ($('#visible-measures') !== undefined) {
+      $('body').append("<div id='backgroundPopup'> </div><div id='popupBody' style='display:none;'><div id='video'></div><a id='popupClose' href='#'>CLOSE</a></div>");
+
+      $(".preview a").click(function() {
+        $('#video').remove();
+
+        $('#popupBody').append('<div id="video"><iframe width="640" height="385" style="border:0;" src="' + jQuery(this).attr('href') + '"></div>');
+        centerPopup();
+        loadPopup();
+        return false;
+      });
+
+      $("#popupClose").click(function() {
+        disablePopup();
+        return false;
+      });
+
+      $("#backgroundPopup").click(function() {
+        disablePopup();
+      });
+
+      $(document).keypress(function(e) {
+        if (e.keyCode == 27 && popupStatus == 1) {
+          disablePopup();
+        }
+      });
+    }
+  }
+
+  /* Tooltip */
+  var timer, tooltip, anchor_positions;
+  function mashable_tooltip() {
+    $('.tooltip-anchor').hover(function() {
+      var anchor = $(this);
+      timer = setTimeout(function() {
+        tooltip = anchor.parent().find('.tooltip');
+        if (tooltip !== undefined) {
+          anchor_positions = anchor.position();
+          tooltip.css({
+            'left' : function() {
+              return anchor_positions.left - (tooltip.width() / 2) + (anchor.width() / 2);
+            },
+            'top' : function() {
+              return (anchor_positions.top - 5 - tooltip.height() + parseInt(anchor.css('marginTop'), 10));
+            }
+          });
+          tooltip.fadeIn(500);
+        }
+      }, 300);
+
+    }, function() {
+      clearTimeout(timer);
+      tooltip = $(this).parent().find('.tooltip');
+      if (tooltip !== undefined && tooltip.css('display') == 'block') {
+        tooltip.fadeOut(300);
+      }
+    });
+  }
+
+  function initDefaultInputs() {
+    $(".defaultText").focus(function() {
+      var $this = $(this);
+      if ($this.val() == $this[0].title) {
+        $this.removeClass("defaultTextActive").val("");
+      }
+    }).blur(function() {
+      var $this = $(this);
+      try {
+        if ($this.val() === "" || $this.val() == $this[0].title) {
+          $this.addClass("defaultTextActive").val($this[0].title);
+        }
+      } catch(e) {}
+    }).blur();
+  }
+
+  function normalize_list_item_height(parent) {
+    var lis = parent.find("li");
+    for (var i = 0; i < lis.length; i += 3) {
+      var max = 0, j;
+      for (j = 0; j < 3; j++) {
+        if (lis[i + j] !== undefined) {
+          var ht = $(lis[i + j]).height();
+          max = max < ht ? ht : max;
+        }
+      }
+      for (j = 0; j < 3; j++) {
+        if (lis[i + j] !== undefined) {
+          $(lis[i + j]).css({height: max + "px"});
+        }
+      }
+    }
+  }
+
+  window.setupTopics = function() {
+    var $topics = $("#post-follow-topics"), $more = $("#post-follow-topics-more"), more_lis = $more.find("li");
+    // This is kinda ugly, but it's effective.
+    normalize_list_item_height($topics);
+    normalize_list_item_height($more);
+
+    if (more_lis.length > 0) {
+      $more.before('<div class="more_topics"><a href="#" class="expand-left">More Topics</a><a href="#" class="expand-down" style="display: none">Fewer Topics</a></div>');
+      $(".more_topics a").click(function() {
+        $more.toggle('fast', function() {
+          $(window).scroll();
+        });
+        $(this).parent().find("a").toggle();
+        return false;
+      });
+    }
+    $more.hide();
+  }
+
+  function initRailScroll() {
+    if ($('.post.full .post_share').length === 0 || ($.browser.msie && parseInt($.browser.version, 10) < 7)) {
+      return;
+    }
+
+    var $window = $(window);
+    var descripY = parseInt($('.post.full .description').offset().top, 10) - 20;
+    var $postShare = $('.post.full .post_share');
+    var pullX = $postShare.css('margin-left');
+
+    $window.data('scrollBound', false);
+
+    function positionShareScroll() {
+      var scrollY = $window.scrollTop();
+      var footerY = parseInt($('#site_footer').offset().top, 10);
+      var height = parseInt($postShare.height(), 10);
+      var fixedShare = $postShare.css('position') == 'fixed';
+      if (scrollY > descripY && (scrollY + 20 + height) > footerY) {
+        $postShare.stop().css({
+          position: 'absolute',
+          left: 0,
+          top: (footerY - height - 90 ),
+          marginLeft: pullX
+        });
+      } else if (scrollY > descripY && !fixedShare) {
+        $postShare.stop().css({
+          position: 'fixed',
+          left: '50%',
+          top: 20,
+          marginLeft: -566
+        });
+      } else if (scrollY < descripY && fixedShare) {
+        $postShare.css({
+          position: 'relative',
+          left: 0,
+          top: 0,
+          marginLeft: pullX
+        });
+      }
+    }
+
+    var $fbLikes = $('.post .facebook-like');
+    $window.resize(function() {
+      var windowW = $window.width();
+      var pulledOutside = $postShare.css('margin-left') == pullX;
+      if (windowW >= 1137) {
+        $fbLikes.css('clear', 'none');
+        if (!$window.data('scrollBound')) {
+          if (!pulledOutside) {
+            $postShare.animate({ marginLeft: pullX });
+
+            //Make block horizontal
+            $('.small-buttons').hide();
+            $('.wdt_button').show();
+            $('.large-buttons').show();
+            $postShare.css('border-width', '1px');
+            $postShare.width('auto');
+            $postShare.css({
+              marginRight: 7,
+              marginTop: 0
+            });
+          }
+          $window.data('scrollBound', true).bind('scroll.positionShare', function() {
+            positionShareScroll();
+          });
+          positionShareScroll();
+        }
+      } else {
+        $fbLikes.css('clear', 'both');
+        if (pulledOutside || $window.data('scrollBound')) {
+          $postShare.css({ position: 'relative', left: 0, top: 0 }).animate({marginLeft: 0});
+
+          //Make block horizontal
+          //$postShare.append(smallButtons);
+          //smallButtons = '';
+          $('.large-buttons').hide();
+          $('.wdt_button').hide();
+
+          $('.small-buttons').show();
+          $postShare.css({
+            marginTop: -16,
+            marginBottom: 4
+          });
+          $postShare.css('border-width', 0);
+
+          var content_width = $('#primary').width();
+          if (content_width === undefined) {
+            content_width = 642;
+          }
+          var block_width = 0;
+          $postShare.find('.small-buttons .wdt_button_min').each(function() {
+            block_width += parseInt($(this).width(), 10);
+          });
+          $postShare.width(content_width);
+
+          var add_padding = ( (content_width - block_width) / ($postShare.find('.wdt_button_min').length * 2) );
+
+          $postShare.find('.wdt_button_min').css({
+            paddingLeft: add_padding,
+            paddingRight: add_padding
+          });
+          $window.data('scrollBound', false).unbind('scroll.positionShare');
+        }
+      }
+    });
+    $window.resize();
+  }
+})(jQuery);
+
+function google_ad_request_done(google_ads) {
+  var s = '';
+  var i;
+
+  /*
+   * Verify that there are actually ads to display.
+   */
+  if (google_ads.length === 0) {
+    return;
+  }
+
+  /*
+   * If an image or flash ad is returned, display that ad.
+   * Otherwise, build a string containing all of the ads and
+   * then use a void() command to print that string.
+   */
+
+  if (google_ads[0].type == "flash") {
+
+    s += '<a href=\"' +
+      google_info.feedback_url + '\" style="color:000000">Ads by Google</a><br>' +
+      '<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"' +
+      ' codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" WIDTH="' +
+      google_ad.image_width + '" HEIGHT="' +
+      google_ad.image_height + '"> <PARAM NAME="movie" VALUE="' +
+      google_ad.image_url + '">' +
+      '<PARAM NAME="quality" VALUE="high">' +
+      '<PARAM NAME="AllowScriptAccess" VALUE="never">' +
+      '<embed src="' +
+      google_ad.image_url + '" WIDTH="' +
+      google_ad.image_width + '" HEIGHT="' +
+      google_ad.image_height +
+      '" TYPE="application/x-shockwave-flash"' +
+      ' AllowScriptAccess="never" ' +
+      ' PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"></EMBED></OBJECT>';
+
+  } else if (google_ads[0].type == "image") {
+
+    s += '<a href=\"' +
+      google_info.feedback_url + '\" style="color:000000">Ads by Google</a><br> <a href="' +
+      google_ads[0].url + '" target="_top" title="go to ' +
+      google_ads[0].visible_url + '" onmouseout="window.status=\'\'" onmouseover="window.status=\'go to ' +
+      google_ads[0].visible_url + '\';return true"><img border="0" src="' +
+      google_ads[0].image_url + '"width="' +
+      google_ads[0].image_width + '"height="' +
+      google_ads[0].image_height + '"></a>';
+
+  } else if (google_ads[0].type == "html") {
+
+    s += google_ads[0].snippet;
+
+  } else {
+
+    if (google_ads.length == 1) {
+
+      /*
+       * Partners should adjust text sizes
+       * so ads occupy the majority of ad space.
+       */
+
+      s += '<p><a href=\"' + google_info.feedback_url + '\" style="color:#000; text-decoration:none; font-size:11px" >Ads by Google</a>';
+
+      s += '<br><a style="text-decoration:none" href="' +
+        google_ads[0].url + '" onmouseout="window.status=\'\'" onmouseover="window.status=\'go to ' +
+        google_ads[0].visible_url + '\';return true"> <span style="text-decoration:underline;"> <b>' +
+        google_ads[0].line1 + '</b></span></a> - <span style="color:#000000;">' +
+        google_ads[0].line2 + '&nbsp;' +
+        google_ads[0].line3 + '<br></span> <span><a style="color:#008000;font-size:11px;text-decoration:none" href="' +
+        google_ads[0].url + '" onmouseout="window.status=\'\'" onmouseover="window.status=\'go to ' +
+        google_ads[0].visible_url + '\';return true">' +
+        google_ads[0].visible_url + '</span></a></p>';
+
+    } else if (google_ads.length > 1) {
+
+      s += '<p><a href=\"' + google_info.feedback_url + '\" style="color:#000; text-decoration:none; font-size:11px" >Ads by Google</a>';
+
+      /*
+       * For text ads, append each ad to the string.
+       */
+
+      for (i = 0; i < google_ads.length; ++i) {
+
+        s += '<br><a style="text-decoration:none" href="' +
+          google_ads[i].url + '" onmouseout="window.status=\'\'" onmouseover="window.status=\'go to ' +
+          google_ads[i].visible_url + '\';return true"> <span style="text-decoration:underline"> <b>' +
+          google_ads[i].line1 + '</b></span></a> - <span style="color:#000000">' +
+          google_ads[i].line2 + '&nbsp;' +
+          google_ads[i].line3 + '<br></span> <span><a style="color:#008000;text-decoration:none; font-size:11px" href="' +
+          google_ads[i].url + '" onmouseout="window.status=\'\'" onmouseover="window.status=\'go to ' +
+          google_ads[i].visible_url + '\';return true">' +
+          google_ads[i].visible_url + '</span></a>';
+      }
+
+      s += '</p>';
+    }
+  }
+
+  void(s);
+}

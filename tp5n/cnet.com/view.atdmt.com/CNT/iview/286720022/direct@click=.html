@@ -1,0 +1,123 @@
+<html><head><title>GM_HD13Atrix_Launch_300x250_MP</title>
+<meta HTTP-EQUIV="expires" CONTENT="0"></meta>
+<meta HTTP-EQUIV="Pragma" CONTENT="no-cache"></meta>
+</head><body style="border-width:0px;margin:0px;" bgcolor="White">
+<script type="text/javascript">
+var nRequiredVersion = 9; 
+var bIsRightVersion = false;	
+var isIE = (navigator.appVersion.indexOf("MSIE") != -1) ? true : false;
+var isWin = (navigator.appVersion.toLowerCase().indexOf("win") != -1) ? true : false;
+var isOpera = (navigator.userAgent.indexOf("Opera") != -1) ? true : false;
+if(isIE && isWin){
+void('<SCR' + 'IPT LANGUAGE=VBScript\>');
+void('on error resume next');
+void('Set oFlashPlayer = CreateObject("ShockwaveFlash.ShockwaveFlash." & nRequiredVersion)');
+void('If IsObject(oFlashPlayer) Then');
+void('bIsRightVersion = True');
+void('End If');
+void('If (Not bIsRightVersion) And (nRequiredVersion < 3) Then');
+void('Set oFlashPlayer = CreateObject("ShockwaveFlash.ShockwaveFlash")');
+void('If IsObject(oFlashPlayer) Then');
+void('bIsRightVersion = True');
+void('End If');
+void('End If');
+void('</SCR' + 'IPT\>'); 
+}
+function detectPluginCBR1301950106633() 
+{ 
+if (!bIsRightVersion) 
+{
+if (navigator.plugins != null && navigator.plugins.length > 0) {
+if (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"]) {
+var swVer2 = navigator.plugins["Shockwave Flash 2.0"] ? " 2.0" : "";
+var flashDescription = navigator.plugins["Shockwave Flash" + swVer2].description;
+var descArray = flashDescription.split(" ");
+var tempArrayMajor = descArray[2].split(".");	
+var versionMajor = tempArrayMajor[0];
+bIsRightVersion = (versionMajor >= nRequiredVersion);
+}
+}
+else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.6") != -1)
+{
+bIsRightVersion = (4 >= nRequiredVersion);
+}
+else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.5") != -1)
+{
+bIsRightVersion = (3 >= nRequiredVersion);
+}
+else if (navigator.userAgent.toLowerCase().indexOf("webtv") != -1) 
+{
+bIsRightVersion = (2 >= nRequiredVersion);
+}
+}
+}
+detectPluginCBR1301950106633();
+var _CBR1301950106633_Instance =
+{
+click : "",
+clickThruUrl: "httpdisabled://clk.atdmt.com/go/286720022/direct;wi.300;hi.250;pc.506587;pc.506587;ai.208382589;ct.$num$/01/",
+imgs : []
+};
+if (!window.armapi_a1_a1)
+{
+var armapi_a1_a1 =
+{
+initialize : function(unique_id){},
+click : function(unique_id, num, suffix)
+{
+this.clickTrack(unique_id);
+this.clickThru(unique_id, num, suffix);
+},
+clickTrack : function(unique_id, num)
+{
+var instance = window[unique_id + "_Instance"];
+if (instance.click != "")
+{
+var img = new Image();
+img.src = instance.click + "httpdisabled://t.atdmt.com";
+instance.imgs.push(img); 
+}
+},
+clickThru : function(unique_id, num, suffix) { 
+var instance = window[unique_id + "_Instance"];
+var url = instance.clickThruUrl.replace("$num$", num) + suffix;
+void(url, "_blank"); 
+}
+};
+}
+var armapi_ArmClickType = isIE ? "ext" : "";
+var _strContentCBR1301950106633 = '';
+if(bIsRightVersion) 
+{ 
+var strFQDN = "httpdisabled://spe.atdmt.com/ds/CJCNTCINGCBR/"; 
+var index = strFQDN.indexOf("/ds/");
+strFQDN = strFQDN.substring(0, index);
+_strContentCBR1301950106633 = '' + '<objectdisabled classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="httpdisabled://downloaddisabled.macromedia.com/pub/shockwave/cabs/flash/swflash.cab" id="idSWFCBR1301950106633" width="300" height="250">'
++ '<param name="movie" value="httpdisabled://spe.atdmt.com/ds/CJCNTCINGCBR/4_4_2011_americanIdol/GM_HD13Atrix_Launch_300x250_MP.swf?ver=1&clickTag1=!~!click!~!http://clk.atdmt.com/go/286720022/direct;wi.300;hi.250;pc.506587;pc.506587;ai.208382589;ct.1/01&clickTag=!~!click!~!http://clk.atdmt.com/go/286720022/direct;wi.300;hi.250;pc.506587;pc.506587;ai.208382589;ct.1/01" />'
++ '<param name="base" value="httpdisabled://spe.atdmt.com/ds/CJCNTCINGCBR/" />'
++ '<param name="FlashVars" value="ArmClickType='+ armapi_ArmClickType + '&unique_id=_CBR1301950106633&ArmApi=armapi_a1_a1&ArmClickUrl=http://clk.atdmt.com/go/286720022/direct;wi.300;hi.250;pc.506587;pc.506587;ai.208382589;ct.$num$/01/&ArmClickToken=$num$" />'
++ '<param name="quality" value="high" />'
++ '<param name="salign" value="lt" />'
++ '<param name="loop" value="true" />'
++ '<param name="wmode" value="opaque" />'
++ '<param name="allowScriptAccess" value="always" />'
++ '<embeddisabled allowScriptAccess="always" quality="high" salign="LT" loop="true" type="application/x-shockwave-flash" pluginspace="httpdisabled://www.macromedia.com/shockwave/downloaddisabled/index.cgi?P1_Prod_Version=ShockwaveFlash" base="httpdisabled://spe.atdmt.com/ds/CJCNTCINGCBR/" wmode="opaque" src="../../../../spe.atdmt.com/ds/CJCNTCINGCBR/4_4_2011_americanIdol/GM_HD13Atrix_Launch_300x250_MP.swf@ver=1&amp;clickTag1=!~!click!~!http%253A%252F%252Fclk.atdmt.com%252Fgo%252F286720022%252Fdirect;wi.300;hi.250;pc.506587;pc.506587;ai.208382589;ct.1%252F01&amp;clickTag=!~!click!~!http%253A%252F%252Fclk.atdmt.com%252Fgo%252F286720022%252Fdirect;wi.300;hi.250;pc.506587;pc.506587;ai.208382589;ct.1%252F01" width="300" height="250" FlashVars="unique_id=_CBR1301950106633&ArmApi=armapi_a1_a1&ArmClickUrl=http://clk.atdmt.com/go/286720022/direct;wi.300;hi.250;pc.506587;pc.506587;ai.208382589;ct.$num$/01/&ArmClickToken=$num$" />'
++ '</object>'
++ '';
+if ( "%OOB%" == "1" )
+_strContentCBR1301950106633 = _strContentCBR1301950106633.replace(/!~!click!~!/g,'');
+else
+_strContentCBR1301950106633 = _strContentCBR1301950106633.replace(/!~!click!~!/g,'');
+} 
+else 
+{ 
+_strContentCBR1301950106633 = '<a target="_blank" href="httpdisabled://clk.atdmt.com/go/286720022/direct;wi.300;hi.250;pc.506587;pc.506587;ai.208382589;ct.1/01/" onclick="if(\'\')(new Image).src=\'http://t.atdmt.com\'"><img border="0" src="../../../../spe.atdmt.com/ds/CJCNTCINGCBR/4_4_2011_americanIdol/GM_HD13Atrix_Launch_300x250_MP.gif@ver=1" width="300" height="250" /></a>';
+}
+</script>
+<script type="text/javascript">void(_strContentCBR1301950106633);</script>
+<script type="text/javascript"> 
+</script>
+<noscript>
+<a target="_blank" href="httpdisabled://clk.atdmt.com/go/286720022/direct;wi.300;hi.250;pc.506587;pc.506587;ai.208382589;ct.1/01"><img border="0" src="../../../../spe.atdmt.com/ds/CJCNTCINGCBR/4_4_2011_americanIdol/GM_HD13Atrix_Launch_300x250_MP.gif@ver=1" width="300" height="250" /></a>
+</noscript>
+</body></html>

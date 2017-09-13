@@ -1,0 +1,406 @@
+/* $Id: theme-hills.css 64929 2007-10-15 20:22:20Z kgoess $ */
+
+/* basic page elements */
+
+body
+{
+	font-family: helvetica, arial, sans-serif;
+	font-size: 12px;
+}
+
+a { font-weight: bold; }
+a:hover { text-decoration: none; }
+
+#banner a { font-weight: normal; text-decoration: none; }
+#banner a:hover { text-decoration: underline; }
+
+.module-content a { color: #999; }
+
+.entry-header a { text-decoration: none; }
+
+.entry-footer a { color: #999; font-weight: normal; }
+
+h1, h2, h3, h4, h5, h6
+{
+	font-family: helvetica, arial, sans-serif;
+}
+
+.module-header,
+.trackbacks-header,
+.comments-header,
+.comments-open-header,
+.archive-header
+{
+	/* ie win (5, 5.5, 6) bugfix */
+	p\osition: relative;
+	width: 100%;
+	w\idth: auto;
+
+	margin: 0;
+	padding: 5px 0;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.entry-more-link,
+.entry-footer,
+.comment-footer,
+.trackback-footer,
+.typelist-thumbnailed
+{
+	font-size: 11px;
+}
+
+
+/* page layout */
+
+body
+{
+	color: #333;
+	background-repeat: repeat-x;
+	background-attachment: fixed;
+	background-position: top left;
+}
+
+#container { width: 940px; }
+
+#banner
+{
+	width: 940px;
+	margin: 0;
+	border-top-width: 10px;
+	border-top-style: solid;
+	background-repeat: no-repeat;
+	background-position: bottom left;
+}
+
+.banner-user
+{
+	width: 70px;
+	margin-top: 4px;
+	font-size: 10px;
+}
+
+.banner-user-photo { border: 3px double #fff; }
+
+#banner-header
+{
+	margin: 0;
+	padding: 30px 70px 5px;
+	font-size: 28px;
+	font-weight: normal;
+	line-height: 1;
+}
+
+#banner-description
+{
+	margin: 0;
+	padding: 0 70px 120px;
+	font-size: 14px;
+	line-height: 1.125;
+}
+
+#pagebody
+{
+	padding: 15px 0;
+	background-color: #fff;
+}
+
+#pagebody-inner
+{
+	background-repeat: repeat-y;
+	background-position: top center;
+}
+
+#alpha, #beta, #gamma, #delta
+{
+	float: left;
+	margin: 0 0 0 20px;
+}
+
+#alpha-inner, #beta-inner, #gamma-inner, #delta-inner
+{
+	padding: 0 0 25px;
+}
+
+#alpha { width: 445px; }
+#beta { width: 415px; margin-left: 40px; }
+
+#gamma, #delta { width: 200px; }
+
+.date-header
+{
+	margin: 5px 0;
+	color: #999;
+	font-size: 10px;
+}
+
+.entry
+{
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+
+.entry-header
+{
+	margin: 15px 27px 5px;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.entry-content { margin: 5px 27px; }
+
+.entry-more-link { font-weight: bold; }
+
+.entry-footer
+{
+	margin: 10px 27px 20px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	padding-top: 5px;
+	color: #999;
+	font-weight: normal;
+}
+
+.content-nav { margin: 5px 0 10px; }
+
+.content-header
+{
+	margin: 5px 0 30px;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.trackback-content,
+.comment-content,
+.comments-open-content,
+.comments-closed
+{
+	margin: 5px 0;
+}
+
+.trackbacks-info,
+.trackback-footer,
+.comments-info,
+.comment-footer,
+.comments-open-footer,
+.archive-content
+{
+	margin: 5px 0 20px;
+}
+
+#comment-author, #comment-email, #comment-url, #comment-text
+{
+	width: 80%;
+}
+
+
+/* modules */
+
+.module-content { margin: 5px 2px 20px; font-size: 11px; }
+
+.module-calendar .module-content { margin: 5px 10px 15px; }
+
+.module-mmt-calendar .module-content table,
+.module-calendar .module-content table { font-size: 11px; }
+
+.module-mmt-calendar .module-header,
+.module-recent-photos .module-header { background-image: none; }
+
+.module-powered { margin: 0; padding: 0; }
+.module-powered .module-content
+{
+	margin: 15px 0;
+	padding: 10px;
+	border-width: 1px;
+	border-style: solid;
+	text-align: center;
+	background-repeat: repeat-x;
+	background-position: top left;
+}
+
+.module-photo { border: 0; background: none; }
+.module-photo .module-content { margin: 10px; }
+.module-photo img { border: 0; }
+
+.archive-list-item { margin-bottom: 5px; }
+
+.typelist-thumbnailed { margin: 0 0 20px; }
+
+.typelist-thumbnailed .module-list-item
+{
+	margin: 1px 0;
+	border-width: 1px;
+	border-style: solid;
+	padding: 0;
+	background-repeat: repeat-x;
+	background-position: top left;
+}
+
+.module-featured-photo { width: 415px; }
+.module-featured-photo .module-content { margin: 15px 0 5px; }
+.module-featured-photo img { width: 415px; }
+
+.module-recent-photos { border: 0; margin-left: 2px; }
+.module-recent-photos .module-content {  }
+.module-recent-photos .module-list { margin: 0; }
+.module-recent-photos .module-list-item
+{
+	width: 64px; /* mac ie fix */
+	margin: 0 5px 6px 0;
+	padding: 0;
+	background-image: none;
+}
+
+.module-recent-photos .module-list-item a
+{
+	border: #ccc 1px solid;
+	padding: 1px;
+	background-color: #eee;
+}
+
+
+/* calendar tweaks */
+
+	.layout-calendar #gamma { width: 195px; margin-left: 0; }
+
+	.layout-calendar #gamma-inner, .layout-calendar #delta-inner { padding-top: 0; }
+
+	.module-mmt-calendar { width: 415px; margin: 0; }
+
+	.module-mmt-calendar .module-header,
+	.layout-timeline .module-recent-photos .module-header
+	{
+		margin: 0;
+		padding: 5px 15px;
+		color: #fff;
+		font-size: 13px;
+		font-weight: bold;
+		text-align: right;
+	}
+
+	.module-mmt-calendar .module-content { margin: 15px 0; }
+	.module-mmt-calendar .module-content tbody .day-date { color: #666; }
+
+	.module-mmt-calendar table
+	{
+		width: 415px;
+	}
+
+	.module-mmt-calendar th
+	{
+		color: #fff;
+		border-top: 1px solid #fff;
+		border-right-width: 1px;
+		border-right-style: solid;
+		border-bottom: 1px solid #ccc;
+		padding: 2px;
+		text-align: right;
+		font-weight: bold;
+	}
+
+	.module-mmt-calendar td
+	{
+		border-top: 1px solid #fff;
+		border-right-width: 1px;
+		border-right-style: solid;
+		border-bottom: 1px solid #ccc;
+		padding: 2px;
+		text-align: right;
+		font-weight: normal;
+		background-repeat: repeat-x;
+		background-position: top left;
+	}
+
+	th.weekday-7, td.day-7, td.day-14, td.day-21, td.day-28, td.day-35, td.day-42
+	{
+		border-right: none;
+	}
+
+	.day-photo a
+	{
+		border: #ccc 1px solid;
+		padding: 1px;
+		background-color: #eee;
+	}
+
+
+/* artistic tweaks */
+
+	.layout-artistic #gamma { margin-left: 0; }
+	.layout-artistic #delta { margin-left: 15px; }
+
+	.layout-artistic #gamma-inner { padding-top: 0; }
+	.layout-artistic #delta-inner { padding-top: 0; }
+
+
+/* moblog1 tweaks */
+
+	.layout-moblog1 #alpha { width: 180px; }
+	.layout-moblog1 #beta { width: 460px; }
+	.layout-moblog1 #gamma { width: 180px; margin-left: 40px; }
+
+	.layout-moblog1 .module-recent-photos { margin: 0; }
+	.layout-moblog1 .module-recent-photos .module-content { margin: 10px 0 0 15px; }
+
+
+/* moblog2 tweaks */
+
+	.layout-moblog2 #alpha { width: 65px; }
+	.layout-moblog2 #beta { width: 420px; margin-left: 20px; }
+	.layout-moblog2 #gamma { width: 195px; margin-left: 40px; }
+	.layout-moblog2 #delta { width: 120px; margin-left: 40px; }
+
+	.layout-moblog2 .module-photo .module-content { margin: 10px; }
+	.layout-moblog2 .module-photo .module-content img { width: 100px; height: auto; }
+
+	.layout-moblog2 .module-recent-photos { margin: 0; }
+	.layout-moblog2 .module-recent-photos .module-content { margin: 5px 0 0 0; }
+
+
+/* timeline tweaks */
+
+	.layout-timeline #alpha { width: 470px; }
+	.layout-timeline #beta { width: 390px; }
+	.layout-timeline #gamma { width: 170px; margin-left: 15px; }
+	.layout-timeline #delta { width: 170px; }
+
+	.layout-timeline #gamma-inner { padding-top: 0; }
+	.layout-timeline #delta-inner { padding-top: 0; }
+
+	.layout-timeline .module-recent-photos .module-content { margin: 10px 0 0 15px; }
+	.layout-timeline .module-recent-photos .module-list-item { margin: 0 10px 10px 0; }
+
+
+/* one-column tweaks */
+
+	.layout-one-column #container { width: 780px; }
+	.layout-one-column #banner { width: 780px; }
+
+	.layout-one-column #alpha { width: 740px; }
+
+
+/* two-column-left tweaks */
+
+	.layout-two-column-left #alpha { width: 200px; }
+	.layout-two-column-left #beta { width: 660px; }
+
+
+/* two-column-right tweaks */
+
+	.layout-two-column-right #alpha { width: 660px; }
+	.layout-two-column-right #beta { width: 200px; }
+
+
+/* three-column tweaks */
+
+	.layout-three-column #alpha { width: 180px; }
+	.layout-three-column #beta { width: 460px; }
+	.layout-three-column #gamma { width: 180px; margin-left: 40px; }
+
+
+/* three-column-right tweaks */
+
+	.layout-three-column-right #alpha { width: 460px; }
+	.layout-three-column-right #beta { width: 180px; }
+	.layout-three-column-right #gamma { width: 180px; margin-left: 40px; }

@@ -1,0 +1,926 @@
+// Homepage Script
+(function($){
+
+// fox namespace declaration
+if (typeof window.fox==="object") {
+	window.fox.home = {}; // create home object instance
+} else {
+	// override any non-object fox declaration. 
+	// fox is always the highest object declared namespace convention
+	window.fox = { 
+		home:{}
+	};
+}
+
+// DOCUMENT.Ready controller
+$(document).ready(function(){
+	
+	fox.home.initScripts = function() { // special init function to be called
+		if ($(document).data("homeScriptLoaded")) { return false; }
+		$(document).data("homeScriptLoaded",true);
+		
+		fox.home.videoIconOverlay.init(); // prioritize video icon overlay
+
+		fox.home.loaddisabledAds();
+		fox.home.genericItems();
+		fox.home.loaddisabledDocReadyVars();
+		fox.home.videoPlayer();
+		fox.home.onFoxVideoLinks();
+		fox.home.PGALeaderBoard(); // ADDED LEADERBOARD TRIGGER CALL
+	    setTimeout(fox.home.headlineTicker, 7000); 
+	};
+	
+	fox.home.initScripts(); // if inline trigger fails
+
+	$('a[rel="external"]').click(function(){
+		this.target = "_blank";
+	}); 
+});
+
+// SITE VARIABLES: Use this object to store global variables related to the home page
+window.siteVars = {
+	isIE: function(){ return $.browser.msie; },
+	// DEPRECATED: we no longer support IE6, but declared otherwise
+	isIE6: ($.browser.version==="6.0" && $.browser.msie) ? true : false 
+};
+
+// SITE PRE-LOADER: loaddisabledEvent function
+// - On demand function calls
+fox.home.loaddisabledEvent = function(componentId) {
+	$(componentId).each(function(){
+		if ($(this).hasClass(".market-snapshot")) {
+			fox.widgets.marketSnapShot();
+		}
+		if( componentId == "#strategyroom"){
+			fox.widgets.strategyRoomSchedule();
+		}
+		if( componentId == "#fox-spotlight"){
+			fox.widgets.carousel.spotlight(); // spotlight
+		}
+		
+	});
+};
+
+// GENERIC ITEMS: General site specific jQuery triggered items
+fox.home.genericItems = function() {
+	 fox.home.componentTabs($(".component.tabbed-mod")); // tabs
+	fox.home.timeStamp.set();
+
+	if ($.browser.msie) { fox.home.IEBookmark.set(); } // IE only bookmark pushdown
+	
+	// FF2
+	if ($.browser.mozilla && $.browser.version.substr(0,2) == "1.8") {
+        $(window).loaddisabled(function() {
+            $(".ads .ad").filter(function(){
+                return ($(this).css("display") === "inline-block") ? true : false;
+            }).wrapInner("<div></div>");
+        });
+        
+        $(function() {
+            $("#section-head *, .component *").filter(function(){
+                return ($(this).css("display") === "inline-block") ? true : false;
+            }).wrapInner("<div></div>");
+        });
+    }
+
+	// affiliates
+	$("#local-news").each(function(){
+		var affiliates = new Affiliates($(this));
+		affiliates.set();
+	});
+};
+
+// DOC.READY VARIABLES: defined variables only available on document.ready
+fox.home.loaddisabledDocReadyVars = function() {
+	var newVars = {};
+	for (i in newVars) { window.siteVars[i] = newVars[i]; }
+};
+
+fox.home.loaddisabledAds = function() {
+	// ads
+	if (typeof $.ad!=="undefined") {
+		$.ad.init();
+	} else {
+		showToConsole("[fox.home.loaddisabledAds] Ad script not found.");
+	}
+};
+
+fox.home.headlineTicker = function() {
+	var cfg = {
+		id: "section-ticker",
+		location: "httpdisabled://www.foxnews.com/i/redes/ticker.swf",
+		dim: [604,21],
+		flash: {
+			version: "9.0.0",
+			expressInstall: "httpdisabled://interactive.foxnews.com/swf/swfobject/expressInstall.swf",
+			vars: null
+		},
+		params: {
+			wmode: 'opaque',
+			scale: 'noScale',
+			menu: 'false'
+		}
+	};
+	
+	function isDevice() {
+		return ('createTouch' in document) ? true : false;
+	}
+	
+	if (!isDevice() && typeof swfobject!=="undefined") {
+		swfobject.embedSWF(cfg.location,cfg.id,cfg.dim[0],cfg.dim[1],cfg.flash.version,cfg.flash.expressInstall,cfg.flash.vars,cfg.params);
+	} else {
+		$("#section-ticker").hide();
+	}
+}; //video icon image overlay
+fox.home.videoIconOverlay = {
+	init: function() {
+		var FS = this;
+		this.setBreakingVideo();
+		this.setFeatures();
+	},
+	setBreakingVideo: function() {
+		if ($(document).data("breakingVideoHover")) { return false; }
+		$(document).data("breakingVideoHover",true);
+		var FS = this;
+		// breaking news video - reduce image size ratio: 35%
+		$("#breakingVideo").each(function(){ FS.set($(this),0.35); });
+	},
+	setFeatures: function() {
+		var FS = this;
+		// features & faces
+		$("#features-faces ul:first").find("li.video .media, li.live .media").each(function(){
+			FS.set($(this)); 
+		});
+		// featured videos tab
+		$(".section-9 .tabbed-mod > div:eq(1) li .media").each(function(){
+			FS.set($(this),false,[120,68]);
+		});
+	},
+	set: function(elm,ratio,dim) {
+		var FS = this;
+	
+		elm.each(function(){
+			var item = $(this), img = new Image();
+			img.onloaddisabled = function() {
+				var itemImg = item.find("img");
+				if (dim) { 
+					FS.setOverlay(item,ratio,dim);
+				} else {
+					FS.setOverlay(item,ratio,[item.width(),item.height()]);
+				}
+			};
+			img.src = elm.find("img").attr("src");
+		});
+	},
+	setOverlay: function(elm,ratio,dim) {
+		ratio = ratio || 0.70;
+		var overlaySrc = "httpdisabled://www.foxnews.com/static/all/img/vp-overlay${hover}.png";
+		
+		function hover(over) { return overlaySrc.replace("${hover}",(over) ? "-hover" : ""); }
+		function set() {
+			var resizeVal = (dim[1] < dim[0]) ? dim[1] : dim[0], // which dimension is shorter
+				resize = resizeVal * ratio,
+				imgW = resize, imgH = imgW,
+				ovrL = Math.floor((dim[0] * 0.5) - (imgW * 0.5)), ovrT = Math.floor((dim[1] * 0.5) - (imgH * 0.5));
+				
+			var overlay = $('<span class="vid-overlay"><img style="position:absolute; display:inline;" src="'+hover()+'"/></span>');
+			function px(val) { return val + "px"; }
+			
+			overlay.find("img").css({ top:px(ovrT),left:px(ovrL), width:imgW,minHeight:imgH });
+			elm.find("a").css({ position:"relative" });
+			elm.find("img").each(function(){
+				var item = $(this), parent = item.parent();
+				parent.css({ display:"block",padding:"0" }).prepend(overlay).click(function(){
+					var el = $(this), onclick = el.attr("onclick"), href = el.attr("href");
+					if (onclick) { eval(onclick); } else { window.location.href = href; }
+					return false;
+				});
+				var overlayImg = parent.find(".vid-overlay img");
+				elm.hover(function(){ overlayImg.attr("src",hover(true)); },function(){ overlayImg.attr("src",hover()); });
+			});
+		}
+		
+		var hoverImg = new Image();
+		hoverImg.src = hover(true);
+		set();
+	}
+}; // pga leaderboard start
+fox.home.PGALeaderBoard = function() {
+	var LBElm = $("#golf-leaderboard");
+	function isHide(bool) {
+		if (bool) { LBElm.hide(); } else { LBElm.show(); }
+	}
+	
+	function setTitle(title) {
+		val = title.toLowerCase();
+		var i, found = false, use = title;
+		
+		var keys = { // keywords to search for appropriate titles 
+			"honda": "Honda Classic",
+			"cadillac,gold": "Cadillac Championship",
+			"transitions": "Transitions Championship",
+			"arnold palmer": "Arnold Palmer Invitational"
+		};
+		
+		for (i in keys) {
+			var x, arr = i.split(",");
+			for (x = 0; x < arr.length; x++) { if (val.indexOf(arr[x])>-1) { use = keys[i]; found = true; break; } }
+			if (found) { break; }
+		}
+		return use;
+	}
+	
+	var scoreboard = new PGAScoreboard();
+	scoreboard.get({
+		url: "/xmlfeed/golf.xml",
+		parse: "FSStroke", // stroke play feed assumption
+		freq: "15", // cache str in mins
+		success: function(data) {
+			if (!data && !data.players && data.info.tournament.format!=="stroke") { isHide(true); return false; }
+			
+			var x, players = data.players, len = players.length, hasStarted = false,
+				elm = $("#golf-leaderboard"), table = elm.find("table"), tBody = table.find("tbody"), titleElm = elm.find("h3:first"),
+				clone = tBody.find("> tr:first").clone();
+			
+			function setAttr(attr) { return (typeof attr==="string" && $.trim(attr).length>0) ? attr : "&nbsp;"; }
+				
+			len = (len < 10) ? len : 10; // limit
+			tBody.find("> tr").remove(); // clean up
+			
+			// title
+			var title = data.info.tournament.name;
+			if (title.length>0) {
+				titleElm.html(setTitle(title)).show();
+			} else {
+				titleElm.hide();
+			}
+			
+			function appendInfo(info,num) {
+				var cloned = clone.clone(), name = info.name, tourn = info.tournament,
+					position = tourn.position,	nameStr = ((name.init.length>0) ? name.init : name.first.charAT(0)) + ". " + name.last;
+				
+				if (position.length>0 && !hasStarted) { hasStarted = true; }
+				var score = (hasStarted) ? setAttr(tourn.score.overall) : "&nbsp;";
+				
+				cloned.addClass((num%2===0) ? "even" : "odd");
+				cloned.find("td").each(function(i){
+					var td = $(this);
+					switch(i) {
+						case 0: td.html(position); break;
+						case 1: td.html(nameStr); break;
+						case 2: td.html(score); break;
+						case 3: td.html(setAttr(tourn.thru)); break;
+						default: td.html("&nbsp;");
+					}
+				});
+				tBody.append(cloned);
+			}
+			
+			for (x = 0; x < len; x++) {
+				appendInfo(players[x],x+1);
+			}
+			isHide();
+		},
+		error: function() {
+			isHide(true);
+		}
+	});
+};
+
+//leaderboard function end
+
+/*
+fox.home.mainEntry = function() {
+	// move H1 as the first element in section-first
+	$(".section.section-first").each(function(){
+		var elm = $(this);
+		elm.find("h1:first").each(function(){
+			var h1 = $(this);
+			var cloneH1 = h1.clone();
+			elm.parent().prepend(cloneH1);
+			h1.remove();
+		});
+	});
+};
+*/
+
+fox.home.timeStamp = {
+	set: function() {
+		// Sample: Wednesday, April 7, 2010 as of 11:14 AM ET
+		var TS = this;
+		if (typeof secTimeStamp!=="undefined") {
+			try {
+				var elm = $("#section-head p.time-stamp");
+				if (elm.data("timestamp")) { return false; }
+				elm.data("timestamp",true);
+				
+				var timeStr = secTimeStamp.replace(/am/i,"").replace(/pm/i,"");
+				var timeObj = new Date(timeStr);
+				var dateArr = [];
+				dateArr.push(TS.helper.getMonth(timeObj.getUTCMonth()) + " " + timeObj.getDate() + ", " + timeObj.getFullYear());
+				dateArr.push(" -- Updated at " + TS.helper.setTime(timeObj)); 
+				elm.html(dateArr.join("")).show();
+			} catch(err) {
+				showToConsole("[fox.home.timeStamp] Timestamp error: " + err);
+			}
+		}
+	},
+	helper: {
+		getDay: function(n) {
+			var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+			return days[n];
+		},
+		getMonth: function(n) {
+			var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+			return months[n];
+		},
+		setTime: function(obj) {
+			var hr = obj.getHours();
+			var min = obj.getMinutes()
+			var ampm = (hr>11) ? "PM" : "AM";
+			hr = (hr>12) ? hr-12 : (hr<1) ? "12" : hr;
+			min = (min < 10) ? "0"+min : min;
+			return hr + ":" + min + " " + ampm + " ET";
+		}
+	}
+}
+
+
+fox.home.videoPlayer = function() {
+	var videoDomain = 'video.foxnews.com';
+	var config = {
+		player: {
+				location: 'http://'+videoDomain+'/assets/akamai/FoxNewsPlayer.swf',
+				flashVersion: '10.0.0',
+				expressInstall: 'http://'+videoDomain+'/assets/akamai/expressInstall.swf',
+				params: {
+				bgcolor: '#000000',
+				wmode: 'opaque',
+				scale: 'noScale',
+				menu: 'false',
+				allowScriptAccess: 'always',
+				allowFullScreen: 'true'
+			},
+			flashVars: {
+				settings_url: 'http://'+videoDomain+'/assets/akamai/resources/conf/config.xml',
+				auto_play:'false',
+				auto_play_override:'true',				
+				auto_play_list: 'false',
+				scale_mode: 'fit',
+				next_video_timer: 7,
+				branding_preloaddisabled: 'FoxNews',
+				core_ads_enabled: 'false',
+				yume_ad_domain_code: '109RXfmeHtS',
+				yume_ad_server_domain: 'pl.yumenetworks.com',
+				core_ad_player_name: 'inpage',
+				core_yume_ad_library_url:'http://'+videoDomain+'/assets/akamai/yume_ad_library.swf',
+				core_yume_player_url:'http://'+videoDomain+'/assets/akamai/yume_player_4x3.swf'
+			}
+		},
+		display: {
+			allow: { // class declared attribute
+				'homepage-video': [328,185] },
+			restrict: {
+				sharingOverlay: ['homepage-video'],
+				emailOverlay: ['homepage-video'] },
+			clickThruImage: {
+				render: true,
+				overlayImg: "httpdisabled://www.foxnews.com/static/all/img/vp-overlay.png"
+			} 
+		}
+	};
+	
+	// Instantiate player globally
+	var videoPlayer = window.videoPlayer = new MvPlayer();
+	videoPlayer.init({
+		videoDomain: videoDomain,
+		namespace: 'videoPlayer',
+		config: config
+	});
+};
+
+fox.home.onFoxVideoLinks = function() {
+	function playLinkVideo(videoId,autoplay,callbackOptions) {
+		// it plays on page loaddisabled
+		callbackOptions = callbackOptions || false;
+		var VP = this;
+		var attempts = 0;
+		var id = "videoid:g"+videoId; // g for grab video
+		var timeoutObj = false;
+		
+		var config = {
+			holder: $(".component.entries-media").children("div.section.video"),
+			type: "video",
+			id: id,
+			cssClass: "homepage-video",
+			autoplay: true
+		};
+
+		function renderVideo() {
+			if (typeof videoPlayer!=="undefined") {
+				clearTimeout(timeoutObj);
+				videoPlayer.render(config);
+			} else if (attempts<50) {
+				attempts++;
+				clearTimeout(timeoutObj);
+				timeoutObj = setTimeout(function(){ renderVideo(); },100);
+			} else {
+				clearTimeout(timeoutObj);
+				showToConsole("[warning] oFoxVideo.playVideo(): Maximum player renderer attempts exceeded"); return false;
+			}
+		}
+
+		renderVideo();
+	}
+	
+	var component = $(".component.entries-media");
+	component.children("div.section").children("ul.list-ext-2").children("li").find("a").each(function(){
+		var aTag = $(this);
+		var href = aTag.attr("href");
+		var id = false;
+		
+		if (href.indexOf("video.foxnews.com/v/")>-1) {
+			var split = href.split("video.foxnews.com/v/");
+			if (typeof split[1]!=="undefined") {
+				id = split[1].substring(0,split[1].indexOf("/"));
+				if (isNaN(id)) { id = false; } // if not a numerical id, it is not a video id
+			}
+		}
+		
+		if (id) {
+			aTag.attr("href","#").unbind("click").click(function(){
+				playLinkVideo(id);
+				return false;
+			});
+		}
+	});
+};
+
+fox.home.componentTabs = function(tabElm) {
+	tabElm = tabElm || false;
+	if (!tabElm) { return false; }
+	
+	var config = {
+		show: 1, // 1st item
+		controlActiveClass: "active"
+	};
+	
+	tabElm.each(function(){
+		var tab = $(this);
+		
+		if (tab.data("initialized")) { return false; } // don't initialize more than once
+		
+		var controls = tab.children("ul.controller").children();
+		var sections = tab.children("div.section");
+		
+		controls.each(function(i){
+			var item = $(this);
+			var aTag = item.find("a");
+
+			aTag.click(function(){ // set click event
+				if (typeof sections[i]!=="undefined") {
+					if (tab.data("index")===i) { return false; } // don't re-trigger if it is the same tab
+					
+					controls.filter(function(z){ // set classes
+						if (z!==i) { 
+							$(this).removeClass(config.controlActiveClass);
+						} else {
+							$(this).addClass(config.controlActiveClass);
+						}
+					});
+					
+					sections.filter(function(z){ $(this).css("display",(z!==i)?"none":"block"); }); // set section
+					
+					tab.data("index",i); // store current index
+					
+				} else {
+					showToConsole("[fox.home.componentTabs] No associated content (index:"+(i+1)+")");
+				}
+				return false;
+			});
+			
+			if (config.show===i+1) { // trigger show
+				aTag.click();
+			}
+			
+		});
+		
+		tab.data("initialized",true); // set element as initialized
+		
+	});
+	
+};
+
+//homepage bookmark in IE
+fox.home.IEBookmark = {
+	set: function() {
+		if (!$.browser.msie && !window.external) { return false; } // making sure
+		
+		var cookie = {
+			name: "FB_hp_def",
+			expires: 365,
+			expiresShort: 7
+		};
+		
+		var HPLocation = "httpdisabled://www.foxnews.com/";
+		
+		function verify(elm) {
+			elm.style.behavior = "url(#default#homepage);"; 
+			var isHP = elm.isHomePage('http://www.foxnews.com/');
+			return isHP;
+		}
+		
+		if (!$.cookie(cookie.name)) {
+			// check if it is the first in the history list
+			// first in the history list assumption is that it is a homepage default
+			if (typeof history==="object") {
+				if (history.length===1) { return false; } // if cookie duration has not expired, don't pop this up
+			}
+		} else {
+			return false; // don't trigger if there is a cookie
+		}
+		
+		if (verify(document.body)) {
+			return false; // if ever it verifies
+		}
+		
+		var htmlArr = [];
+		htmlArr.push('<div id="pd" style="display:none;"><div class="pd-encap"><p>Would you like to set FoxNews.com as your homepage?</p>');
+		htmlArr.push('<a href="#" class="pd-a1">Yes</a><a href="#" class="pd-a2">No</a><a href="#" class="pd-a3">Close</a>');
+		htmlArr.push('</div></div>');
+
+		$(htmlArr.join("")).insertBefore($("#section-head"));
+
+		var elm = $("#pd");
+		var height = elm.height();
+		var delay = 1000; // 2 secs
+
+		var animateElm = {
+			show: function() {
+				$(document).ready(function(){
+					elm.css({ minHeight:"0px", height:"0px", display:"", overflow:"hidden" });
+					elm.animate({ minHeight:height+"px" },delay,"linear");
+				});
+			},
+			hide: function() {
+				$(document).ready(function(){
+					elm.animate({ minHeight:"0px" },delay,"linear",function(){ elm.remove(); });
+				});
+				
+			}
+		};
+		
+		function setHomepage(elm) {
+			// raw settings
+			elm.style.behavior = "url(#default#homepage);"; elm.setHomepage(HPLocation);
+			animateElm.hide();
+		}
+		
+		function setCookie(shortExp) {
+			shortExp = shortExp || false;
+			var exp = (shortExp) ? cookie.expiresShort : cookie.expires;
+			$.cookie(cookie.name,"sd-ie-"+(new Date()).getTime(),exp);
+		}
+
+		elm.find("a").unbind("click").each(function(){
+			var item = $(this);
+			var css = item.attr("class");
+
+			item.click(function(){
+				// always set the cookie
+				setCookie();
+				
+				switch(css) {
+					case "pd-a1": setHomepage(this); break;
+					case "pd-a2": animateElm.hide(); break;
+					case "pd-a3": animateElm.hide(); break;
+				}
+				return false;
+			});
+		});
+		
+		animateElm.show();
+	}
+};
+
+
+function showToConsole(str) {
+	if (typeof window.console==='object') { console.log(str); }
+}
+
+})(jQuery);
+
+/*** Affiliates Feed Script ***/
+
+// Load Attempt
+$.extend({loaddisabledAttempt:function(a){function b(){if(a.callback.check()){a.callback.success&&a.callback.success();clearTimeout(c)}else if(d<a.maxAttempts)c=setTimeout(function(){b()},a.timeout);else a.callback.timedOut&&a.callback.timedOut()}a=a||false;if(!a)return false;if(!a.maxAttempts||!a.timeout||!a.callback)return false;if(typeof a.callback.check!=="function")return false;if(isNaN(a.timeout))return false;else a.timeout=parseInt(a.timeout,10);if(isNaN(a.maxAttempts))return false;else a.maxAttempts= parseInt(a.maxAttempts,10);var d=0,c=false;b()}});
+
+// Lookup Script
+(function(){
+	
+	var CONST = {
+		map: [{ z:99500, s:"AK" },{ z:98000, s:"WA" },{ z:97000, s:"OR" },{ z:96900, s:"XX" },{ z:96700, s:"HI" },{ z:96200, s:"AP" },{ z:90000, s:"CA" },{ z:89000, s:"NV" },{ z:88500, s:"TX" },{ z:87000, s:"NM" },{ z:85000, s:"AZ" },{ z:84000, s:"UT" },{ z:83200, s:"ID" },{ z:82000, s:"WY" },{ z:80000, s:"CO" },{ z:75000, s:"TX" },{ z:73000, s:"OK" },{ z:71600, s:"AR" },{ z:70000, s:"LA" },{ z:68000, s:"NE" },{ z:66000, s:"KS" },{ z:63000, s:"MO" },{ z:60000, s:"IL" },{ z:59000, s:"MT" },{ z:58000, s:"ND" },{ z:57000, s:"SD" },{ z:56900, s:"DC" },{ z:55000, s:"MN" },{ z:53000, s:"WI" },{ z:50000, s:"IA" },{ z:48000, s:"MI" },{ z:46000, s:"IN" },{ z:43000, s:"OH" },{ z:40000, s:"KY" },{ z:38600, s:"MS" },{ z:37000, s:"TN" },{ z:35000, s:"AL" },{ z:34000, s:"AA" },{ z:32000, s:"FL" },{ z:30000, s:"GA" },{ z:29000, s:"SC" },{ z:27000, s:"NC" },{ z:24700, s:"WV" },{ z:22000, s:"VA" },{ z:20600, s:"MD" },{ z:20000, s:"DC" },{ z:19700, s:"DE" },{ z:15000, s:"PA" },{ z:10000, s:"NY" },{ z:7000, s:"NJ" },{ z:6000, s:"CT" },{ z:5000, s:"VT" },{ z:3900, s:"ME" },{ z:3000, s:"NH" },{ z:2800, s:"RI" },{ z:1000, s:"MA" },{ z:600, s:"PR" },{ z:500, s:"NY" }],
+		mapOneOff: {
+			AK: 98791, // 98791 - no name
+			NY: 6390, // Fishers Island, NY
+			TN: 42223, // Fort Cambell, TN
+            AM: 96799 //American Samoa
+		},
+		region: {
+			Mountain: "AZ,CO,ID,MT,NM,NV,UT,WY",
+			Northeast: "CT,DE,DC,MA,ME,MD,NJ,NH,NY,VT,PA,RI",
+			West: "CA,AK,HI,OR,WA",
+			Midwest: "IA,IL,IN,KS,MI,MN,ND,NE,OH,WI,SD,KY", 
+			South: "MO,AL,AR,LA,KT,MS,TN,TX,OK",
+			Southeast: "VA,NC,SC,GA,FL,WV"
+		}
+	};
+	
+	window.LocationLookup = function() {};
+	
+	LocationLookup.prototype = {
+		getByZip: function(zip) {
+			var rawZip = zip;
+			zip = (/(^\d{5}$)/.test(zip)) ? parseInt(zip,10) : false;
+			
+			if (!zip) { return false; }
+			var LL = this, state = LL.get.state(zip), region = LL.get.region(state);
+			return ({ zip:rawZip, state:state, region:region });
+		},
+		getByState: function(state) {
+			if (typeof state!=="string") { return false; }
+			state = state.toUpperCase();
+			var i, region = false, LL = this;
+			for (i in CONST.region) {
+				if (CONST.region[i].indexOf(state)>-1) { region = LL.get.region(state); break; }
+			}
+			return (region) ? ({ state:state, region:region }) : false;
+		}
+	};
+	
+	LocationLookup.prototype.get = {
+		state: function(zip) {
+			var i, map = CONST.map, oneoff = CONST.mapOneOff;
+			for (i in oneoff) { if (zip===oneoff[i]) { return i; } }
+			
+			for (i = 0; i < map.length; i++) {
+				var item = map[i]; if (zip >= item.z) { return item.s; }
+			}
+			return false;
+		},
+		region: function(state) {
+			var i, map = CONST.region;
+			for (i in map) { if (map[i].indexOf(state)>-1) { return i; } }
+			return false;
+		}
+	};
+	
+}());
+
+// Affiliates Script
+(function($){
+	
+	var lookup = new LocationLookup();
+	var	CONST = {
+		inputStr: "Enter Zip Code",
+		cName: "cFox_UsrLoc",
+		geoLink: "httpdisabled://www.foxnews.com/static/all/js/geo.js",
+		domainPath: "/static/includes/partners/affiliates/"
+	};
+	
+	window.Affiliates = function(elm) {
+		this.elmObj = { 
+			elm:elm,
+			form: elm.find("form:first"),
+			err: elm.find(".local-news-error"),
+			holder: elm.find(".item-unit")
+		};
+		this.currentRegion = false;
+		this.hasInitialized = false;
+	};
+	
+	Affiliates.prototype = {
+		set: function() {
+			var AF = this;
+			
+			this.setHolders();
+			this.cookie.set(function(data){ 
+				if (data) { AF.getFeed(data); } else { AF.getGeo(); } 
+			});
+		},
+		setHolders: function() {
+			var AF = this, elm = AF.elmObj, form = elm.form, err = elm.err, 
+				input = form.find("#local-news-zipcode"),
+				submit = form.find("input[type='submit']");
+			
+			function errShow(bool) {
+				err.toggleClass("show-error",(bool || false));
+			}
+			
+			// reset
+			input.val(CONST.inputStr);
+			input.attr("maxlength","5");
+			
+			// focus/blur
+			input.data("inputVal",CONST.inputStr);
+			input.focus(function(){
+				if ($(this).val()===input.data("inputVal")) { $(this).val(""); }
+			}).blur(function(){
+				if ($(this).val()==="") { $(this).val(input.data("inputVal")); }
+			}).keypress(function(){
+				errShow();
+			});
+			
+			var formSubmit = function() {
+				if (input.val()!==input.data("inputVal")) {
+					var zip = form.find("#local-news-zipcode").val(), data = lookup.getByZip(zip);
+
+					errShow(); // reset error
+					if (data.region) { AF.getFeed(data); } else { errShow(true); }
+				}
+				return false;
+			};
+			
+			// submission
+			form.submit(formSubmit);
+			submit.click(formSubmit);
+		},
+		getGeo: function() {
+			var AF = this, elm = AF.elmObj, script = document.createElement('script');
+			script.type = "text/javascript";
+			script.async = true;
+			script.src = CONST.geoLink;
+			(document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(script);
+			
+			$.loaddisabledAttempt({
+				maxAttempts: 60,
+				timeout: 500,
+				callback: {
+					check: function() { return (typeof CONST_Akamai_GEO!=="undefined") ? true : false; },
+					success: function() {
+						var regionCode = (CONST_Akamai_GEO.countryCode.toLowerCase()==="us") ? CONST_Akamai_GEO.regionCode : "NY"; // Default to NY
+						var data = lookup.getByState(regionCode);
+						AF.getFeed(data);
+					}
+				}
+			});
+			
+		},
+		getFeed: function(info) {
+			var AF = this,
+				url = CONST.domainPath + info.region.toLowerCase() + ".html",
+				holder = this.elmObj.holder,
+				region = info.region.toLowerCase();
+
+			if (!url) { return; }
+			if (info.zip) { AF.cookie.save(info.zip); }
+	
+			AF.updateTitle(info);
+			if (AF.currentRegion===region && AF.hasInitialized) { return; }
+			AF.currentRegion = region;
+			
+			$.ajax({
+				type: "GET",
+				url: url,
+				dataType: "text",
+				success: function(data) {
+					AF.hasInitialized = true;
+					holder.html(data);
+					holder.find("a[rel='external']").attr("target","_blank");
+				}
+			});
+		},
+		updateTitle: function(data) {
+			var elm = this.elmObj.elm.find("> h2:first"),
+				disp = elm.find(".local-news-zipcode-display");
+			
+			if (disp.size()===0) {
+				elm.append('<span class="local-news-zipcode-display">&nbsp;</span>');
+				disp = elm.find(".local-news-zipcode-display");
+			}
+			disp.html((data.state) ? "&nbsp;("+data.state+")" : "");
+		}
+	};
+	
+	Affiliates.prototype.cookie = {
+		set: function(fn) {
+			if ($.cookie && $.cookie(CONST.cName)) {
+				var data = lookup.getByZip($.cookie(CONST.cName));
+				if (data.region) { fn(data); } else { fn(false); }
+			} else {
+				fn(false);
+			}
+		},
+		save: function(val) {
+			if ($.cookie) { 
+				if ($.cookie(CONST.cName)!==val) { $.cookie(CONST.cName,val); }
+			}
+		}
+	};
+	
+}(jQuery));
+
+
+// PGA Leaderboard Script2 begin
+(function($){
+	
+	window.PGAScoreboard = function() {
+		
+	};
+	
+	PGAScoreboard.prototype = {
+		get: function(config) {
+			this.getFeed(config);
+		},
+		getFeed: function(cfg) {
+			var SB = this;
+			cfg.parse = cfg.parse || "raw";
+			$.ajax({
+				url: cfg.url,
+				data: { b: cacheBuster(cfg.freq || false) },
+				dataType: "xml",
+				cache: true,
+				async: true,
+				success: function(data) { cfg.success(SB.parse[cfg.parse](data)); },
+				error: function() { if (typeof cfg.error==="function") { cfg.error(); } }
+			});
+		}
+	};
+	
+	PGAScoreboard.prototype.parse = {
+		raw: function(data) {
+			return data;
+		},
+		scrape: function(data) {
+			var obj = {}, doc = $(data);
+			obj = { players: [] };
+			
+			doc.find("player").each(function(i){
+				var tmp = {}, item = $(this);
+				item.children().each(function(){ tmp[this.nodeName] = $(this).text(); });
+				obj.players.push(tmp);
+			});
+			return obj;
+		},
+		FSStroke: function(data) {
+			var obj = {}, tmpObj = {}, doc = $(data);
+			obj = {
+				info: {},
+				players:[] };
+			
+			function c(item) { return (item) ? item : ""; }
+			var main = doc.find("Tourn");
+			
+			// tournament info
+			obj.info.tournament = {
+				name: main.attr("Name"),
+				format: c(main.attr("Format")).toLowerCase(),
+				round: {
+					state: c(main.attr("CurRndState")),
+					current: c(main.attr("CurRnd")),
+					cutoff: c(main.attr("CutRnd")),
+					total: c(main.attr("NumRnds"))
+				}
+			};
+			
+			// players
+			main.find("> Players > Player").each(function(){
+				var item = $(this), round = item.find("> Rnd");
+				tmpObj = {
+					id: item.attr("PID"),
+					name: {
+						first: item.attr("Fname"),
+						last: item.attr("Lname"),
+						init: c(item.attr("FInit"))
+					},
+					tournament: {
+						position: c(item.attr("CurPos")),
+						thru: c(item.attr("Thru")),
+						curRound: c(item.attr("CurRnd")),
+						score: {
+							current: c(item.attr("CurParRel")),
+							overall: c(item.attr("TournParRel"))
+						}
+					}
+				};
+				obj.players.push(tmpObj);
+			});
+			showToConsole(obj);
+			return obj;
+		}
+	};
+	
+	function showToConsole(str) {
+		if (typeof window.console==="object") { console.log(str); }
+	}
+	
+	function cacheBuster(freq) {
+		freq = freq || false;
+		var date = new Date(), str = date.getFullYear().toString() + (date.getMonth()+1).toString() + date.getDate().toString(),
+			hr = date.getHours()+1, min = date.getMinutes();
+		str += hr.toString() + ((freq && !isNaN(freq)) ? (Math.floor(min/parseInt(freq,10))).toString() : "");
+		return str;
+	}
+	
+}(jQuery));
+// PGA Leaderboard Script2 end

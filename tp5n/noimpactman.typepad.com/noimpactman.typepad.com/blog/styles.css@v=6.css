@@ -1,0 +1,114 @@
+/* Base */
+@import url(../../static.typepad.com/.shared%253Av20110414.01-0-g3974e09%253Atypepad%253Aen_us/themes/common/base-weblog.css);
+
+/* Tip Jar */
+@import url(../../static.typepad.com/.shared%253Av20110414.01-0-g3974e09%253Atypepad%253Aen_us/themes/common/tipjar.css);
+
+/* Portal */
+
+/* Theme */
+@import url(../../static.typepad.com/.shared%253Av20110414.01-0-g3974e09%253Atypepad%253Aen_us/themes/vox/theme-hills_green.css);
+
+/* Custom CSS */
+body
+{
+	background-color: #fff;
+	background-image: url(../../www.missmaryk.com/nimbg3.gif);
+        background-repeat: repeat;
+font-family: helvetica, arial, sans-serif;
+	font-size: 13px;
+line-height: 19px;
+}
+
+
+a { color: #92A200; }
+
+.entry-header a { color: #92A200; }
+.content-header { color: #92A200; }
+
+
+
+ 
+.module-header,
+.trackbacks-header,
+.comments-header,
+.void-header,
+.archive-header
+{
+	color: #92A200;
+}
+
+.entry-header { color: #92A200; }
+
+
+#pagebody
+{
+	border-width: 1px;
+	border-style: solid;
+	border-color: #fff;
+	padding: 15px 0;
+	background-color: #fff;
+}
+
+
+.entry { background-image: url(../../www.missmaryk.com/headerorn.gif); }
+
+
+/* banner image */
+	
+	#banner
+	{
+		height: 338px;
+		background-image: url("../impactheader7.jpg");
+		background-position: 0px 0px;
+		background-repeat: no-repeat;
+		text-align: left;
+	border-top-width: 0px;
+	border-color: #FFF;
+		border-width: 1px;
+	border-style: solid;
+	}
+	
+	#banner-inner { overflow: visible; padding: 0; }
+	
+	#banner-header
+	{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	
+	#banner-header a
+	{
+		display: block;
+		left: 0;
+		top: 0;
+		height: 338px;
+		text-indent: -1000em;
+	}
+	
+	#banner-description
+	{
+		overflow: hidden;
+		width: 0;
+		height: 0;
+		margin: 0;
+		padding: 0;
+		text-indent: -1000em;
+	}
+
+
+.entry-body img {
+margin: 0 5px;
+
+	padding: 4px;
+
+	border: 1px solid #ccc;}
+
+
+
+/* ph=1 */

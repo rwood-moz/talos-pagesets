@@ -1,0 +1,54 @@
+if (typeof(Hatena) == 'undefined') Hatena = {};
+
+Hatena.ServiceIcon = new Ten.Class({
+    initialize: function(icon, order) {
+        this.icon           = icon;
+        this.order          = order;
+        this.title          = this.icon.title;
+        this.alt            = this.icon.alt;
+        this.originalImage  = icon.src;
+        this.mouseOverImage = this.originalImage.replace(/(\.gif)$/, '-hover.gif');
+
+        this.icon.title     = '';
+        this.icon.alt       = '';
+        this.popUpBox = new Ten.Element('div', { style : { display : 'none' } });
+        this.popUpBox.appendChild(document.createTextNode(this.alt));
+        if (this.order == 'last') {
+            this.popUpBox.className = 'menu-popup-box menu-popup-box-last';
+        }
+        else {
+            this.popUpBox.className = 'menu-popup-box';
+        }
+        Ten.DOM.insertAfter(this.popUpBox, this.icon.parentNode);
+
+        new Ten.Observer(icon, 'onmouseover', this, 'onMouseOver');
+        new Ten.Observer(icon, 'onmouseout',  this, 'onMouseOut');
+    }
+}, {
+    onMouseOver: function (event) {
+        event.stop();
+        if (this.popUpBox) Ten.DOM.show(this.popUpBox);
+        this.icon.src = this.mouseOverImage;
+    },
+    onMouseOut : function (event) {
+        event.stop();
+        if (this.popUpBox) Ten.DOM.hide(this.popUpBox);
+        this.icon.src = this.originalImage;
+    }
+});
+
+Ten.DOM.addEventListener('DOMContentLoaded', function() {
+    var service_icons = Ten.DOM.getElementsByTagAndClassName(
+        'img', 'service'
+    );
+    for (var i = 0; i < service_icons.length; i++) {
+        var order;
+        if (i == (service_icons.length - 1)) {
+            order = 'last';
+        }
+        else {
+            order = i + 1;
+        }
+        new Hatena.ServiceIcon(service_icons[i], order);
+    }
+});

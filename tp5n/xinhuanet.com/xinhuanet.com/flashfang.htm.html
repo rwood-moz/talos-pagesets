@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="publishid" content="119389.0.102"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <title>Highflash</title>
+    <link rel="STYLESHEET" type="text/css" href="../imgs.xinhuanet.com/icon/2010sy/css0910.css" />
+  </head>
+  <body>
+    <div id="focus" />
+    <div id="au">
+<div style="display: block"><a href="http://news.xinhuanet.com/photo/2011-04/08/c_121283474.htm" target="_blank"><img src="titlepic/11760257_l0h.jpg" width="293" height="183" /></a></div>
+<div style="display: none"><a href="http://news.xinhuanet.com/photo/2011-04/08/c_121282476.htm" target="_blank"><img src="titlepic/11760224_l0h.jpg" width="293" height="183" /></a></div>
+<div style="display: none"><a href="http://news.xinhuanet.com/photo/2011-04/08/c_121283178.htm" target="_blank"><img src="titlepic/11760189_l0h.jpg" width="293" height="183" /></a></div>
+<div style="display: none"><a href="http://news.xinhuanet.com/photo/2011-04/08/c_121282770.htm" target="_blank"><img src="titlepic/11760155_l0h.jpg" width="293" height="183" /></a></div>
+<div style="display: none"><a href="http://news.xinhuanet.com/photo/2011-04/08/c_121282896.htm" target="_blank"><img src="titlepic/11759962_l0h.jpg" width="293" height="183" /></a></div>
+</div>
+    <div id="no"></div>
+    <div class="lunbo">
+      <table border="0" cellPadding="0" cellSpacing="0" align="right">
+        <tr>
+          <td class="active" id="t0" onmouseover="Mea(0);clearAuto();" onmouseout="setAuto();">1</td>
+          <td width="6"></td>
+          <td class="bg" id="t1" onmouseover="Mea(1);clearAuto();" onmouseout="setAuto();">2</td>
+          <td width="6"></td>
+          <td class="bg" id="t2" onmouseover="Mea(2);clearAuto();" onmouseout="setAuto();">3</td>
+          <td width="6"></td>
+          <td class="bg" id="t3" onmouseover="Mea(3);clearAuto();" onmouseout="setAuto();">4</td>
+          <td width="6"></td>
+          <td class="bg" id="t4" onmouseover="Mea(4);clearAuto();" onmouseout="setAuto();">5</td>
+        </tr>
+      </table>
+    </div>
+    <div id="conau">
+<div><a href="http://news.xinhuanet.com/photo/2011-04/08/c_121283474.htm" target="_blank">深圳再次强制拆除“海上皇宫”</a> </div>
+<div style="display: none"><a href="http://news.xinhuanet.com/photo/2011-04/08/c_121282476.htm" target="_blank">逛全球十大最美丽的书店</a> </div>
+<div style="display: none"><a href="http://news.xinhuanet.com/photo/2011-04/08/c_121283178.htm" target="_blank">“马屁神曲”当事县委书记回应“不知情”</a> </div>
+<div style="display: none"><a href="http://news.xinhuanet.com/photo/2011-04/08/c_121282770.htm" target="_blank">奇人奇事：瑞典夫妻环球度蜜月遇上6场灾难</a> </div>
+<div style="display: none"><a href="http://news.xinhuanet.com/photo/2011-04/08/c_121282896.htm" target="_blank">美驻华大使卸任在即 上海街头骑哈雷联谊</a> </div>
+</div>
+</div>
+    <script type="text/javascript"> 
+      var n=0;
+      function Mea(value){
+      	n=value;
+      	setBg(value);
+      	plays(value);
+      	conaus(n);
+      	}
+      function setBg(value){
+      	for(var i=0;i<5;i++)
+      		document.getElementById("t"+i+"").className="bg";
+      		document.getElementById("t"+value+"").className="active";
+      	} 
+      function plays(value){
+      	try
+      	{
+      		with (au){
+      			filters[0].Apply();
+      			for(i=0;i<5;i++)i==value?children[i].style.display="block":children[i].style.display="none"; 
+      			filters[0].play(); 		
+      			}
+      	}
+      	catch(e)
+      	{
+      		var d = document.getElementById("au").getElementsByTagName("div");
+      		for(i=0;i<5;i++)i==value?d[i].style.display="block":d[i].style.display="none"; 
+      	}
+      }
+      function conaus(value){
+      	try
+      	{
+      		with (conau){
+      
+      				for(i=0;i<5;i++)i==value?children[i].style.display="block":children[i].style.display="none"; 
+      				
+      				}
+      	}
+      	catch(e)
+      	{
+      		var d = document.getElementById("conau").getElementsByTagName("div");
+      		for(i=0;i<5;i++)i==value?d[i].style.display="block":d[i].style.display="none"; 
+      	}
+      
+      }
+      function clearAuto(){clearInterval(autoStart)}
+      function setAuto(){autoStart=setInterval("auto(n)", 4000)}
+      function auto(){
+      	n++;
+      	if(n>4)n=0;
+      	Mea(n);
+      	conaus(n);
+      } 
+      setAuto(); 
+       
+    </script>
+  </body>
+</html>

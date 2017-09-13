@@ -1,0 +1,12 @@
+void('<!-- flash click begin -->\n');
+var ad = 'http://img.ifeng.com/tres/recommend/mbs/110331-mbs-660x90.swf';
+var a = 'http://sc.ifeng.com/event.ng/Type=click&FlightID=65936&AdID=63647&TargetID=1250&ASeg=&AMod=&AOpt=0&Segments=1,160,1495&Targets=196,1250&Values=30,46,50,63,77,86,101,110,204,205,207,222,232,597&RawValues=&Redirect=http://www.monteamor.com/?cn=1178&type=0&adsiteid=10000007';
+var w = '660';
+var h = '90';
+
+(function(flash_ad, flash_a, flash_w, flash_h){
+	var id = "flash_click_" + Math.ceil(Math.random()*1000000);
+	flash_nad = '<objectdisabled  width="'+flash_w+'px" height="'+flash_h+'px" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="httpdisabled://downloaddisabled.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" id="flash_swf_'+id+'"><param name="wmode" value="opaque"/><param name="movie" value="'+flash_ad+'"><embeddisabled  width="'+flash_w+'px" height="'+flash_h+'px" wmode="opaque" src="'+flash_ad+'" type="application/x-shockwave-flash"></embed></object>';
+	void('<div style="clear: both; margin: 0 auto; width:'+flash_w+'px;height:'+flash_h+'px;" id="flash_outer_2_'+id+'"><div style="width:'+flash_w+'px;height:'+flash_h+'px;" id="flash_outer_1_'+id+'">'+flash_nad+'</div><a href="'+flash_a+'" target="_bank"><img style="z-index:3;top:0px;left:0px; margin-top: -'+flash_h+'px;width:'+flash_w+'px;height:'+flash_h+'px;border:0px" src="httpdisabled://img.ifeng.com/tres/recommend/html/test/1x1.gif"></a></div><div class="clear"></div>');
+})(ad, a, w, h);
+void('<!-- flash click end -->');

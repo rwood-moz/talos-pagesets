@@ -1,0 +1,300 @@
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "httpdisabled://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Digg Ad Title</title>
+    <style type="text/css" media="screen">
+        /**
+         * Global Reset
+         *
+         * Gives all the browsers a nice, clean starting point.
+         * Slightly modified version of Eric Meyer's reset
+         * http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaddisableded/
+         *
+         * @author Jamie Lottering <jlottering@digg.com>
+         */
+         .group {
+             display: block;
+         }
+             .group:after {
+                 clear: both;
+                 content: ".";
+                 display: block;
+                 height: 0;
+                 visibility: hidden;
+             }
+         /*  \*/
+         .group {
+             min-height: 1%;
+         }
+         * html .group {
+             height: 1%;
+         }
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, font, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td {
+            background: transparent;
+            border: 0;
+            font-size: 100%;
+            margin: 0;
+            outline: 0;
+            padding: 0;
+            text-decoration: none;
+            vertical-align: baseline;
+        }
+        a, a:visited {
+            color: #105cb6;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 12px;
+        }
+        blockquote,
+        q {
+            quotes: none;
+        }
+            blockquote:before,
+            blockquote:after,
+            q:before,
+            q:after {
+                content: '';
+                content: none;
+            }
+        ol,
+        ul {
+            list-style: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        th {
+            display: table-cell;
+        }
+        tr {
+            display: table-row;
+            vertical-align: inherit;
+        }
+        thead {
+            display: table-header-group;
+            vertical-align: middle;
+        }
+        .ad {
+            margin-bottom: 30px;
+        }
+
+        
+        .diggable-short {
+            padding-left: 60px;
+            width: 240px;
+        }
+            .diggable-short .diggable-ad-sponsored {
+                background: none;
+            }
+
+        .diggable-short .diggable-ad-title {
+            display: block;
+            float: none;
+            margin-bottom: 5px;
+            padding: 0;
+        }
+
+        .diggable-short .diggable-ad-text {
+            color: #666;
+            line-height: 14px;
+        }
+
+        .diggable-ad-host {
+            color: #fbe3cb;
+            text-decoration: underline;
+        }
+            .diggable-ad-host span {
+                color: #ea7500;
+            }
+
+        .diggable-short-media {
+            float: left;
+            margin-left: -60px;
+            width: 51px;
+        }
+            .diggable-short-media img {
+                display: block;
+                height: 51px;
+                width: 51px;
+                border-radius: 5px 5px 0 0;
+                -moz-border-radius: 5px 5px 0 0;
+                -webkit-border-radius: 5px 5px 0 0;
+            }
+            .diggable-short .digg-it {
+                margin: 0 3px 1px!important;
+            }
+            .diggable-short .diggable-ad-button-top a {
+                color: #756834;
+                font-size: 15px;
+            }
+            .diggable-short-media .diggable-ad-button {
+                background: #fff095 url('../dads.diggstatic.com/ads/img/global.png') no-repeat;
+                border: 1px solid #efde7d;
+                margin-left: 0;
+                padding-bottom: 2px;
+                width: 49px;
+                border-radius: 0 0 3px 3px;
+                -moz-border-radius: 0 0 3px 3px;
+                -webkit-border-radius: 0 0 3px 3px;
+            }
+
+        .diggable-short-content {
+            color: #666;
+            float: left;
+        }
+
+
+        .diggable-ad-button {
+            background: #fff095 url('../dads.diggstatic.com/ads/img/global.png') no-repeat;
+            border-top: 1px solid #ece080;
+            float: left;
+            margin-left: -63px;
+            text-align: center;
+            width: 51px;
+        }
+            .diggable-ad-button .digg-it {
+                margin: 0 5px 1px;
+                padding: 2px 2px 3px 3px;
+            }
+
+        .diggable-ad-button-top a {
+            color: #93883e;
+            display: block;
+            font-size: 18px;
+            letter-spacing: -0.03em;
+            padding: 3px 0 3px;
+        }
+
+        .diggable-ad-title {
+            color: #265cb7;
+            float: left;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 16px;
+            padding-top: 9px;
+        }
+            .diggable-ad-title:hover {
+                color: #333;
+            }
+
+        .diggable-ad-sponsored {
+            background: url(../dads.diggstatic.com/ads/dangle/img/diggable_footer.png) no-repeat 0 0;
+            color: #84a0c5;
+            padding-top: 7px;
+            text-align: right;
+        }
+            .diggable-ad-sponsored strong {
+                color: #608ac9;
+            }
+            .digg-btn a,
+            .digg-it {
+                background: #fff;
+                border: 1px solid #fff;
+                display: block;
+                font-weight: bold;
+                padding: 3px 2px 5px 4px;
+                text-align: center;
+                border-radius: 3px;
+                -moz-border-radius: 3px;
+                -webkit-border-radius: 3px;
+            }
+            .digg-btn-icon {
+                background: url(../dads.diggstatic.com/ads/img/digg_btn_icon.png) no-repeat left top;
+                float: left;
+                height: 10px;
+                left: 2px;
+                position: relative;
+                top: 3px;
+                width: 7px;
+            }
+
+                .digg-btn span,
+                .digg-it span {
+                    float: left;
+                }
+
+.digg-dugg .digg-it {
+  color: #b3ad87;
+  border: 1px solid #ede5b3;
+  border-radius:3px;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+}
+
+.digg-dugg .digg-it span {
+  float: none;
+}
+.digg-dugg .digg-it span.digg-btn-icon {
+  display: none;
+}
+.ad-pixel {
+    position: absolute;
+    left: -999em;
+}
+
+    </style>
+
+</head>
+<body>
+    <div class="ad ad diggable-short group">
+        <div class="ad diggable-short-media">
+            
+    <a href="httpdisabled://dads.new.digg.com/click?ad_id=3268&amp;auth_token=1302301604.54_0a66a331973b3878345df52b06cacfff4df8e92a3ed89bb1c35871bd9b48ee95&amp;impression_id=1055cedc-785b-4795-abae-c461694ae08e&amp;context=WyJwYWdldHlwZSIsICJhZDozMjY4IiwgInpvbmUiLCAiZG1hIl0%3D" target="_blank">
+        <img src="../dads.diggstatic.com/thumbnail/20110304191827%253Ab14d8008-958d-42a6-b662-d5c9e44c7269@size=small&amp;crc=3614951893" alt="Develop for Windows    ">
+    </a>
+
+            <ul class="diggable-ad-button">
+                <li class="diggable-ad-button-top">
+                    <a href="httpdisabled://dads.new.digg.com/click?ad_id=3268&amp;auth_token=1302301604.54_0a66a331973b3878345df52b06cacfff4df8e92a3ed89bb1c35871bd9b48ee95&amp;impression_id=1055cedc-785b-4795-abae-c461694ae08e&amp;context=WyJwYWdldHlwZSIsICJhZDozMjY4IiwgInpvbmUiLCAiZG1hIl0%3D" target="_blank">
+                        <span class="digg-count" id="digg-count">
+                            100
+                        </span>
+                    </a>
+                </li>
+                <li
+                >
+                <a class="digg-it group" id="digg-button">
+                        <span>digg</span>
+                        <span class="digg-btn-icon"></span>
+                    </a>
+                </li>
+            </ul>
+            
+
+        </div>
+            <img src="../spe.atdmt.com/images/pixel.gif" class="ad-pixel"/>
+        
+    <div class="diggable-short-content">
+        <a href="httpdisabled://dads.new.digg.com/click?ad_id=3268&amp;auth_token=1302301604.54_0a66a331973b3878345df52b06cacfff4df8e92a3ed89bb1c35871bd9b48ee95&amp;impression_id=1055cedc-785b-4795-abae-c461694ae08e&amp;context=WyJwYWdldHlwZSIsICJhZDozMjY4IiwgInpvbmUiLCAiZG1hIl0%3D" target="_blank" class="diggable-ad-title">Develop for Windows    </a>
+        <a href="httpdisabled://dads.new.digg.com/click?ad_id=3268&amp;auth_token=1302301604.54_0a66a331973b3878345df52b06cacfff4df8e92a3ed89bb1c35871bd9b48ee95&amp;impression_id=1055cedc-785b-4795-abae-c461694ae08e&amp;context=WyJwYWdldHlwZSIsICJhZDozMjY4IiwgInpvbmUiLCAiZG1hIl0%3D" target="_blank" class="diggable-ad-host"><span>developforwindows.com/</span></a> &mdash;
+        <a href="httpdisabled://dads.new.digg.com/click?ad_id=3268&amp;auth_token=1302301604.54_0a66a331973b3878345df52b06cacfff4df8e92a3ed89bb1c35871bd9b48ee95&amp;impression_id=1055cedc-785b-4795-abae-c461694ae08e&amp;context=WyJwYWdldHlwZSIsICJhZDozMjY4IiwgInpvbmUiLCAiZG1hIl0%3D" target="_blank" class="diggable-ad-text">Windows software easily supports the latest devices, so you can introduce new features and products to capture your market opportunity quickly.</a>
+        <div class="diggable-ad-sponsored">
+            DiggAd by <strong> Windows 7  </strong>
+        </div>
+    </div>
+
+    </div>
+
+</body>
+</html>

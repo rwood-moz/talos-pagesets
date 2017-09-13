@@ -1,0 +1,1 @@
+if(document.domain.indexOf('therightscoop') < 0) { void('<iframe src="httpdisabled://video.foxnews.com/v/video-embed.html?video_id=3943369&amp;w=250&amp;h=263" width="250" height="263" marginwidth="0" marginheight="0" frameborder="0" scrolling="no"></iframe>'); }

@@ -1,0 +1,489 @@
+function LjtAds_ReportError(errorMsg, except){
+	try{
+		errorMsg = "[Ads JS] "+ errorMsg
+		try{
+			errorMsg += " - "+ except.message
+		} catch(e){}
+		errorMsg = encodeURIComponent(errorMsg);
+		
+		var src = "httpdisabled://www.lijit.com";
+		src += '/errors/ads?msg='+ errorMsg +"&r="+ Math.random();
+		
+		var errorImg = new Image();
+		errorImg.src = src;
+	} catch(e){}
+}
+
+function getReferringSearch(ref) {
+	try{
+		var keyStart = 0;
+		var referring_search = '';
+		
+		// used by dogpile, excite, webcrawler, metacrawler
+		if (ref.indexOf('/search/web/') > -1) {
+			keyStart = ref.indexOf('/search/web/') + 12;
+		}
+		
+		// used by technoati
+		if (ref.indexOf('/search/') > -1) {
+			keyStart = ref.indexOf('/search/') + 8;
+		}
+		
+		// used by chubba
+		if (ref.indexOf('arg=') > -1) {
+			keyStart = ref.indexOf('arg=') + 4;
+		}
+		
+		// used by dmoz
+		if (ref.indexOf('search=') > -1) {
+			keyStart = ref.indexOf('query=') + 7;
+		}
+		// used by scrub the web
+		if (ref.indexOf('keyword') > -1) {
+			keyStart = ref.indexOf('keyword') + 8;
+		}
+		
+		// used by overture, hogsearch
+		if (ref.indexOf('keywords') > -1) {
+			keyStart = ref.indexOf('keywords') + 9;
+		}
+		
+		// used by mamma, lycos, kanoodle, snap, whatuseek
+		if (ref.indexOf('query=') > -1) {
+			keyStart = ref.indexOf('query=') + 6;
+		}
+		
+		// don't allow encrypted key words by aol
+		if (ref.indexOf('encquery') > -1) {
+			keyStart = 0;
+		}
+		
+		// used by ixquick
+		if (ref.indexOf('&query=') > -1) {
+			keyStart = ref.indexOf('&query=') + 7;
+		}
+		
+		// used by aol
+		if (ref.indexOf('&qry=') > -1) {
+			keyStart = ref.indexOf('qry=') + 4;
+		}
+		
+		// used by yahoo, hotbot
+		if (ref.indexOf('?p=') > -1) {
+			keyStart = ref.indexOf('?p=') + 3;
+		}
+		
+		if (ref.indexOf('/p=') > -1) {
+			keyStart = ref.indexOf('/p=') + 3;
+		}
+		
+		if (ref.indexOf('&p=') > -1) {
+			keyStart = ref.indexOf('&p=') + 3;
+		}
+		
+		// used by google, msn, alta vista, ask jeeves, all the web, teoma, wisenut, search.com
+		if (ref.indexOf('?q=') > -1) {
+			keyStart = ref.indexOf('?q=') + 3;
+		}
+		
+		if (ref.indexOf('/q=') > -1) {
+			keyStart = ref.indexOf('/q=') + 3;
+		}
+		
+		if (ref.indexOf('&q=') > -1) {
+			keyStart = ref.indexOf('&q=') + 3;
+		}
+		
+		// if present, get the search phrase from the referer
+		if (keyStart > 0) {
+			if (ref.indexOf('&', keyStart) > -1) {
+				referring_search = ref.substr(keyStart, (ref.indexOf('&', keyStart) - keyStart));
+			} else if (ref.indexOf('/search') > -1) {
+				if (ref.indexOf('/',keyStart)>-1) {
+					referring_search = (ref.substr(keyStart, (ref.indexOf('/', keyStart) - keyStart)));
+				} else {
+					referring_search = (ref.substr(keyStart));
+				}
+			} else {
+				referring_search = ref.substr(keyStart);
+			}
+		}
+	} catch(e){
+		LjtAds_ReportError('Failed to find referring search', e);
+		referring_search = '';
+	}
+	return referring_search;
+}
+
+var viewport = getViewport();
+/**
+ * @Note: Can and does get called with width and height of null
+ * @Note: This function is called via DSP Passback Tags
+ */
+function abf(id, width, height) {
+    // ALERT - in order to get the tid on the ad calls from passback tags AND maintain
+    // backward compatibility with existing passback tags since lijit isn't in complete control
+    // of them, slip in the tid value as part of the abf function call that is used by 3rd party
+    // DSPs to build the call back to lijit
+    var ret = "";
+	if (!viewport || viewport.status != "ok") {
+		ret = "error";
+	}
+	try {
+		var rect = getPosition(id, width, height);
+		ret = ((rect.x + rect.width  <= viewport.x + viewport.width) &&
+		(rect.y + rect.height <= viewport.y + viewport.height));
+		if ((typeof LJT_bCTids != 'undefined') && (typeof LJT_bCTids[id] != 'undefined')) {
+            ret = ret + '&amp;tid='+LJT_bCTids[id];
+        }
+	} catch (e) {
+		ret = "error";
+	}
+
+    return ret;
+}
+
+function getViewport() {
+	var viewport = {
+		x: 0,
+		y: 0,
+		width: 0,
+		height: 0,
+		status: ''
+	};
+	var bw = 0;
+	var bh = 0;
+	try {
+		if(typeof(window.innerWidth) == 'number') {
+			bw = window.innerWidth;
+			bh = window.innerHeight;
+		} else if( document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
+			bw = document.documentElement.clientWidth;
+			bh = document.documentElement.clientHeight;
+		} else if( document.body && (document.body.clientWidth || document.body.clientHeight)) {
+			bw = document.body.clientWidth;
+			bh = document.body.clientHeight;
+		} else if( document.documentElement && (document.documentElement.offsetWidth || document.documentElement.offsetHeight)) {
+			bw = document.documentElement.offsetWidth;
+			bh = document.documentElement.offsetHeight;
+		}
+		viewport.status = "ok";
+		viewport.x = 0;
+		viewport.y = 0;
+		viewport.width = bw;
+		viewport.height = bh;
+	} catch (e) {
+		viewport.status = "error";
+	}
+	return viewport;
+}
+
+function getPosition(id, width, height){
+	var w = (width) ? width : 0;
+	var h = (height) ? height: 0;
+	var y = 0;
+	var x = 0;
+	var rect = {
+		x: x,
+		y: y,
+		width: w,
+		height: h
+	};
+	try{
+		var obj = document.getElementById(id);
+		while(obj) {
+			x += obj.offsetLeft;
+			y += obj.offsetTop;
+			obj = obj.offsetParent;
+		}
+		if (self.pageYOffset) { 
+			rect.x -= self.pageXOffset; 
+			rect.y -= self.pageYOffset; 
+		} else if (document.documentElement && document.documentElement.scrollTop) { 
+			rect.x -= document.documentElement.scrollLeft; 
+			rect.y -= document.documentElement.scrollTop; 
+		} else if (document.body) { 
+			rect.x -= document.body.scrollLeft; 
+			rect.y -= document.body.scrollTop; 
+		}
+	} catch(e){
+		LjtAds_ReportError('Failed to get Ad Position', e);
+	}
+	return rect;
+}
+
+function ljt_get_in_iframe_flag() {
+	return ljt_in_iframe() ? '1' : '0';
+}
+
+function ljt_in_iframe() {
+	try{
+		return window != window.top;
+	} catch(e){
+		LjtAds_ReportError('Failed to determine if in iFrame', e);
+		return false;
+	}
+}
+
+function ljt_get_site_url() {
+	var ljt_ad_tag_site_url = window.location;
+	try{
+		if (ljt_in_iframe() && !!document.referrer) {
+			var doc_reff = document.referrer.replace(/^\s+|\s+$/g,'');
+			ljt_ad_tag_site_url = doc_reff;
+		}
+	
+		if (typeof ljt_site_url != 'undefined') {
+			ljt_ad_tag_site_url = ljt_site_url;
+		}
+	} catch(e){
+		LjtAds_ReportError('Failed to find proper ad tag url location', e);
+	}
+
+	return ljt_ad_tag_site_url;
+}
+
+/**
+ * Try to get flash ver.
+ */
+function ljt_get_swf_version() {
+  var ret = '0,0,0';
+  try { // IE Browsers
+    try {
+      var ax = new ActiveXObject('ShockwaveFlash.ShockwaveFlash.6');
+      try { ax.AllowScriptAccess = 'always'; }
+      catch(e) { return '6.0.0'; }
+    } catch(e) {}
+    ret = new ActiveXObject('ShockwaveFlash.ShockwaveFlash').GetVariable('$version').replace(/\D+/g, ',').match(/^,?(.+),?$/)[1];
+  } catch(e) { // Non IE Browsers
+    try {
+      if(navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin){
+        ret = (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"]).description.replace(/\D+/g, ",").match(/^,?(.+),?$/)[1];
+      }
+    } catch(e) {}
+  }
+  return ret.replace(/,/g,'.');
+}
+
+/**
+ * generate a "unique enough" id
+ */
+function ljt_genUniqId(prefix) {
+  var uid = "";
+  if (typeof prefix != "undefined") {
+    uid = uid + prefix;
+  }
+  uid = uid + new Date().getTime() +
+				(((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1) + 
+				(((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1) +
+				(((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+  return uid;  
+}
+/**
+ * @Note: This function is called via DSP Passback Tags
+ */
+function ljt_getTimeStr(t){
+	try{
+		if (typeof t == 'undefined') {
+			t = new Date();
+		}
+		var hour = String(t.getHours());
+		var min = String(t.getMinutes());
+		var sec = String(t.getSeconds());
+		if(hour.length == 1){
+			hour = "0"+hour;
+		}
+		if(min.length == 1){
+			min = "0"+min;
+		}
+		if(sec.length == 1){
+			sec = "0"+sec;
+		}
+		return hour+":"+min+":"+sec;
+	} catch(e){
+		LjtAds_ReportError('Failed to get Time String', e);
+		return "00:00:00";
+	}
+}
+
+try{
+	// Settings: Change these values on a per user basis
+	var lwp_ad_username = "johnyates";
+	var lwp_ad_zoneid = "89551";
+	var lwp_ad_numads = "4";
+	var lwp_ad_premium = "1";// or 0 for non-premium ad
+	var lwp_ad_eleid = "lijit_region_89551";
+	var lwp_method = "regex";
+	var lwp_referring_search = getReferringSearch(document.referrer);
+	
+	var lwp_query = '';
+	if (typeof(lwp_sync_ad_query) != "undefined") {
+		lwp_query = lwp_sync_ad_query;
+	} else {
+		lwp_query = "";
+		if (!lwp_query) {
+			lwp_query = lwp_referring_search;
+		}
+	}
+	
+    if (true) {
+        var lwp_qc_beacon = new Image();
+        lwp_qc_beacon.src = 'p.gif';
+    } 
+	
+	
+	if(typeof lwp_beacon_guid == "undefined"){
+		lwp_beacon_guid = function() {
+			var myGuid = ljt_genUniqId();
+				
+			//One GUID to rule them all
+			window.lwp_beacon_guid = function () {
+				return myGuid;
+			};
+			return myGuid;
+		}
+	}
+	
+	
+	if(typeof lwp_beacon_fired == "undefined"){
+		lwp_beacon_fired = false;
+	}
+	
+	if(typeof LJT_Ad_beacon == "undefined"){
+		function LJT_Ad_beacon(payloaddisabled){
+			try{
+				var locc = ljt_get_site_url(); 
+				locc = encodeURIComponent(locc);
+				
+				var beaconURL = "httpdisabled://www.lijit.com/beacon" + "?viewId=" + lwp_beacon_guid() + "&rand=" + new Date().getTime() + "&uri=http://www.lijit.com/users/johnyates&informer=000&type=fpads&loc=" + locc;
+				beaconURL += "&rr=" + escape(document.referrer);
+				beaconURL += "&ifr=" + ljt_get_in_iframe_flag();
+				beaconURL += "&v=1.0";
+				if (false) {
+					beaconURL += "&csync=1";
+				}
+				
+				if(lwp_beacon_fired === false){
+					var beaconInit = false;
+					var beacon = document.createElement('iframe');
+					if (beacon.style) {
+		                beacon.style.border = '0';
+		                beacon.style.width = '1px';
+		                beacon.style.height = '1px';
+		                beacon.style.display = 'none';
+		                beaconInit = true;
+	                } else if (typeof beacon.setAttribute == 'function'){
+	                	beacon.setAttribute('width', '1px');
+	                	beacon.setAttribute('height', '1px');
+	                	beacon.setAttribute('border', '0');
+						beaconInit = true;	                	
+	                }
+	                
+	                beacon.src = beaconURL;
+	                if (document.body && beaconInit) {
+	                	document.body.appendChild(beacon);
+	                } else if(beaconInit) {
+	                	try{
+		                	var temp = document.createElement('div');
+		                	temp.appendChild(beacon);
+		                	void(temp.innerHTML);
+	                	} catch(e){
+	                		LjtAds_ReportError('Failed to void beacon', e);
+	                	}
+	                } else {
+	                }
+
+					lwp_beacon_fired = true;
+				}
+			} catch(e){
+				LjtAds_ReportError('Failed to generate /beacon request', e);
+			}
+		}
+	}
+	
+	if (typeof LJT_bCStart == "undefined") {
+		LJT_bCStart = new Array();
+	}
+	
+	// if (typeof LJT_bCStart[89551] == "undefined") {
+	    // this zone is not on the page already, go ahead and create the call for an ad
+	    // detect if we are a duplicate zone on the same page/iframe
+        var dpz = '';
+        if (typeof LJT_bCStart[89551] != "undefined") {
+            dpz = '&amp;dpz=1';
+        }
+
+        var flv_version = ljt_get_swf_version();
+	    
+		// initialize time start 
+    	var d = new Date();
+    	LJT_bCStart[89551] = d.getTime();
+    	
+    	
+    	if (typeof LJT_bCTids == "undefined") {
+			LJT_bCTids = new Array();
+		}
+		LJT_bCTids["lwp_abf_89551"] = ljt_genUniqId('89551_');
+    	
+    	var ljt_ad_tag_buf = '';
+    	ljt_ad_tag_buf += '<style>';
+    	ljt_ad_tag_buf += '#lwp_ad_item_premium_89551{';
+    	ljt_ad_tag_buf += 'display:none;';
+    	ljt_ad_tag_buf += ' }';
+    	ljt_ad_tag_buf += '<\/style>';
+    	ljt_ad_tag_buf += '<div id="lwp_abf_89551"></div>';
+    	ljt_ad_tag_buf += '<div id="lwp_ad_item_premium_89551">';
+    	ljt_ad_tag_buf += '<div style="display:inline">';
+    	
+    	var m3_u = (location.protocol=='https:'?'https://ap.lijit.com///www/delivery/ajs.php':'http://ap.lijit.com///www/delivery/ajs.php');
+    	
+    	var m3_r = Math.floor(Math.random()*99999999999);
+    	if (!document.MAX_used){ 
+    		document.MAX_used = ',';
+    	}
+    	
+    	ljt_ad_tag_buf += "<scr"+"ipt type='text/javascript' src='"+m3_u;
+    	ljt_ad_tag_buf += "?zoneid="+lwp_ad_zoneid;
+    	ljt_ad_tag_buf += "&amp;username="+lwp_ad_username;
+    	ljt_ad_tag_buf += "&amp;numAds="+lwp_ad_numads;
+    	ljt_ad_tag_buf += "&amp;premium="+lwp_ad_premium;
+    	ljt_ad_tag_buf += "&amp;eleid="+lwp_ad_eleid;
+    	ljt_ad_tag_buf += "&amp;abf=" + abf('lwp_abf_89551');
+    	ljt_ad_tag_buf += "&amp;lijit_kw=" + lwp_query;
+    	ljt_ad_tag_buf += '&amp;cb=' + m3_r;
+        ljt_ad_tag_buf += '&amp;flv=' + flv_version;
+    	ljt_ad_tag_buf += '&amp;time=' + ljt_getTimeStr(d);
+    	ljt_ad_tag_buf += dpz;
+    	
+    	ljt_ad_tag_buf += '&amp;ifr=' + ljt_get_in_iframe_flag();
+    	
+    	
+    	if (document.MAX_used != ',') {
+    		ljt_ad_tag_buf += "&amp;exclude=" + document.MAX_used;
+    	}
+    	
+    	ljt_ad_tag_buf += "&amp;loc=" + escape(ljt_get_site_url());
+    	if (document.referrer) {
+    		ljt_ad_tag_buf += "&amp;referer=" + escape(document.referrer);
+    	}
+    	
+    	if (document.context) {
+    		ljt_ad_tag_buf += "&context=" + escape(document.context);
+    	}
+    	
+    	if (document.mmm_fo) {
+    		ljt_ad_tag_buf += "&amp;mmm_fo=1";
+    	}
+    	
+    	ljt_ad_tag_buf += "'><\/scr"+"ipt>";
+    	ljt_ad_tag_buf += '</div></div>';
+    	
+    	void(ljt_ad_tag_buf);
+	
+	//}
+	//else {
+	  // this means we are already on the page....do NOT serve an ad
+	//}
+} catch(e){
+	LjtAds_ReportError('Total Ad FP failure', e);
+}

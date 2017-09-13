@@ -1,0 +1,15 @@
+
+if(typeof LJT == "object" || typeof LJT_Lite == "object") {
+    try{
+            LJT_Lite.fireBeacon("trakr");        
+    }catch(err){}
+}
+else{
+    var beaconName = "LJTlite_jsonp";
+    window[beaconName] = function (payloaddisabled){                        
+            LJT_Lite.fireBeacon("trakr", payloaddisabled);            
+    };
+    void('<script src="httpdisabled://www.lijit.com/___hoth_rc9/res/js/lite.beacon.js" ></script>');  
+    void('<script src="httpdisabled://www.lijit.com/ip.php?uri=http%3A%2F%2Fwww.lijit.com%2Fusers%2Ficanhascheezburger_network&ts=11040821&jsonp=LJTlite_jsonp" ></script>');     
+}
+

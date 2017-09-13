@@ -1,0 +1,75 @@
+
+function evtCap(ee){
+try
+{		
+if (window.event && window.event.srcElement){
+if(window.event.srcElement.getAttribute("pg")!=null){
+pgtrack(window.event.srcElement.getAttribute("pg"));}
+}else if (ee && ee.stopPropagation && !window.opera){
+if(ee.target.getAttribute("pg")!=null){
+pgtrack(ee.target.getAttribute("pg"));}
+}
+}
+catch(ex){
+}
+}
+try{
+document.onclick = evtCap
+document.addEventListener("click", evtCap, true)
+}catch(ee){}
+
+
+
+
+
+var pgid = new Array();
+pgid['Tbmore1']= 'toiTbar';
+pgid['Tbmore2']= 'toiTbar';
+pgid['Tbmore3']= 'toiTbar';
+pgid['Tbmore4']= 'toiTbar';
+pgid['Tbmore5']= 'toiTbar';
+pgid['Tbmore6']= 'toiTbar';
+pgid['Tbmore7']= 'toiTbar';
+pgid['Tbmore8']= 'toiTbar';
+pgid['Tbmore9']= 'toiTbar';
+pgid['Tbmore10']= 'toiTbar';
+pgid['TbmoreArt1']= 'toiTbar';
+pgid['TbmoreArt2']= 'toiTbar';
+pgid['TbmoreArt3']= 'toiTbar';
+pgid['TbmoreArt4']= 'toiTbar';
+pgid['TbmoreArt5']= 'toiTbar';
+pgid['TbmoreArt6']= 'toiTbar';
+pgid['TbmoreArt7']= 'toiTbar';
+pgid['TbmoreArt8']= 'toiTbar';
+pgid['TbmoreArt9']= 'toiTbar';
+pgid['TbmoreArt10']= 'toiTbar';
+
+
+function pgtrack(pgatt)
+{
+	if(pgatt != null)
+	{
+		var pgat = pgatt.split('#');
+		var trcode = null;		
+		if(pgat.length==1)
+		{
+			trcode = "pageTracker._trackEvent('"+pgid[pgat[0]]+"','select','"+pgat[0]+"')";
+			
+				
+		}
+		else
+		{
+			trcode = "pageTracker._trackEvent('"+pgid[pgat[0]]+"','select','"+pgat[0]+pgat[1]+"')";
+			
+		}
+		eval(trcode);
+		
+
+	}
+	
+}
+
+
+
+
+ 

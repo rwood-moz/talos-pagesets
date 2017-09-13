@@ -1,0 +1,149 @@
+/* VALENTINE'S DAY HOMEPAGE 2011 ========================== */
+
+/* =Shared
+=================================================== */
+body.home.vday #primary #shelf { padding:6px 0; }
+body.home.vday #primary #holiday-promotions { font-size:14px; line-height:1.4em; padding-bottom:8px; }
+body.home.vday #primary #holiday-promotions h2 { color:#df0c83; font-size:18px; font-weight:normal; }
+body.home.vday #primary #holiday-promotions h3 { font-size:20px; line-height:1.5em; margin-top: 5px; }
+body.home.vday #primary #holiday-promotions h4 { font-weight:bold; }
+body.home.vday #primary #holiday-promotions h5 { font-size:16px; }
+body.home.vday #primary #holiday-promotions p { color:#333; margin:5px 0 0; font-size:14px; }
+body.home.vday #primary #holiday-promotions p.legal { font-size:10px; color:#888; line-height:14px; padding-top:0; margin-top:5px; }
+body.home.vday #primary #holiday-promotions a.more { background:transparent url(img/more.gif) no-repeat 100% 60%; color:#0085CF; padding-right:7px; }
+body.home.vday #primary #holiday-promotions .buynow,
+body.home.vday #primary #holiday-promotions .shopnow { margin-top:10px; } 
+body.home.vday #primary #holiday-promotions .box .box-content { background:-moz-linear-gradient(33% 100% 90deg,#FFFFFF, #f9f9f9, #fefefe 50%); background:-webkit-gradient(linear, 0% 33%, 0% 100%, from(#FFFFFF), to(#f9f9f9), color-stop(.5,#fefefe)); }
+body.home.vday #primary #holiday-promotions .box .box-content.hero { background:-moz-linear-gradient(33% 100% 90deg,#FFFFFF, #f9f9f9, #fefefe 50%); background:-webkit-gradient(linear, 0% 83%, 0% 100%, from(#FFFFFF), to(#f9f9f9), color-stop(.5,#fefefe)); }
+
+
+body.home.vday #primary #holiday-promotions .banner-grid { margin:0 0 8px; }
+body.home.vday #primary #holiday-promotions .banner-grid li { display:inline; }
+body.home.vday #primary #holiday-promotions .banner-grid li.middle { margin:0 8px; }
+
+body.home.vday #primary #holiday-promotions .featured-product-1 .feature-top { position:relative; width:100%; height:544px; }
+body.home.vday #primary #holiday-promotions .featured-product-1 .feature-heading p { color:#000; }
+body.home.vday #primary #holiday-promotions .featured-product-1 .feature-heading .buynow { display:block; margin-top:8px; }
+body.home.vday #primary #holiday-promotions .featured-product-1 .feature-heading img.hero { margin-left:-13px; }
+body.home.vday #primary #holiday-promotions .featured-product-1 .feature-image { position:absolute; bottom:0; width:626px; }
+body.home.vday #primary #holiday-promotions .featured-product-1 .feature-image img { position:absolute; bottom:0; margin:0 18px 0 20px; }
+body.home.vday #primary #holiday-promotions .featured-product-1 .feature-image div { margin:72px 161px 20px 181px;  }
+body.home.vday #primary #holiday-promotions .featured-product-1 .feature-image div p { margin-bottom:5px; }
+body.home.vday #primary #holiday-promotions .featured-product-1 .feature-image div a { margin-right:7px; }
+body.home.vday #primary #holiday-promotions .featured-product-1 .feature-bottom { position:relative; width:100%; border-top:1px solid #ddd; }
+body.home.vday #primary #holiday-promotions .featured-product-1 .feature-bottom img { position:absolute; bottom:0px; right:39px; }
+body.home.vday #primary #holiday-promotions .featured-product-1 .feature-bottom .feature-text { padding:16px 201px 16px 22px; }
+body.home.vday #primary #holiday-promotions .featured-product-1 .feature-bottom .feature-text p { margin-top:5px; margin-bottom:5px; }
+body.home.vday #primary #holiday-promotions .featured-product-1 .feature-bottom .feature-text h4,
+body.home.vday #primary #holiday-promotions .featured-product-1 .feature-bottom .feature-text a { display:inline; }
+
+body.home.vday #primary #holiday-promotions .featured-product-1 .feature-heading { width:600px; text-align:center; margin:0px auto; padding:20px 0; }
+body.home.vday #primary #holiday-promotions .featured-product-1 .feature-heading p { margin:0px auto; }	
+
+
+/* homepage-01 - giftwrap only */
+body.home.vday #primary #holiday-promotions .featured-product-1.giftwrap .feature-top { height:713px; }
+
+/* homepage-02 - no game ipad only */
+body.home.vday #primary #holiday-promotions .featured-product-1.no-game-ipad .feature-top { height:500px; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-game-ipad .feature-image div {  margin:27px 250px 28px 150px; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-game-ipad .feature-bottom { min-height:113px; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-game-ipad .feature-bottom img { right:48px; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-game-ipad .feature-bottom .feature-text { padding-top:22px; padding-right:270px; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-game-ipad .feature-bottom .feature-text p { margin-top:5px; }
+
+/* homepage-03 - no giftwrap only */
+body.home.vday #primary #holiday-promotions .featured-product-1.no-giftwrap .feature-top { height:404px; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-giftwrap .feature-heading { padding-top:42px; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-giftwrap .feature-heading .buynow { margin-bottom:12px; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-giftwrap .feature-bottom { border-top:none; min-height:210px; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-giftwrap .feature-bottom img { left:39px; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-giftwrap .feature-bottom .feature-text {  padding:76px 100px 0 246px; }
+
+/* homepage-04 - no engraving-gallery only */
+body.home.vday #primary #holiday-promotions .featured-product-1.no-engraving-gallery .feature-top { height:525px; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-engraving-gallery .feature-image div { margin: 27px 240px 23px 181px; }
+
+/* homepage-05 - music only */
+body.home.vday #primary #holiday-promotions .featured-product-1.music .feature-image div { margin:72px 145px 44px 181px; }
+
+
+
+
+/* Valentine's Day Gift Guide Promo */
+body.home.vday #primary #holiday-promotions #promo-gift-guide .feature-heading { padding:26px 50px 26px 321px; }
+body.home.vday #primary #holiday-promotions #promo-gift-guide .feature-heading a img { padding-top:9px; }
+body.home.vday #primary #holiday-promotions #promo-gift-guide .feature-image img { float:left; padding:20px 0 0 20px; }
+
+/* Why Buy at the Apple Store Module */
+body.home.vday #primary #holiday-promotions .user-navigation>ul void,.store-header.transactional .user-navigation>ul void { background:url(img/module/utility-nav-void.png) repeat-x 0 0; border-bottom:#f2f2f2 1px solid; margin-bottom:-1px; position:relative; z-index:9999; }
+
+body.home.vday #primary #holiday-promotions input.placeholder { color:#ccc; }
+
+body.home.vday #primary #holiday-promotions .module { margin-bottom:0; }
+body.home.vday #primary #holiday-promotions .module h2 { background:url(http://storeimages.apple.com/1834/store.apple.com/Catalog/regional/amr/valentine/2011/img/module/primary_main-h2-top.png) no-repeat; float:left; width:100%; padding:5px 0 0; ) no-repeat; }
+body.home.vday #primary #holiday-promotions .module h2 span { display:block;padding:0 0 5px 12px;background:#2d5e9f url(img/module/h2.png) repeat-x; font-weight:bold; font-size:13px; line-height:14px; color:#fff; text-shadow:1px 1px 1px #224272; }
+
+body.home.vday #primary #holiday-promotions .footerblock fieldset { padding-top:9px; }
+body.home.vday #primary #holiday-promotions .footerblock legend { display:none; }
+body.home.vday #primary #holiday-promotions .footerblock h2 { background-image:url(img/module/primary_main-fb-h2-top.png); }
+body.home.vday #primary #holiday-promotions .footerblock h2 span { background:#afb0b2 url(img/module/fb-h2.png) repeat-x;text-shadow:1px 1px 1px #999; }
+body.home.vday #primary #holiday-promotions .footerblock .modulecontentwrap { margin-bottom:.95em; }
+body.home.vday #primary #holiday-promotions .footerblock .modulecontent { padding-top:0; padding-bottom:0; height:411px; background:transparent url(img/module/primary_main-bg-alt2.png) repeat-y scroll 100% 0; color:#666; }
+body.home.vday #primary #holiday-promotions .footerblock .modulecontent h3 { margin:0 2px 0 1px; padding-top:12px; padding-bottom:5px; font-weight:bold; font-size:12px; color:#333; }
+body.home.vday #primary #holiday-promotions .footerblock .modulecontent p { font-size:11px; color:#666; margin-top:0; line-height:14px; }
+body.home.vday #primary #holiday-promotions .footerblock .modulecontent #store_details { float:left; margin:8px 0 0 12px; width:394px; }
+body.home.vday #primary #holiday-promotions .footerblock .modulecontent #store_details .modulecontentwrap { border-bottom:1px solid #e0e0e0; padding:0 20px 0 12px; height:155px; line-height:14px; }
+body.home.vday #primary #holiday-promotions .footerblock .modulecontent #store_details .modulecontentwrap img { display:block; margin:8px auto 0; }
+body.home.vday #primary #holiday-promotions .footerblock .modulecontent #store_details .column { float:left; width:197px; _width:210px; }
+body.home.vday #primary #holiday-promotions .footerblock .modulecontent #store_details .first { border-right:1px solid #e0e0e0; width:195px; _width:180px; }
+body.home.vday #primary #holiday-promotions .footerblock .modulecontent #store_details .last-row {height:12em; border-bottom:0; *width:180px; }
+body.home.vday #primary #holiday-promotions .footerblock .modulecontent #store_details h3 { padding-top:0; padding-bottom:3px; line-height:14px; }
+
+body.home.vday #primary #holiday-promotions .footerblock .modulecontent #store_updates { float:left; margin:8px 0 17px 32px; width:160px; }
+
+body.home.vday #primary #holiday-promotions .notify_wait { text-indent:-9000px; width:16px; height:16px; background-image:url(img/module/email_spinner.gif); background-repeat:no-repeat; background-position:center center; display:none; }
+body.home.vday #primary #holiday-promotions .email_notification .notify_format b { color:red; }
+body.home.vday #primary #holiday-promotions .email_notification .notify_submit { display:block; }
+body.home.vday #primary #holiday-promotions .loaddisableding .notify_wait { display:block; }
+body.home.vday #primary #holiday-promotions .loaddisableding .notify_submit { display:none; }
+body.home.vday #primary #holiday-promotions .module_btm { background:url(img/module/primary_main-btm.png) no-repeat; height:8px; }
+
+/* Last Chance - Homepage 01 - w/ Gift Wrap + Movie version */
+body.home.vday #primary #holiday-promotions .featured-product-1.no-engrave.lastchance.box .box-content.hero { background:#fff; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-engrave.lastchance .feature-top { height:407px; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-engrave.lastchance .feature-heading { padding-top:39px; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-engrave.lastchance .feature-heading h1 { padding-bottom:3px; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-engrave.lastchance .feature-heading .buynow { margin-bottom:18px; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-engrave.lastchance .feature-top p.order { font-weight:bold; padding: 4px 0 1px; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-engrave.lastchance .feature-heading img.hero { z-index:1; position:absolute; left:13px; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-engrave.lastchance .feature-bottom { border-top:none; min-height:218px; background:none; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-engrave.lastchance .feature-bottom h4,
+body.home.vday #primary #holiday-promotions .featured-product-1.no-engrave.lastchance .feature-bottom p{  z-index:100; position:relative; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-engrave.lastchance .feature-bottom img { left:27px; z-index:100; padding-bottom:2px; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-engrave.lastchance .feature-bottom .feature-text {  padding:78px 177px 0 205px; }
+
+/* Last Chance - Homepage 02 - w/ Gift Wrap + Music version */
+body.home.vday #primary #holiday-promotions .featured-product-1.no-engrave.lastchance.music .feature-heading .buynow { margin-bottom:14px; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-engrave.lastchance.music .feature-bottom { border-top:none; min-height:216px; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-engrave.lastchance.music .feature-bottom img { left:38px; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-engrave.lastchance.music .feature-bottom .feature-text {  padding:81px 164px 0 218px; }
+
+/* Last Chance - Homepage 03 - no Gift Wrap + Music version */
+body.home.vday #primary #holiday-promotions .featured-product-1.no-engrave.lastchance.no-giftwrap .feature-top { min-height:536px; background:transparent; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-engrave.lastchance.no-giftwrap .feature-heading .buynow { margin-bottom:15px; }
+body.home.vday #primary #holiday-promotions .featured-product-1.no-engrave.lastchance.no-giftwrap .feature-heading img.hero { padding-bottom:2px; }
+
+/* Last Chance Gift Guide Promo */
+body.home.vday #primary #holiday-promotions #lastchance-promo-gift-guide .feature-image img { float:right; padding:16px 46px 0 0; }
+body.home.vday #primary #holiday-promotions #lastchance-promo-gift-guide .feature-heading { padding:26px 350px 24px 28px; }
+body.home.vday #primary #holiday-promotions #lastchance-promo-gift-guide .feature-heading p { line-height:1.35em; }
+body.home.vday #primary #holiday-promotions #lastchance-promo-gift-guide .feature-heading a img { padding-top:8px; }
+
+/* Last Chance French Gift Guide Promo */
+html.fr-ca body.home.vday #primary #holiday-promotions #lastchance-promo-gift-guide .feature-image img { float:right; padding:42px 46px 0 0; }
+
+/* Last Chance GEO Gift Guide Promo */
+body.home.vday #primary #holiday-promotions #lastchance-promo-gift-guide.geo .feature-image img { float:right; padding:16px 47px 0 0; }
+body.home.vday #primary #holiday-promotions #lastchance-promo-gift-guide.geo .feature-heading { padding:34px 350px 31px 39px; }
+body.home.vday #primary #holiday-promotions #lastchance-promo-gift-guide.geo .feature-heading p { line-height:1.5em; }

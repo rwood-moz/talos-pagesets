@@ -1,0 +1,2 @@
+document.write('<script type="text/javascript" src="../pixel.js"></script>');
+document.write('<iframe name="pbeacon" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginheight="0" marginwidth="0" scrolling="no"  width="0"  height="0" style="position:absolute;top:-20000px;" src="../PugTracker.html"></iframe>');

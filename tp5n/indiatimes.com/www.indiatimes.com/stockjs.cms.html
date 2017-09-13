@@ -1,0 +1,251 @@
+
+	var xmlHttp;
+	var KeyDowncode;
+	var activeDiv="";
+	var activeDivT="";
+	var charCode,DIVLocalCtrl,TxtLocalCtrl;
+
+function quote_blank()
+{document.marketform.ticker.value ="";}		
+function showHint1(str,x)
+{
+	//if(event.keyCode=='13'){changeForm();}
+	
+	var string=document.marketform.ticker1.value;	
+	if(str.length==0)
+	{
+		document.getElementById("txtHint1").innerHTML=""
+		document.getElementById("txtHint1").style.visibility='hidden'
+		return false
+	}	
+	else
+	{
+		//document.getElementById("txtHint1").style.height=180;
+		document.getElementById("txtHint1").style.visibility='visible';
+	}
+	xmlHttp=GetXmlHttpObject1()
+	if(xmlHttp==null)
+	{
+		alert("Your browser does not support AJAX!");
+		return false;
+	}
+	var url="/getcurrentquote.cms";
+	str = str.replace(" ","_");
+	url=url+"?ticker="+str;
+	url=url+"&pagenumber=0&pagesize=0&matchcompanyname=true&n=1";
+	xmlHttp.onreadystatechange=stateChanged1;	
+	void("GET",url,true);
+	xmlHttp.send(null);	
+	
+}
+function divdis()
+{
+	if(document.getElementById("txtHint1").style.visibility='visible')
+	{
+		document.getElementById("txtHint1").style.visibility='hidden';	
+	}
+}
+
+function stateChanged1()
+{
+	if(xmlHttp.readyState==4)
+	{
+		var str=xmlHttp.responseText.split("<br>")
+		var suggest=""
+		for(i=0;i<str.length-1;i++)
+		{
+			suggest+='<div id="quotetic'+ i +'" onmouseover="javascript:suggestOver1(this);"'
+			suggest+='onmouseout="javascript:suggestOut1(this);"'
+			suggest+='onclick="javascript:setSearchticker1(\''+str[i]+'\');" '
+			suggest+='class="suggest_link">'+str[i]+'</div>'
+		}
+		document.getElementById("txtHint1").innerHTML=suggest
+	}
+}
+function setSearchticker1(xxx)
+{
+	document.marketform.ticker.value=xxx.replace("&amp;","&");	
+	document.marketform.ticker1.value=xxx.replace("&amp;","&");	
+	document.getElementById('txtHint1').innerHTML='';
+        document.getElementById('txtHint1').style.border='0px';
+	document.marketform.ticker1.focus();
+}
+
+//Mouse over function
+	function suggestOver1(div_value,atrval) {
+		div_value.className = 'suggest_link_over';
+		if(atrval=="tp"){
+		activeDivT = div_value.id;
+		}
+		else {
+		activeDiv = div_value.id;
+		}		
+	}
+	//Mouse out function
+	function suggestOut1(div_value,atrval) {
+		div_value.className = 'suggest_link';
+	}
+
+	
+function changeForm()
+{	
+	if((document.marketform.ticker1.value=="") || (document.marketform.ticker1.value=='Get Quote'))
+	{
+		alert("Please Enter Company Name");
+		document.marketform.ticker1.focus();
+		return false;
+	}
+	else
+	{	
+		var c=document.marketform.ticker1.value;			
+		var TestVar1 = c.replace("&", "_26_");			
+		document.marketform.ticker.value = TestVar1;				
+	    document.marketform.action="httpdisabled://economictimes.indiatimes.com/currentquote.cms";
+		document.marketform.submit();		
+		return true;
+	}	
+}
+
+function changeFormNew1(tckr)
+{	
+
+	if((document.marketform.ticker1.value=="") || (document.marketform.ticker1.value=='Get Quote'))
+	{
+		alert("Please Enter Company Name");
+		document.marketform.ticker1.focus();
+		return false;
+	}
+	else
+	{	
+		var c=document.marketform.ticker1.value;	
+		
+		var TestVar1 = c.replace("&amp;", "_26_");	
+		
+		document.marketform.ticker.value = TestVar1;
+	   document.marketform.action="httpdisabled://economictimes.indiatimes.com/currentquote.cms?"+tckr;
+	    //document.marketform.action="/currentquote.cms";
+		document.marketform.submit();		
+		return true;
+	}	
+}
+
+function GetXmlHttpObject1()
+{
+	var xmlHttp=null
+	try
+	{
+		xmlHttp=new XMLHttpRequest()
+	}
+	catch(e)
+	{
+		try{
+			xmlHttp=new ActiveXObject("Msxml2.XMLHTTP")
+			}
+		catch(e)
+		{
+			xmlHttp=new ActiveXObject("Microsoft.XMLHTTP")
+		}
+	}
+	return xmlHttp
+}
+
+
+
+function changeCompForm()
+{
+	if(document.compform.compname.value=="")
+	{
+		alert("Please Enter Company Name");
+		document.compform.compname.focus();
+		return false;
+	}
+	else
+	{
+		var c=document.compform.compname.value;
+		var TestVar1 = c.replace("&", "_26_");		
+		document.compform.ticker.value=TestVar1;
+		document.compform.action="httpdisabled://economictimes.indiatimes.com/currentquote.cms";
+		return true;
+		
+	}
+}
+	var divchk="";
+	var strInputCode;	
+	function KeyCheck1(e,xxx,atrval){
+		divchk=atrval;
+		var KeyID = window.event ? e.keyCode : e.which;		
+		if(atrval=='tp'){	
+			    if(KeyID == 40){  
+				
+			   		if(activeDivT == ""){			
+						var divoverT="";						
+			   			divoverT= document.getElementById("quotetic0");						
+						suggestOver1(divoverT,atrval);			
+			   		}else{
+						var divoutT="";
+						var divoverT="";		
+						divoutT = document.getElementById(""+activeDivT);						
+						divoverT= document.getElementById("quotetic"+(parseInt(activeDivT.substring(8,activeDivT.length))+1));						 
+						suggestOut1(divoutT,atrval);					
+						suggestOver1(divoverT,atrval);
+					}
+	
+			   }else if(KeyID == 38){
+				   	if(activeDivT == ""){
+				   			var divoverT="";						
+				   			divoverT= document.getElementById("quotetic0");						
+							suggestOver1(divoverT,atrval);			
+				   		}else{					
+							divoutT = document.getElementById(""+activeDivT);						
+							divoverT= document.getElementById("quotetic"+(parseInt(activeDivT.substring(8,activeDivT.length))-1));
+							suggestOver1(divoverT,atrval);
+							suggestOut1(divoutT,atrval);	
+						}
+				   }else if(KeyID == 13){
+					   		
+							try{   
+					   		document.marketform.ticker1.value = document.getElementById(""+activeDivT).innerHTML;
+							strInputCode = document.getElementById(""+activeDivT).innerHTML;							
+							}
+							catch(ex){
+							strInputCode=document.marketform.ticker1.value;																	
+							}	
+								
+							strInputCode = strInputCode.replace(/&(lt|gt);/g, function (strMatch, p1){
+					 		return (p1 == "lt")? "<" : ">";
+					 		});
+							
+					 		var strTagStrippedText = strInputCode.replace(/<\/?[^>]+(>|$)/g, "");					
+							document.marketform.ticker1.value = strTagStrippedText;								
+							if(document.marketform.ticker1.value==""){
+								alert("Please enter text to search");
+								return false;
+							}
+							
+							
+							changeFormNew1(strInputCode);
+							
+				   		}					   
+					   else{			  			   
+					   		if(window.location.href.indexOf("advancesearch")!=-1){				
+								document.getElementById('txtHint1').style.display='none';
+								}				
+					   showHint1(xxx.value,document.getElementById('txtHint1'),xxx,divchk);
+					 }
+		}
+		
+	}
+function make_blank_mf(){document.marketform1.amcname.value ="";}
+function changeFormSubmit11() 
+{ 					
+if((document.marketform1.amcname.value=="") || (document.marketform1.amcname.value==' ')|| (document.marketform1.amcname.value=='Get Nav')  ) 
+{ 
+	alert("Please enter the name of the fund"); 
+document.marketform1.amcname.focus(); return false;} 
+ else{ 
+	var c=document.marketform1.amcname.value; 
+ document.marketform1.action="/mf_searchresult.cms";
+ document.marketform1.submit();		
+  return true; } }
+	
+ 

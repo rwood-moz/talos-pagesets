@@ -1,0 +1,1 @@
+void('<div id="zedoIntromercialDiv" style="display:block;z-index:100000;"><IMG usemap="#replayIntromercial" SRC="httpdisabled://c1.zedo.com/bar/cnet/v7-900/img/mpu-replay-top-bar.gif" WIDTH="300" HEIGHT="12" BORDER="0" ALT=""><map name="replayIntromercial" id="replayIntromercial"><area shape="rect" coords="220,0,300,10" href="javascript:zzrreplay()"></map></div>');

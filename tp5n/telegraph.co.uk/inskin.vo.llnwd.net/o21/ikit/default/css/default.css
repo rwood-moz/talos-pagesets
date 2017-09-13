@@ -1,0 +1,195 @@
+.InSkinContainer {
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	z-index: 10000;
+	overflow: visible;
+}
+
+.InSkinContentContainer {
+	position: absolute;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	z-index: 12000;
+	left: -5000px;
+	top: -5000px;
+	overflow: hidden;
+}
+
+.InSkinBiggerContentContainer {
+	position: absolute;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	z-index: 200;
+	left: -5000px;
+	overflow: hidden;
+}
+
+.InSkinBaseContainer {
+	position: absolute;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	z-index: 11000;
+	overflow: hidden;
+	left: 1px;
+	top: -1px;
+}
+
+.InSkinSASFrame {
+	position: absolute;
+	display: none;
+	visibility: hidden;
+}
+
+.InSkinDebug {
+	border: 1px solid red;
+}
+
+.InSkinShowOverflow {
+	overflow: visible;
+}
+
+.InSkinHideOverflow {
+	overflow: hidden;
+}
+
+/* Page Skin */
+div.InSkinPageContainer {
+	display: block;
+	position: relative;
+	width: 100%;
+	text-align: left;
+}
+
+/* clearfix styles for IE in quirks mode */
+* html div.InSkinPageContainer {
+	height: 1%;
+}
+
+/* clearfix styles for all others */
+div.InSkinPageContainer:before {
+	display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
+	font-size: 0;
+	content: ".";
+}
+div.InSkinPageContainer:after {
+	display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
+	font-size: 0;
+	content: ".";
+}
+
+
+/* InSkin Browser Styles */
+
+table.InSkinBrowser {
+	margin-bottom: 0em;
+	font-family: Verdana, Tahoma, sans-serif;
+	width: 100%;
+}
+
+table.InSkinBrowser td, table.InSkinBrowser th {
+	padding: 0px; 
+}
+
+table.InSkinBrowser td.Header {
+	background-color: #505050;
+	height: 26px;
+	vertical-align: middle;
+	border-bottom: 1px solid #fff;
+	border-top: 1px solid #e1e1e1;
+}
+
+table.InSkinBrowser td.ContentFrame {
+	vertical-align: top;
+	background-color: #fff;
+}
+
+table.InSkinBrowser td.ContentFrame iframe {
+	background-color: #fff;
+}
+
+
+table.InSkinTopBar {
+	width: 100%;
+	height: 100%;
+	margin-bottom: 0em;
+}
+
+table.InSkinTopBar td.InSkinMinBlock {
+	white-space: nowrap;
+}
+
+table.InSkinTopBar td.InSkinMaxBlock {
+	width: 100%;
+	text-align: right;
+}
+
+table.InSkinTopBar td.InSkinDivider {
+	vertical-align: bottom;
+}
+
+/* Link to InSkin Media (left on the TopBar) */
+a.InSkinLink, a.InSkinLink:visited, a.InSkinLink:hover {
+	display: block;
+	height: 26px;
+	line-height: 26px;
+	font-size: 13px;
+	cursor: pointer;
+	text-decoration: none;
+	color: #fff;
+	padding: 0px 20px 0px 2px;
+}
+
+/* Close X Expandable (right on the TopBar) */
+table.InSkinTopBar td.InSkinCloseX {
+	background-image: url(../../../../../cdn.inskinmedia.com/ikit/default/img/close_bg.png);
+}
+
+table.InSkinTopBar td.InSkinCloseX img
+{
+	margin: 0px;
+}
+
+a.InSkinCloseX, a.InSkinCloseX:visited, a.InSkinCloseX:hover {
+	display: block;
+	font-size: 11px;
+	text-decoration: none;
+	color: #fff;
+	cursor: pointer;
+	padding-left: 5px;
+}
+
+/* URL Buttons */
+a.InSkinButton, a.InSkinButton:visited, a.InSkinButton:hover, a.InSkinButton:link {
+	display: block;
+	font-size: 13px;
+	text-decoration: none;
+	color: #fff;
+	font-weight:normal; 
+	cursor: pointer;
+	padding: 0px 15px;
+	height: 26px;
+	line-height: 26px;
+}
+
+a.InSkinButton:hover {
+	background-image: url(../../../../../cdn.inskinmedia.com/ikit/default/img/hover_button_bg.png);
+}
+
+a.InSkinCloseX img {
+	background-color: transparent;
+}
+
+a.InSkinButtonActive, a.InSkinButtonActive:visited, a.InSkinButtonActive:hover {
+	background-image: url(../../../../../cdn.inskinmedia.com/ikit/default/img/button_bg.png);
+}

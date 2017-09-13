@@ -1,0 +1,132 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<title>Indiatimes</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"><script>
+						var hdomain='indiatimes.com';
+									if (document.domain != hdomain) 
+									{if ((document.domain.indexOf(hdomain)) != -1)
+									{document.domain = hdomain}}	
+						 </script><style>
+				.normtxt{font-family:Arial; font-size:11px;}
+				.inputbox{width:240px;font-family:Arial;font-size:11px;height:33px;border:1px solid #BDBEB9;}
+					.head2{font-weight:bold;font-family:Arial, Helvetica, sans-serif; font-size:14px;color:#4D4D4D;}
+					 </style><script>function closeiframe()
+				{
+					parent.disablePopup();
+				}</script><script language="javascript">									
+					function mailtrim(mvalue)
+						{
+						var temp1 = mvalue;
+						var obj = /^(\s*)([\W\w]*)(\b\s*$)/;
+						if (obj.test(temp1)) { temp1 = temp1.replace(obj, '$2'); }
+						var obj = /  /g;
+						while (temp1.match(obj)) { temp1 = temp1.replace(obj, " "); }
+						return temp1;
+						}				
+					function checkMail(inmail)
+						{ 
+						var x = inmail;
+						var y = 0;
+						var filter  = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+						if (x.indexOf(',') != -1)
+						{  
+						var seperatevalues = x.split(',');
+						var xx=0; 
+						for ( xx=0; xx<seperatevalues.length ; xx=xx+1) 
+						{ 
+						if (filter.test(seperatevalues[xx])) y = y + 1;
+						} 						  
+						if (xx == y) return true;
+						else return false;
+						}
+						else
+						{
+						if (filter.test(x)) return true;
+						else return false;
+						}
+						} 
+					/*for the Subscribe to TOI Newsletter*/
+					function comment1()					
+					{
+						if(document.mailform.txt_Name.value=="") 
+						{
+						alert('Please enter your name.');						
+						document.mailform.txt_Name.focus();
+						return false;
+						}										
+						
+						if(document.mailform.txt_ID.value=="") 
+						{
+						alert('Please enter your mail id.');						
+						document.mailform.txt_ID.focus();
+						return false;
+						}						
+						var trimfrommail = mailtrim(document.mailform.txt_ID.value);
+						if (checkMail(trimfrommail) == false)
+						{ alert('Please enter a valid email address in - Your Email Address'); 
+						document.mailform.txt_ID.focus();
+						return false;
+						}							
+					document.Mailro.txt_Name.value=document.mailform.txt_Name.value;
+					document.Mailro.txt_ID.value=document.mailform.txt_ID.value;					
+			alert("1");
+				return true;				
+				}
+				/*for the Unsubscribe to to Newsletter*/
+				function comment11()
+					{																		
+						// validate the email id
+						if(document.mailform.txt_ID.value=="") 
+						{
+						alert('Please enter your mail id.');						
+						document.mailform.txt_ID.focus();
+						return false;
+						}						
+						var trimfrommail = mailtrim(document.mailform.txt_ID.value);
+						if (checkMail(trimfrommail) == false)
+						{ alert('Please enter a valid email address in - Your Email Address'); 
+						document.mailform.txt_ID.focus();
+						return false;
+						}						
+					document.Mailro.txt_Name.value=document.mailform.txt_Name.value;
+					document.Mailro.txt_ID.value=document.mailform.txt_ID.value;			
+					return true;
+					}						
+					function voidr1()
+					{
+						document.mailform.txt_Name.focus();
+					}
+				 </script></head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table border="0" width="280" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" width="260">
+<form name="mailform" method="post" action="httpdisabled://cmsmisc.indiatimes.com/MailRegistration/submit.aspx" onSubmit="return check();">
+<table border="0" width="260" cellspacing="0" cellpadding="0">
+<tr>
+<td colspan="2" class="head2">
+<div style="float:left;">INDIATIMES WEEKENDER<br><span style="color:#C12274;font-family:Arial;font-size:11px;">Your guide to this Weekend</span></div>
+</td>
+</tr>
+<tr>
+<td colspan="2" class="normtxt" style="padding-top:20px;">NAME<br><input class="inputbox" type="text" name="txt_Name" id="txt_Name" size="45" style="margin-left:2px;" maxlength="100"></td>
+</tr>
+<tr>
+<td colspan="2" class="normtxt" style="padding-top:20px;">EMAIL ADDRESS<br><input class="inputbox" type="textbox" name="txt_ID" id="txt_ID" size="45" maxlength="100"><input type="hidden" name="txt_SID" value="18" id="txt_SID" class="txtbox" size="45" maxlength="100"><input type="hidden" name="successurl" id="successurl" value="httpdisabled://www.indiatimes.com/subscribe.cms?successurl=1"><input type="hidden" name="failureurl" id="failureurl" value="httpdisabled://www.indiatimes.com/subscribe.cms?failureurl=1"></td>
+</tr>
+<tr>
+<td colspan="2" align="right" style="padding-top:20px;">
+<div style="float:right;"><input type="image" size="80" name="S1" value="Subscribe" src="photo/5248000.cms" onClick="return comment1();"></div>
+</td>
+</tr>
+</table>
+</form>
+</td>
+<td valign="top" width="20">
+<div id="apDiv1"><a id="popupContactClose" onclick="closeiframe();"><img src="photo/5202460.cms" width="20" height="20"></a></div>
+</td>
+</tr>
+</table>
+</body>
+</html>

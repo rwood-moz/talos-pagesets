@@ -1,0 +1,147 @@
+p{
+	font-family: Arial; 
+	font-size: 11px;
+	font-weight: normal;
+	color: #666666;
+}
+	
+input{
+	font-family: Arial; 
+	font-size: 10px;
+	font-weight: normal;
+	border: 1px solid #cccccc;
+	color: #888888;
+}
+
+select{
+	font-family: Arial; 
+	font-size: 10px;
+	font-weight: normal;
+	border: solid 1px #cccccc;
+	color: #888888;
+}
+
+/* ************* BOX MEIN WETTER *************** */
+
+.meinwetter_eingabe{
+   width: 243px;
+   height: 17px;
+   line-height: 17px;
+}
+
+.meinwetter_tabelle{
+	font-family: Arial;
+	font-size: 11px;
+	font-weight: normal;
+	color: #666666;
+	line-height: 16px;
+}
+
+.meinwetter_header{
+    font-family: Arial;
+	font-size: 11px;
+	font-weight: bold;
+	color: #dd0000;
+	width: 306px;
+	margin-left: 8px;
+	padding: 8px 0px 8px 0px;
+	border-bottom: solid 1px #e2e2e2;
+}
+
+.meinwetter_header a{
+	text-decoration: none;
+	color: #dd0000;
+}
+
+.meinwetter_header a:hover{
+	color: #dd0000;
+	text-decoration: underline;
+}
+
+.meinwetter_link{
+	font-family: Arial;
+	font-size: 10px;
+	font-weight: normal;
+	color: #666666;
+	width: 120px;
+	text-align: right;
+	margin-left: 7px;
+	padding: 8px 0px 8px 0px;
+}
+
+.meinwetter_link a{
+	text-decoration: underline;
+	color: #666666;	
+}
+
+.meinwetter_link a:hover{
+	color: #dd0000;
+	text-decoration: underline;
+}
+
+.meinwetter_box{
+    width: 321px;
+	height: 190px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-color: #FFFFFF;
+	background-image: url("httpdisabled://wetter.bild.de/img/bg-regularie.png");
+	background-position: left top;
+	background-repeat: repeat-x;
+	border: 1px solid #DBDBDB;
+}
+
+*html .meinwetter_box{
+    width: 323px;
+	height: 192px;
+	}
+.meinwetter_text{
+	position: relative;
+	width: 306px;
+	height: 58px;
+	top: 0px;
+	left: 8px;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.meinwetter_warnungen{
+    font-family: Arial;
+	font-size: 11px;
+	font-weight: bold;
+	color: #dd0000;
+	position: relative;
+	width: 306px;
+	top: 0px;
+	left: 7px;
+	border-bottom: 1px solid #e2e2e2;
+	border-top: 1px solid #ffffff;
+	padding: 7px 0px 7px 0px;
+}
+
+.meinwetter_suche{
+	position: relative;
+	width: 306px;
+	height: 30px;
+	top: 0px;
+	left: 8px;
+	border-top: 1px solid #ffffff;
+}
+
+.meinwetter_symbol2{
+	position: absolute; top: 42px; left: 225px; 
+}
+
+.meinwetter_symbol{
+	position: absolute; top: 60px; left: 250px; 
+}
+
+.meinwetter_name{
+    font-family: Arial;
+	font-size: 11px;
+	font-weight: bold;
+	color: #666666;
+	white-space: nowrap;
+	overflow: hidden;
+}
+

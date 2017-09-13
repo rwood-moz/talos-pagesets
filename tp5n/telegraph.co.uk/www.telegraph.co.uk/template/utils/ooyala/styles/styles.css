@@ -1,0 +1,80 @@
+/* Step Carousel Styles */
+
+.stepcarousel {
+  position: relative; 
+  border: none; /* Border around the carousel scroller */
+  overflow: hidden; 
+  width: 268px; /* Width of Carousel Viewer itself = width of video - 32px arrows */
+  height: 78px; /* Height = thumbnail height + 20px top/bottom padding */
+}
+
+.stepcarousel .belt {
+  position: absolute; 
+  left: 0;
+  top: 0;
+}
+
+.stepcarousel .panel {
+  float: left; 
+  overflow: hidden;
+  margin: 8.9px; /* Margin around each panel, 0 for left so first thumbnail doesn't have excess left margin */
+  width: 78px; /* Width = width of thumbnail */
+}
+
+panel img { border:0; }
+
+.panelOn {
+  border: 1px solid #FFFFFF; /* Border around thumbnail of currently playing video. Change to accent color */
+  width: 78px; /* Width = thumbnail width */
+  height: 58px; /* Height = thumbnail height */
+}
+
+/* Body */
+
+.container {
+  width: 300px; /* Set to width of video. Container applies to both video and channel thumbnail width */
+}
+
+.scroller {
+  height: 78px; /* Height = thumbnail height + 20px top/bottom padding */
+}
+
+.floatLeft {
+  float: left;
+}
+
+.rarrow {
+  display:none;
+  float: left;
+  margin: 8.9px 0 0 0; /* 27px from top to vertically center arrow */
+  padding: 0; 
+  width: 16px; /* Width of arrow image */
+}
+
+.larrow {
+  display:none;
+  float: left;
+  margin: 8.9px 0 0 0; /* 27px from top to vertically center arrow */
+  padding: 0; 
+  width: 16px; /* Width of arrow image */
+}
+
+
+#thumbnails_carouselPlayer1 { 
+  overflow:hidden;
+}
+
+#thumbnails_carouselPlayer2 { 
+  overflow:hidden;
+}
+
+.highlighted { /* Style of video playing */
+  border: 1px solid #3A74AE;
+  width: 76px; /* width of thumbnail - (border width x 2) */
+  height: 56px; /* height of thumbnail - (border width x 2) */
+}
+
+.deselected {	/* Style of videos not playing */
+  width: 78px; /* Width = thumbnail width */
+  height: 58px; /* Height = thumbnail height */
+}

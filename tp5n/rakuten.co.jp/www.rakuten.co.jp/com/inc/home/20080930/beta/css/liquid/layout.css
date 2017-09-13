@@ -1,0 +1,1200 @@
+@charset "EUC-JP";
+ 
+/*=========================================================================
+
+ File Name:		layout.css
+ UpdatedBy: 	20101127-10:00
+ Style Info:    共通レイアウト設定
+
+=========================================================================*/
+
+/*
+ TopFlash
+-------------------------------------------------------------------------*/
+
+#riTopFlash{
+	padding: 0 0 25px 0;
+	height: 132px
+}
+
+#riTopBanner {
+	width: 100%;
+	clear: both;
+	overflow: hidden;
+	_zoom: 1;
+	padding:0 0 25px;	
+}
+
+#riTopBanner ul {
+	float: left;
+	width: 49%;
+	text-align: center;
+}
+
+#riTopBanner ul li {
+	padding: 0 0 10px 0;	
+}
+
+/*
+ ヘッダー
+-------------------------------------------------------------------------*/
+#riHeader .topBelt a{
+	color:#686868;
+}
+#riHeader .products a{
+	color:#bf0000;
+}
+#riHeader .historybg a{
+	color:#333333;
+	text-decoration: none;
+}
+#riHeader .reviewbg a{
+	color:#333333;
+	text-decoration: none;
+}
+#riHeader .basketBox a{
+	color:#1c53a5;
+}
+#riHeader .normalTop a{
+	color:#1d54a7;
+	text-decoration: none;
+}
+#riHeader .normalTop a:hover {
+	color: #c00000!important;	
+	text-decoration:underline;		
+}
+#riHeader .topBelt{
+	text-align: right;
+	padding: 2px 5px;
+	margin: 0 0 10px 0;
+	background-color: #f7f7f7;
+}
+#riHeader .headerBox {
+	width: 100%;
+}
+#riHeader .headerBox h1{
+	float: left;
+	width: 107px;
+	display: inline;
+	margin: 0 10px 0 0;
+}
+#riHeader .headerBox .logoLeft{
+	width: 70px;
+	margin: 3px 17px 0 0;
+	float: left;
+	display: inline;
+}
+#riHeader .headerBox .shopsProducts{
+	width: 250px;
+	margin: 0 16px 0 0;
+	float: left;
+	display: inline;
+}
+#riHeader .shopsProducts .products{
+	margin: 0;
+}
+#riHeader .shopsProducts .normalTop{
+	border: solid 1px #cccccc;
+	padding: 2px 9px 2px 29px;
+	margin:2px 0 0;
+	min-height: 15px;
+	width: 161px;
+}
+#riHeader .headerBox .basketArea{
+	width: 480px;
+	float: right;
+	display: inline;
+}
+/*#riHeader .basketArea .basket{
+	background: url(http://image.rakuten.co.jp/com/img/home/beta/201008/basket.gif) no-repeat 5px 4px;
+	border: solid 1px #f29696;
+	padding: 8px 11px 7px 38px;
+	width: 135px;
+	font-weight: bold;
+	float: left;
+	display: inline;
+}*/
+#riHeader .basketArea .basket{
+	background: url(../../../../../../../../image.www.rakuten.co.jp/com/img/home/beta/201010/topcart/icn_topcart_01.gif) no-repeat 3px 4px;
+	border: solid 1px #f29696;
+	padding:8px 0 7px 35px;
+	width: 175px;
+	min-height: 17px;
+	font-weight: bold;
+	float: left;
+	display: inline;
+}
+#riHeader .basketArea .basket .itemNumber {
+	color: #bf0000;	
+}
+/*#riHeader .basketArea .help{
+	width: 294px;
+	float: left;
+	display:inline;
+	text-align:right;
+}*/
+#riHeader .basketArea .help{
+	width: 268px;
+	/*float: left;*/
+	float: right;
+	display:inline;
+	text-align:right;
+}
+#riHeader .basketBox{
+	margin: 0 0 9px 0;
+}
+#riHeader .headerBox li{
+	margin: 0 0 0 4px;
+	float: left;
+	display: inline;
+}
+#riHeader .headerBox ul{
+	margin: 0 0 0 -4px;
+}
+#riHeader .historybg{
+	background: url(../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201008/historybg.gif) no-repeat 0 0;
+	width: 95px;
+}
+#riHeader .historybtm{
+	background: url(../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201008/historybtm.gif) no-repeat bottom;
+	width: 74px;
+	font-weight: bold;
+	padding: 3px 3px 3px 18px;
+}
+#riHeader .reviewbg{
+	background: url(../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201008/reviewbg.gif) repeat-x;
+	width: 171px;
+}
+#riHeader .reviewbtm{
+	background: url(../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201008/reviewbtm.gif) no-repeat bottom;
+	width: 150px;
+	font-weight: bold;
+	padding: 3px 3px 3px 18px;
+}
+
+
+/*
+ 共通パターン
+-------------------------------------------------------------------------*/
+#riContainer .footTitle{
+	font-weight: bold;
+	background-color: #eeeeee;
+	border: solid 1px #cecece;
+	padding: 7px;
+	overflow: hidden;
+	_zoom: 1;
+}
+#riContainer .footBox{
+	border: solid 1px #cecece;
+	border-top: none;
+	padding: 13px 0 13px 0;
+	clear: both;
+	overflow: hidden;
+	_zoom: 1;
+}
+#riContainer .footBoxdot{
+	border-bottom: dotted 1px #cecece!important;
+	font-weight: bold;
+}
+
+/*
+ riTopSearch
+-------------------------------------------------------------------------*/
+#riTopSearch .naviTab{
+	width: 950px;
+	text-align: center;
+}
+#riTopSearch .naviTab li{
+	float: left;
+	display: inline;
+}
+#riTopSearch .naviTab .base{
+	padding: 3px 0 0 0;
+}
+#riTopSearch .naviTab img{
+	margin: 0 0 -1px 0;
+}
+#riTopSearch .searchSection{
+	height:100%;
+	background: #bf0000 url(../../../../../../../../image.www.rakuten.co.jp/com/img/home/beta/201011/search_center_bg.gif) repeat-x left bottom;
+	padding: 11px 10px;
+	border-top: solid 1px #de7a7a;
+}
+#riTopSearch .searchSection li{
+	float: left;
+	display: inline;
+}
+#riTopSearch .searchSection .searchInput{
+	margin: 0 6px;
+	width: 100%;
+	font-size: 150%;
+	height: 25px;
+}
+* html #riTopSearch .searchSection .searchInput{
+	width: 100%;
+}
+#riTopSearch .searchSection .searchSelect{
+	width:183px;
+	margin: 6px 0 0 0;
+	left:0;
+	position:absolute;
+}
+#riTopSearch .searchSection .searchInputCtn {
+	position: absolute;
+	right: 253px;
+	top: 1px;
+	left: 185px;
+}
+* html #riTopSearch .searchSection .searchInputCtn {
+	left: 190px;
+}
+#riTopSearch .searchSection .searchInputCtn { 
+	right/*\**/: 255px\9; 
+}
+
+#riTopSearch .searchSection .searchBtn{
+	width: 115px;
+	float:left;
+}
+#riTopSearch .searchSection .sahArea {
+	margin-right: 448px;	
+}
+#riTopSearch .searchSection .sahTxtArea {
+	float: left;
+	width: 113px;
+	padding-left: 7px;
+}
+#riTopSearch .searchSection .sahRightCtn {
+	float: right;
+	width: 235px;
+	color: #ffffff;
+	text-align: left;
+}
+#riTopSearch .searchSection .sahRightCtn a {
+	color: #ffffff;	
+}
+#riTopSearch .searchSection .chkbox{
+	width: 940px;
+	text-align: center;
+	padding: 5px 0 0;
+	color: #ffffff;
+}
+#riTopSearch .searchSection .chkbox li{
+	margin: 0 10px 0 -5px;
+	padding: 0 0 8px 0;
+}
+#riTopSearch .searchSection .chkbox label{
+	cursor:pointer;
+}
+#riTopSearch .searchSection .sahbox{
+	width: 100%;
+	text-align: center;
+	margin: 0 auto;
+	clear: both;
+	overflow: hidden;
+	_zoom: 1;
+	color: #ffffff;
+	position:relative;	
+}
+
+/*
+ riSeasonableKeyword
+-------------------------------------------------------------------------*/
+#riSeasonableKeyword {
+	background: #f0f0f0;
+	clear: both;
+	overflow: hidden;
+	_zoom: 1;
+	padding: 5px 30px;
+}
+#riSeasonableKeyword h3 {
+	float: left;
+	color: #BF0000;
+	padding: 0 15px 0 0;
+}
+#riSeasonableKeyword ul {
+	float: left;
+	font-weight: bold;
+}
+#riSeasonableKeyword ul li {
+	padding: 0 10px 0 0;
+	float: left;
+}
+#riSeasonableKeyword ul li a {
+	color: #1D54A7;
+	text-decoration: none;	
+}
+#riSeasonableKeyword ul li a {
+	color: #1D54A7;
+	text-decoration: none;	
+}
+#riSeasonableKeyword ul li a:hover {
+	color: #C00000 ;
+	text-decoration: underline;
+}
+
+
+/*
+ riEventColumn
+-------------------------------------------------------------------------*/
+#riEventColumn .titleH2{
+	font-weight: bold;
+	border-bottom: solid 1px #dbdbdb;
+	background: url(../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201008/event_ttile_icon.gif) no-repeat 0 2px;
+	color: #bf0000;
+	font-size: 125%;
+	padding: 0 0 0 25px;
+}
+#riEventColumn .eventBox{
+	padding: 7px 0 30px 0;
+	position: relative;
+}
+#riEventColumn .eventBox a {
+	color: #1D54A7;
+	text-decoration: none;
+}
+#riEventColumn .eventBox a:hover {
+	color: #C00000;
+	text-decoration: underline;
+}
+#riEventColumn .tri{
+	background: url(../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201008/tri_f2ab00.gif) no-repeat 0 3px;
+	padding: 0 0 0 7px;
+}
+#riEventColumn .centerTitle{
+	border-bottom: solid 1px #dbdbdb;
+	clear: both;
+	overflow: hidden;
+	_zoom: 1;
+}
+#riEventColumn .centerTitle h2 {
+	font-weight: bold;
+	background: url(../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201008/event_ttile_icon.gif) no-repeat 0 2px;
+	color: #bf0000;
+	font-size: 125%;
+	padding: 0 0 0 25px;
+	display: inline;
+	float: left;
+}
+#riEventColumn .next{
+	padding: 5px 0 0 7px;
+	float: right;
+	display: inline;
+}
+#riEventColumn .next a {
+	color:#1D54A7;
+	text-decoration:none;
+}
+#riEventColumn .next a:hover {
+	color:#1D54A7;
+	text-decoration:underline;
+}
+
+/*
+ 特設会場
+-------------------------------------------------------------------------*/
+#riEventColumn .specially a{
+	color:#1d54a7;
+	text-decoration: none;
+}
+#riEventColumn .specially a:hover {
+	color: #c00000!important;	
+	text-decoration:underline;		
+}
+#riEventColumn .specially li{
+	float: left;
+	display: inline;
+}
+
+#riEventColumn .specially .underdot{
+	border-bottom: dotted 1px #aeaeae;
+	margin: 0 0 7px 0;
+}
+
+#riEventColumn .specially .sp1 li{
+	background: url(../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201008/tri_f2ab00.gif) no-repeat 0 4px;
+	padding: 0 0 0 7px;
+	margin: 0 0 0 7px;
+	white-space: nowrap;
+}
+
+#riEventColumn .specially .sp2 li{
+	background: url(../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201008/dot_f2ab00.gif) no-repeat 0 6px;
+	padding: 0 0 0 7px;
+	margin: 0 0 0 5px;
+	width: 140px;
+}
+
+/*
+ お気に入り
+-------------------------------------------------------------------------*/
+.apiArea{
+	font-size: 120%;
+}
+#riEventColumn .favorit p{
+	text-align: right;
+}
+
+/*
+ 最近見たショップ一覧
+-------------------------------------------------------------------------*/
+#riEventColumn .justWatched li{
+	width: 210px;
+	float: left;
+	display: inline;
+	background: url(../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201008/dot_f2ab00.gif) no-repeat 0 6px;
+	padding: 0 0 0 7px;
+	margin: 0 0 0 10px;
+}
+#riEventColumn .justWatched p{
+	text-align: right;
+}
+/*
+ 閲覧履歴からレコメンド
+-------------------------------------------------------------------------*/
+#riEventColumn .history p{
+	text-align: right;
+}
+/*
+ あす楽
+-------------------------------------------------------------------------*/
+#riEventColumn .asurakuLeft a{
+	color:#1d54a7;
+	text-decoration: none;
+}
+#riEventColumn .asurakuLeft a:hover {
+	color: #c00000!important;	
+	text-decoration:underline;		
+}
+#riEventColumn .asurakuRight a{
+	color:#1d54a7;
+	text-decoration: none;
+}
+#riEventColumn .asurakuRight a:hover {
+	color: #c00000!important;	
+	text-decoration:underline;		
+}
+#riEventColumn .asurakuLeft{
+	width: 211px;
+	padding: 0 3px 0 2px;
+	float: left;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#riEventColumn .asurakuLeft .red{
+	color: #bf0000;
+}
+#riEventColumn .asurakuLeft p{
+	line-height: 2;
+}
+#riEventColumn .asurakuRight{
+	border-left: dotted 1px #aeaeae;
+	padding: 5px 0 0 5px;
+	margin-left: 220px;
+}
+#riEventColumn .asurakuRight .red{
+	color: #bf0000;
+}
+#riEventColumn .asurakuRight li{
+	float: left;
+	display: inline;
+	white-space: nowrap;
+}
+#riEventColumn #asurakuDynamic{
+	margin:10px 0 0 40px;
+	text-align: center;
+	width:130px;
+}
+#asurakuDynamicText{
+	color: #bf0000;
+}
+
+/*
+ ランキング
+-------------------------------------------------------------------------*/
+#riEventColumn .ranking a{
+	color:#1d54a7;
+	text-decoration: none;
+}
+#riEventColumn .ranking a:hover {
+	color: #c00000!important;	
+	text-decoration:underline;		
+}
+#riEventColumn .rankReset{
+	font-weight: normal;
+	font-size: 82%;
+	color: #000000;
+	margin: 0 0 0 20px;
+}
+#riEventColumn .ranking .sp3 li{
+	float: left;
+	display: inline;
+}
+#riEventColumn .ranking .bold{
+	font-weight: bold;
+	color: #bf0000;
+	padding: 5px 0;
+}
+#riEventColumn .ranking .rankLeft{
+	width: 150px;
+	background: url(../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201008/rankprize1.gif) no-repeat 32px 0;
+	padding: 0 10px 0 60px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#riEventColumn .ranking .rankLeft li{
+	float: left;
+	display: inline;
+}
+#riEventColumn .ranking .rankLeft .rankThumb {
+}
+#riEventColumn .ranking .rankLeft .rankText{
+	margin: 0 0 0 5px;
+	padding-right: 5px;
+	position: absolute;
+	float: left;
+	width: 70px;
+	top: 0;
+	right: 0;
+}
+#riEventColumn .ranking .rankRight{
+	margin-left: 225px;
+	
+}
+
+#riEventColumn .ranking .rankRight ul li {
+	float: left;	
+	width: 210px;
+}
+
+#riEventColumn .ranking .rankPrize{
+	color: #bf0000;
+	font-weight: bold;
+	margin: 0 7px 0 0;
+}
+#riEventColumn .ranking .rankBox{
+	margin: 0 0 7px 0;
+	position: relative;
+}
+/*
+ おすすめ特集
+-------------------------------------------------------------------------*/
+#riEventColumn .recommend a{
+	color:#1d54a7;
+	text-decoration: none;
+}
+#riEventColumn .recommend a:hover {
+	color: #c00000!important;	
+	text-decoration:underline;		
+}
+#riEventColumn .recommend li{
+	float: left;
+	display: inline;
+	background: url(../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201008/dot_f2ab00.gif) no-repeat 0 6px;
+	padding: 0 0 0 7px;
+	margin: 0 0 0 5px;
+	width: 140px;
+}
+/*
+ トレンドキーワード
+-------------------------------------------------------------------------*/
+.trend {
+	width: 100%;
+	display: table;		
+}
+.trArea {
+	/float: left;	
+	display: table-cell;
+	width: 51%;
+	*width: 49%;
+}
+html>/**/body .trArea {  
+    float: left9;  
+    width: %9;  
+}  
+
+.trArea .thumb {
+	width: 80px;
+}
+
+.trArea .textarea {
+	width: 85px;	
+}
+
+.trArea .textarea {
+	/float:left;
+}
+
+html>/**/body .trArea .textarea {  
+    float: left9; 
+
+}  
+
+/*
+ 注目の特集
+-------------------------------------------------------------------------*/
+#riEventColumn .pickup table{
+	width:100%;
+	*width:96%;
+	margin: 0 0 0 7px;
+}
+#riEventColumn .pickup table table{
+	width:170px;
+	margin:0;
+}
+#riEventColumn .pickup td{
+	width:50%;
+	*width:;
+	text-align:left;
+}
+#riEventColumn .pickup td td{
+	width:80px;
+}
+
+#riEventColumn .pickup b{
+	width:85px;
+	display:block;
+	text-align:left;
+	margin: 0 5px 0 10px;
+}
+/*
+ オークション
+-------------------------------------------------------------------------*/
+#riEventColumn .auction a{
+	color:#1d54a7;
+	text-decoration: none;
+}
+#riEventColumn .auction a:hover {
+	color: #c00000!important;	
+	text-decoration:underline;		
+}
+
+#riEventColumn .auction{
+	padding: 7px 7px 0 7px;
+	margin: 0 0 30px 0;
+}
+#riEventColumn .auction li{
+	float: left;
+	display: inline;	
+}
+#riEventColumn .auction .imgarea{
+	margin: 0 0 0 0;
+}
+#riEventColumn .auction .textarea{
+	margin: 0 0 0 13px;
+}
+#riEventColumn .auction .sp4{
+	padding: 7px 0 7px 0;
+}
+#riEventColumn .auction .sp4 li{
+	width: 140px;
+	margin: 0 0 0 0;
+	background: url(../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201008/dot_f2ab00.gif) no-repeat 0 6px;
+	padding: 0 0 0 7px;
+}
+
+/*
+ タイムセール
+-------------------------------------------------------------------------*/
+
+#riEventColumn .fourTimesale{
+	margin: 0 0 20px 0;
+}
+#riEventColumn .fourTimesale .timesaleBox{
+	padding: 10px 0 0 0;
+	clear: both;
+	overflow: hidden;
+	_zoom: 1;
+	position: relative;
+	height: 123px;
+}
+#riEventColumn .fourTimesale .timeSaleLeft{
+	position: absolute;
+	width: 164px;
+	left: 0;
+	top: 10px;
+}
+#riEventColumn .fourTimesale .timeSaleRight{
+	margin-left: 164px;
+}
+#riEventColumn .fourTimesale .timeSaleRight dt{
+	margin: 0 0 7px 0;
+}
+#riEventColumn .fourTimesale .timeSaleRight table{
+	margin: 0 0 7px 0;
+}
+
+#riEventColumn .timesaleTtl {
+	border-left:solid 1px #CECECE;
+	border-right:solid 1px #CECECE;
+	background: url(../../../../../../../../image.www.rakuten.co.jp/com/img/home/beta/201011/bg_timesale.gif) repeat-x 0 -4px;
+}
+
+#riEventColumn .timesaleTtl img{
+	margin-top: -4px;	
+}
+
+#riEventColumn .timesaleBox a{
+	color:#1d54a7;
+	text-decoration: none;
+}
+#riEventColumn .timesaleBox a:hover {
+	color: #c00000!important;	
+	text-decoration:underline;		
+}
+
+#riEventColumn .fourTimesale{
+	border: solid 1px #cecece;
+	padding: 7px;
+	min-width: 96%;
+}
+
+/*
+ ポイントキャンペーン
+-------------------------------------------------------------------------*/
+
+#riEventColumn .fourPointCampaign{
+	margin: 0 0 20px 0;
+}
+#riEventColumn .fourPointCampaign .pointDetail01 {
+	padding: 5px 0;
+	font-size: 90%;
+	text-align: right;
+}
+#riEventColumn .fourPointCampaign .pointDetail02 {
+	padding: 5px 0;
+	font-size: 82%;
+	text-align: left;
+}
+#riEventColumn .pointCampaignBox {
+	background: #f9f9e1;
+	padding: 9px 7px;
+}
+#riEventColumn .pointCampaignBox .pointCampaignInBox {
+	margin-top: 4px;
+	background: #ffffff;	
+	padding: 0 6px;
+}
+#riEventColumn .pointCampaignBox .pointCampaignInBox dl {
+	clear: both;
+	overflow: hidden;
+	_zoom: 1;
+	padding:7px 0;
+	background: url(../../../../../../../../image.www.rakuten.co.jp/com/img/home/pointcamp/dotto_01.gif) repeat-x left top;
+}
+#riEventColumn .pointCampaignBox .pointCampaignInBox dl.cont1 {
+	background: none;
+	padding:7px 0;
+}
+#riEventColumn .pointCampaignBox .pointCampaignInBox dl dt{
+	width: 95px;
+	min-height: 17px;
+	color: #bf0000;
+	font-weight: bold;
+	float: left;
+}
+#riEventColumn .pointCampaignBox .pointCampaignInBox dl dd {
+	min-height: 17px;
+	float: left;
+	width: 70%;
+}
+
+#riEventColumn .pointCampaignBox .pointCampaignInBox dl dt {
+	padding-left: 20px;
+}
+#riEventColumn .pointCampaignBox .pointCampaignInBox dl dt.no01{
+	background: url(../../../../../../../../image.www.rakuten.co.jp/com/img/home/pointcamp/pointcampaign_no_01.gif) no-repeat left top;
+}
+#riEventColumn .pointCampaignBox .pointCampaignInBox dl dt.no02{
+	background: url(../../../../../../../../image.www.rakuten.co.jp/com/img/home/pointcamp/pointcampaign_no_02.gif) no-repeat left top;
+}
+#riEventColumn .pointCampaignBox .pointCampaignInBox dl dt.no03{
+	background: url(../../../../../../../../image.www.rakuten.co.jp/com/img/home/pointcamp/pointcampaign_no_03.gif) no-repeat left top;
+}
+#riEventColumn .pointCampaignBox .and03 .pointIconBox {
+	width: 426px;
+}
+#riEventColumn .pointCampaignBox .and02 .pointIconBox {
+	width: 350px;
+}
+#riEventColumn .and0{
+	text-align: center;
+	margin: 0 auto 5px;
+}
+#riEventColumn .pointCampaignBox .or03 .pointIconBox {
+	width: 376px;
+}
+#riEventColumn .pointCampaignBox .or02 .pointIconBox {
+	width: 255px;
+}
+#riEventColumn .pointCampaignBox .or01 .pointIconBox {
+	width: 135px;
+}
+#riEventColumn .pointCampaignBox .pointIconBox {
+	margin: 5px auto 2px;
+	clear: both;
+	overflow: hidden;
+	_zoom: 1;
+}
+#riEventColumn .pointCampaignBox .pointIconBox li {
+	float: left;
+	text-align: center;
+	padding-left: 3px;
+}
+#riEventColumn .pointCampaignBox .pointIconBox li dl {
+	padding-top: 10px;	
+}
+#riEventColumn .pointCampaignBox .pointIconBox li dl dt {
+	padding-bottom: 2px;	
+}
+#riEventColumn .pointCampaignBox .pointIconBox li.base {
+	padding: 25px 0 0 3px;	
+}
+#riEventColumn .pointCampaignBox .pointIconBox li.icon {
+	padding-top: 40px;	
+}
+
+#riEventColumn .fourPointCampaign .pointCampaign{
+	padding: 10px 0 0 0;
+	clear: both;
+	overflow: hidden;
+	_zoom: 1;
+	position: relative;
+}
+#riEventColumn .fourPointCampaign .check{
+	float: right;
+	display:inline;
+}
+#riEventColumn .pointCampaignTtl {
+	border-left:solid 1px #CECECE;
+	border-right:solid 1px #CECECE;
+	background: url(../../../../../../../../image.www.rakuten.co.jp/com/img/home/pointcamp/bg_pointcampaign.gif) repeat-x 0 -9px;
+}
+
+#riEventColumn .pointCampaignTtl img{
+	margin-top: -9px;	
+}
+
+#riEventColumn .pointCampaign a{
+	color:#1d54a7;
+	text-decoration: none;
+}
+#riEventColumn .pointCampaign a:hover {
+	color: #c00000!important;	
+	text-decoration:underline;		
+}
+
+#riEventColumn .fourPointCampaign{
+	border: solid 1px #cecece;
+	padding: 7px;
+	min-width: 96%;
+}
+
+/*
+ ラクーポン
+-------------------------------------------------------------------------*/
+
+#riEventColumn .rakupon{
+	margin: 0 0 20px 0;
+	overflow: hidden;
+	_zoom:1;
+}
+#riEventColumn .rakupon .timesaleBox{
+	padding: 10px 0 0 0;
+	position: relative;
+}
+#riEventColumn .rakupon .timeSaleLeft{
+	position: absolute;
+	top: 10px;
+	left: 0;
+}
+#riEventColumn .rakupon .timeSaleRight{
+	margin-left: 148px;
+}
+#riEventColumn .rakupon .timeSaleRight dt{
+	margin: 0 0 7px 0;
+}
+#riEventColumn .rakupon .timeSaleRight table{
+	margin: 0 0 7px 0;
+}
+/*
+ まち楽
+-------------------------------------------------------------------------*/
+
+#machiraku area{cursor: pointer;}
+
+.machiLink{
+	font-size: 90%;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.machiSttl{
+	padding-left: 5px;
+	font-weight: bold;
+}
+
+#machiraku ul{
+	margin-top: -5px;
+}
+
+.areaHokkaido{
+	display: none;
+}
+.areaTohoku{
+	display: none;
+}
+.areaKanto{
+	display: none;
+}
+.areaKinki{
+	display: none;
+}
+.areaShikoku{
+	display: none;
+}
+.areaKyusyu{
+	display: none;
+}
+.areaChugoku{
+	display: none;
+}
+.areaChubu{
+	display: none;
+}
+.areaOkinawa{
+	display: none;
+}
+/*
+ バナー
+-------------------------------------------------------------------------*/
+
+#ritopbanner{
+	margin: 0 0 7px 0;
+}
+
+/*
+ スペシャルコンテンツ
+-------------------------------------------------------------------------*/
+#riSpecialContents a{
+	color:#1d54a7;
+	text-decoration: none;
+}
+#riSpecialContents  a:hover {
+	color: #c00000!important;	
+	text-decoration:underline;		
+}
+
+#riSpecialContents ul{
+	width: 23%;
+	float: left;
+}
+
+#riSpecialContents li{
+	margin: 0 0 0 20px;
+	width: 200px;
+	float: left;
+	display:inline;
+	background: url(../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201008/dot_f2ab00.gif) no-repeat 0 6px;
+	padding: 0 0 0 7px;
+}
+/*
+ ガイド
+-------------------------------------------------------------------------*/
+#riGuide a{
+	color:#1d54a7;
+	text-decoration: none;
+}
+#riGuide a:hover {
+	color: #c00000!important;	
+	text-decoration:underline;		
+}
+#riGuide .guideL{
+	width: 23%;
+	float: left;
+}
+#riGuide .guideR{
+	width: 48%;
+	margin-left: 13px;
+	padding: 3px 0 0 10px;
+	float: left;
+	display: inline;
+	border-left: dotted 1px #aeaeae;
+	min-height: 95px;
+	height: auto !important;
+	height: 95px;
+}
+#riGuide .ul{
+	width: 23%;
+	float: left;
+}
+#riGuide li{
+	margin: 0 0 0 15px;
+	background: url(../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201008/tri_f2ab00.gif) no-repeat 0 4px;
+	padding: 0 0 3px 7px;
+}
+#riGuide dl{
+	float: left;
+	display: inline;
+}
+#riGuide dt{
+	margin: 0 0 3px 15px;
+	background: url(../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201008/tri_f2ab00.gif) no-repeat 0 4px;
+	padding: 0 0 0 7px;
+}
+#riGuide dl dd{
+	margin: 0 0 0 15px;
+	background: url(../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201008/dot_f2ab00.gif) no-repeat 12px 6px;
+	padding: 0 0 0 19px;
+}
+#riGuide .guideR p{
+	font-weight: bold;
+	margin: 0 0 12px 0;
+}
+#riGuide .riGbr {
+	float: none;
+	display: block;
+	margin-bottom: 3px;
+}
+#riGuide #riMail{
+	background: url(../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201011/dotto.gif) repeat-x left bottom;
+	padding-bottom: 10px;
+}
+#riGuide #riAttention dl dt,
+#riGuide #riAttention dl dd{
+	background: none;
+	margin: 0;
+	padding: 0;
+}
+#riGuide #riAttention {
+	font-size: 82%;
+}
+#riGuide #riAttention dl {
+	padding: 10px 0;
+	width: 100%;
+}
+#riGuide #riAttention p {
+	font-weight: normal;
+}
+
+/* メンテナンス枠、アナウンス枠
+-------------------------------------------------------------------------*/
+
+#topInfoArea {
+	border: 1px solid #cecece;
+	background: #ffffdd;
+	padding: 5px 5px 5px 5px;
+	margin: 0px auto 10px auto;
+	font-size: 82%;
+	text-align:center;
+	_zoom: 1;
+}
+#topInfoArea a {
+	color: #1D54A7;
+	text-decoration: none;
+}
+#topInfoArea a:hover {
+	color: #C00000;
+	text-decoration: underline;
+}
+#riFooter #topInfoArea {
+	width:260px;
+	border: 1px solid #cecece;
+	background: #ffffdd;
+	padding: 5px 5px 5px 5px;
+	margin: 0 auto 15px auto;
+	font-size: 82%;
+	text-align:center;
+	_zoom: 1;
+}
+#topAnnounceArea {
+	width:520px;
+	border: 1px solid #cecece;
+	background: #ffffdd;
+	padding: 5px 5px 5px 5px;
+	margin: 0 auto 10px auto;
+	font-size: 82%;
+	text-align:center;
+	_zoom: 1;
+}
+#topAnnounceArea a {
+	color: #1D54A7;
+	text-decoration: none;
+}
+#topAnnounceArea a:hover {
+	color: #C00000;
+	text-decoration: underline;
+}
+
+/* 001: テーブルヘッダー使用時の制御
+*********************************** */
+
+#tableHeader table[cellpadding="6"] td[width="50%"] a{
+	color:#ffffff;
+}
+
+#tableSarch td[width="30%"] img{
+	margin-top:3px;
+	display:block;
+}
+
+#tableSarch td[VALIGN="MIDDLE"]  img{
+	display:block;
+	padding:3px;
+	text-align:center;
+	vertical-align: middle;
+
+}
+
+#tableSarch td[width="30%"] a{
+	color:#636363;
+}
+
+
+#tableRanking div[align="right"] td {
+	text-align:left;
+}
+
+#riFooter font[color="#ffffff"] a:link,
+#riFooter font[color="#ffffff"] a:visited,
+#riFooter font[color="#ffffff"] a:active{
+	color:#ffffff;
+}
+
+/* API微調整
+*********************************** */
+
+.ashiatoRecoRecoItemName{
+	width:85px !important;
+}
+
+.paraApi{
+	margin: 10px 0 0 0;
+}
+
+/* カントリー
+-------------------------------------------------------------------------*/
+.ricountry {
+	text-align: center !important;
+}
+.ricountry a {
+	color: #1D54A7;
+	text-decoration: none;
+}
+.ricountry a:hover {
+	color: #C00000 !important;
+	text-decoration: underline;
+}
+
+/* ブックス枠
+-------------------------------------------------------------------------*/
+.guideL .subText {
+	background:url("../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201008/dot_f2ab00.gif") no-repeat 12px 6px!important;
+	margin:0 0 0 15px!important;
+	padding:0 0 0 19px!important;
+}
+
+

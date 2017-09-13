@@ -1,0 +1,134 @@
+//### WP dynamiclib.js, copyright (c) 2009-2011 Wirtualna Polska S.A. ###
+//21
+
+//### włączanie skórki bw/grayscale ###
+var bwLayout = function() {
+  //skorka bw
+  if (document.body.className.indexOf('SGSkin_bw')==-1){
+    document.body.className = 'SGSkin_bw';
+  }
+  
+  //nałożenie filtra pod IE
+  if (WP.isIE) {
+    var e = document.body.getElementsByTagName('*');
+    for (var i=0;i<e.length;i++){
+      e[i].style.filter = 'progid:DXImageTransform.Microsoft.BasicImage(grayScale=1)';
+      e[i].style.zoom = 1;
+    }
+  } else {  
+    // pozostałe przeglądarki
+    //style
+    var c = document.styleSheets[0];
+    c = c.cssRules?c.cssRules:c.rules[0];
+    for (var i=0; i<c.length; i++){
+      if (c[i]['style']['backgroundImage'].indexOf('/layout/')!=-1 && c[i]['style']['backgroundImage'].indexOf('_bw.')==-1){
+        c[i]['style']['backgroundImage'] = c[i]['style']['backgroundImage'].replace(".png", "_bw.png").replace(".gif", "_bw.gif" );
+      }
+    }
+    //obrazki layoutowe
+    var o = document.body.getElementsByTagName('img');
+    for (var i in o) {
+      if (typeof(o[i].src)!='undefined' && o[i].src.indexOf('/layout/')!=-1 && o[i].src.indexOf('_bw.')==-1) {
+        o[i].src = o[i].src.replace(".jpg","_bw.jpg").replace(".gif","_bw.gif").replace(".png","_bw.png");
+      }
+    } 
+  }
+}
+
+//### SearchHint ###
+if (typeof(ajaxEnabled)!='undefined' && ajaxEnabled && typeof(searchTipsEnabled)!='undefined' && searchTipsEnabled ) {
+//if (document.location.href.indexOf('dev')>-1) {
+///
+
+ID('bxSzukaj').style.overflow = 'visible';
+var SI = null;
+
+var SH = function(n){
+	SI = n;
+	if (SI === null) {
+		if (ID('searchHint')&&ID('searchHint').style.display!='none') WP.$('#searchHint').fadeOut(100);
+		return;
+	}
+	if (SI<0) SI=0;
+	if (SI>WP.$('#searchHint div').length-1) SI = WP.$('#searchHint div').length-1;
+	WP.$('#searchHint').find('div').css({"background-color":"transparent", "color":"#555"}).eq(SI).css({"background-color":"#888a8e", "color":"#fff"});
+	if (WP.$('#searchHint').css("display") == 'none') WP.$('#searchHint').fadeIn(100);
+}
+
+var firefoxBug = false;
+WP.$('#szukaj1').attr('autocomplete','off').keyup(function(e){
+
+	if (!ID('searchHint')) {
+		var h = document.createElement('div');
+		h.id = 'searchHint';
+		h.style.border = '1px solid #bbb';
+		h.style.margin = '22px 0 0 1px';
+		h.style.width = '308px';
+		h.style.padding = '1px 0 5px 0';
+		h.style.position = 'absolute';
+		h.style.zIndex = '5';
+		h.style.overflow = 'hidden';
+		h.style.borderRadius = '0 0 4px 4px';
+		h.style.boxShadow = '1px 1px 4px #bbb'; 
+		h.style.backgroundColor = '#f8f9fa';
+		h.style.color = '#555';
+		h.style.fontSize = '11px';
+		h.style.display = 'none';
+		ID('szukaj1').parentNode.appendChild(h);
+	}
+
+	if (e.keyCode > 40 || e.keyCode == 8 || e.keyCode == 32){
+		if (WP.$(this).val().length <= 1) {
+			SH(null);
+			return;
+		}
+
+		WP.$.ajax({
+			type: "get",
+			data: "s="+ID('szukaj1').value.replace(' ','%20'), //zeby wysylal rowniez spacje na koncu
+			url: "tips."+(document.location.href.indexOf('srv')>-1?'php':'html'),
+	  		success: function(x){
+				if (x.length<5) {
+					WP.$('#searchHint').empty();
+					SH(null);
+					return;
+				}
+				var x = x.replace("[", '[{"s":""},'); //jako 0 będzie oryginalny tekst wpisany w szukaja
+				var r = WP.JSON.parse(x);
+  				WP.$('#searchHint').empty();
+  				for (var i=0; i<(r.length>8?8:r.length); i++) {
+    				WP.$('<div style="margin:0; padding:0px 3px;font-size:12px;cursor:pointer"></div>').attr("idx",i).text(r[i].s).appendTo('#searchHint')
+					.mouseenter(function(){ SH(WP.$(this).attr('idx')) })
+					.click(function(){ WP.$('#szukaj1').val( WP.$('#searchHint').find('div').eq(SI).text() ); SH(null); ID('szukajD1').getElementsByTagName('form')[0].submit(); });
+  				}
+				WP.$('#searchHint div').eq(0).hide(); //ukrywamy pozycję 0, czyli tą, co wpisał user w szukaja
+				if (r.length>0) SH(0); else SH(null);
+			}
+		});
+	} else if (e.keyCode == 13) {
+		if ( firefoxBug ) { return; }
+		if (SI>0) WP.$('#szukaj1').val( WP.$('#searchHint').find('div').eq(SI).text() );
+		SH(null); //ukrycie
+		ID('szukajD1').getElementsByTagName('form')[0].submit();
+	}
+})
+.click(function(){
+	SH(null);	
+})
+.focus(function(){ firefoxBug = true; setTimeout("firefoxBug = false", 250); })
+.keydown(function(e){
+	if (e.keyCode == 40) {
+		//dół
+		SH(SI+1);
+		e.preventDefault();		
+	} else if (e.keyCode == 38) {
+		//góra
+		SH(SI-1);
+		e.preventDefault();
+	} else if (e.keyCode == 27) {
+		SH(null); //ukrycie
+		e.preventDefault();
+	} 
+});
+////
+}

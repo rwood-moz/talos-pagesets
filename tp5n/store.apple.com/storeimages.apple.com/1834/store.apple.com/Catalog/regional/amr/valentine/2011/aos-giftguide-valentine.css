@@ -1,0 +1,158 @@
+p.price { font-weight: bold;  }
+.section.top {  width:802px; margin:0 1px; padding:38px 0 0 0; color:#333; position:relative; min-height:200px;  text-align: center; border:none; }
+.section.top p { color: #999; line-height: 24px; font-size: 18px; margin-top: 10px; padding:0 20px; -webkit-text-size-adjust: none; }
+p.product-intro { color: #999; font-size: 16px; line-height: 22px; }
+.secondary-products ul { width: 100%; clear: both; }
+.secondary-products ul li { width: 215px; display: inline; float: left; position: relative; margin-left: 40px; margin-bottom: 20px; }
+.secondary-products ul li h4 { color: #000; font-size: 14px; line-height: 18px; margin-bottom: 4px; }
+.secondary-products ul li p { width: 215px;  color: #666; font-size: 12px; line-height: 18px; margin-bottom: 4px; }
+.secondary-products ul li p.price { margin-bottom:0; }
+.secondary-products ul.top-row li h4 { font-size: 16px; line-height: 20px; margin-bottom:1px;  }
+.secondary-products ul.top-row li p { font-size: 14px; line-height: 20px; }
+.secondary-products ul.top-row li p.price { margin-bottom:4px; }
+.secondary-products ul li p.price { color:#6b6b6b; }
+a.buy-now img { margin-top: 4px; }
+sup { font-size: 8px; vertical-align: baseline; position: relative; bottom: 4px; }
+.footnote p { font-size:10px; color:#888; line-height:14px; padding-top:0; margin-top:5px; -webkit-text-size-adjust: none; }
+
+/* Special Deals */
+#navigation #specialdeals-list { position: relative; margin-bottom: 16px;}
+#navigation #specialdeals-list img.sale-tag { position: absolute; right: 10px; top: 20px; }
+#navigation img.fb-ipodnano {  position: absolute;  top: 47px;}
+#navigation img.fb-ipodtouch { position: absolute; top: 53px; }
+#navigation #coherent_id_20.superlink, #navigation #coherent_id_22.superlink { overflow: visible; }
+
+/* US Only */
+.holiday-gift-guide.us #product-row-1.product-row.first .row-main { padding-top: 520px; }
+.holiday-gift-guide.us .section.top { background: #fff url('img/valentine-giftguide-bg.jpg') repeat-x left bottom; min-height: 192px; }
+.holiday-gift-guide.us .secondary-products ul li { margin-left: 0; padding-left: 40px; }
+.holiday-gift-guide.us .secondary-products ul.top-row li h4 { margin-bottom: 4px; }
+.holiday-gift-guide.us .secondary-products ul.top-row li p { margin-bottom: 2px; }
+.holiday-gift-guide.us .secondary-products ul.top-row li p.price { margin-bottom: 4px; }
+.holiday-gift-guide.us .product-row .row-main .title-text h2 { padding-bottom: 2px; }
+.holiday-gift-guide.us .secondary-products ul.top-row li a.buy-now img { margin-top: 6px; margin-left: -4px; }
+.holiday-gift-guide.us .secondary-products ul.bottom-row li h4,
+.holiday-gift-guide.us .secondary-products ul.bottom-row li p { margin-bottom: 4px; }
+.holiday-gift-guide.us .secondary-products ul.bottom-row li p.price { margin-bottom: 0; }
+
+.holiday-gift-guide.us #product-row-1.product-row.first .row-main { min-height: 521px; margin-top: 21px; margin-left: 1px; position: relative; }
+.holiday-gift-guide.us #product-row-1.product-row.first .row-main .title-text { position: absolute; top: 111px; left: 547px; width: 190px; }
+.holiday-gift-guide.us #product-row-1.product-row.first .secondary-products ul.top-row li h4 { margin-top: -10px; }
+.holiday-gift-guide.us #product-row-1.product-row.first .secondary-products ul.top-row li.product-three p { width: 225px; }
+.holiday-gift-guide.us #product-row-1.product-row.first .secondary-products ul.top-row li.product-one img.hero { position: absolute; margin-top: -524px; margin-left: -40px;  }
+.holiday-gift-guide.us #product-row-1.product-row.first .secondary-products ul.top-row li.product-two img.hero { position: absolute; margin-top: -524px; margin-left: -99px; z-index: 100; }
+.holiday-gift-guide.us #product-row-1.product-row.first .secondary-products ul.top-row li.product-two p.price,
+.holiday-gift-guide.us #product-row-2.product-row.second .secondary-products ul.top-row li.product-three p.price,
+.holiday-gift-guide.us #product-row-3.product-row.third .secondary-products ul.top-row li p.price { margin-bottom: 0; }
+
+.holiday-gift-guide.us #product-row-1.product-row.first .secondary-products ul.top-row li.product-three img.hero { position: absolute; margin-top: -159px; margin-left: -111px; z-index: 200; }
+.holiday-gift-guide.us #product-row-1.product-row.first .secondary-products ul.bottom-row img#iwatch { margin-left: 25px; }
+.holiday-gift-guide.us #product-row-1.product-row.first .secondary-products ul.bottom-row li.product-one p { width: 225px; }
+
+.holiday-gift-guide.us #product-row-2.product-row.second .row-main { clear: both; padding-top: 725px;  margin-left: 1px; position: relative; }
+.holiday-gift-guide.us #product-row-2.product-row.second .row-main .title-text { position: absolute; top: 90px; width: 230px; left: 40px; }
+.holiday-gift-guide.us #product-row-2.product-row.second .secondary-products ul.top-row { z-index: 200; position: relative; }
+.holiday-gift-guide.us #product-row-2.product-row.second .secondary-products ul.top-row li { margin-bottom: 0; }
+.holiday-gift-guide.us #product-row-2.product-row.second .secondary-products ul.top-row li.product-two p,
+.holiday-gift-guide.us #product-row-2.product-row.second .secondary-products ul.bottom-row li.product-one p { width: 220px; }
+.holiday-gift-guide.us #product-row-2.product-row.second .secondary-products ul.top-row li.product-one img.hero { position: absolute; margin-top: -368px; margin-left: -40px; z-index: 100; }
+.holiday-gift-guide.us #product-row-2.product-row.second .secondary-products ul.top-row li.product-two img.hero { position: absolute; margin-top: -725px; margin-left: -271px; z-index: 200; }
+.holiday-gift-guide.us #product-row-2.product-row.second .secondary-products ul.top-row li.product-three img.hero { position: absolute; margin-top: -258px; margin-left: -278px; z-index: 200; }
+.holiday-gift-guide.us #product-row-2.product-row.second .secondary-products ul.bottom-row { z-index: 100; position: relative; }
+.holiday-gift-guide.us #product-row-2.product-row.second .secondary-products ul.bottom-row li.product-one img,
+.holiday-gift-guide.us #product-row-2.product-row.second .secondary-products ul.bottom-row li.product-two img,
+.holiday-gift-guide.us #product-row-2.product-row.second .secondary-products ul.bottom-row li.product-three img { margin-top: -50px; }
+.holiday-gift-guide.us #product-row-2.product-row.second .secondary-products ul.bottom-row h4 { margin-top: -16px; }
+.holiday-gift-guide.us #product-row-2.product-row.second .secondary-products ul.bottom-row img#optoma { margin-left: 50px; }
+
+.holiday-gift-guide.us #product-row-3.product-row.third .row-main { clear: both; padding-top: 460px;  margin-left: 10px; position: relative; }
+.holiday-gift-guide.us #product-row-3.product-row.third .row-main .title-text { position: absolute; top: 64px; width: 280px; left: 417px; }
+.holiday-gift-guide.us #product-row-3.product-row.third .row-main .secondary-products { margin-left: -10px; }
+.holiday-gift-guide.us #product-row-3.product-row.third .secondary-products ul li h4 { margin-top: -7px; }
+.holiday-gift-guide.us #product-row-3.product-row.third .secondary-products ul.top-row li.product-one img.hero { position: absolute; margin-top: -464px; margin-left: -33px; z-index: 100; }
+.holiday-gift-guide.us #product-row-3.product-row.third .secondary-products ul.top-row li.product-two img.hero { position: absolute; margin-top: -243px; margin-left: -5px; z-index: 200; }
+.holiday-gift-guide.us #product-row-3.product-row.third .secondary-products ul.top-row li.product-three img.hero { position: absolute; margin-top: -272px; margin-left: -101px; z-index: 100; }
+
+.holiday-gift-guide.us #product-row-3.product-row.third .secondary-products ul.top-row li.product-three p { width: 220px; }
+.holiday-gift-guide.us #product-row-3.product-row.third .secondary-products ul.bottom-row li h4 { margin-top: 6px; }
+.holiday-gift-guide.us #product-row-3.product-row.third .secondary-products ul.bottom-row img#headphones { margin-left: 20px; }
+.holiday-gift-guide.us #product-row-3.product-row.third .secondary-products ul.bottom-row img#tote { margin-left: 15px; }
+.holiday-gift-guide.us #product-row-3.product-row.third .secondary-products ul.bottom-row li.product-three p { width: 195px; }
+
+.holiday-gift-guide.us .footnotes { padding: 0 0 0 21px; -webkit-text-size-adjust: none; }
+.holiday-gift-guide.us .footnotes ul { padding-bottom: 2px; }
+.holiday-gift-guide.us .footnotes ul li { margin-bottom: 4px; }
+.holiday-gift-guide.us .footnotes p { line-height: 14px; }
+
+
+/* GEO - Shared */
+.holiday-gift-guide.geos .product-row.first { position:relative; }
+
+.holiday-gift-guide.geos .product-row.first .secondary-products  ul.top-row { min-height:486px; z-index:1; }
+.holiday-gift-guide.geos .product-row.first .secondary-products  ul.top-row li { position:relative; }
+.holiday-gift-guide.geos .product-row.first .secondary-products  ul.top-row li .product-pic { position:absolute; z-index:5; }
+.holiday-gift-guide.geos .product-row.first .secondary-products  ul.top-row li h4 { padding-top:566px; }
+                         
+.holiday-gift-guide.geos .product-row.first .row-main { background:none; min-height: 196px; position:relative; margin-top: 0; margin-left: 1px; position: relative; }
+.holiday-gift-guide.geos .product-row.first .row-main .title-text { position: absolute; top: 117px; left: 550px; width: 190px; }
+.holiday-gift-guide.geos .product-row.first .row-main .price { font-size:14px; line-height:20px; }
+                         
+.holiday-gift-guide.geos .product-row.first .row-main .promo { position:relative; clear:both; width:732px; min-height:73px; margin:0 35px 0 35px; padding-top:18px; background:url(img/promo-sprite.png) -733px 0px repeat-y; }
+.holiday-gift-guide.geos .product-row.first .row-main .promo .promo-content { background:-moz-linear-gradient(0% 100% 90deg,#F2F2F2, #FFFFFF, #FFFFFF 50%); background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFFFFF), to(#F2F2F2), color-stop(.5,#FFFFFF)); margin:0 1px; /*min-height:73px;*/ }
+.holiday-gift-guide.geos .product-row.first .row-main .promo .top-corners { background:url(img/promo-sprite.png) 0px 0px no-repeat; height:5px; width:100%; position:absolute; top:0; left:0; }
+.holiday-gift-guide.geos .product-row.first .row-main .promo .bottom-corners { background:url(img/promo-sprite.png) 0px -12px no-repeat; height:10px; width:100%; position:absolute; bottom:0; left:0; z-index:10; }
+.holiday-gift-guide.geos .product-row.first .row-main .promo img { position:absolute; bottom:0; left:16px; }
+.holiday-gift-guide.geos .product-row.first .row-main .promo .promo-content .promo-copy { padding:0 16px 16px 238px; -webkit-text-size-adjust: none; }
+.holiday-gift-guide.geos .product-row.first .row-main .promo .promo-content .promo-copy h4 { font-size:14px; font-weight:bold; margin-bottom:4px; }
+.holiday-gift-guide.geos .product-row.first .row-main .promo .promo-content .promo-copy p { color:#666; font-size:14px; line-height:20px; display:inline; }
+.holiday-gift-guide.geos .product-row.first .row-main .promo .promo-content .promo-copy a.more.last { margin-left:7px; }
+
+.holiday-gift-guide.geos .product-row.secondary { margin:0 24px; }
+.holiday-gift-guide.geos .product-row.secondary.no-border .row-main { border-top:none; }
+.holiday-gift-guide.geos .product-row.secondary .row-main { background:none; border-top:1px solid #d0d0d0; }
+.holiday-gift-guide.geos .product-row.secondary .row-main .title-text { width:100%; text-align:center; left:0; top:0; padding:50px 0 33px; }
+.holiday-gift-guide.geos .product-row.secondary .row-main .title-text a { font-size:16px; font-weight:normal; line-height:23px; }
+.holiday-gift-guide.geos .product-row.secondary .row-main .secondary-products { min-height:441px; }
+.holiday-gift-guide.geos .product-row.secondary .row-main .secondary-products ul li.product-one { margin-left:11px; }
+.holiday-gift-guide.geos .product-row.secondary .row-main .secondary-products ul li { margin-left:39px; }
+.holiday-gift-guide.geos .product-row.secondary .row-main .secondary-products ul li img { width:210px; height:169px; margin:0 2.5px; text-align:center; }
+.holiday-gift-guide.geos .product-row.secondary .row-main .secondary-products ul h4 { margin-top:18px; }
+
+/* GEO - WITH iPhone */
+.holiday-gift-guide.geos.with-iphone .product-row.first #table-top { position:absolute; top:511px; left:0; z-index:3; }
+.holiday-gift-guide.geos.with-iphone .product-row.first .hero-product { position:absolute; top:0; }
+.holiday-gift-guide.geos.with-iphone .product-row.first .hero-product .product-pic { position:absolute; z-index:4; top:0; left:132px; }
+.holiday-gift-guide.geos.with-iphone .product-row.first .hero-product .hero-copy { margin:126px 0 0 553px; font-size:14px; z-index:1000; position:absolute; width: 230px; }
+.holiday-gift-guide.geos.with-iphone .product-row.first .hero-product .hero-copy h4 { font-size:16px; line-height:20px; margin-bottom:1px; }
+.holiday-gift-guide.geos.with-iphone .product-row.first .hero-product .hero-copy p { font-size:14px; line-height:20px; color:#666; margin-bottom:4px; }
+.holiday-gift-guide.geos.with-iphone .product-row.first .secondary-products  ul.top-row li.product-one .product-pic { top:231px; }
+.holiday-gift-guide.geos.with-iphone .product-row.first .secondary-products  ul.top-row li.product-two .product-pic { top:362px; left:-117px; }
+.holiday-gift-guide.geos.with-iphone .product-row.first .secondary-products  ul.top-row li.product-three .product-pic { top:421px; left:-44px; }
+
+/* GEO - No iPhone */
+.holiday-gift-guide.geos.no-iphone .product-row.first #table-top { position:absolute; top:500px; left:0; z-index:3; }
+.holiday-gift-guide.geos.no-iphone .product-row.first .secondary-products  ul.top-row li.product-one .product-pic { top:215px; left:-3px; }
+.holiday-gift-guide.geos.no-iphone .product-row.first .secondary-products  ul.top-row li.product-two .product-pic { top:0; left:-75px; z-index:3; }
+.holiday-gift-guide.geos.no-iphone .product-row.first .secondary-products  ul.top-row li.product-three .product-pic { top:394px; left:-141px; }
+
+/* GEO - No iPad Engrave */    
+.holiday-gift-guide.geos.no-iphone .product-row.first .row-main .promo.ipod .promo-content .promo-copy { padding:0 16px 16px 256px; }                
+
+/* GEO - XF */
+html.fr-ca .holiday-gift-guide.geos .product-row.secondary .row-main { min-height:620px; _height:620px; }
+
+
+/* ----- LAST CHANCE ----- */
+
+/* US Only */
+.holiday-gift-guide.lastchance #product-row-2.product-row.second .secondary-products ul.bottom-row li.product-one p { width: 230px; }
+
+html.us body.us-uk #navigation #shipping-info .modulecontent { padding-bottom:18px; }
+html.us body.us-uk #navigation #shipping-info .modulecontent div { background:#efefef url('img/shipping-bg.gif') repeat-x; margin: 0 1px; width:166px; }
+html.us body.us-uk #navigation #shipping-info .modulecontent div img { padding:17px 0 11px 37px; }
+html.us body.us-uk #navigation #shipping-info .modulecontent div h3 { background: transparent; padding:0 14px 5px;  }
+html.us body.us-uk #navigation #shipping-info .modulecontent div p { padding:0 14px; }
+html.us body.us-uk #navigation #shipping-info .modulecontent div p.more-info { padding-top:2px; }
+
+/* GEOs */
+.holiday-gift-guide.geos.lastchance .product-row.secondary .row-main .title-text h2 { padding-top:20px; }

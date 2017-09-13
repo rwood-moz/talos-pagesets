@@ -1,0 +1,233 @@
+function show_previous() {
+	if(prev_hash) {
+		window.location = '/gallery/'+prev_hash;
+	}
+}
+
+function show_next() {
+	if(next_hash) {
+		window.location = '/gallery/'+next_hash;
+	}
+}
+
+function blur_textarea() {
+	$('.counter').hide();
+
+	$('#submit-caption textarea').val('Submit a caption');
+	$('#submit-caption textarea').css('height', '20px');
+	$('#submit-caption textarea').css('color', '#888');
+}
+
+function vote(arrow, id, type) {
+	if(!signed) return signin('vote', id, type, $(arrow).hasClass('down')? 'down': 'up');
+
+	var sid    = $('#sid').val();
+	var points = parseInt($('#points-'+id).html());
+
+	$(arrow).toggleClass('pushed');
+
+	if($(arrow).hasClass('down')) {
+		$('#'+id).removeClass('green').addClass('red');
+		
+		if($(arrow).parent().children('.arrow.up').hasClass('pushed')) {
+			$(arrow).parent().children('.arrow.up').removeClass('pushed');
+			points--;
+		}
+
+		points = $(arrow).hasClass('pushed')? points-1: points+1;
+
+		$.post('/gallery/vote/'+type+'/'+id, {vote: 'down', sid: sid});
+	} else {
+		$('#'+id).removeClass('red').addClass('green');
+		
+		if($(arrow).parent().children('.arrow.down').hasClass('pushed')) {
+			$(arrow).parent().children('.arrow.down').removeClass('pushed');
+			points++;
+		}
+
+		points = $(arrow).hasClass('pushed')? points+1: points-1;
+
+		$.post('/gallery/vote/'+type+'/'+id, {vote: 'up', sid: sid});
+	}
+	
+	if(!$(arrow).hasClass('pushed')) {
+		$('#'+id).removeClass('red').removeClass('green');
+	}
+
+	$('#points-'+id).html(points);
+
+	if(points == 1 || points == -1) {
+		$('#points-text-'+id).html('point');
+	} else {
+		$('#points-text-'+id).html('points');
+	}
+}
+
+function submit_caption() {
+	if(!signed) return signin('caption', hash, null, $('#caption_textarea').val());
+
+	if($('#caption_form textarea').val().length > 140) return false;
+	if($('#caption_form textarea').val() == "Submit a caption") return false;
+
+	$.post(location.href, $("#caption_form").serialize(), function(data) {
+		var i = parseInt(data);
+
+		if(!isNaN(i) && i > 0) {
+			$('#caption-error').html('You\'re captioning too fast! Please wait '+data+' seconds.').fadeIn(250);
+		} else {
+			blur_textarea();
+
+			if(data != '') {
+				$('#caption-error').hide();
+				$(data).hide().prependTo('#captions').fadeIn(250);
+			}
+		}
+	});
+
+	return false;
+};
+
+function signin(action, id, type, value) {
+	$.post('/gallery', {action: action, id: id, type: type, value: value});
+
+	$('.advertisement iframe').css('visibility', 'hidden');
+
+	$.fn.colorbox({
+		href: "/register?minimal",
+		iframe: true,
+		width: "780px",
+		height: "580px",
+		transition: 'none',
+	void: true,
+		onClosed: showAds
+	});
+
+	return false;
+}
+
+function showAds() {
+	$('.advertisement iframe').css('visibility', 'visible')
+}
+
+function remove(hash) {
+	$.post('/gallery/'+hash, {remove: true}, function(data) {
+		$('#remove-'+hash).fadeOut();
+	});
+}
+
+function delete_caption(id) {
+	var sid = $('#sid').val();
+
+	if(confirm('Are you sure you want to delete this caption?')) {
+		$.post('/gallery', {delete_caption: id, sid: sid});
+		$('#caption-'+id).fadeOut();
+	}
+};
+
+function insert_ad() {
+	var rand  = Math.floor(Math.random()*1000);
+	var outer = $('<div id="bottom-ad" class="advertisement"></div>');
+	var inner = $('<div class="imgur-ad advertisement"></div>');
+	var text  = $('<div class="advertisement ad-text">Advertisement: <a href="/register/upgrade">pro users don\'t see ads</a></div>');
+	var frame = $('<iframe src="httpdisabled://imgur.com/include/tf-iframe.html?cb='+rand+'" framespacing="0" frameborder="no" scrolling="no" width="300" height="250" allowtransparency="true"></iframe>');
+	
+	$(inner).append(frame);
+	$(outer).append(inner);
+	$(outer).append(text);
+	
+	$('#content').append(outer);
+}
+
+// Bind the arrow keys
+$(document).keydown(function(e){
+	if($('.counter').css('display') == 'block') {
+		return true;
+	}
+
+	if(!e.ctrlKey && !e.altKey && !e.metaKey) {
+		if(e.keyCode == 37) { 
+			show_previous();
+		} else if(e.keyCode == 39) {
+			show_next();
+		}
+	
+		return true;
+	}
+	
+	return true;
+});
+
+$('#imagelist img, .thumbnails img, .title').tipsy({
+	gravity: 'n',
+	opacity: 0.95,
+	offset: -8,
+	html: true
+});
+
+$('.image-arrows span, #social li, .icons li, .sparkbar div').tipsy({
+	gravity: 'sw',
+	opacity: 1
+});
+
+$('.zoom img').css('cursor', function() {
+	if(jQuery.browser.mozilla) {
+		return 'url(/include/magnify.cur), -moz-zoom-in';
+	}
+	else if(jQuery.browser.webkit) {
+		return 'url(/include/magnify.cur), -webkit-zoom-in';
+	}
+	else {
+	   return 'url(/include/magnify.cur)';
+	}
+});
+
+try {
+	$('.zoom').imageZoom();
+	$('#submit-caption textarea').charCount();
+} catch(e) {}
+
+if($('#submit-caption textarea').val() != 'Submit a caption') {
+	$('.counter').show();
+	$('#submit-caption textarea').css('height', '60px');
+	$('#submit-caption textarea').css('color', '#fff');
+}
+
+$('#submit-caption textarea').focus(function() {
+	$('.counter').show();
+
+	if($(this).val() == 'Submit a caption') {
+		$('.counter').html('140');
+
+		$(this).val('');
+		$(this).css('height', '60px');
+		$(this).css('color', '#fff');
+	}
+});
+
+$('#submit-caption textarea').blur(function() {
+	if(!$.browser.msie) {
+		if($(this).val().trim() == '') {
+			blur_textarea();
+		}
+
+		$(this).val($(this).val().trim());
+	} else {
+		if($(this).val() == '') {
+			blur_textarea();
+		}
+	}
+});
+
+function show_bad_captions() {
+	if($('#show-bad').attr('v') == 'hidden') {
+		$('#show-bad').attr('v', 'shown');
+		$('#show-bad').css('margin-bottom', '5px');
+		$('#show-bad #txt').text('hide');
+		$('.caption.bad').show();
+	} else {
+		$('#show-bad').attr('v', 'hidden');
+		$('#show-bad').css('margin-bottom', '0');
+		$('#show-bad #txt').text('show');
+		$('.caption.bad').hide();
+	}
+}

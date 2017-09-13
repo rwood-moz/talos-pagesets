@@ -1,0 +1,1399 @@
+body
+{
+	margin-left: 0px;
+	margin-top: 0px;	
+}
+#TitleThumb
+{
+	width: 200px;
+	height: auto;
+	direction: rtl;
+	z-index: 1000;
+	position: absolute;
+}
+#TitleThumbContent
+{
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-top-color: #7C9EC1;
+	border-right-color: #7C9EC1;
+	border-left-color: #7C9EC1;
+	width: 200px;
+	background-color: #FFFFFF;
+	text-align: right;
+}
+#TitleThumbItem
+{
+	width: 92px;
+	font-family: "Arabic Transparent";
+	font-size: 13px;
+	font-weight: bold;
+	color: #024794;
+	text-decoration: none;
+	float: left;
+	text-align: right;
+	direction: rtl;
+	padding: 5px;
+	padding-top: 5px;
+	float: right;
+}
+#TitleThumbItem a
+{
+	font-family: "Arabic Transparent";
+	font-size: 13px;
+	font-weight: bold;
+	color: #024794;
+	text-decoration: none;
+}
+#TitleThumbItem div
+{
+	padding-bottom: 10px;
+	width: 150px;
+	text-align: right;
+}
+#allTitles
+{
+	z-index: 1000;
+	position: absolute;
+}
+#allTitlesContent
+{
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-top-color: #7C9EC1;
+	border-right-color: #7C9EC1;
+	border-left-color: #7C9EC1;
+	background-color: #FFFFFF;
+}
+#alltitlesItem
+{
+	width: 85px;
+	font-family: "Arabic Transparent";
+	font-size: 13px;
+	font-weight: bold;
+	color: #024794;
+	text-decoration: none;
+	vertical-align: top;
+	padding-left: 7px;
+	padding-top: 7px;
+}
+#alltitlesItem div
+{
+	padding-right:2px;
+}
+#alltitlesItem a
+{
+	font-family: "Arabic Transparent";
+	font-size: 13px;
+	font-weight: bold;
+	color: #024794;
+	text-decoration: none;
+}
+#interActiveMedia
+{
+	width: 390px;
+}
+#myGallery, #myGallerySet, #flickrGallery
+{
+	width: 390px;
+	height: 310px;
+	z-index: 5;
+}
+#flickrGallery
+{
+	width: 390px;
+	height: 310px;
+}
+#NewsNav
+{
+	float: right;
+}
+#NewsNav img
+{
+	cursor: pointer;
+}
+#NewsNumber
+{
+	direction: rtl;
+	padding-right: 5px;
+	font-family: "Arabic Transparent";
+	font-size: 16px;
+	font-weight: normal;
+}
+#NewsNumber a
+{
+	float: right;
+	direction: rtl;
+	padding-right: 5px;
+	padding-left: 5px;
+	text-decoration: none;
+	padding-top: 3px;
+	font-family: "Arabic Transparent";
+	font-size: 16px;
+	font-weight: normal;
+	font-weight: bold;
+}
+#NewsAll
+{
+	float: left;
+	padding-left: 10px;
+}
+.imageElement h3
+{
+	font-size: 14px;
+	font-family: Tahoma;
+	font-weight: bold;
+}
+.imageElement p
+{
+	font-size: 12px;
+	font-family: Tahoma;
+	font-weight: bold;
+	height: auto;
+	width: 200px;
+}
+.txt02
+{
+	font-family: "Arabic Transparent";
+	font-size: 15px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+}
+.txt02 a
+{
+	color: #004e98;
+	text-decoration: none;
+}
+.SummaryTextContent
+{
+	font-family: "Arabic Transparent";
+	font-size: 15px;
+	text-align: right;
+	direction: rtl;
+	color: #000000;
+	text-decoration: none;
+	font-weight: normal;
+}
+.jdGallery
+{
+	overflow: hidden;
+	position: relative;
+}
+.jdGallery img
+{
+	border: 0;
+	margin: 0;
+}
+.jdGallery .slideElement
+{
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-image: url( '../../../portal/images/LVImages/loaddisableding-bar-black.gif' );
+}
+.jdGallery .loaddisabledingElement
+{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: #000;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-image: url( '../../../portal/images/LVImages/loaddisableding-bar-black.gif' );
+}
+.jdGallery .slideInfoZone
+{
+	position: absolute;
+	z-index: 10;
+	width: 100%;
+	margin: 0px;
+	left: 0;
+	bottom: 0;
+	height: 40px;
+	background: #333;
+	color: #fff;
+	text-indent: 0;
+	overflow: hidden;
+	background-color: #FFFFFF;
+}
+* html .jdGallery .slideInfoZone
+{
+	bottom: -1px;
+}
+.jdGallery .slideInfoZone h2
+{
+	padding: 0;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 0;
+	margin: 2px 5px;
+	font-weight: bold;
+	/*color: inherit; commented by mosab to solve the mainstory title being in black*/
+	display: none;
+	direction: rtl;
+}
+.jdGallery .slideInfoZone p
+{
+	padding: 0;
+	font-size: 16px;
+	font-weight: bold;
+	margin: 2px 5px;
+	color: #000;
+	text-align: right;
+	direction: rtl;
+}
+.jdGallery div.carouselContainer
+{
+	position: absolute;
+	height: 95px;
+	width: 100%;
+	z-index: 10;
+	margin: 0px;
+	left: 0;
+	top: 0;
+}
+.jdGallery a.carouselBtn
+{
+	position: absolute;
+	bottom: 0;
+	right: 30px;
+	height: 20px; /* width: 100px; background: url('img/carousel_btn.gif') no-repeat; */
+	text-align: center;
+	padding: 0 10px;
+	font-size: 14px;
+	font-weight: bold;
+	background: #333;
+	color: orange;
+	cursor: pointer;
+}
+
+.jdGallery void
+{
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+.withArrows void
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	cursor: pointer;
+	z-index: 10;
+	background: none; -moz-opacity:0.8;
+-khtml-opacity:0.8;
+opacity:0.8;
+}
+#myGallery img.thumbnail, #myGallerySet img.thumbnail
+{
+	display: none;
+}
+.jdGallery .carousel .carouselInner .thumbnail, .jdExtCarousel .carouselInner .thumbnail
+{
+	cursor: pointer;
+	background: #000;
+	background-position: center center;
+	float: left;
+	border: solid 1px #fff;
+}
+.jdGallery .wall .thumbnail, .jdExtCarousel .wall .thumbnail
+{
+	margin-bottom: 10px;
+}
+.jdGallery .carousel
+{
+	position: absolute;
+	width: 100%;
+	margin: 0px;
+	left: 0;
+	top: 0;
+	height: 75px;
+	background: #333;
+	color: #fff;
+	text-indent: 0;
+	overflow: hidden;
+}
+.jdExtCarousel
+{
+	overflow: hidden;
+	position: relative;
+}
+.jdGallery .carousel .carouselWrapper, .jdExtCarousel .carouselWrapper
+{
+	position: absolute;
+	width: 100%;
+	height: 78px;
+	top: 10px;
+	left: 0;
+	overflow: hidden;
+}
+.jdGallery .carousel .carouselInner, .jdExtCarousel .carouselInner
+{
+	position: relative;
+}
+.jdGallery .carousel .label, .jdExtCarousel .label
+{
+	font-size: 13px;
+	position: absolute;
+	bottom: 5px;
+	left: 10px;
+	padding: 0;
+	margin: 0;
+	display: none;
+}
+.jdGallery .carousel .wallButton, .jdExtCarousel .wallButton
+{
+	font-size: 10px;
+	position: absolute;
+	bottom: 5px;
+	right: 10px;
+	padding: 1px 2px;
+	margin: 0;
+	background: #222;
+	border: 1px solid #888;
+	cursor: pointer;
+}
+.jdGallery .carousel .label .number, .jdExtCarousel .label .number
+{
+	color: #b5b5b5;
+}
+.jdGallery a
+{
+	font-size: 100%;
+	text-decoration: none;
+	color: inherit;
+}
+.jdGallery a.right, .jdGallery a.left
+{
+	position: absolute;
+	height: 99%;
+	width: 25%;
+	cursor: pointer;
+	z-index: 10;
+	filter: alpha(opacity=20); -moz-opacity:0.2;
+-khtml-opacity:0.2;
+opacity:0.2;
+}
+* html .jdGallery a.right, * html .jdGallery a.left
+{
+	filter: alpha(opacity=50);
+}
+.jdGallery a.right:hover, .jdGallery a.left:hover
+{
+	filter: alpha(opacity=80); -moz-opacity:0.8;
+-khtml-opacity:0.8;
+opacity:0.8;
+}
+.jdGallery a.gallerySelectorBtn
+{
+	z-index: 15;
+	position: absolute;
+	top: 0;
+	left: 30px;
+	height: 20px; /*width: 100px; background: url('img/carousel_btn.gif') no-repeat;*/
+	text-align: center;
+	padding: 0 10px;
+	font-size: 13px;
+	background: #333;
+	color: #fff;
+	cursor: pointer;
+	opacity: .4; -moz-opacity:.4;
+-khtml-opacity:0.4;
+filter:alpha(opacity=40);
+}
+.jdGallery .gallerySelector
+{
+	z-index: 20;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #000;
+}
+.jdGallery .gallerySelector h2
+{
+	margin: 0;
+	padding: 10px 20px 10px 20px;
+	font-size: 20px;
+	line-height: 30px;
+	color: #fff;
+}
+.jdGallery .gallerySelector .gallerySelectorWrapper
+{
+	overflow: hidden;
+}
+.jdGallery .gallerySelector .gallerySelectorInner div.galleryButton
+{
+	margin-left: 10px;
+	margin-top: 10px;
+	border: 1px solid #888;
+	padding: 5px;
+	height: 40px;
+	color: #fff;
+	cursor: pointer;
+	float: left;
+}
+.jdGallery .gallerySelector .gallerySelectorInner div.hover
+{
+	background: #333;
+}
+.jdGallery .gallerySelector .gallerySelectorInner div.galleryButton div.preview
+{
+	background: #000;
+	background-position: center center;
+	float: left;
+	border: none;
+	width: 40px;
+	height: 40px;
+	margin-right: 5px;
+}
+.jdGallery .gallerySelector .gallerySelectorInner div.galleryButton h3
+{
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	font-weight: normal;
+}
+.jdGallery .gallerySelector .gallerySelectorInner div.galleryButton p.info
+{
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	font-weight: normal;
+	color: #aaa;
+}
+/*## Thumbs Style Begin ##*/
+
+#TitleThumb
+{
+	width: 200px;
+	height: auto;
+	direction: rtl;
+	z-index: 1000;
+	position: absolute;
+}
+#TitleThumbContent
+{
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-top-color: #7C9EC1;
+	border-right-color: #7C9EC1;
+	border-left-color: #7C9EC1;
+	width: 200px;
+	background-color: #FFFFFF;
+	text-align: right;
+}
+#TitleThumbItem
+{
+	width: 92px;
+	font-family: "Arabic Transparent";
+	font-size: 13px;
+	font-weight: bold;
+	color: #024794;
+	text-decoration: none;
+	float: left;
+	text-align: right;
+	direction: rtl;
+	padding: 5px;
+	padding-top: 5px;
+	float: right;
+}
+#TitleThumbItem a
+{
+	font-family: "Arabic Transparent";
+	font-size: 13px;
+	font-weight: bold;
+	color: #024794;
+	text-decoration: none;
+}
+#TitleThumbItem div
+{
+	padding-bottom: 10px;
+	width: 150px;
+	text-align: right;
+}
+/*## Thumbs Style End ##*/
+
+
+/*## ALl Titles Thumbs Style Begin ##*/
+
+#allTitles
+{
+	z-index: 1000;
+	position: absolute;
+}
+/*## ALl Titles Thumbs Style End ##*/
+
+
+/*## Page Thumbs Colors Begin ##*/
+
+#buildYourSite
+{
+	height: 222px;
+	width: 270px;
+	background-image: url(../../../portal/images/LVImages/buildSiteDiv.jpg);
+	background-repeat: no-repeat;
+}
+#buildOptions
+{
+	float: right;
+	font-family: "Arabic Transparent";
+	font-size: 16px;
+	font-weight: bold;
+	color: #014F99;
+	text-decoration: none;
+	margin-right: 3px;
+	text-align: right;
+}
+#buildOptions input
+{
+	margin-top: 5px;
+}
+#buildcolorsButtons
+{
+	float: left;
+}
+#colors
+{
+	padding-top: 58px;
+	padding-left: 20px;
+}
+#color1
+{
+	background-color: #640201;
+	height: 17px;
+	width: 17px;
+	float: left;
+	margin-left: 5px;
+	font-size: 1px;
+	cursor:pointer;
+}
+#color2
+{
+	background-color: #B48101;
+	height: 17px;
+	width: 17px;
+	float: left;
+	margin-left: 5px;
+	font-size: 1px;
+	cursor:pointer;
+}
+#color3
+{
+	background-color: #9B6600;
+	height: 17px;
+	width: 17px;
+	float: left;
+	margin-left: 5px;
+	font-size: 1px;
+	cursor:pointer;
+}
+#color4
+{
+	background-color: #1F5079;
+	height: 17px;
+	width: 17px;
+	float: left;
+	margin-left: 5px;
+	font-size: 1px;
+	cursor:pointer;
+}
+#color5
+{
+	background-color: #01274C;
+	height: 17px;
+	width: 17px;
+	float: left;
+	margin-left: 5px;
+	font-size: 1px;
+	cursor:pointer;
+}
+#color6
+{
+	background-color: #003000;
+	height: 17px;
+	width: 17px;
+	float: left;
+	margin-left: 5px;
+	font-size: 1px;
+	cursor:pointer;
+}
+#color7
+{
+	background-color: #125B01;
+	height: 17px;
+	width: 17px;
+	float: left;
+	margin-left: 5px;
+	font-size: 1px;
+	cursor:pointer;
+}
+#color8
+{
+	background-color: #007E8A;
+	height: 17px;
+	width: 17px;
+	float: left;
+	margin-left: 5px;
+	font-size: 1px;
+	cursor:pointer;
+}
+#color9
+{
+	background-color: #9B241C;
+	height: 17px;
+	width: 17px;
+	float: left;
+	margin-left: 5px;
+	font-size: 1px;
+	cursor:pointer;
+}
+#color10
+{
+	background-color: #820175;
+	height: 17px;
+	width: 17px;
+	float: left;
+	margin-left: 5px;
+	font-size: 1px;
+	cursor:pointer;
+}
+#color11
+{
+	float: left;
+	margin-left: -94px;
+	margin-top:87px;
+}
+/*## Page Thumbs Colors End ##*/
+.txt02
+{
+	font-family: "Arabic Transparent";
+	font-size: 15px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+}
+.txt02 a
+{
+	color: #004e98;
+	text-decoration: none;
+}
+#reportTab
+{
+	position: relative;
+	float: left;
+	margin-top: 5px;
+	margin-left: 5px;
+	width: 263px;
+	height: 301px;
+	background-image: url(../../../portal/images/LVImages/hourleyTabLine.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 19px;
+}
+.liveProgHdrbg {
+	background-image: url(../../../portal/Images/LightVersionWeb2/liveProgHdrBgIm.jpg);
+	background-repeat: repeat-x;
+	cursor:move;
+}
+.liveProgBodyBg {
+	background-image: url(../../../portal/Images/LightVersionWeb2/liveProgBgImg.jpg);
+	background-repeat: repeat-x;
+	background-position: top;
+	font-family: "Arabic Transparent";
+	font-size: 15px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	background-color:#FFF6E5;
+}
+.txt04
+{
+	font-family: "Arabic Transparent";
+	font-size: 13px;
+	font-weight: bold;
+	color: #274058;
+	text-decoration: none;
+}
+.txt04 a
+{
+	color: #274058;
+	text-decoration: none;
+}
+.txt05
+{
+	font-family: "Arabic Transparent";
+	font-size: 15px;
+	font-weight: normal;
+	color: #000000;
+	text-decoration: none;
+	direction: rtl;
+}
+.liveProgBtmBg {
+	background-image: url(../../../portal/Images/LightVersionWeb2/liveProgBtmBgImg.jpg);
+	background-repeat: repeat-x;
+}
+.topLinksTxt
+{
+	font-family: "Arabic Transparent";
+	font-size: 15px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	direction: rtl;
+}
+.topLinksTxt a
+{
+	color: #004e98;
+	text-decoration: none;
+	direction: rtl;
+}
+.servicesBg
+{
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/servicesBg.jpg);
+	background-repeat: repeat-x;
+	border: 1px solid #BFD0E2;
+}
+.tabHdrBg a
+{
+	font-family: "Arabic Transparent";
+	font-size: 15px;
+	font-weight: bold;
+	color: #004791;
+	text-decoration: none;
+	direction: rtl;
+}
+.newsTabBg
+{
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/newsTabBg.jpg);
+	background-repeat: no-repeat;
+	background-position: bottom;
+	color: #004791;
+}
+.tabBg
+{
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/newsBrieftab.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	font-family: "Arabic Transparent";
+	font-size: 15px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	direction: rtl;
+}
+.ChanneltabBg
+{
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/ChannelBrieftab.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	font-family: "Arabic Transparent";
+	font-size: 15px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	direction: rtl;
+}
+.HumanRightstabBg
+{
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/HumanRightsBrieftab.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	font-family: "Arabic Transparent";
+	font-size: 15px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	direction: rtl;
+}
+.newsText2 a
+{
+	color: #004791;
+	text-decoration: none;
+	direction: rtl;
+}
+.footer01
+{
+	font-family: "Arabic Transparent";
+	font-size: 13px;
+	font-weight: bold;
+	color: #00529c;
+	text-decoration: none;
+}
+.footer01 a
+{
+	color: #00529c;
+	text-decoration: none;
+}
+.footer02
+{
+	font-family: "Arabic Transparent";
+	font-size: 13px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+}
+
+/* Themes Standards For All Site*/
+/* BEGIN */
+.CollapsiblePanel
+{
+	background-color: #D8D8D8;
+	height: auto;
+}
+.CollapsiblePanelTab
+{
+	cursor: move;
+	height: 21px; -moz-user-select:none;
+-khtml-user-select:none;
+background-image:url(../../../portal/images/LVImages/leatstPic_header.jpg);
+background-repeat:no-repeat;
+font-family:"Arabic Transparent";
+font-size:14px;
+font-weight:bold;
+color:#00498D;
+text-align:right;
+padding-top:6px;
+}
+.CollapsiblePanelContent
+{
+	margin: 0px;
+	padding: 0px;
+	background-color: #D8D8D8;
+	width: 268px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #AEAEAE;
+	border-left-color: #AEAEAE;
+}
+.CollapsiblePanelfooter
+{
+	background-image: url(../../../portal/images/LVImages/leatstPic_bottom.jpg);
+	background-repeat: no-repeat;
+	width: 270px;
+	height: 13px;
+	font-size: 1px;
+}
+.CollapsiblePanelTab2
+{
+	margin: 0px;
+	padding: 2px;
+	height: 20px;
+	cursor: move; -moz-user-select:none;
+-khtml-user-select:none;
+background-image:url(../../../portal/images/LVImages/document_header.jpg);
+background-repeat:no-repeat;
+font-family:"Arabic Transparent";
+font-size:14px;
+font-weight:bold;
+color:#00498D;
+text-align:right;
+padding-top:8px
+}
+.CollapsiblePanelContent2
+{
+	margin: 0px;
+	padding: 0px;
+	background-color: #D9D8D8;
+	position: relative;
+	width: 268px;
+	padding-top:5px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #AFAFAF;
+	border-left-color: #AFAFAF;
+}
+.CollapsiblePanelfooter2
+{
+	background-image: url(../../../portal/images/LVImages/leatstPic_bottom.jpg);
+	background-repeat: no-repeat;
+}
+
+#watchOnScreen
+{
+	width: 270px;
+	margin-top: 5px;
+	background-color: #D8D8D8;
+}
+#Blueheader
+{
+	background-image: url(http://aljazeera.net/portal/images/LVImages/BlueAreaheader.jpg);
+	background-repeat: no-repeat;
+	font-family: "Arabic Transparent";
+	font-size: 14px;
+	font-weight: bold;
+	padding-right: 8px;
+	padding-top: 6px;
+	color: #000000;
+	text-decoration: none;
+	text-align: right;
+	background-color: #D8D8D8;
+	height: 21px;
+}
+#BlueContent
+{
+	float: right;
+	background-color: #D8D8D8;
+}
+#Bluebottom
+{
+	background-image: url(../../../portal/images/LVImages/BlueAreabottom.jpg);
+	background-repeat: no-repeat;
+	height: 5px;
+	clear: both;
+	background-color: #BFD0E2;
+	font-size: 1px;
+}
+#Articles
+{
+	position:relative;
+	background-image: url(http://aljazeera.net/portal/images/LVImages/BgArea.jpg);
+	background-repeat: repeat-x;
+	width: 270px;
+	height: auto;
+	margin-top: 6px;
+	background-color: #C0D1E1;
+}
+#sponsor
+{
+	background-image: url(../../../portal/images/LVImages/sponsorBg.jpg);
+	background-repeat: no-repeat;
+	height: 172px;
+	width: 270px;
+	margin-top: 6px;
+}
+#VoteArea
+{
+	position:relative;
+	background-image: url(http://aljazeera.net/portal/images/LVImages/BgArea.jpg);
+	background-repeat: repeat-x;
+	height: auto;
+	width: 270px;
+	margin-top: 6px;
+	background-color: #D7D7D7;
+}
+#caricatureArea
+{
+	position: relative;
+	background-image: url(../../../portal/images/LVImages/caricatureBg.jpg);
+	background-repeat: no-repeat;
+	height: 78px;
+	width: 270px;
+	margin-top: 6px;
+}
+#JazServicesArea
+{
+	background-image: url(../../../portal/images/LVImages/jazServices.jpg);
+	background-repeat: no-repeat;
+	height: 72px;
+	width: 270px;
+	margin-top: 6px;
+}
+#ADArea1
+{
+	margin-top: 6px;
+	position:relative;
+	background-image:url(http://aljazeera.net/portal/images/LVImages/Adds_header.jpg);
+	background-repeat:no-repeat;
+	height: auto;
+	width: 270px;
+	background-color: #D8D8D8;
+
+}
+#ADArea3
+{
+	margin-top: 6px;
+	position:relative;
+	background-image:url(http://aljazeera.net/portal/images/LVImages/Adds_header.jpg);
+	background-repeat:no-repeat;
+	height: auto;
+	width: 270px;
+	background-color: #D8D8D8;
+
+}
+#AddsHeader
+{
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #AFAFAF;
+	border-left-color: #AFAFAF;
+}
+#ADArea2
+{
+	height: 173px;
+	width: 270px;
+	margin-top: 6px;
+	background-image: url(../../../portal/images/LVImages/AdsBg.jpg);
+	background-repeat: no-repeat;
+}
+#Gadget
+{
+	background-color: #FFFFFF;
+	background-image: url(../../../portal/images/LVImages/gadgetBg.jpg);
+	background-repeat: repeat-x;
+	width: 335px;
+	margin: 0px;
+	padding: 0px;
+	height: auto;
+}
+.gadgetPanelfooter2
+{
+	background-image: url(../../../portal/images/LVImages/gadgetFooter.jpg);
+	background-repeat: no-repeat;
+	background-color: #fff;
+}
+#GadgetContent
+{
+	background-color: #FFFFFF;
+	background-image: url(../../../portal/images/LVImages/gadgetSectionBg.jpg);
+	background-repeat: repeat-x;
+	height: 100%;
+	font-family: "Arabic Transparent";
+	font-size: 16px;
+	font-weight: bold;
+	color: #014691;
+	text-decoration: none;
+	text-align: right;
+	padding-right: 10px;
+	padding-top: 4px;
+}
+#MurqueeNewsArea
+{
+	position: relative;
+	margin-top: 5px;
+	background-image: url(../../../portal/images/LVImages/marqueeBg.jpg);
+	background-repeat: no-repeat;
+	height: 29px;
+	width: 670px;
+}
+#murquee_leftarrow
+{
+	background-image: url(../../../portal/images/LVImages/murquee_leftarrow.jpg);
+	background-repeat: no-repeat;
+}
+#murquee_pauseArrow
+{
+	background-image: url(../../../portal/images/LVImages/murquee_pausearrow.jpg);
+	background-repeat: no-repeat;
+}
+#murquee_rightArrow
+{
+	background-image: url(../../../portal/images/LVImages/murquee_rightarrow.jpg);
+	background-repeat: no-repeat;
+}
+#newsNextbutton
+{
+	background-image: url(../../../portal/images/LVImages/newsNext.jpg);
+	background-repeat: no-repeat;
+}
+.newsStopbutton
+{
+	background-image: url(../../../portal/images/LVImages/newsStop.jpg);
+	background-repeat: no-repeat;
+}
+.newsPlaybutton
+{
+	background-image: url(../../../portal/images/LVImages/newsPlay.jpg);
+	background-repeat: no-repeat;
+	background-position:top;
+}
+#newsPrevbutton
+{
+	background-image: url(../../../portal/images/LVImages/newsPrev.jpg);
+	background-repeat: no-repeat;
+}
+#imgUpdate
+{
+	background-image: url(http://aljazeera.net/portal/Images/LightVersionWeb2/updateBtn02.jpg);
+	background-repeat: no-repeat;
+}
+.PBoxPlusBtn
+{
+	background-image: url(http://aljazeera.net/portal/Images/LightVersionWeb2/plusBtn.jpg);
+	background-repeat: no-repeat;
+}
+.PBoxMinusBtn
+{
+	background-image: url(http://aljazeera.net/portal/Images/LightVersionWeb2/minusBtn.jpg);
+	background-repeat: no-repeat;
+}
+.enabledPlus
+{
+	filter: Alpha(Opacity=100); -moz-opacity: 1; opacity: 1;
+	background-image: url(http://aljazeera.net/portal/Images/LightVersionWeb2/plusBtn.jpg);
+	background-repeat: no-repeat;
+}
+.enabledMinus
+{
+	filter: Alpha(Opacity=100); -moz-opacity: 1; opacity: 1;
+	background-image: url(http://aljazeera.net/portal/Images/LightVersionWeb2/minusBtn.jpg);
+	background-repeat: no-repeat;
+}
+.disabledPlus
+{
+	filter: Alpha(Opacity=50); -moz-opacity: 0.5; opacity: 0.5;
+	background-image: url(http://aljazeera.net/portal/Images/LightVersionWeb2/plusBtn.jpg);
+	background-repeat: no-repeat;
+}
+.disabledMinus
+{
+	filter: Alpha(Opacity=50); -moz-opacity: 0.5; opacity: 0.5;
+	background-image: url(http://aljazeera.net/portal/Images/LightVersionWeb2/minusBtn.jpg);
+	background-repeat: no-repeat;
+}
+.tabBodyBg
+{
+	font-family: "Arabic Transparent";
+	font-size: 15px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/tabBodyBg.jpg);
+	background-repeat: repeat-x;
+	height:auto;
+	background-position: top;
+}
+.tabBodyBgHumanRights
+{
+	font-family: "Arabic Transparent";
+	font-size: 15px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/tabBodyBgHumanRights.jpg);
+	background-repeat: repeat-x;
+	height:auto;
+	background-position: top;
+}
+#imgVotePart
+{
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/voteBtn.jpg);
+	background-repeat: no-repeat;
+}
+#imgResultPart
+{
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/resultBtn.jpg);
+	background-repeat: no-repeat;
+}
+#imgDiscussionPart
+{
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/participateBtn.gif);
+	background-repeat: no-repeat;
+}
+.imgLatestNewsUnSelected
+{
+	background-image: url(../../../portal/aspx/FNF.aspx.html);
+	background-repeat: no-repeat;
+}
+.imgSiteNewsSelected
+{
+	background-image: url(../../../portal/aspx/FNF.aspx.html);
+	background-repeat: no-repeat;
+}
+/*hourly tabbed style*/
+#ReportDiv
+{
+	position: absolute;
+	background-color: #FFFFFF;
+	background-image: url(http://aljazeera.net/portal/images/LVImages/reportDiv.jpg);
+	background-repeat: repeat-x;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right-color: #A3A3A3;
+	border-bottom-color: #A3A3A3;
+	border-left-color: #A3A3A3;
+	width: 523px;
+	z-index: 1000;
+}
+.tabHdrBg
+{
+	font-family: "Arabic Transparent";
+	font-size: 15px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/tabHdrBg.jpg);
+	background-repeat: repeat-x;
+	background-position:bottom;
+}
+.btmBgThird
+{
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/btmBgThird.jpg);
+	background-repeat: repeat-x;
+}
+#imgCorveTopRightTabs
+{
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/tabRiteCor.jpg);
+	background-repeat: no-repeat;
+}
+#imgCorveTopLeftTabs
+{
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/tabLftCor.jpg);
+	background-repeat: no-repeat;
+}
+#imgCorveBottomRightTabs
+{
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/btmRiteCorMainThird.jpg);
+	background-repeat: no-repeat;
+}
+#imgCorveBottomLeftTabs
+{
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/btmLeftCorThird.jpg);
+	background-repeat: no-repeat;
+}
+.newsText2 {
+	font-family: "Arabic Transparent";
+	font-size: 15px;
+	font-weight: bold;
+	text-decoration: none;
+	background-color: #E3ECF3;
+	direction:rtl;
+	background-image:url(http://aljazeera.net/portal/Images/LightVersionWeb2/select_bg.jpg);
+}
+.imgMainThirdDown
+{
+	background-image: url(../../../portal/images/LightVersionWeb2/downArrowSelectedMain.gif);
+	background-repeat: no-repeat;
+}
+.imgMainThirdUp
+{
+	background-image: url(../../../portal/images/LightVersionWeb2/upArrowSelectedMain.gif);
+	background-repeat: no-repeat;
+}
+#imgMainThirdArrowSeper
+{
+	background-image: url(../../../portal/images/LightVersionWeb2/arrowSep.gif);
+	background-repeat: no-repeat;
+}
+.imgleftservices1
+{
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/LeftServices1.jpg);
+	background-repeat: no-repeat;
+}
+.imgleftservices2
+{
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/LeftServices2.jpg);
+	background-repeat: no-repeat;
+}
+.imgleftservices3
+{
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/LeftServices3.jpg);
+	background-repeat: no-repeat;
+}
+.imgleftservices4
+{
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/LeftServices4.jpg);
+	background-repeat: no-repeat;
+}
+.imgleftservices5
+{
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/LeftServices5.jpg);
+	background-repeat: no-repeat;
+}
+.imgleftservicesSelect1
+{
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/LeftServicesSelected1.jpg);
+	background-repeat: no-repeat;
+}
+.imgleftservicesSelect2
+{
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/LeftServicesSelected2.jpg);
+	background-repeat: no-repeat;
+}
+.imgleftservicesSelect3
+{
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/LeftServicesSelected3.jpg);
+	background-repeat: no-repeat;
+}
+.imgleftservicesSelect4
+{
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/LeftServicesSelected4.jpg);
+	background-repeat: no-repeat;
+}
+.imgleftservicesSelect5
+{
+	background-image: url(http://aljazeera.net/portal/images/LightVersionWeb2/LeftServicesSelected5.jpg);
+	background-repeat: no-repeat;
+}
+.servicesBodyBg {
+	background-color: #FFFFFF;
+	background-image: url(../../../portal/images/LightVersionWeb2/serviceBodyBg.jpg);
+	background-repeat: repeat-x;
+	background-position: top;
+}
+#imgSeperLeftServices
+{
+	background-image: url(../../../portal/images/LightVersionWeb2/servSep.jpg);
+	background-repeat: no-repeat;
+}
+#reportcloseButton
+{
+	background-image: url(../../../portal/images/LVImages/reportClosebutton.jpg);
+	background-repeat: no-repeat;
+}
+#InterActiveMenuBar
+{
+	margin-top: 5px;
+	background-image: url(../../../portal/images/LVImages/newsMenuBar.jpg);
+	background-repeat: no-repeat;
+	height: 26px;
+	width: 390px;
+	padding-right:10px;
+}
+/*end Rigth Area*/
+#VotAreaFooter
+{
+	background-image: url(../../../portal/images/LVImages/BlueAreabottom.jpg);
+	background-repeat: no-repeat;
+	height: 5px;
+	width: 270px;
+	font-size: 1px;
+}
+.SelectedMainStories
+{
+	/*background-color:#d5e5f2;*/
+	background-image: url(../../../portal/images/LVImages/letterselected.jpg);
+	background-repeat: no-repeat;
+	padding-right:2px;
+	padding-left:10px;
+}
+.newsText {
+	font-family: "Arabic Transparent";
+	font-size: 15px;
+	font-weight: bold;
+	color: #004791;
+	text-decoration: none;
+	background-color: #E3ECF3;
+	direction:rtl;
+}
+/* END */

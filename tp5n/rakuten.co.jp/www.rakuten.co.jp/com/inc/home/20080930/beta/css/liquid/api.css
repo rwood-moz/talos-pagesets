@@ -1,0 +1,464 @@
+@charset "EUC-JP";
+
+/*=========================================================================
+
+種別 ： apicss
+適用 ： サイト全体
+
+=========================================================================*/
+	/*
+リキッド用
+=========================================================================*/
+	/*閲覧履歴
+--------------------------------*/
+#riAshiatoColumn {
+	margin: 0 0 20px 0;
+	position: relative;
+	zoom: 1;
+	width: 100%;
+}
+
+#riAshiatoColumn .riAshiatoCont {
+	padding: 7px 0 3px;
+	clear: both;
+	overflow: hidden;
+	_zoom: 1;
+	position: relative;
+}
+
+#riAshiatoColumn .riAshiatoCont  ul li.riAshiatoName {
+	width: 80px;
+	margin: 0 auto;
+}
+
+#riAshiatoColumn .riAshiatoCont .apiBtLeft {
+	width: 15px;
+	padding: 45px 7px 0 0;
+	float: left;
+	display: inline;
+	position: relative;
+	z-index: 100;
+}
+
+* html #riAshiatoColumn .riAshiatoCont .apiBtLeft {
+	padding: 45px 0 0 0;
+}
+
+#riAshiatoColumn .riAshiatoCont .overbg {
+	position: absolute;
+	top: 0;
+	left: 15px;
+	width: 5px;
+	z-index: 3; /*Edit Sandeep*/
+}
+
+#riAshiatoColumn .riAshiatoCont .apiBtLeft a {
+	outline: none;
+}
+
+#riAshiatoColumn .riAshiatoCont .apiBtRight {
+	width: 15px;
+	padding: 45px 0 0 0;
+	float: right;
+	position: absolute;
+	right: 0;
+	top: 7px;
+}
+
+#riAshiatoColumn .riAshiatoCont ul {
+	padding: 15px 12px;
+	display: block;
+	position: relative;
+	height: 145px;
+}
+
+#riAshiatoColumn .riAshiatoCont ul li {
+	line-height: 1.2em;
+}
+
+#riAshiatoColumn .riAshiatoCont .riAshiatoThumb {
+	width: 80px;
+	height: 80px;
+	padding-bottom: 10px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.riAshiatoContSpr {
+	background:	url(../../../../../../../../image.rakuten.co.jp/com/img/home/200809/api/dot2.gif) repeat-y left top;
+	height: 175px;
+}
+
+.riAshiatoContSpr a {
+	color:#1D54A7;
+	text-decoration:none;
+}
+
+.riAshiatoContSpr a:hover {
+	color:#C00000;
+	text-decoration: underline;
+}
+
+.gadgetCross {
+	width: 13px;
+	height: 14px;
+	position: absolute;
+	bottom: 0px;
+	right: 3px;
+}
+
+.gadgetCross a {
+	background: url(../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201011/icon_reco_a01.gif) no-repeat 0 0;
+	display: block;
+	height: 13px;
+	width: 13px;
+}
+
+.gadgetCross a:hover {
+	background: url(../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201011/icon_reco_a02.gif) no-repeat 0 0;
+	display: block;
+	height: 13px;
+	width: 13px;
+}
+
+/*店舗閲覧
+--------------------------------*/
+.shopInspection {
+	padding: 7px 0 30px 0;
+	position: relative;
+}
+
+.shopInspection ul {
+	padding-bottom: 5px;
+}
+
+.shopInspection li {
+	float: left;
+	display: inline;
+	background:
+		url(../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201008/tri_f2ab00.gif)
+		no-repeat 0 4px;
+	padding: 0 0 0 7px;
+	margin: 0 0 0 7px;
+	width: 210px;
+}
+
+/*閲覧レコメンド
+--------------------------------*/
+#riAshiatoRecommend {
+	margin: 0 0 20px 0;
+	position: relative;
+	_zoom: 1;
+	width: 100%;
+	clear: both;
+}
+
+#riAshiatoRecommend .riAshiatoRecoCheck {
+	float: left;
+	width: 120px;
+	padding-top: 32px;
+	position: absolute;
+	background:
+		url(../../../../../../../../image.www.rakuten.co.jp/com/img/home/beta/201003/histreco/histreco_header.gif)
+		no-repeat left 7px;
+}
+
+#riAshiatoRecommend .riAshiatoRecoCheck ul {
+	padding-bottom: 10px;
+	background: #FFF
+		url(../../../../../../../../image.www.rakuten.co.jp/com/img/home/beta/201003/histreco/histreco_footer.gif)
+		no-repeat left bottom;
+}
+
+#riAshiatoRecommend .riAshiatoRecoCheck ul li {
+	padding-left: 12px;
+	padding-right: 12px;
+	border-right: solid 8px #DEDEDE;
+	border-left: solid 8px #DEDEDE;
+}
+
+* html #riAshiatoRecommend .riAshiatoRecoCheck ul li {
+	padding-right: 12px;
+}
+
+#riAshiatoRecommend .riAshiatoRecoCheck ul li.riAshiatoName {
+	width: 80px;
+	padding-bottom: 10px;
+	margin: 0 auto;
+}
+
+#riAshiatoRecommend .riAshiatoRecoCheck .riAshiatoThumb {
+	padding-top: 9px;
+	padding-bottom: 9px;
+	width: 80px;
+	height: 80px;
+	margin: 0 auto;
+}
+
+#riAshiatoRecommend .riAshiatoRecoColumn {
+	border-left: solid 130px #FFFFFF;
+}
+
+#riAshiatoRecommend .riAshiatoRecoCont {
+	padding: 7px 0;
+	clear: both;
+	overflow: hidden;
+	_zoom: 1;
+	position: relative;
+}
+
+#riAshiatoRecommend .riAshiatoRecoCont ul li.riAshiatoName {
+	width: 80px;
+	margin: 0 auto;
+}
+
+#riAshiatoRecommend .riAshiatoRecoCont p {
+	padding-top: 2px;
+	text-align: left;
+	font-weight: bold;
+}
+
+#riAshiatoRecommend .riAshiatoRecoCont .apiBtLeft {
+	width: 15px;
+	padding: 45px 10px 0 0;
+	float: left;
+}
+
+#riAshiatoRecommend .riAshiatoRecoCont .overbg {
+	position: absolute;
+	top: 26px;
+	left: 17px;
+	width: 5px;
+	z-index: 5;
+}
+
+* html #riAshiatoRecommend .riAshiatoRecoCont .overbg {
+	left: 15px;
+}
+
+* html #riAshiatoRecommend .riAshiatoRecoCont .apiBtLeft {
+	padding: 45px 0 0 0;
+}
+
+#riAshiatoRecommend .riAshiatoRecoCont .apiBtLeft a {
+	outline: none;
+}
+
+#riAshiatoRecommend .riAshiatoRecoCont .apiBtRight {
+	width: 15px;
+	padding: 45px 0 0 0;
+	float: right;
+	position: absolute;
+	right: 0;
+	top: 26px;
+	z-index: 50;
+}
+
+#riAshiatoRecommend .riAshiatoRecoCont ul {
+	padding: 15px 8px;
+	display: block;
+	position: relative;
+	margin:0 auto;
+}
+
+#riAshiatoRecommend .riAshiatoRecoCont ul li {
+	line-height: 1.2em;
+}
+
+#riAshiatoRecommend .riAshiatoRecoCont .riAshiatoThumb {
+	width: 80px;
+	height: 80px;
+	padding-bottom: 10px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+/*共通
+--------------------------------*/
+.riAshiatoBlock {
+	height: 175px;
+}
+
+.riAshiatoList {
+	text-align: right;
+}
+
+.riAshiatoName a,
+#riAshiatoColumn a,
+.shopInspection a {
+	color:#1D54A7;
+	text-decoration:none;	
+}
+
+.riAshiatoName a:hover,
+#riAshiatoColumn a:hover,
+.shopInspection a:hover {
+	color:#C00000;
+	text-decoration: underline;
+}
+
+/*
+
+table用
+=========================================================================*/
+	/*お気に入り
+--------------------------------*/
+div.bookmarkItem {
+	background: white;
+	float: left;
+	overflow: hidden;
+	width: 103px;
+	height: 150px;
+}
+
+div.bookmarkItemImage {
+	overflow: hidden;
+	width: 90px;
+	height: 90px;
+}
+
+div.bookmarkItemName {
+	margin: 5px;
+	/*    overflow:hidden; */
+	width: 99px;
+	height: 50px;
+	font-size: 82%;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+
+div#bookmarkPrevButton {
+	float: left;
+	width: 20px;
+}
+
+div#bookmarkNextButton {
+	float: left;
+	width: 20px;
+}
+
+/*div#bookmarkItemsDisplay {
+float:left;
+}*/ /*閲覧履歴
+--------------------------------*/
+div.ashiatoItem {
+	background: white;
+	float: left;
+	overflow: hidden;
+	width: 103px;
+	height: 150px;
+}
+
+div.ashiatoItemImage {
+	overflow: hidden;
+	width: 90px;
+	height: 90px;
+}
+
+div.ashiatoItemName {
+	margin: 5px;
+	/*    overflow:hidden; */
+	width: 99px;
+	height: 50px;
+	font-size: 82%;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+
+div#ashiatoPrevButton {
+	float: left;
+	width: 20px;
+}
+
+div#ashiatoNextButton {
+	float: left;
+	width: 20px;
+}
+
+/*---Sandeep*/ /*div#ashiatoItemsDisplay {
+float:left;
+}*/ /*閲覧履歴レコメンドへ
+--------------------------------*/
+div.ashiatoRecoAshiatoItem {
+	float: left;
+	/*    overflow:hidden; */
+	width: 120px;
+	height: 150px;
+}
+
+div.ashiatoRecoAshiatoItemImage {
+	overflow: hidden;
+	width: 90px;
+	height: 90px;
+}
+
+div.ashiatoRecoAshiatoItemName { /*    overflow:hidden; */
+	width: 80px;
+	height: 60px;
+	font-size: 82%;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+
+div.ashiatoRecoRecoItem {
+	background: white;
+	float: left;
+	overflow: hidden;
+	width: 96px;
+	/*    height:160px; */
+}
+
+div.ashiatoRecoRecoItemImage {
+	overflow: hidden;
+	width: 90px;
+	height: 90px;
+}
+
+div.ashiatoRecoRecoItemName {
+	margin-left: 5px;
+	margin-right: 5px;
+	/*    overflow:hidden; */
+	width: 90px;
+	height: 70px;
+	font-size: 82%;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+
+div#ashiatoRecoAshiatoItemDisplay {
+	float: left;
+}
+
+#riAshiatoColumn .riAshiatoCont .apiBtRight {
+	float: right;
+	display: inline;
+}
+
+.riAshiatoBlock {
+	margin-right: -36px; /*Width of left+right -1px*/
+	margin-left: -5px;
+	width: 100%;
+	float: left;
+	display: inline;
+	overflow: hidden;
+	height: 175px;
+	_zoom: 1;
+}
+
+.riAshiatoBlock .riAshiatodisplay {
+	position: relative;
+	margin-left: 0px;
+	margin-right: 36px; /*Width of left+right -1px*/
+}
+
+* html .riAshiatoBlock .riAshiatodisplay {
+	width: 93%;
+}
+
+* html .riAshiatoBlock {
+	margin-left: 0px;
+}
+
+.riAshiatoRecoBlock {
+	margin-right: -156px; /*Width of left+right -1px*/
+}

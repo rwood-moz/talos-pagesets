@@ -1,0 +1,14 @@
+if( !document.void ){
+  document.void = function(str, element_id){
+    var elm = element_id ? document.getElementById(element_id) : null;
+    if( elm ){
+      setTimeout(function(){
+         elm.innerHTML = str;
+      },10);
+    }else{
+      void(str);
+    }
+  };
+}
+
+document.void('<a href=\"httpdisabled://red.st-hatena.com/go?aid=19930&accessrk=af7afab3a57de468&url=http%3A%2F%2Fb.hatena.ne.jp%2Franking\"><img src=\"httpdisabled://www.hatena.ne.jp/images/icon_info.gif\" alt=\"お知らせ\">ネットの人気がわかる「はてなブックマークランキング」を公開しました </a>');

@@ -1,0 +1,313 @@
+@charset "EUC-JP";
+ 
+/*=========================================================================
+
+ File Name:		common.css
+ UpdatedBy: 	20101127-10:00
+ Style Info:    共通要素のスタイル設定
+
+=========================================================================*/
+
+/*
+ 初期化
+-------------------------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+form, p {
+	margin: 0;
+	padding: 0;
+}
+ul, ol, li, dl, dt, dd {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+img {
+	border: 0;
+	vertical-align: top;
+}
+hr {
+	display: none;
+}
+table {
+	empty-cells: show;
+}
+sup {
+	vertical-align: text-top;
+}
+sub {
+	vertical-align: text-bottom;
+}
+em {
+	font-style: normal;
+	font-weight: bold;
+}
+
+/*body
+-------------------------------------------------------------------------*/
+
+body {
+	color: #000000;
+	background: #ffffff;
+	line-height: 1.3;
+	margin: 0 8px 8px;
+}
+.bold{
+	font-weight: bold;
+}
+
+/* seo用 h1
+---------------------------------------- */
+.seoH1{
+	font-weight: bold;
+	margin: 5px 0;
+	text-align: right;
+	width: 100%;
+	font-size: 82%;
+}
+
+#footertext{
+	text-align: center;
+	width: 100%;
+}
+
+/* パンくず
+---------------------------------------- */
+#ritopickpath ul {
+	width: 950px;
+	margin: 0 0 5px 0;
+	text-align: left;
+}
+
+#ritopickpath ul li {
+	display: inline;
+	font-weight: bold;
+	padding: 0 5px 0 0;
+}
+
+#ritopickpath ul li a {
+	font-weight: normal;
+	padding-right: 10px;
+	background: url(../../../../../../../../image.event.rakuten.co.jp/mother/2010/img/pre/topicpath.gif) no-repeat right center;
+}
+
+
+/*
+ リンク
+-------------------------------------------------------------------------*/
+a:link {
+	color: #0000ff;
+}
+a:visited {
+	color: #800080;
+}
+a:active {
+	color: #ff0000;
+}
+
+/*
+ 行揃え
+-------------------------------------------------------------------------*/
+.taLeft {	text-align: left !important;}
+.taCenter {	text-align: center !important;}
+.taRight {	text-align: right !important;}
+
+/*
+ 縦位置
+-------------------------------------------------------------------------*/
+.vat {	vertical-align: top !important;}
+.vam {	vertical-align: middle !important;}
+.vab {	vertical-align: bottom !important;}
+
+/*
+ float
+-------------------------------------------------------------------------*/
+.floLeft {	float: left !important;;}
+.floRight {	float: right !important;;}
+.clear {	clear: both !important;;}
+
+/*
+ float clear
+-------------------------------------------------------------------------*/
+.clfx{
+	clear: both;
+	zoom:1;/*for IE 5.5-7*/
+	min-height: 1px;
+}
+
+.clfx:after{/*擬似after要素*/
+	content:".";
+	display: block;
+	clear:both;
+	height: 1px;
+	margin-top: -1px;
+	visibility:hidden;
+}
+
+/*
+ マージン：上方向
+-------------------------------------------------------------------------*/
+.mt0 {	margin-top: 0px !important;}
+.mt5 {	margin-top: 5px !important;}
+.mt10 {	margin-top: 10px !important;}
+.mt15 {	margin-top: 15px !important;}
+.mt20 {	margin-top: 20px !important;}
+.mt25 {	margin-top: 25px !important;}
+.mt30 {	margin-top: 30px !important;}
+.mt35 {	margin-top: 35px !important;}
+.mt40 {	margin-top: 40px !important;}
+.mt50 {	margin-top: 50px !important;}
+
+/*
+ マージン：左方向
+-------------------------------------------------------------------------*/
+.ml5{	margin-left: 5px !important;}
+.ml10{	margin-left: 10px !important;}
+.ml15{	margin-left: 15px !important;}
+.ml19{	margin-left: 19px !important;}
+
+/*
+ マージン：下方向
+-------------------------------------------------------------------------*/
+.mb5{	margin-bottom: 5px !important;}
+.mb10{	margin-bottom: 10px !important;}
+.mb15{	margin-bottom: 15px !important;}
+.mb19{	margin-bottom: 19px !important;}
+
+/*
+ パディング：上方向
+-------------------------------------------------------------------------*/
+.pt3 {	padding-top: 3px !important;}
+.pt5 {	padding-top: 5px !important;}
+.pt10 {	padding-top: 10px !important;}
+.pt15 {	padding-top: 15px !important;}
+
+/*
+ パディング：左方向
+-------------------------------------------------------------------------*/
+.pl5 {	padding-left: 5px !important;}
+.pl10 {	padding-left: 10px !important;}
+.pl15 {	padding-left: 15px !important;}
+.pl20 {	padding-left: 20px !important;}
+.pl25 {	padding-left: 25px !important;}
+
+/*
+ パディング：下方向
+-------------------------------------------------------------------------*/
+.pb3 {	padding-bottom: 3px !important;}
+.pb5 {	padding-bottom: 5px !important;}
+.pb10 {	padding-bottom: 10px !important;}
+.pb15 {	padding-bottom: 15px !important;}
+.pb20 {	padding-bottom: 20px !important;}
+.pb25 {	padding-bottom: 25px !important;}
+
+/*
+ その他
+-------------------------------------------------------------------------*/
+.noBr {
+	white-space: nowrap !important;
+}
+.noBd {
+	border: none !important;
+}
+input.oneByte {
+	ime-mode: disabled !important;
+}
+.ad img {
+	vertical-align:baseline !important;
+}
+
+/*
+ ベース
+-------------------------------------------------------------------------*/
+html {
+   overflow-y:scroll;
+}
+
+body {
+    min-width: 950px;
+	overflow: hidden;
+}
+
+* html body {
+    border-left: 950px solid #FFFFFF; 
+	overflow: hidden;
+    zoom: 1; 
+}
+
+* html #riWrapper {
+    position: relative;
+    margin-left: -950px; 
+	overflow: hidden;
+    zoom: 1;
+}
+
+#riHeader{
+	font-size: 82%;
+	text-align: left;
+	margin: 0 0 11px;
+}
+
+#riContainer {
+	text-align: left;
+	font-size: 82%;
+}
+
+#riTopSearch{
+	margin: 0 0 6px 0;
+}
+
+#riMainContents{
+	margin: 0 0 20px 0;
+	clear: both;
+	overflow: hidden;
+	_zoom: 1;
+}
+
+#riMainContents {
+
+}
+
+#riGenreColumn{
+	width: 172px;
+	float: left;
+	display: inline;
+}
+
+#riEventColumn{
+	margin-right:-484px;
+	width:100%;
+	float: left;
+	display: inline;
+	overflow:hidden;
+	_zoom: 1;
+}
+
+#riEventContents{
+	margin:0 484px 0 10px;
+	position:relative;
+}
+
+#riServiceColumn{
+	width: 302px;
+	float: right;
+	display: inline;
+}
+
+#riSpecialContents{
+	margin: 0 0 13px 0;
+}
+
+#riGuide{
+	margin: 0 0 39px 0;
+}
+
+#riFooter{
+	font-size: 82%;
+	text-align: left;
+	margin: 0 10px;
+}

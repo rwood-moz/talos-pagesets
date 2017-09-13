@@ -1,0 +1,25 @@
+@charset "utf-8";
+body,p,h1,h2,h3,h4,h5,h6,menu,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select,hr{margin:0;padding:0}
+body{*word-break:break-all;-ms-word-break:break-all}
+body, h2{font-size:11px;line-height:15px;font-family:"돋움",Dotum,"굴림",Gulim,AppleGothic,Sans-serif;letter-spacing:-1px}
+img{border:0 none;vertical-align:top}
+.blind{visibility:hidden;overflow:hidden;position:absolute;top:0;left:0;width:0;height:0;font-size:0;line-height:0}
+#ad_cast{position:relative;width:595px;height:100px;background:#ebedee url(../../../bg_adcast3.png) no-repeat 0 0}
+#ad_cast:after{content:"";display:block;clear:both}
+.info{overflow:hidden;position:absolute;left:485px;top:14px;width:104px;line-height:16px;color:#6b6d70}
+*+html h2{top:14px}
+.info strong,
+.info span{display:block;overflow:hidden;height:18px;color:#888;line-height:18px}
+.info strong{font-size:12px}
+.info span{font-weight:normal}
+.ad{width:466px}
+.ad a{display:block;position:relative;outline:none}
+.ad span{display:block;position:absolute;left:0;top:0;width:475px;height:100px;background:url(../../../ln_adcast2.png);_background:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../../ln_adcast2.png', sizingMethod='scale')}
+.ad a span{cursor:pointer}
+.msg{position:absolute;left:0;top:0;width:455px;_width /**/:475px;height:22px;_height /**/:100px;padding:78px 0 0 20px;background:url(../../bg_adcast3.png) no-repeat;color:#47a61e}
+.btn_media{position:absolute;left:485px;bottom:5px}
+.page{position:absolute;left:541px;bottom:5px}
+.help{position:absolute;left:475px;top:0;width:120px;height:77px;background:url(../../../../bg_help_ad3.gif) no-repeat 0 0;line-height:15px;color:#6f6f6f}
+.help p{margin-top:15px;text-align:center}
+.help .close{position:absolute;right:3px;top:4px}
+.help .close a{display:block;width:7px;height:7px;padding:4px}

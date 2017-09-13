@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+  <TITLE> New Document </TITLE>
+  <STYLE TYPE="text/css">
+  body{
+	margin:0px;
+  }
+  .gptable{
+	border:1px solid #a7ced7;
+	width:256px; 
+	height:155px; 
+	background-color: #e1e8ef;
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#F1F2F7', EndColorStr='#dde5f0');
+  }
+	.gplink{
+		font-size:12px;
+		color:#039;
+		text-decoration:none;
+	}
+
+	button{
+		font-size:9pt;width:68px;background-color: #fff;
+	}
+
+	.stocktable table,td,tr{
+		border:0px solid red;
+	}
+  </STYLE>
+ </HEAD>
+
+ <BODY>
+
+<TABLE cellspacing="0" cellpadding="0">
+<TR>
+	<TD rowspan="4" style="background-color: #fff; padding-right:4px;">
+		<img id="gptu" src="../../../finance.people.com.cn/stock/IsapiHq.dll@GetZSTOnly%253Fsetcode=1&amp;code=000001&amp;style=1&amp;width=146&amp;height=90" width="156" height="94" border="0">
+	</TD>
+	<TD id="tdgp0" style=""><button id="btngp0" style="border:1px solid #FFF;background-color: #fff; color:#369;" onClick="setstockpic(0)">上证指数</button></TD>
+
+</TR>
+<TR>
+	<TD id="tdgp1" style=""><button id="btngp1" style="border:1px solid #aaa;background-color: #eee; color:#777;filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#FFFFFF', EndColorStr='#dddddd');" onClick="setstockpic(1)">深成指数</button></TD>	
+
+</TR>
+<TR>
+	<TD id="tdgp2" style=""><button id="btngp2" style="border:1px solid #aaa;background-color: #eee; color:#777;filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#FFFFFF', EndColorStr='#dddddd');" onClick="setstockpic(2)">上证Ｂ股</button></TD>
+</TR>
+<TR>
+	<TD id="tdgp3" style=""><button id="btngp3" style="border:1px solid #aaa;background-color: #eee; color:#777;filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#FFFFFF', EndColorStr='#dddddd');" onClick="setstockpic(3)">深圳Ｂ股</button></TD>
+</TR>
+</TABLE>
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+	var arrlink = [
+		"httpdisabled://finance.people.com.cn/stock/IsapiHq.dll?GetZSTOnly?setcode=1&code=000001&style=1&width=146&height=90",
+		"httpdisabled://finance.people.com.cn/stock/IsapiHq.dll?GetZSTOnly?setcode=0&code=399001&style=1&width=146&height=90",
+		"httpdisabled://finance.people.com.cn/stock/IsapiHq.dll?GetZSTOnly?setcode=1&code=000003&style=1&width=146&height=90",
+		"httpdisabled://finance.people.com.cn/stock/IsapiHq.dll?GetZSTOnly?setcode=0&code=399108&style=1&width=146&height=90",
+	];
+	function setstockpic(node){
+		for(var i=0; i<4; i++){
+			if(node==i){
+				document.getElementById("btngp"+i).blur();
+				//document.getElementById("gptu").src=arrlink[i]+(voidtime() ? "?"+(new Date()).getTime() : '');
+				document.getElementById("gptu").src=arrlink[i]+"?"+(new Date()).getTime();
+				document.getElementById("btngp"+i).style.cssText="border:1px solid #FFF; background-color: #fff; color:#369;";
+				//document.getElementById("tdgp"+i).style.cssText="height:15px; background-color: #fff; margin:0px;padding:0px;border:0px solid #81a3cd;border-left:0px;text-align: center;";
+			}else{
+				document.getElementById("btngp"+i).style.cssText="border:1px solid #aaa;background-color: #eee; color:#777;filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#FFFFFF', EndColorStr='#dddddd');";
+				//document.getElementById("tdgp"+i).style.cssText="height:25px;padding-left:3px;text-align: right;border-left:1px solid #81a3cd;";
+			}
+		}
+	}
+
+	function voidtime(){
+			var now = new Date();
+			var week = now.getDay();
+			var flag = false;
+			if(week !=0 && week!=6)
+			{
+					var nowhour = now.getHours();
+					//alert(nowhour)
+					var nowMinute = now.getMinutes();
+					var minutes = nowhour*60 + nowMinute;
+					if( (minutes>=540 && minutes<=691) || (minutes>=780 && minutes<=901) ){
+						//alert(minutes);
+						flag = true;
+					}
+			}
+			return flag;
+	}
+
+	//setstockpic(0);
+//-->
+
+</SCRIPT>
+ </BODY>
+</HTML>

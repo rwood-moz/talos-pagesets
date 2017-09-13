@@ -1,0 +1,63 @@
+/* 全局CSS定义 */
+body{margin:0 auto;padding:0;background:#FFF;color:#333;font:12px '宋体';text-align:center;}
+body > div{margin-right:auto;margin-left:auto;text-align:center; } 
+div,form,ul,ol,li,span,p,dl,dt,dd,img{margin:0;padding:0;border:0;}
+h1,h2,h3,h4,h5,h6{margin:0;padding:0;font-size:12px;font-weight:normal;}
+ul,ol,li{list-style:none}
+table,td,input,textarea{font-size:12px}
+/* 链接颜色 */
+a{color:#333;text-decoration:none;}
+a:hover{color:#db0010;text-decoration:underline;}
+
+.nl,.nl a,.nl a:hover,a.nl,a.nl:hover{text-decoration: none;}
+.ul,.ul a,.ul a:hover,a.ul,a.ul:hover{text-decoration: underline;}
+
+#digi_box1{width:960px;margin:0px auto}
+#digi_box1 .left{width:365px;}
+#digi_box1 .center{width:293px;margin-left:10px;}
+#digi_box1 .right{width:250px;}
+
+
+#digi_box1 .left .mart18_15{margin:10px 0 11px}
+#digi_box1 .left .martb108{margin:10px auto 8px}
+
+/*焦点图*/
+#focus{width:293px;height:183px;position: relative;}
+#au{ width:293px; height:183px;}
+#no {
+	margin-top: 0px;
+	left:0px;
+	width:293px;
+	position: absolute;
+	top:183px;
+	text-align:center;
+	line-height:24px;
+	height:54px;
+	border-top:0px solid #725F4A
+}
+#conau {
+	margin-top: 0px;
+	left:14px;
+	width:268px;
+	position:absolute;
+	top:188px;
+	text-align:center;
+	color: #0264B7;
+	font-weight:normal;
+	font-size:13px;
+	font-family:"宋体";
+	height: 45px;
+}
+#conau a{color: #0264B7;}
+#conau a:hover{color: #0264B7;}
+.lunbo{
+	height:21px;
+	position: absolute;
+	top:157px;
+	right:8px
+}
+.lunbo table{height:21px}
+.lunbo td{line-height:12px;font-weight:bold;color:#000;}
+.lunbo .bg { padding:0px; BACKGROUND-IMAGE: url(/page_load_test/tp5/xinhuanet.com/imgs.xinhuanet.com/icon/2010sy/pic_2.gif);  WIDTH: 18px; LINE-HEIGHT: 21px; HEIGHT: 21px; TEXT-ALIGN: center; COLOR: #030100; }
+
+.lunbo .active { padding:0px; BACKGROUND-IMAGE: url(/page_load_test/tp5/xinhuanet.com/imgs.xinhuanet.com/icon/2010sy/pic_1.gif);  WIDTH: 18px; LINE-HEIGHT: 21px; HEIGHT: 21px; TEXT-ALIGN: center; COLOR: #a8471c; }

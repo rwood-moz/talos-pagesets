@@ -1,0 +1,1295 @@
+/* Reset ------------------------------------ */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,strike,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;margin:0;padding:0 }
+body{line-height:1 }
+table{border-collapse:separate;border-spacing:0 }
+caption,th,td{font-weight:400 }
+blockquote:before,blockquote:after,q:before,q:after{content:"" }
+blockquote,q{quotes:"" "" }
+a:focus,a:active{outline:none }
+.clearfix:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+* html .clearfix { zoom:1 }
+*:first-child+html .clearfix { zoom:1 }
+.ie img { -ms-interpolation-mode: bicubic }
+hr { display:none }
+
+body { font:14px/20px Arial, Helvetica, sans-serif; color:#222; margin:0 auto; text-align:center; background:#efefef url(../../../images/homepage/2010/body-gray.png) center repeat-y }
+body.fix1024 { margin-left:10px; margin-right:10px }
+.iphone #container, .ipad #container { width:1010px }
+.iphone body, .ipad body { margin-left:0; margin-right:15px }
+
+/* Generic ------------------------------------- */
+.left { float:left !important }
+.right { float:right !important }
+.center { margin-left:auto; margin-right:auto; text-align:center }
+.noborder { border:none !important }
+.nomargin { margin:0 !important }
+.clear { clear:both }
+.lowercase {text-transform:lowercase !important}
+.hide { display:none }
+.acapo { clear:both !important }
+.last { border:none !important }
+.more { text-align:right }
+.replaced { display:block; height:1px; outline:none; overflow:hidden; text-indent:-9999px; width:1px; background:no-repeat 0 0 }
+code { font-family:"Courier New", Courier, monospace }
+strong { font-weight:bold }
+em,dfn { font-style:italic }
+pre { font-family:Arial, Helvetica, sans-serif }
+button { border:none; background:none; margin:0; width:auto; overflow:visible; text-align:center; white-space:nowrap; cursor:pointer }
+button span, button em { display:block; height:20px; font:12px/20px Arial, Helvetica, sans-serif; margin:0; color:#555 }
+button span { padding-left:10px; background:url(../../../images/homepage/2010/sprite-repubblica.png) no-repeat 0 -1630px}
+button em { font-style:normal; padding-right:10px; background:url(../../../images/homepage/2010/sprite-repubblica.png) no-repeat 100% -1630px }
+button.submit-button:hover span { background-position:0 -1650px }
+button.submit-button:hover em { background-position:100% -1650px }
+button.submit-button:active span { background-position:0 -1670px; outline:none; -moz-outline-style:none }
+button.submit-button:active em { background-position:100% -1670px; outline:none; -moz-outline-style:none }
+button:focus { outline:none; -moz-outline-style:none }
+button::-moz-focus-inner { border: none !important; padding:0 }
+.ie button { width:auto; overflow:visible }
+.ie button span { margin-top:1px }
+* html li { zoom:1 }
+
+/* Inutility ------------------------------------ */
+::selection { background:#dfdfdf; color:#2992c1 }
+::-moz-selection { background:#dfdfdf; color:#2992c1 }
+
+/* Link + Icone ------------------------------------ */
+a img { border-width:0; border-style:none }
+a,a:visited { font-family:Arial, Helvetica, sans-serif; color:#00386B; text-decoration:none }
+a:hover { text-decoration:none; color:#222 }
+
+/* Struttura condivisa ------------------------------------ */
+#container { background-color:#fff; width:990px; margin:0 auto } /* aggiunto per la domination */
+#header,.page-body, #footer { width:990px; margin:0 auto 10px auto; background-color:#fff; text-align:left }
+
+
+/* Adv ------------------------------------ */
+.adv { margin-bottom:10px }
+.adv-top3, .adv-strip { margin:0 }
+.adv-top { text-align:center}
+.adv-300x250 { padding:0; height:250px; line-height:250px }
+.adv-220x60 { width: 220px !important; width /**/: 230px; padding: 10px 5px 5px 5px; border-bottom:1px dotted #000; margin:0 0 10px 0 }
+.adv-left { margin:0 auto; width:220px; padding-bottom:8px }
+* html .adv-strip { margin-bottom:10px }
+
+/* Header ------------------------------------ */
+#header ul { list-style:none }
+	#header ul li { float:left }
+
+#header ul.network:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+	* html #header ul.network { zoom:1 }
+	*:first-child+html #header ul.network { zoom:1 }
+
+#header ul.network { }
+#header ul.network li { padding:2px 0; font-size:12px }
+	#header ul.network li a, #header ul.network li a:visited { font-size:12px; padding:0 6px; border-right:1px solid #9b9b9b }
+	#header ul.network li a:hover { color:#222 }
+		#header ul.network li.first a,#header ul.network li.first a:visited { padding-left:0 }
+	#header ul.network li.feed-rss a, #header ul.network li.feed-rss a:visited { border:none; color:#f63 }
+	#header ul.network li.feed-rss a:hover { color:#9f0d00 }
+		#header ul.network li.last a,#header ul.network li.last a:visited { border-right:none }
+
+	/*link first icon */
+	#header ul.network li.links ul li.rep-plus-icon a, #header ul.network li.links ul li.rep-plus-icon a:visited {display:block; width:80px;height:20px;text-indent:-9999px;border:none;background: url(../../../images/homepage/2010/sprite-repubblica.png); background-position:-176px -2328px}
+	#header ul.network li.links ul li.rep-plus-icon a:hover {background: url(../../../images/homepage/2010/sprite-repubblica.png); background-position:-176px -2299px}
+	#header ul.network li.second a, #header ul.network li.second a:visited { margin-left:2px;border-left:1px solid #9b9b9b }
+
+
+	#header ul.network li a em, #header ul.network li a:visited em { background-color:#f00; font-style:normal; margin:-5px 0 0 0; font-size:10px; color:#fff; padding:2px 3px; moz-border-radius:3px; -khtml-border-radius:3px; -webkit-border-radius:3px; border-radius:3px }
+	.ie #header ul.network li a em, .ie #header ul.network li a:visited em { padding:1px 2px }
+
+#header ul.network li.gele { float:right; font-size:11px; position:relative }
+	#header ul.network li.gele li { font-size:12px }
+	#header ul.network li.gele li a, #header ul.network li.gele li a:visited { border:none }
+		#header ul.network li.gele li.user-edit a, #header ul.network li.gele li.user-edit a:visited { padding:3px 0 }
+		#header ul.network li.gele li.user-logout a, #header ul.network li.gele li.user-logout a:visited { border-right:1px solid #9b9b9b}
+		#header ul.network li.gele li a.lespresso, #header ul.network li.gele li a.lespresso:visited { width:73px; height:14px; background-image:url(../../../images/homepage/2010/sprite-repubblica.png); background-position:0 -2296px; padding:4px 6px 0 6px; margin:0 0 0 6px}
+			#header ul.network li.gele li a.lespresso:hover { background-position:0 -2347px }
+			.ie8 #header ul.network li.gele li a.lespresso:hover { background-position:0 -2346px }
+		#header ul.network li.gele li.network-ge a, #header ul.network li.gele li.network-ge a:visited { border-left:1px solid #9b9b9b; /*text-transform:uppercase;*/ background:url(../../../images/homepage/2010/sprite-repubblica.png) no-repeat 100% -1376px; padding-right:15px }
+		
+		#header ul.network li.gele li.network-ge void, #header ul.network li.gele li.network-ge void:visited { background-position:100% -1427px}
+
+
+
+/* network toggle condiviso */		
+#header ul.network li.gele li.network-ge ul { position:absolute; margin-top:3px; right:0; z-index:9999; background-color:#dedede;border-bottom:1px solid #9b9b9b; width:810px; padding:8px 10px 2px 10px }
+	.ie6 #header ul.network li.gele li.network-ge ul,.ie7 #header ul.network li.gele li.network-ge ul { margin-top:20px }
+	.ie6 #header ul.network li.gele li.network-ge ul ul ,.ie7 #header ul.network li.gele li.network-ge ul ul { margin-top:0 }
+/**/
+#header ul.network li.gele li.network-ge li { padding:0 0 0 15px; font-size:11px }
+	#header ul.network li.gele li.network-ge li.network-ge-1-col
+			{ width: 285px; border-right:1px solid #fff; padding-left:0 }
+		#header ul.network li.gele li.network-ge li.network-ge-1-col ul
+			{ width:140px; float:left }
+	#header ul.network li.gele li.network-ge li.network-ge-2-col
+			{ width: 150px; border-right:1px solid #fff }
+	#header ul.network li.gele li.network-ge li.network-ge-3-col
+			{ width: 55px; border-right:1px solid #fff }
+	#header ul.network li.gele li.network-ge li.network-ge-4-col
+			{ width: 125px; border-right:1px solid #fff }					
+	#header ul.network li.gele li.network-ge li.network-ge-5-col
+			{width: 130px }
+	#header ul.network li.gele li.network-ge li.close-network { clear:both; border-top:1px solid #eaeaea; text-align:right; margin:7px 0 0 0; padding:5px 0 3px 0; width:100% }
+		#header ul.network li.gele li.network-ge li.close-network a, #header ul.network li.gele li.network-ge li.close-network a:visited { display:block; text-transform:uppercase }
+
+/**/
+	#header ul.network li.gele li.network-ge li a,#header ul.network li.gele li.network-ge li a:visited { border:none; text-transform:none; padding:0; font-size:11px; line-height:12px; background:none; margin:0 }
+	#header ul.network li.gele li.network-ge li ul { position:static; width:auto; margin-top:5px; padding:0; border-bottom:none }
+	
+	#header ul.network li.gele li.network-ge li li	{ padding:0; float:none; line-height:12px }
+	#header ul.network li.gele li.network-ge li h6	{ text-transform:uppercase; font-weight:bold }
+	#header ul.network li.gele li.network-ge li li a,#header ul.network li.gele li.network-ge li li a:visited { padding:3px 0; display:block; background-image:none }
+		#header ul.network li.gele li.network-ge li ul li ul { margin:0; width:auto }
+		#header ul.network li.gele li.network-ge li ul li ul li { padding-left:10px }
+
+	#header ul.network li.gele li.network-ge li.network-ge-5-col li a, #header ul.network li.gele li.network-ge li.network-ge-5-col li a:visited { display:block; background: url(../../../images/homepage/2010/sprite-network.png) no-repeat -1px 1px; text-indent:-9999px; padding:5px 0; margin-bottom:5px; zoom:1 }
+	#header ul.network li.gele li.network-ge li.network-ge-5-col li.network-trovacinema a,
+	#header ul.network li.gele li.network-ge li.network-ge-5-col li.network-trovacinema a:visited
+		{ background-position:-1px -29px}
+	#header ul.network li.gele li.network-ge li.network-ge-5-col li.network-casadesign a,
+	#header ul.network li.gele li.network-ge li.network-ge-5-col li.network-casadesign a:visited
+		{ background-position:0 -58px}
+	#header ul.network li.gele li.network-ge li.network-ge-5-col li.network-xl a,
+	#header ul.network li.gele li.network-ge li.network-ge-5-col li.network-xl a:visited
+		{ background-position:-1px -88px}
+	#header ul.network li.gele li.network-ge li.network-ge-5-col li.network-ilmiolibro a,
+	#header ul.network li.gele li.network-ge li.network-ge-5-col li.network-ilmiolibro a:visited
+		{ background-position:-2px -117px}
+	/* /network toggle condiviso */		
+
+	/* Brand + Site Search */
+	#brand { border-top:1px solid #dbdbdb; padding:8px 0 0 0}
+	#brand a { float:left }
+	#brand a.section, #brand a.section:visited { display:block; font-size:30px; line-height:52px; height:50px; border-left:1px solid #dbdbdb; text-indent:18px; cursor:pointer }
+
+	/* Ricerca slide */
+	#site-search { float:left; margin:13px 0 0; position:relative; z-index:20 }
+	#site-search fieldset { float:left; width:370px }
+		.home #site-search fieldset { width:300px }
+		.safari5.win .home #site-search fieldset, .iphone .home #site-search fieldset, .ipad .home #site-search fieldset { width:320px }
+	
+	#site-search label { display:none }
+	#site-search fieldset input { border:1px solid #bbb; padding:3px 4px 2px 5px; margin:0 1px 0 0; width:280px; color:#dbdbdb; float:left; font-size:11px; position:relative; z-index:999 !important }
+		.home #site-search fieldset input { width:230px}
+		.chrome .home #site-search fieldset input { width:229px}
+		.ie8 .home #site-search fieldset input { }		
+				
+	#site-search #site-searchformbutton { padding:0; margin:0; float:right }
+	 .ie #site-search #site-searchformbutton { margin:-3px 0 0 0 }			 
+	 .ie8 #site-search #site-searchformbutton { margin:-1px 0 0 0 }
+	#site-search ul.site-search-option { clear:both; width:280px; border:2px solid #bbb; background-color:#fff; padding:5px 2px 4px 5px; position:absolute; z-index:998 !important; margin-top:19px }
+		.home #site-search ul.site-search-option { width:230px; margin-top:20px; border-top-width:1px }
+		.ie #site-search ul.site-search-option, .ie .home #site-search ul.site-search-option { margin-top:0px; border-top-width:1px }
+		.ie8 #site-search ul.site-search-option, .ie8 .home #site-search ul.site-search-option { margin-top:20px; border-top-width:2px }
+
+	#site-search ul.site-search-option li { list-style:none; width:100%; padding:1px 0; font-weight:bold; font-size:12px }
+	#site-search ul.site-search-option li label input { float:left; width:20px; margin:0 4px 0 0; border:none }
+		.ie #site-search ul.site-search-option li label input { margin:-1px 2px 0 0 }
+	#site-search ul.site-search-option li ul { margin:5px 0 10px 0 }
+	#site-search ul.site-search-option li li { font-weight:normal; line-height:17px; padding:1px 0 }
+	#site-search ul.site-search-option li.search-google { background:transparent url(../../../images/homepage/2010/sprite-repubblica.png) no-repeat 101% -2253px}
+	#site-search ul.site-search-option li label { display:block }
+		.ie8 #site-search ul.site-search-option li label { clear:both }
+		.chrome #site-search ul.site-search-option li label input { width:25px }
+	#site-search ul.site-search-option li li:hover { background-color:#dfdfdf; cursor:pointer }
+	/**/
+
+
+	.manchette-left { float:left; width:160px; height:90px; border:1px solid #fff }
+	.manchette-right { float:right; width:160px; height:90px; border:1px solid #fff }
+	.logo { display:inline; float:left; width:650px; margin:-7px 0 7px 0; text-align:center; font-size:11px; color:#5b5b5b }
+	
+	.logo { display:inline; float:left; width:650px; margin:0; text-align:center; font-size:11px; color:#5b5b5b }
+	/*.ie .logo { padding:0 0 6px 0 }*/
+	
+	.logo img { display:block; height:90px; width:432px; clear:both; margin:0 auto; color:#feffff }
+	/*.logo span { padding:2px 0 }*/
+	.logo strong { color:#222 }
+	.logo .latest-update strong { color:#9f0d00 }
+	#brand .logo a,#brand .logo a:visited { float:none }
+	
+	#header ul.network li.date { margin:2px 0 0 155px; font-size:11px; color:#5b5b5b }
+	#header ul.network li.date .latest-update strong { color:#9f0d00 }
+	
+	.logo a.edizione-roma,.logo a.edizione-roma:visited { padding:3px 1px 3px 17px; background: url(../../../images/homepage/2010/sprite-repubblica.png) no-repeat -119px -2298px }
+	.logo a.edizione-milano,.logo a.edizione-milano:visited { padding:3px 1px 3px 17px; background:url(../../../images/homepage/2010/sprite-repubblica.png) no-repeat -122px -2348px }
+	.logo .meteo-custom, .logo .meteo-custom a, .logo .meteo-custom a:visited { font-size:11px; color:#888; padding-left:2px }
+	
+	.logo .meteo-ico { background-repeat:no-repeat; text-indent:-9999px; background-position:left center; padding:3px 0 3px 19px }
+	.logo a:hover { color:#222; text-decoration:underline }
+
+	/* Logo SVG */
+    .iphone #header .logo img {display:none}
+	.iphone #header .logo a.logolink {width:480px;height:100px;margin:0 auto;display:block;background: url(../../../images/homepage/2010/la-repubblica-logo-home-payoff.svg) no-repeat;}
+	
+	/* meteo header */
+	#box-meteo-header { display:none;/*display:inline-block;*/ padding:2px; zoom:1 }
+		* html #box-meteo-header { display:inline; padding:0 }
+		*:first-child+html #box-meteo-header { display:inline; padding:0 }
+	#box-meteo-header div, #box-meteo-header div div, #box-meteo-header div div div { display:inline }
+		#box-meteo-header * { text-align:left }
+	#box-meteo-header a, #box-meteo-header a:visited { }
+		#box-meteo-header .meteo-ico { padding:5px 0 5px 30px }
+	#box-meteo-header form { display:inline }
+	#box-meteo-header #autocomplete.autocomplete { display:inline }
+	#box-meteo-header #autocomplete input.ac_input { width:110px !important; font:11px Arial, Helvetica, sans-serif; padding:3px 2px; border:1px solid #ddd }
+
+	.ac_results { border: 1px solid #9b9b9b; background-color: #fff; overflow: hidden; z-index: 99999 }
+	.ac_results ul { width: 200px; list-style-position: outside; list-style: none }
+	.ac_results li { padding:5px 3px; font:12px Arial, Helvetica, sans-serif; text-align:left }
+	.ac_odd { background-color: #f7f7f7 }
+	.ac_over { background-color: #00386B; color: #fff }
+	/**/
+	
+	#search-bar { border-top:1px solid #dbdbdb; padding:5px 0; margin-top:8px }
+		#search-bar #site-search { margin:0; padding:0 }
+		#search-bar .left { float:left; font-size:10px; line-height:20px; text-transform:uppercase }
+			#search-bar .left span { color:#9f0d00 }
+			
+			#search-bar .left a,#search-bar .left a:visited { }
+			#search-bar .left a strong,#search-bar .left a:visited strong { color:#9f0d00; font-weight:normal }	
+				#search-bar .left a:hover,#search-bar .left a:hover strong { color:#222; text-decoration:underline }
+	
+		#search-bar .right { float:right }
+		
+	/*.repubblica-extra { display:block; float:left; background:#fff url(http://www.repubblica.it/static/images/homepage/2010/sprite-repubblica.png) no-repeat -10px -1502px; padding:1px 0 6px 85px; text-transform:uppercase; font-size:12px; line-height:13px }*/
+
+	/* Navigation */
+	ul.nav { display:block; width:990px; margin:0; background:#4e92c3 url(../../../images/homepage/2010/sprite-nav.png) bottom repeat-x }
+	ul.nav li { float:left }
+	ul.nav li a, ul.nav li a:visited { display:block; float:left; padding:5px 13px 5px 14px; font-size:13px; color:#fff; border-right:1px solid #3869a3; border-left:1px solid #4e92c3 }
+	ul.nav li a:hover { background-color:#54a9dc; border-color:#fff }
+	ul.nav li.active a,ul.nav li.active a:visited { background-color:#dbdbdb; color:#222; font-weight:bold; margin:-2px 0 0 0; padding-top:7px; border-color:#fff }
+	ul.nav li.first a, ul.nav li.first a:visited { border-left:none; padding:7px 9px 5px 10px; background-color:#dbdbdb; color:#222; font-weight:bold; margin:-2px 0 0 0; border-color:#fff}
+	ul.nav li.last a, ul.nav li.last a:visited { border-right:none }
+	ul.nav li.special { background:#3869a3 url(../../../images/homepage/2010/sprite-nav-special.png) bottom repeat-x; float:right !important }
+	
+	ul.twolev { background:none; background-color:#dbdbdb; padding:5px 0; margin:0 0 10px 0 }
+	ul.twolev li a, ul.twolev li a:visited { padding:0 8px; line-height:17px; color:#222; border-left:none; border-right:1px solid #9b9b9b }
+	ul.twolev li a:hover { background:none; color:#9f0d00 }
+	ul.twolev li.last a { border:none }
+	ul.twolev li.active a, ul.twolev li.active a:visited { color:#9f0d00; margin:0; padding:0 10px }
+	
+	
+/* Dashboard ------------------------------------ */
+#AlternativeContent {margin:0 0 10px 0;}
+	
+
+/* Footer ------------------------------------ */
+#footer { }
+
+/* Struttura Content ------------------------------------ */
+.cont-left { width:680px; float:left }
+	.aperture { width:680px; float:left; padding-bottom:15px; margin-bottom:18px; border-bottom:4px solid #dbdbdb }
+	* html .aperture { padding-bottom:0 }
+	.cont-AB { float:left; margin-bottom:10px; width:680px; position:relative }
+	.col-A { width:250px; float:left; /* position:absolute; left:0; top:0; */ overflow:hidden }
+	.col-B { width:418px; float:right }
+.col-C { width:300px; float:right }
+.page-foot { }
+
+* html .cont-left,* html .cont-AB, * html .col-A, * html .col-B, * html .col-C, * html .page-foot { overflow:hidden }
+
+	.struttura .page-body { background-color:aqua }
+	.struttura .cont-left { background-color:yellow }
+		.struttura .aperture { background-color:#333; color:#fff }
+		.struttura .cont-AB { background-color:#dbdbdb }
+		.struttura .col-A { background-color:#666; min-height:1300px }
+		.struttura .col-B { background-color:#999; min-height:400px }
+	.struttura .col-C { background-color:red; min-height:900px }
+	.struttura .page-foot { background-color:blueviolet }
+
+
+
+/* Box ------------------------------------ */
+ul.box { font-size:11px; border:1px solid #dbdbdb; background-color:#fff; padding:4px 8px; margin:0 0 10px 0; list-style:none }
+	ul.box:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0 }
+	* html ul.box { zoom:1 }
+	*:first-child+html ul.box { zoom:1 } 
+	
+	ul.box li { line-height:14px }
+		.col-A ul li.title { background:#dfe9f3; margin:-4px -8px 0 -8px; padding:4px 8px }
+	ul.box li.title dt { float:left; text-transform:uppercase; font-weight:bold; color:#222 }
+		ul.box li.title dd { float:right }
+		ul.box li.title dl a, ul.box li.title dl a:visited { display:inline; color:#777 }
+		ul.box li.title dl dt a, ul.box li.title dl dt a:visited { color:#222 }
+		ul.box li.title dl a:hover { color:#9f0d00; background:none }
+		
+			
+	ul.box li.other { text-align:right }
+		ul.box li.other a, ul.box li.other a:visited { color:#00386B }
+		ul.box li.other a:hover { color:#9f0d00; background:none }
+
+
+
+	/* 24ore ------------------------------------ */
+	ul.ventiquattroore { position:relative; list-style:none }
+	ul.ventiquattroore li { padding:4px 0 0 0 }
+		ul.ventiquattroore li a, ul.ventiquattroore li a:visited { color:#222; display:block }
+		ul.ventiquattroore li a:hover { background-color:#dbdbdb }
+		ul.ventiquattroore li a strong { display:block; color:#00386B }
+			ul.ventiquattroore li ul { list-style:none; background-color:#fff; height:103px; overflow:hidden}
+			ul.ventiquattroore li.other { border-top:1px solid #dbdbdb; padding:5px 0 2px 0 }
+			ul.ventiquattroore li li li { padding:0 0 5px 0 }
+		ul.ventiquattroore li.cycle-nav { position:absolute; bottom:7px; width:150px }
+		ul.ventiquattroore li.cycle-nav span, ul.ventiquattroore li.cycle-nav a, ul.ventiquattroore li.cycle-nav a:visited { float:left; margin-right:4px }
+		ul.ventiquattroore li.cycle-nav span { line-height:12px}
+		ul.ventiquattroore li.cycle-nav a, ul.ventiquattroore li.cycle-nav a:visited {
+		background:url(../../../images/homepage/2010/sprite-repubblica.png) no-repeat left -3080px; display:block; height:12px; width:13px; text-indent:-9999px }
+		ul.ventiquattroore li a.cycle-nav-prev:hover { background-position:left -3160px }
+		ul.ventiquattroore li a.cycle-nav-next,ul.ventiquattroore li a.cycle-nav-next:active,ul.ventiquattroore li a.cycle-nav-next:visited {background-position:-791px -3080px }
+		ul.ventiquattroore li a.cycle-nav-next:hover {background-position:-791px -3160px }
+	
+			
+/* Sport ------------------------------------ */ 
+ul.fromsport .fromsport-default { margin:9px 0 5px; font-weight:bold; font-size:16px; line-height:16px; display:block }
+ul.fromsport li.fromsport-articles a, ul.fromsport li.fromsport-articles a:visited { display:block; padding-top:7px; font-size:15px; line-height:16px; border-top:1px solid #CADBE4 }
+ul.fromsport p { margin:5px 0 0 0; font-size:11px; line-height:14px }
+.team-atalanta, .team-bologna, .team-cagliari, .team-catania, .team-chievo, .team-fiorentina, .team-genoa, .team-inter, .team-juventus, .team-lazio, .team-livorno, .team-milan, .team-napoli, .team-palermo, .team-bari, .team-roma, .team-sampdoria, .team-siena, .team-parma, .team-udinese, .team-cesena, .team-torino, .team-lecce, .team-brescia { background-image: url("../../../../statickpm3/rep-locali/repubblica/images/sport/ico-seriea.gif"); background-repeat: no-repeat; padding-left:25px; height:30px; margin:9px 0 5px; font-weight:bold; font-size:18px; line-height:30px; display:block }
+.team-atalanta { background-position: -10px 0}/*left -10px rispetto a sport.repubblica.it*/
+.team-bologna { background-position:-10px -60px}
+.team-cagliari { background-position:-10px -121px}
+.team-catania { background-position:-10px -185px; padding-left: 32px}
+.team-chievo { background-position:-10px -244px}
+.team-fiorentina { background-position:-10px -306px}
+.team-genoa { background-position:-10px -368px}
+.team-inter { background-position:-10px -429px}
+.team-juventus { background-position:-10px -490px}
+.team-lazio { background-position:-10px -554px; padding-left: 32px }
+.team-livorno { background-position:-10px -613px}
+.team-milan { background-position:-10px -676px}
+.team-napoli { background-position:-10px -736px}
+.team-palermo { background-position:-10px -799px}
+.team-bari { background-position:-10px -860px}
+.team-roma { background-position:-10px -923px}
+.team-sampdoria { background-position:-10px -983px}
+.team-siena { background-position:-10px -1045px}
+.team-parma { background-position:-10px -1106px}
+.team-udinese { background-position:-10px -1170px; padding-left: 30px}
+.team-cesena { background-position: -10px -1233px}
+.team-torino { background-position: -10px -1299px}
+.team-lecce  { background-position: -10px -1363px}
+.team-brescia{ background-position: -7px -1427px; padding-left:35px}
+	
+		
+	/* Edizioni locali ------------------------------------ */
+	ul.edizionilocali li.edizionilocali-articles a, ul.edizionilocali li.edizionilocali-articles a:visited { display:block; padding-top:7px; font-size:15px; line-height:16px; border-top:1px solid #CADBE4 }
+	ul.edizionilocali p { padding:5px 0 0 0; font-size:11px; line-height:15px }
+	.edizionilocali-bari,.edizionilocali-bologna,.edizionilocali-firenze,.edizionilocali-genova,.edizionilocali-milano,.edizionilocali-napoli,.edizionilocali-palermo,.edizionilocali-parma,.edizionilocali-roma,.edizionilocali-torino { width:165px; height:20px; background:#fff url(../../../images/homepage/2010/sprite-repubblica.png) 0 0 no-repeat; margin:9px 0 5px}
+	.edizionilocali-bari	{ background-position:-690px -1782px }
+	.edizionilocali-bologna { background-position:-690px -1802px }
+	.edizionilocali-firenze	{ background-position:-690px -1822px }
+	.edizionilocali-genova	{ background-position:-690px -1842px }
+	.edizionilocali-milano	{ background-position:-690px -1862px }
+	.edizionilocali-napoli	{ background-position:-690px -1882px }
+	.edizionilocali-palermo	{ background-position:-690px -1902px }
+	.edizionilocali-parma	{ background-position:-690px -1922px }
+	.edizionilocali-roma	{ background-position:-690px -1942px }
+	.edizionilocali-torino	{ background-position:-690px -1962px }
+
+	/* borsa + meteo ------------------------------------ */
+	.box-table { margin:8px -1px 5px -1px !important; border-collapse:collapse;width:100% }
+		.box-table thead tr { border-bottom:1px solid #dbdbdb }
+		.box-table thead th { padding:0 1px 4px 1px; font-weight:bold; text-align:left }
+		.box-table tbody td { padding:3px 1px }
+		.box-table .cell-center { text-align:center }
+		.box-table tbody .tr-over { background-color:#dbdbdb; cursor:pointer }
+
+	.borsa-up .borsa-var { color:#005f16 }
+	.borsa-down .borsa-var { color:#9f0d00 }
+	.borsa-stable .borsa-var { color:#9b9b9b }
+	.borsa-up .borsa-icon,.borsa-down .borsa-icon,.borsa-stable .borsa-icon { text-indent:-9999px; background:url(../../../images/homepage/2010/sprite-repubblica.png) no-repeat; width:7px !important; width/**/:9px; height:9px }
+		.borsa-up .borsa-icon		{ background-position:0 -1956px}
+		.borsa-down .borsa-icon 	{ background-position:-18px -1956px }
+		.borsa-stable .borsa-icon 	{ background-position:-9px -1956px }
+
+	.meteo-center { text-align:center }
+	.meteo-ico { background-repeat:no-repeat; text-indent:-9999px; background-position:center }
+
+	.meteo table th.meteo-minmax { }
+	.meteo table td.call-center { text-align:left }
+	
+	.meteo table td.meteo-1-col { text-align:left }
+	.meteo table td.meteo-2-col { text-align:center; width:5% }
+	.meteo table td.meteo-3-col { text-indent:-9999px; width:5%; background-position:center }
+	.meteo table td.meteo-4-col a,.meteo table td.meteo-4-col a:visited { color:#777 }
+	.meteo table td.meteo-4-col a:hover { color:#9f0d00; background:none }
+	
+	 
+	/* json borsa */
+	.borsa1 legend { font-weight:bold; padding:8px 0 5px}
+	.borsa1 button { float:right }
+	
+	
+	/* mappe ------------------------------------ */
+	#mappe-form { margin: 10px 0 0 0 }
+		#mappe-form div { color:#666 }
+		#mappe-form label { display:none }
+		#mappe-form input { border:1px solid #bbb; padding: 4px 3px; margin:0 0 10px 0; width: 150px; color:#b8b8b8 }
+		#mappe-form input#mappe-form-indirizzo { width:218px }
+		#mappe-form #mappe-form-button { float:right; margin:-35px 0 0 }
+
+	/* oroscopo ------------------------------------ 
+	.oroscopo { }
+		.oroscopo li {list-style:none }
+		.oroscopo h4 { font-size:14px; margin:10px 0 5px 0; background:transparent url(http://www.repubblica.it/static/images/homepage/2010/sprite-repubblica.png) no-repeat 0 -1624px; padding:3px 0 3px 26px }
+		.oroscopo h4.oroscopo-ariete { background-position: 0 -1991px }
+		.oroscopo h4.oroscopo-toro { background-position:-354px -1991px}
+		.oroscopo h4.oroscopo-gemelli { background-position: -709px -1991px }
+		
+		.oroscopo h4.oroscopo-cancro { background-position: 0 -2036px }
+		.oroscopo h4.oroscopo-leone { background-position: -354px -2036px }
+		.oroscopo h4.oroscopo-vergine { background-position: -709px -2036px }
+		
+		.oroscopo h4.oroscopo-bilancia { background-position: 0 -2081px }
+		.oroscopo h4.oroscopo-scorpione { background-position: -354px -2081px }
+		.oroscopo h4.oroscopo-sagittario { background-position: -709px -2081px }
+		
+		.oroscopo h4.oroscopo-capricorno { background-position: 0 -2126px }
+		.oroscopo h4.oroscopo-acquario { background-position: -354px -2126px }
+		.oroscopo h4.oroscopo-pesci { background-position: -709px -2126px }
+*/
+/* - - - */
+	/* oroscopo ------------------------------------ */
+	.oroscopo { }
+		.oroscopo h4 { font-size:14px; margin:10px 0 5px 0; background:transparent url(../../../images/homepage/2010/sprite-repubblica.png) no-repeat 0 -1624px; padding:3px 0 3px 26px }
+
+		.oroscopo li {list-style:none }
+		.oroscopo-list { display:none}
+		.oroscopo-list li { float:left; width:77px; padding:10px 0 0 0}
+		.oroscopo-list a, .oroscopo-list a:visited {
+				display:block; 
+				background:transparent url(../../../images/homepage/2010/sprite-repubblica.png) no-repeat 0 -1624px;
+				padding:3px 0 3px 22px
+				}
+
+		
+		.oroscopo h4.oroscopo-ariete, .oroscopo-ariete a, .oroscopo-ariete a:visited { background-position: 0 -1991px }
+		.oroscopo h4.oroscopo-toro, .oroscopo-toro a, .oroscopo-toro a:visited { background-position:-354px -1991px }
+		.oroscopo h4.oroscopo-gemelli, .oroscopo-gemelli a, .oroscopo-gemelli a:visited { background-position: -709px -1991px }
+		
+		.oroscopo h4.oroscopo-cancro, .oroscopo-cancro a, .oroscopo-cancro a:visited { background-position: 0 -2036px }
+		.oroscopo h4.oroscopo-leone, .oroscopo-leone a, .oroscopo-leone a:visited { background-position: -354px -2036px }
+		.oroscopo h4.oroscopo-vergine, .oroscopo-vergine a, .oroscopo-vergine a:visited { background-position: -709px -2036px }
+		
+		h4.oroscopo-bilancia, .oroscopo-bilancia a, .oroscopo-bilancia a:visited { background-position: 0 -2081px }
+		h4.oroscopo-scorpione, .oroscopo-scorpione a, .oroscopo-scorpione a:visited { background-position: -354px -2081px }
+		h4.oroscopo-sagittario, .oroscopo-sagittario a, .oroscopo-sagittario a:visited { background-position: -709px -2081px }
+		
+		h4.oroscopo-capricorno, .oroscopo-capricorno a, .oroscopo-capricorno a:visited { background-position: 0 -2126px }
+		h4.oroscopo-acquario, .oroscopo-acquario a, .oroscopo-acquario a:visited { background-position: -354px -2126px }
+		h4.oroscopo-pesci, .oroscopo-pesci a, .oroscopo-pesci a:visited { background-position: -709px -2126px }
+
+		/* extra */
+		.repubblica-extra li.repubblica-extra-list ul { float:left; padding:6px 0 0 53px; list-style:none; background:url(../../../images/homepage/2010/sprite-repubblica.png) -2px -3702px }
+		* html .repubblica-extra li.repubblica-extra-list li { zoom:1 }
+		.repubblica-extra li.repubblica-extra-list li a, .repubblica-extra li.repubblica-extra-list li a:visited { display:block; padding:1px 0; font-size:12px }
+
+		/* counter */
+     	.counter li.counter-label { text-transform: uppercase; margin-top:5px; font-size:14px; font-weight:bold }
+        .counter li.condividi {display:none;padding-top:4px;}
+        .counter li.condividi textarea {width:230px}
+
+
+	/*segui repubblica ------------------------------------ */
+	.seguirepubblica { }
+		.seguirepubblica li { display:inline }
+		.seguirepubblica li.title { margin:0 0 10px 0; clear:both; width:100%; display:block }
+		.seguirepubblica li a, .seguirepubblica li a:visited { background:#fff url(../../../images/homepage/2010/sprite-repubblica.png) 0 0 no-repeat; width:40px; height:62px; display:inline; float:left; margin:6px 4px 0 0; border:1px solid #fff }
+		.seguirepubblica li a:hover { border:1px solid #dbdbdb }
+	
+		.seguirepubblica li a.share-repubblica-mobile, .seguirepubblica li a.share-repubblica-mobile:visited { background-position:0 -2165px }
+		.seguirepubblica li a.share-iphone, .seguirepubblica li a.share-iphone:visited { background-position:-40px -2165px }
+		.seguirepubblica li a.share-sms, .seguirepubblica li a.share-sms:visited { background-position:-80px -2165px }
+		.seguirepubblica li a.share-podcast, .seguirepubblica li a.share-podcast:visited { background-position:-120px -2165px}
+		.seguirepubblica li a.share-rss, .seguirepubblica li a.share-rss:visited { background-position:-160px -2165px }
+		.seguirepubblica li a.share-twitter, .seguirepubblica li a.share-twitter:visited { background-position:-200px -2165px }
+		.seguirepubblica li a.share-facebook, .seguirepubblica li a.share-facebook:visited { background-position:-240px -2165px }
+		.seguirepubblica li a.share-friendfeed, .seguirepubblica li a.share-friendfeed:visited { background-position:-280px -2165px }
+		.seguirepubblica li a.share-archivio, .seguirepubblica li a.share-archivio:visited { background-position:-320px -2165px }
+		.seguirepubblica li a.share-ultimo-minuto, .seguirepubblica li a.share-ultimo-minuto:visited { background-position:-360px -2165px }
+		.seguirepubblica li a.share-extra, .seguirepubblica li a.share-extra:visited { background-position:-400px -2165px }
+		.seguirepubblica li a.share-servizio-clienti, .seguirepubblica li a.share-servizio-clienti:visited { background-position:-440px -2165px }
+		.seguirepubblica li a.share-webslice, .seguirepubblica li a.share-webslice:visited { background-position:-480px -2165px }
+		.seguirepubblica li a.share-yahoo, .seguirepubblica li a.share-yahoo:visited { background-position:-520px -2165px }
+		.seguirepubblica li a.share-quotidianodigitale, .seguirepubblica li a.share-quotidianodigitale:visited { background-position:-560px -2165px }
+		.seguirepubblica li a.share-ipad, .seguirepubblica li a.share-ipad:visited { background-position:-600px -2165px }
+	
+	/* Trovacinema ------------------------------------ */
+	.trovacinema li.latest { padding:10px 0; border-bottom:1px #DBDBDB solid; margin-bottom:8px }
+		.trovacinema li.latest a, .trovacinema li.latest a:visited { font-weight:bold; font-size:12px; line-height:12px }
+		.trovacinema li.latest img { float:left; margin:0 5px 3px 0 }
+		.trovacinema li.latest strong { color:#9f0d00; font-size:11px; line-height:14px; text-transform:uppercase }
+		
+		#trovacinema-form1 { border-top:1px #dbdbdb dotted; padding-top:10px }
+ .ie6 #trovacinema-form1 { border-top:1px #dbdbdb solid }
+ .trovacinema select, .trovacinema #singleCinema { width: 230px; margin:4px 0 5px 0; border:1px solid #9B9B9B; color:#222;font-size:12px; padding:1px 0 2px 1px}
+ .trovacinema #singleCinema { padding:3px 0 4px 2px; width:226px }
+ .trovacinema ul.form-services-radio { margin-bottom:10px; font-size:11px; list-style-type:none }
+ .trovacinema button { float:right; margin:5px 0 }
+ .trovacinema .cinemafilm { clear:both; margin-top:12px}
+	
+
+/* Tabber Generico */ 
+.tabber { list-style-type: none; margin:0 0 15px 0 }
+	.tabber-nav:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+		* html .tabber-nav { zoom:1 }
+		*:first-child+html .tabber-nav { zoom:1 }
+	.tab:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+		* html .tab { zoom:1 }
+		*:first-child+html .tab { zoom:1 }
+		
+	ul.tabber-nav li { margin: 0; float: left; background-color:#eee; margin-right:3px; list-style:none }
+		ul.tabber-nav li a, ul.tabber-nav li a:visited { float: left; display: block; padding: 3px 8px; border:1px solid #dbdbdb; border-bottom:none; border-bottom:none; color:#00386B; font-weight:bold; text-decoration: none; font-size:12px }
+		.tabber-nav li a:hover { background-color:#fff }
+		.tabber-nav li a.active, .tabber-nav li a.active:visited { background-color: #fff; cursor: default; color: #000; font-weight:bold;border:1px solid #dbdbdb; border-bottom:1px solid #fff; margin-bottom:-1px; position:relative; z-index:10 }
+		#articles-charts .active {border:1px solid #2992c1; border-bottom:1px solid #fff}
+		#citta-rotator .active { border-color:#f60; border-bottom:1px solid #fff}
+	
+		.tab { border:1px solid #dbdbdb; padding:6px 8px 9px 8px; display:none}
+			#articles-charts .tab { border:1px solid #2992c1 }
+			#citta-rotator .tab { border:1px solid #f60 }
+			.simple-tabber .tab { border:none; padding:6px 0 9px 0 }
+			.tab.visible {display:block }
+		 #spalla-rotator .tab { border:none}	
+		.tabber .tab ul li {display:block; padding:8px 0 8px; border-bottom:1px solid #dbdbdb; float:left; width:100% }
+			.tabber .tab ul li.other { text-align:right; border-bottom:none; padding:0 }
+			#services-rotator .tab ul li {border:none}
+		.tabber .tab p { margin:2px 0; font-size:12px; line-height:15px }
+		
+		.tabber .tab a, .tabber .tab a:visited { display:block; font-size:12px; line-height:12px }
+		.tabber .tab a em { font-size:11px; color:#666; font-style:normal; white-space:nowrap }
+		
+		.tabber .tab h4 a, .tabber .tab h4 a:visited { display:block; color:#333; font-weight:bold; font-size:13px; line-height:15px }
+		.tabber .tab h5 a, .tabber .tab h5 a:visited { display:block; color:#900; font-weight:bold; font-size:11px; line-height:13px; text-transform:uppercase }
+		.tabber .tab h5 a:hover { text-decoration:none !important }
+		.tabber .tab img { float:left; margin-right:5px }
+
+
+/**/ /**/	
+ul.ilmiolibro { }
+ul.ilmiolibro li.iml-review { padding:10px 0; margin-bottom:6px; }
+    ul.ilmiolibro li.iml-review:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+    * html ul.ilmiolibro li.iml-review { zoom:1 }
+    *:first-child+html ul.ilmiolibro li.iml-review { zoom:1 }
+ul.ilmiolibro li.iml-review img { float:left; margin-right:10px }
+ul.ilmiolibro li.iml-review a, ul.ilmiolibro li.iml-review a:visited { font-size:13px; line-height:14px }
+ul.ilmiolibro li.iml-review strong.iml-label { display:block; color:#9f0d00; text-transform:uppercase; font-size:10px }
+ul.ilmiolibro li.iml-review strong.iml-title { display:block; margin:-1px 0 0 0; padding:0 0 2px 0 }
+ul.ilmiolibro li.iml-review em.iml-author { display:block; font-size:11px; color:#555 }
+ul.ilmiolibro li.iml-review a.iml-link { display:block; font-size:11px; color:#555; margin-top:8px }
+
+ul.ilmiolibro li.iml-board { padding:10px 0; margin-bottom:6px; border-bottom:1px solid #e5e5e5 }
+    ul.ilmiolibro li.iml-board:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+    * html ul.ilmiolibro li.iml-board { zoom:1 }
+    *:first-child+html ul.ilmiolibro li.iml-board { zoom:1 }
+ul.ilmiolibro li.iml-board dl { display:block }
+    
+    ul.ilmiolibro li.iml-board dl:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+        * html ul.ilmiolibro li.iml-board dl{ zoom:1 }
+        *:first-child+html ul.ilmiolibro li.iml-board dl { zoom:1 }
+    ul.ilmiolibro li.iml-board dl dt { width:40px; float:left }
+    ul.ilmiolibro li.iml-board dl dd { width:192px; float:left }
+    ul.ilmiolibro li.iml-board dl dd a,ul.ilmiolibro li.iml-board dl dd a:visited { font-size:12px; line-height:13px }
+    ul.ilmiolibro li.iml-board dl dd strong.iml-title { display:block; padding:0 }
+    ul.ilmiolibro li.iml-board dl dd em.iml-author { display:block; font-size:11px; color:#555 }
+
+    ul.ilmiolibro li.iml-board dl dd.iml-review { padding:5px 0 0 0 }
+    ul.ilmiolibro li.iml-board dl dd.iml-review a, ul.ilmiolibro li.iml-board dl dd.iml-review a:visited { font-size:11px; line-height:13px; font-weight:bold } 
+    ul.ilmiolibro li.iml-board dl dd.iml-review strong { color:#9f0d00; text-transform:uppercase; font-size:10px; /*display:block;*/ }
+
+
+ul.ilmiolibro li.iml-search { padding:0 0 7px; border-bottom:1px solid #e5e5e5; margin:0 0 2px 0 }
+    ul.ilmiolibro li.iml-search:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+    * html ul.ilmiolibro li.iml-search { zoom:1 }
+    *:first-child+html ul.ilmiolibro li.iml-search { zoom:1 }
+ul.ilmiolibro li.iml-search label { display:block; padding:2px 0; margin:0 }
+ul.ilmiolibro li.iml-search input { width:160px; margin:4px 0 5px 0; border:1px solid #9B9B9B; color:#222; padding:1px 0 2px 1px; font:12px/13px Arial, Helvetica, sans-serif; float:left }
+ul.ilmiolibro li.iml-search input.hide { display:none; position:absolute }
+ul.ilmiolibro li.iml-search button { float:right; margin-top:2px }
+    .ie6 ul.ilmiolibro li.iml-search input,.ie7 ul.ilmiolibro li.iml-search input { width:165px }
+
+ul.ilmiolibro li.iml-link:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+* html ul.ilmiolibro li.iml-link { zoom:1 }
+*:first-child+html ul.ilmiolibro li.iml-link { zoom:1 }
+
+ul.ilmiolibro li.iml-link ul { float:left; list-style:none }
+
+ul.ilmiolibro li.iml-link ul.iml-link-1 { width:94px; margin-right:8px }
+ul.ilmiolibro li.iml-link ul.iml-link-2 { width:130px }
+
+ul.ilmiolibro li.iml-link li.iml-label { padding:7px 0 0 0 }
+ul.ilmiolibro li.iml-link li.iml-label a, ul.ilmiolibro li.iml-link li.iml-label a:visited { color:#9f0d00; font-size:11px; line-height:14px; text-transform:uppercase; font-weight:bold }
+
+
+.simple-tabber { }
+	.simple-tabber-nav { list-style:none; padding-bottom:10px; border-bottom:1px #dbdbdb solid }
+	.simple-tabber-nav:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+		* html .simple-tabber-nav { zoom:1 }
+		*:first-child+html .simple-tabber-nav { zoom:1 }
+	
+	.simple-tabber-nav li { float:left; margin-right:3px }
+	.simple-tabber-nav.last { padding-right:0 }
+	.simple-tabber-nav li a,.simple-tabber-nav li a:visited {float:left; font-size:12px; padding:5px 10px; background-color:#dbdbdb; color:#00386B}
+	.simple-tabber-nav li a:hover,.simple-tabber-nav li a.active, .simple-tabber-nav li a.active:visited { color:#fff; background-color:#2992c1 }
+	.simple-tabber-nav li a.active { font-weight:bold }
+	
+
+/* Tab Annunci ------------------------------------ */
+
+	#services-rotator ul.form-services-radio { padding:2px 0 4px 0; font-size:11px }
+		#services-rotator ul.form-services-radio:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+		* html #services-rotator ul.form-services-radio { zoom:1 }
+		*:first-child+html #services-rotator ul.form-services-radio { zoom:1 }
+		#services-rotator form li {border-bottom:none}
+		#services-rotator ul.form-services-radio li { float:left; margin-right:5px; width:auto }
+		#services-rotator ul.form-services-select li { font-size:12px; padding:3px 0 }
+		#services-rotator ul.form-services-select li strong { display:inline-block; width:60px; color:#222; font-weight:normal; line-height:20px }
+		#services-rotator ul.form-services-select li select { border:1px solid #9b9b9b; color:#222 !important; font-family:Arial, Helvetica, sans-serif; width:163px }
+		
+		.gecko #services-rotator ul.form-services-select li select { width:210px }
+	
+	#services-rotator button { float:right; margin:5px 0 }
+	
+	
+	#services-rotator ul.annunci { border:none; padding-top:10px !important; border-top:1px solid #dbdbdb }
+		#services-rotator ul.annunci:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+		* html #services-rotator ul.annunci { zoom:1 }
+		*:first-child+html #services-rotator ul.annunci { zoom:1 }
+		#services-rotator ul.annunci li {background:none; margin-bottom:10px; list-style:none; border-bottom:none }
+		#services-rotator ul.annunci li a, ul.annunci li a:visited { font-weight:normal; font-size:11px; line-height:13px; border:none !important; padding:0 }
+		#services-rotator ul.annunci li a strong { color:#9f0d00; display:block }
+		#services-rotator ul.annunci li a img { float:left; margin-right:3px }
+		a.pubblica-annuncio { border:none !important; margin-top:9px; float:left; font-size:11px !important; padding:0 !important }
+
+		#tabservices2,#tabservices3,#tabservices4 { display:none }
+	ul.annunci-case { overflow:hidden }
+
+ /* Vetrine ------------------------------------ */
+	.shared-content-vetrina { display: none; padding: 3px 5px; margin-bottom: 10px; border:1px solid #dbdbdb; font-size:11px;	color: #9b9b9b; text-align: right }
+		.shared-content-vetrina:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+		* html .shared-content-vetrina { zoom:1 }
+		*:first-child+html .shared-content-vetrina { zoom:1 }
+	
+	.shared-content-vetrina hr { display:none }
+	.shared-content-vetrina br { height:5px }
+	
+	.shared-content-vetrina-whitebox:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+		* html .shared-content-vetrina-whitebox { zoom:1 }
+		*:first-child+html .shared-content-vetrina-whitebox { zoom:1 }
+	
+	.shared-content-vetrina-whitebox a, .shared-content-vetrina-whitebox a:visited { display:block; float:left; padding:6px 0 0 0; margin:6px 0 0 0; border-top:1px solid #dbdbdb; font:11px/13px Arial, Helvetica, sans-serif; color:#222; text-align:left }
+	.shared-content-vetrina-whitebox a:hover { color:#9f0d00 }
+	.shared-content-vetrina img { float:left; margin-right:5px }
+	
+    .shared-content-vetrina-whitebox a:first-child { border: none; }
+    .shared-content-vetrina-whitebox a:first-child { margin-top:-15px }
+
+/* CONTENUTI 
+-------------------------------------------------------------- */
+
+/* breaking news */
+h1.breaking-news { margin:0 0 10px 0; padding:6px 0 8px 0; font-size:24px; line-height:24px; color:#9f0d00; border-top:1px solid #9f0d00; border-bottom:1px solid #9f0d00 }
+	h1.breaking-news a, h1.breaking-news a:visited { color:#9f0d00 } 
+	h1.breaking-news a:hover { color:#222 }
+
+/* Articoli 
+-------------------------------------------------------------- */
+/* sottolineati */
+.articles u { text-decoration:none; border:none; background:transparent url(../../../images/homepage/2010/bg-link-u.png) repeat-x 0 92% }
+.articles strong u { background:transparent url(../../../images/homepage/2010/bg-link-u-hover.png) repeat-x 0 92% }
+.ie .articles u, .ie .articles strong u { background:none; text-decoration:underline }
+
+/*link*/
+.articles a:hover, .articles a u:hover { text-decoration:none; color:#222; background:transparent url(../../../images/homepage/2010/bg-link-hover.png) repeat-x 0 92% }
+.articles a strong u:hover { color:#9f0d00; background:url(../../../images/homepage/2010/bg-link-hover.png) repeat-x 0 92% }
+.ie .articles a strong u:hover { background:none; text-decoration:underline }
+
+
+/*tutti gli articoli ----------------------------------------------------- */
+.articles { padding-bottom:15px; margin-bottom:15px; border-bottom:1px solid #dbdbdb }
+* html .articles { overflow:hidden }
+	.articles:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0 }
+	* html .articles { zoom:1 }
+	*:first-child+html .articles { zoom:1 }
+
+/* ----- */
+.articles h1,.articles h2,.articles h3,.articles h4,.articles h5,.articles h6 { color:#00386B }
+.articles h1 strong, .articles h2 strong, .articles h3 strong, .articles h4 strong { color:#9f0d00 }
+
+/*paragrafi negli articoli e link ----------------------------------------------------- */
+.articles p { margin:6px 0 0 0; font-family:'Lucida Grande','Lucida Sans Unicode','Lucida Sans', LucidaGrande, Geneva, Arial, Verdana, sans-serif; font-size:13px; line-height:17px }
+.articles p a strong, .articles p a:visited strong { color:#9f0d00; font-weight:bold }
+
+/* external ------------------ */
+.articles p a.external, .articles p a.external:visited { /*color:#006B4A;*/ padding-left:13px; background:transparent url(../../../images/homepage/2010/sprite-repubblica.png) no-repeat 0 -13px}
+.articles p a.external:hover { background:transparent url(../../../images/homepage/2010/sprite-repubblica.png) no-repeat 0 -613px }
+
+
+.articles p a, .articles p a:visited { font-family:'Lucida Grande','Lucida Sans Unicode','Lucida Sans', LucidaGrande, Geneva, Arial, Verdana, sans-serif; background:transparent url(../../../images/homepage/2010/bg-link.png) bottom repeat-x }
+ .articles p a:hover { font-family:'Lucida Grande','Lucida Sans Unicode','Lucida Sans', LucidaGrande, Geneva, Arial, Verdana, sans-serif;
+	text-decoration:none; color:#222; background:transparent url(../../../images/homepage/2010/bg-link-hover.png) bottom repeat-x }
+.articles p a.external strong { }
+
+
+/*sommario 2 ----------------------------------------------------- */
+.articles p.link { font-family:Arial, Helvetica, sans-serif; margin:4px 0 0 -3px; font-size:13px; line-height:16px }
+/*.articles p.link:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+	* html .articles p.link { zoom:1 }
+	*:first-child+html .articles p.link { zoom:1 }*/
+	
+	*:first-child+html .articles p.link { zoom:1 }
+	
+
+	.articles p.link a, .articles p.link a:visited, .articles p.link a:hover { font-family:Arial, Helvetica, sans-serif; font-weight:bold; background:none; margin:0 3px; /*background:#fff url(http://www.repubblica.it/static/images/homepage/2010/sprite-repubblica.png) 0 0 no-repeat*/ }
+	.articles p.link a strong, .articles p.link a:visited strong { color:#9f0d00 }
+	.articles p.link a:hover { background:transparent url(../../../images/homepage/2010/bg-link-hover.png) bottom repeat-x }
+
+/* icone nel sommario 2 ------------------------------------------- */
+.articles p.link a.Video, .articles p.link a.Video:visited,
+.articles p.link a.Foto, .articles p.link a.Foto:visited,
+.articles p.link a.Interattivo, .articles p.link a.Interattivo:visited,
+.articles p.link a.Audio, .articles p.link a.Audio:visited,
+.articles p.link a.Articolo, .articles p.link a.Articolo:visited,
+.articles p.link a.Pubblico, .articles p.link a.Pubblico:visited {
+	background:#fff url(../../../images/homepage/2010/sprite-repubblica.png) 0 0 no-repeat; padding-left:19px }
+
+.articles p.link a.Video, .articles p.link a.Video:visited { background-position: 0 -90px } 
+.articles p.link a.Video:hover { background-position:0 -690px }
+
+.articles p.link a.Foto, .articles p.link a.Foto:visited { background-position:0 -179px }
+.articles p.link a.Foto:hover { background-position:0 -779px }
+
+.articles p.link a.Interattivo, .articles p.link a.Interattivo:visited { background-position:1px -269px }
+.articles p.link a.Interattivo:hover { background-position:1px -869px }
+
+.articles p.link a.Audio, .articles p.link a.Audio:visited { background-position:0 -359px }
+.articles p.link a.Audio:hover { background-position:0 -959px }
+
+.articles p.link a.Articolo, .articles p.link a.Articolo:visited { background-position:0 -450px }
+.articles p.link a.Articolo:hover { background-position:0 -1050px }
+
+.articles p.link a.Pubblico, .articles p.link a.Pubblico:visited { background-position:0 -540px; padding-left:49px }
+.articles p.link a.Pubblico:hover { background-position:0 -1139px; padding-left:49px }
+
+/*sommario 2 sequenze successive ---------------------------------------------- */
+.articles p.link-more { font-family:Arial, Helvetica, sans-serif; margin:0 0 0 -3px; font-size:13px; line-height:16px }
+/*.articles p.link-more:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+	* html .articles p.link-more { zoom:1 }
+	*:first-child+html .articles p.link-more { zoom:1 }*/
+
+	.articles p.link-more a, .articles p.link-more a:visited, .articles p.link-more a:hover { font-family:Arial, Helvetica, sans-serif; font-weight:bold; background:none; margin:0 3px }
+	.articles p.link-more a strong, .articles p.link-more a:visited strong { color:#9f0d00 }
+	.articles p.link-more a:hover { background:transparent url(../../../images/homepage/2010/bg-link-hover.png) bottom repeat-x }
+
+
+
+/*firme*/
+.articles em.author { font-size:11px; color:#555; text-transform:none; font-weight:normal }
+
+
+/* Aperture
+ ----------------------------------------------------- */
+.apertura { border-bottom:4px solid #dbdbdb; margin-bottom:20px }
+	.apertura h1 { font-size:27px; line-height:28px;font-weight:bold; margin-bottom:2px }
+	.apertura h2 { font-size:25px; line-height:26px; font-weight:normal }
+		.apertura h2 strong { font-weight:normal }
+		.ie6 .apertura h1 a:hover, .ie6 .apertura h2 a:hover { background-position:0 90% }
+	.apertura img { display:inline; float:left; margin-right:10px; margin-bottom:10px }
+		.mac .apertura h1, .mac .apertura h2, .iphone .apertura h1, .iphone .apertura h2  { word-spacing:-0.05em }
+
+
+.apertura-extra { border-bottom:4px solid #dbdbdb; margin-bottom:20px }
+	.apertura-extra h1 { font-size:36px; line-height:34px;font-weight:bold; margin-bottom:2px }
+	.apertura-extra h2 { font-size:30px; line-height:28px; font-weight:normal }
+		.apertura-extra h2 strong { font-weight:normal }
+		.ie6 .apertura-extra h1 a:hover, .ie6 .apertura-extra h2 a:hover { background-position:0 90% }
+	.apertura-extra img { display:block; margin:10px 0 }
+	.apertura-extra p { font-size:14px; line-height:20px }
+		.mac .apertura-extra h1, .mac .apertura-extra h2,.iphone .apertura-extra h1, .iphone .apertura-extra h2 { word-spacing:-0.05em }
+
+
+.apertura-grande { border-bottom:4px solid #dbdbdb; margin-bottom:20px }
+	.apertura-grande h1 { font-size:29px; line-height:28px;font-weight:bold; margin-bottom:2px }
+	.apertura-grande h2 { font-size:26px; line-height:26px; font-weight:normal }
+		.apertura-grande h2 strong { font-weight:normal }
+		.ie6 .apertura-grande h1 a:hover, .ie6 .apertura-grande h2 a:hover { background-position:0 90% }
+	.apertura-grande img { display:block; margin:10px 0 }
+		.mac .apertura-grande h1, .mac .apertura-grande h2,.iphone .apertura-grande h1, .iphone .apertura-grande h2 { word-spacing:-0.05em }
+
+
+	.inserto { background-color:#fff; margin:-29px 0 15px 0; /*-24px*/ border-top:1px solid #e5e5e5; border-bottom:4px solid #dbdbdb; padding:13px 0 12px; list-style:none }
+		.inserto:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+		* html .inserto { zoom:1 }
+		*:first-child+html .inserto { zoom:1 }
+
+	.inserto li { float:left; width:220px; margin:0 10px 0 0; padding:0; border:none; font-size:12px; line-height:14px; font-weight:bold } 
+	.inserto-extra li { width:240px }
+	.inserto li.last { margin:0 }
+		.inserto li strong { color:#9f0d00 }
+		.inserto li img { float:left; margin-right:8px }
+		.inserto .articles { }
+
+/*
+.riapertura { float:left; width:330px; border-bottom:none; padding:0; margin-bottom:0 }
+	.riapertura-1 { margin-right:8px; padding-right:11px; border-right:1px solid #dbdbdb }
+	.riapertura h2 { font-size:19px; font-weight:bold; line-height:20px; margin-bottom:3px }
+	.riapertura h3 { font-size:18px; line-height:20px; font-weight:normal }
+		.riapertura h3 strong { font-weight:normal }
+	.riapertura img { float:left; display:inline; margin:0 8px 0 0 }
+*/
+
+.riapertura { float:left; width:325px; border-bottom:none; padding:0; margin-bottom:0 }
+ .riapertura-1 { margin-right:15px; padding-right:11px; border-right:3px solid #dbdbdb }
+ .riapertura h2 { font-size:19px; font-weight:bold; line-height:20px; margin-bottom:3px }
+ .riapertura h3 { font-size:18px; line-height:20px; font-weight:normal }
+ .riapertura h3 strong { font-weight:normal }
+ .riapertura h5 { text-transform:uppercase; color:#222; font-size:12px; margin:-3px 0 0 0 }
+ .riapertura img { float:left; display:inline; margin:4px 8px 0 0 }
+ 	.mac .riapertura h2, .mac .riapertura h3,.iphone .riapertura h2, .iphone .riapertura h3 { word-spacing:-0.05em }
+
+/* ---------------------------------------------*/
+.riaperture-enfasi { }
+	.riaperture-enfasi:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+	* html .riaperture-enfasi { zoom:1 }
+	*:first-child+html .riaperture-enfasi { zoom:1 }
+
+.riaperture-enfasi .riapertura {  border-bottom:none; padding:0; margin-bottom:0; overflow:hidden }
+	.riaperture-enfasi .riapertura a, .riaperture-enfasi .riapertura a:visited { background-color:transparent !important } 
+
+.riaperture-enfasi .riaperture-enfasi-small { float:left; width:250px; margin:0 10px 0 0; overflow:hidden }
+	.riaperture-enfasi .riapertura { width:auto; float:none }
+
+.riaperture-enfasi .riaperture-enfasi-small .riapertura { border:none; padding:0; margin:0; padding-bottom:15px; margin-bottom:15px; border-bottom:1px solid #dbdbdb }
+	.riaperture-enfasi .riaperture-enfasi-small .last { border-bottom:0; padding:0; margin-bottom:0 }
+
+	.riaperture-enfasi .riapertura-large { background-color:#E5EDF5; float:left; padding: 10px; width: 400px !important; width /**/:420px }
+	.riaperture-enfasi .riapertura-large img { padding:4px 0 10px 0; margin:0 }
+	.riaperture-enfasi .riapertura-large h2 { clear:both }
+	.riaperture-enfasi .riapertura-large h2, .riaperture-enfasi .riapertura-large h2 a, .riaperture-enfasi .riapertura-large h2 a:visited { font-size:24px; line-height:25px }
+	.riaperture-enfasi .riapertura-large h3, .riaperture-enfasi .riapertura-large h3 a, .riaperture-enfasi .riapertura-large h3 a:visited { font-size:20px; line-height:21px }
+	.riaperture-enfasi .riapertura-large h5, .riaperture-enfasi .riapertura-large h5 a, .riaperture-enfasi .riapertura-large h5 a:visited
+		{ display:block; text-transform:uppercase; color:#222; font-size:12px; margin:-3px 0 0 0 }
+	.riaperture-enfasi .riapertura-large h5.overtitle-mondiali2010 { background-image:url(../../../images/homepage/2010/overtitle-mondiali2010.png); width:160px; height:15px  }
+	.riaperture-enfasi .riapertura-large h5 a:hover { background:none }
+
+.riaperture-enfasi .articles p.link, .riaperture-enfasi .articles p.link-more { margin:4px 0 0 0 }
+.riaperture-enfasi .articles p.link a, .riaperture-enfasi .articles p.link a:visited,
+.riaperture-enfasi .articles p.link-more a, .riaperture-enfasi .articles p.link-more a:visited { margin:0 }
+
+.riaperture-enfasi .riapertura-1 a img { margin-top:8px; }
+
+
+/* ---------------------------------------------*/
+.riapertura2 { }
+	.riapertura2 h2 { font-size:19px; font-weight:bold; line-height:23px; margin-bottom:2px }
+	.riapertura2 h3 { font-size:18px; line-height:20px; font-weight:normal }
+		.riapertura2 h3 strong { font-weight:normal }
+		.riapertura2 img { display:inline; float:left; margin:4px 10px 0 0 }
+
+/* ---------------------------------------------*/
+.col-B { }
+	.col-B h3 { font-size:18px; font-weight:bold; line-height:21px; margin-bottom:3px }
+	.col-B h4 { font-size:16px; line-height:20px; font-weight:normal }
+		.col-B h4 strong { font-weight:normal }
+		.col-B h5 { text-transform:uppercase; color:#222; font-size:12px; margin:-3px 0 0 0 }
+	
+	.col-B p { margin:6px 0 4px }
+	.col-B .last { margin-bottom:2px }
+	.col-B .articles img { float:left; margin:4px 8px 0 0 }
+		.mac .col-B h3, .mac .col-B h4,.iphone .col-B h3, .iphone .col-B h4 { word-spacing:-0.05em }
+	
+/* sottolineati specifici */
+.articles a u, .articles a strong u, .articles a strong u:visited, .articles a u:visited, .articles a u:hover, .articles h1 a:hover, .articles h2 a:hover, .articles h3 a:hover, .articles h4 a:hover { background-position:0 92% }
+
+.ie .articles a u, .ie .articles a strong u, .ie .articles a strong u:visited, .ie .articles a u:visited, .ie .articles a u:hover,.ie .articles h1 a:hover, .ie .articles h2 a:hover, .ie .articles h3 a:hover
+{ background:none; text-decoration:underline }
+
+/*disabilito i sottolineati nei paragrafi */ 
+.articles p u { background:none; text-decoration:none !important }	
+
+/*inserto indiscreto apertura*/
+.articles p.indiscreto { clear:both; display:block; background:#efefef url(../../../images/pubblico/sprites-repubblico.gif@13122010) no-repeat -380px -775px; margin:15px 0 0 0; padding:10px 10px 10px 205px }
+.articles p.indiscreto a, .articles p.indiscreto a:visited { font-family:Arial, Helvetica, sans-serif; font-size:22px; font-weight:normal; background:none }
+.articles p.indiscreto a:hover { font-family:Arial, Helvetica, sans-serif; font-size:22px; background:transparent url(../../../images/homepage/2010/bg-link-hover.png) bottom repeat-x }
+
+	
+/* ---------------------------------------------*/
+
+
+/* spalla */
+ 
+#spalla-rotator { list-style-type: none; margin:0 0 10px 0 }
+	#spalla-rotator-nav:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+		* html #spalla-rotator-nav { zoom:1 }
+		*:first-child+html #spalla-rotator-nav { zoom:1 }
+	#spalla-rotator ul#spalla-rotator-nav li { margin: 0; float: left; background-color:#eee; margin-right:3px; list-style:none }
+	#spalla-rotator ul#spalla-rotator-nav li a,#spalla-rotator ul#spalla-rotator-nav li a:visited { float: left; display: block; padding: 3px 8px; border:1px solid #dbdbdb; border-bottom:none; border-bottom:none; color:#00386B; font-weight:bold; text-decoration: none; font-size:12px }
+	#spalla-rotator ul#spalla-rotator-nav li a:hover { background-color:#fff }
+	#spalla-rotator ul#spalla-rotator-nav li a.active, #spalla-rotator ul#spalla-rotator-nav li a.active:visited { background-color: #fff; cursor: default; color: #000; font-weight:bold; border:1px solid #2992c1; border-bottom:none;padding-bottom:5px}
+	
+	#spalla-rotator-nav { background: url(../../../images/homepage/2010/blu-pixel.gif) left bottom repeat-x }
+	#spalla-rotator #tab-spalla-2, #spalla-rotator #tab-spalla-3, #spalla-rotator #tab-spalla-4 { display:none}
+	#spalla-rotator #tab-spalla-1 { display:block }
+		
+	#spalla-rotator img { float:left; margin-right:5px }
+	
+	
+.box-articles { border:1px solid #2992c1; padding:6px 8px 9px 8px; margin-bottom:10px; list-style:none; z-index:9 }
+	.box-articles:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0 }
+	* html .box-articles { zoom:1 }
+	*:first-child+html .box-articles { zoom:1 }
+		.box-articles .articles { border-bottom:none; padding:0; margin:0 }
+		.box-articles .spalla-1 { margin-right:8px; padding-right:11px; border-right:1px solid 	#dbdbdb }
+		.box-articles h2 { font-size:16px; line-height:18px; font-weight:bold; margin-top:4px }
+		.box-articles p { margin:2px 0; font-size:12px; line-height:15px }
+
+	#spalla-rotator .box-articles { border-top: none }
+
+/*.ie6 #spalla-rotator h2, .ie6 #spalla-rotator p { float:left }*/
+
+/* ---------------------------------------------*/
+.multimedia { padding-bottom:2px; margin-bottom:18px }
+	.ie6 .multimedia,.ie7 .multimedia { padding-bottom:10px }
+.multimedia:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+* html .multimedia { zoom:1 }
+*:first-child+html .multimedia { zoom:1 }
+	.multimedia li.title { display:inline; margin:-6px 0 10px -6px; text-transform:uppercase; font-size:11px; font-weight:bold; color:#222; padding:0 5px; line-height:20px; width:400px }
+	.multimedia li { float:left; line-height:0; margin-bottom:7px; position:relative }
+	.multimedia li.first { margin-right:9px }
+	.multimedia li.last { margin-left:9px }
+ 
+.multimedia li a, .multimedia li a:visited { display:block; position:relative; overflow:hidden; width:195px; height:140px }
+.multimedia li a span { display:block; color:#fff; padding:0 5px; position:absolute; bottom:0; left:0; width:185px; background-color:#00386B;
+filter: alpha(opacity=80); -khtml-opacity: 0.8; -moz-opacity: 0.8; opacity: 0.8;
+}
+.multimedia li a span em {display:block; font-weight:bold; font-size:11px; line-height:11px; font-style:normal; text-transform:uppercase; padding:3px 0}
+.multimedia li a span strong { display:block; font-size:13px; line-height:14px; padding:0 0 5px 0 }
+	.multimedia li a:hover { }
+
+	/* icone nelle miniature */
+	.multimedia li a span.media-icon-video {
+		display:block; position:absolute; width:25px; height:25px; text-indent:-9999px; bottom:39px; left:160px;
+		background:transparent url(../../../images/homepage/2010/multimedia-play-small.png) 0 0 no-repeat;
+		filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://www.repubblica.it/static/images/homepage/2010/multimedia-play-small.png',sizingMethod='crop'); }
+	* html .multimedia li a span.media-icon-video { background:none }
+	
+.from-section { clear:both; margin:0 0 10px 0} 
+	.from-section li { list-style:none; display:block; width:230px; margin-right:15px; float:left; margin-bottom:10px }
+	.from-section li.even { margin-right:0 }
+	.from-section li.odd { clear:both }
+	.from-section li.box-title { width:100%; margin:0; font-size:11px; text-transform:uppercase; font-weight:bold; color:#222 }
+	.from-section li ul { min-height: 100px; height: auto !important; height: 100px }
+	.from-section li li { margin:0 0 5px 0 }
+	.from-section a, .from-section a:visited { display:block }
+	.from-section a:hover { text-decoration:none; color:#222 !important }
+
+	.from-section li a, .from-section li a:visited { font-size:11px; line-height:12px; color:#2992c1; text-transform:uppercase; font-weight:bold; padding:2px 0; margin-top:5px }
+	.from-section li li a, .from-section li li a:visited { font-size:11px; line-height:12px; color:#00386B; text-transform:none; font-weight:normal; padding:1px 0 1px 8px; margin-top:0; background:url(../../../images/homepage/2010/sprite-repubblica.png) no-repeat -8px -1340px }
+
+
+
+/* INIZIO VASCHETTE
+ ----------------------------------------------------- */
+.from-section-rich { margin:0 0 10px 0;  border:1px solid #2992c1; padding:8px; float:left; width: 972px !important; width /**/: 990px }
+.from-section-rich { list-style:none }
+.from-section-rich li { float:left; width:228px; margin-right:15px; }
+.from-section-rich li ul { list-style:none }
+.from-section-rich li h3 { font-size:16px; line-height:18px; font-weight:bold; height:47px; border-bottom:1px solid #dbdbdb; margin-bottom:10px;   }
+.from-section-rich li h4 { font-size:13px; line-height:14px; font-weight:normal; padding-bottom:10px; background:url(../../../images/homepage/2010/sprite-repubblica.png) no-repeat -8px -1340px; padding-left:10px;}
+.from-section-rich li h4.first { padding-bottom:10px; }
+.from-section-rich li h5 { text-transform:uppercase; color:#222; font-size:12px; margin:-3px 0 0 0 ;}
+.from-section-rich li h5 a,
+.from-section-rich li h5 a:visited { display:block; font-size:13px; line-height:14px; color:#2992c1; text-transform:uppercase; font-weight:bold; padding:2px 0 5px 0;  }
+.from-section-rich li h5 a span { font-size:16px }
+.from-section-rich li h5 a:hover { color:#222;   }
+.from-section-rich li img { margin-bottom:7px; }
+
+
+/*Sport*/
+
+.from-section-sport { margin:0 0 10px 0; border:1px solid #2992c1; padding:5px 8px 8px 8px; float:left; width: 972px !important; width /**/: 990px; list-style:none  }
+.from-section-sport li.right { margin:0; padding:0; }
+
+.from-section-sport li {font-family:'Lucida Grande','Lucida Sans Unicode','Lucida Sans', LucidaGrande, Geneva, Arial, Verdana, sans-serif; font-size:13px; line-height:17px; float:left; margin-right:10px; }
+
+.from-section-sport li.left { width:720px; margin-bottom:0px; /*border-bottom: 1px solid #dbdbdb; */ padding:0 0 10px 0; margin:0;}
+.from-section-sport li.left ul li { width: 708px; display: inline; border-right: 1px solid #dbdbdb; padding-right:10px}
+.from-section-sport li.left img { float:left; margin-right:10px}
+.from-section-sport li.right ul  { float:right; }
+.from-section-sport li.right ul li { float:right; margin:0 4px 0 0 ; width:238px !important; display:inline}
+
+.from-section-sport li.bottom { border-top: 1px solid #dbdbdb; width: 968px !important; width /**/: 970px; margin:10px 0 0 0;}
+.from-section-sport li.bottom ul { float:left; width: 972px; margin:10px 0 0 0; padding:0; }
+.from-section-sport li.bottom ul li { float:left; width:228px; margin-right:15px; padding:0; display:inline }
+
+.from-section-sport li.top { border-bottom: 1px solid #c4e6e1; width: 968px !important; width /**/: 970px; margin:0 0 10px 0;}
+.from-section-sport li.top ul { float:left; width: 972px; margin:10px 0 0 0; padding:0; }
+.from-section-sport li.top ul li { float:left; margin-right:15px; padding:0; display:inline; width:968px }
+.from-section-sport li.top ul li h5 { float:left}
+.from-section-sport li.top ul li span { font-size:13px; font-weight:bold; color:#1a648a !important; margin-top:6px}
+
+
+.from-section-sport li.first { width:700px; }
+.from-section-sport li ul { list-style:none }
+.from-section-sport li.left h3 { font-size:18px }
+.from-section-sport li h3 { font-size:16px; line-height:18px; font-weight:bold; margin-bottom:5px;   }
+.from-section-sport li h4 { font-size:13px; line-height:14px; font-weight:normal; padding-bottom:10px; background:url(../../../images/homepage/2010/sprite-repubblica.png) no-repeat -8px -1340px; padding-left:10px;}
+.from-section-sport li h4.first { padding-bottom:10px; }
+.from-section-sport li h5 { font-family:Arial, Helvetica, sans-serif; text-transform:uppercase; color:#222; font-weight:bold; font-size:12px; margin:0; }
+.from-section-sport li h5 a, .from-section-sport li h5 a:visited { display:block; font-size:13px; line-height:14px; color:#2992c1; text-transform:uppercase; font-weight:bold; padding:2px 0 5px 0;  }
+.from-section-sport li h5 a span { font-size:16px }
+.from-section-sport li h5 a:hover { color:#222;   }
+.from-section-sport li img { margin-bottom:7px; }
+
+.from-section-sport span.firma {font-style:italic;color:#000!important;font-weight:normal!important;}
+.from-section-sport .link-more a, .from-section-sport .link-more a:visited, .from-section-sport .sommario2 a, .from-section-sport .sommario2 a:visited {display:inline-block; line-height:16px; background:transparent url(../../../images/sport/2010/ico_sprite.gif) 0 -295px no-repeat; padding:1px 10px; color:#00386B; font-size:13px; font-weight:bold;text-decoration:none;}
+.from-section-sport .sommario2 a b, .from-section-sport .sommario2 a:visited b {font-weight:bold!important;}
+.from-section-sport .sommario2 a:hover, .from-section-sport .link-more a:hover { color:#900; background-position: 0 -295px;}
+.from-section-sport .sommario2 a span.arrow, .from-section-sport .link-more a span.arrow { color:#024555; margin:0 2px 0 0;}
+.from-section-sport p.date, .from-section-sport span.date {font-size:11px;font-style:italic;}
+.from-section-sport em.author { font-style:italic; font-weight:normal; font-size:11px; color:#555 }
+
+
+/* FINE VASCHETTE
+ ----------------------------------------------------- */
+
+
+ul.iniziativeeditoriali { }
+ul.iniziativeeditoriali li.title { width:100%;font-size:11px; text-transform:uppercase; font-weight:bold; color:#222; margin-bottom:10px }
+
+ul.iniziativeeditoriali li.cycle { overflow:hidden; height:210px;background-color:#fff }
+ul.iniziativeeditoriali li.cycle ul {  }
+ul.iniziativeeditoriali li.cycle ul:after {  visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+* html ul.iniziativeeditoriali li.cycle ul { zoom:1 }
+*:first-child+html ul.iniziativeeditoriali li.cycle ul { zoom:1 }
+ul.iniziativeeditoriali li.cycle ul li ul li { margin:0 9px 10px 0; width:111px; display:inline; float:left; overflow:hidden }		
+ul.iniziativeeditoriali li.cycle ul li ul li.even, ul.iniziativeeditoriali li.cycle ul li ul li.even ul li, ul.iniziativeeditoriali li.even { margin-right:0 !important; background-color:#fff}
+ul.iniziativeeditoriali li.cycle ul li ul li.odd { clear:both; background-color:#fff }
+
+
+/*ul.iniziativeeditoriali li a,ul.iniziativeeditoriali li a:visited { font-size:11px; line-height:12px; font-weight:bold; text-transform:uppercase; color:#2992c1 }*/
+ul.iniziativeeditoriali li li { margin:5px 0 }
+
+ul.iniziativeeditoriali li li a, ul.iniziativeeditoriali li li a:visited { font-size:11px; line-height:12px; font-weight:bold; text-transform:uppercase; color:#2992c1 }
+ul.iniziativeeditoriali li li li li a, ul.iniziativeeditoriali li li li li a:visited { text-transform:none; font-weight:normal; color:#00386B; padding-top:5px; display:block; overflow:hidden;  }
+
+ul.iniziativeeditoriali li li a img { float:left; margin-right:2px; width:35px }
+ul.iniziativeeditoriali li.other { margin-bottom:5px}
+
+/* Le guide */
+ul.iniziativeeditoriali li.iniziative-guide { width:232px; margin-right:0 }
+ul.iniziativeeditoriali li.iniziative-guide ul{ width:232px; border-top:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; padding:10px 0; margin-bottom:10px }
+ul.iniziativeeditoriali li.iniziative-guide li.title { width:232px; background:transparent; margin:0; color:#2992C1; font-size:11px; font-weight:bold; line-height:12px;text-transform:uppercase; padding:0 }
+
+
+ul.iniziativeeditoriali li.iniziative-guide li.title a,ul.iniziativeeditoriali li.iniziative-guide li.title a:visited{ color:#2992C1; font-size:11px; font-weight:bold; line-height:12px; text-transform:uppercase}
+ul.iniziativeeditoriali li.iniziative-guide li { width:52px; margin-right:35px; display:inline; float:left }
+ul.iniziativeeditoriali li.iniziative-guide li img { float:none; display:block; margin-bottom:5px}
+.iniziative-guide ul:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 } 
+* html .iniziative-guide ul{ zoom:1 }
+*:first-child+html .iniziative-guide ul { zoom:1 }
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+/* ---- */
+.type-appello { background:#fff url(../../../images/homepage/2010/sprite-repubblica.png) no-repeat 100% -1547px; padding:10px 0 15px 10px }
+
+.sottospalla { padding-top:0 }
+	.sottospalla .articles { width:auto; float:none; padding-bottom:8px; margin-bottom:7px; border-bottom:1px solid #2992c1; font-size:12px; line-height:14px; font-weight:bold; border-color:#8AC4DD }
+	.sottospalla .first { padding-top:10px }
+	.sottospalla .articles strong { color:#9f0d00 }
+	.sottospalla .articles img { float:left; margin:1px 5px 0 0 }
+	.sottospalla .last { padding-bottom:3px; margin-bottom:0 }
+	.sottospalla .label { display:block; font-size:11px;text-transform:uppercase; font-weight:bold; color:#222; padding-bottom:5px }
+	.sottospalla .articles a:hover { background:none}
+	.sottospalla .articles p { float:left; width:192px }
+	.sottospalla .articles p a, .sottospalla .articles p a:visited, .sottospalla .articles p a:hover { background:none;font-family:Arial, Helvetica, sans-serif }
+	.sottospalla .articles p a:hover {text-decoration:underline}
+
+#sottospalla-rotator { padding:5px 0 0 0; border-top:4px solid #dbdbdb }
+	#sottospalla-rotator ul { list-style:none; margin:-5px 0 10px -10px }
+	#sottospalla-rotator li { float:left; padding:0 10px; border-right:1px solid #dbdbdb }
+	#sottospalla-rotator li.last { padding-right:0 }
+	#sottospalla-rotator li a,#sottospalla-rotator li a:visited { font-size:11px; text-transform:uppercase }
+	#sottospalla-rotator li a:hover,#sottospalla-rotator li a.active { color:#222 }
+	#sottospalla-rotator li a.active { font-weight:bold }
+
+	#tab-sottospalla2,#tab-sottospalla3 { display:none }
+	
+.col-C .noadv {  background-color:#fff; margin-top:-11px; border-top:none; }	
+
+ul.dossier-speciali { border:1px solid #dbdbdb }
+ ul.dossier-speciali li.title { margin-bottom:5px;}
+ ul.dossier-speciali li.title dt a, ul.dossier-speciali li.title dt a:visited{font-size:11px;}
+ ul.dossier-speciali li a, ul.dossier-speciali li a:visited { display:block; padding:3px 0; font-size:12px; line-height:13px; font-weight:bold }
+
+
+ul.blog-opinioni { border:3px solid #dbdbdb }
+ ul.blog-opinioni li.opinione { margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid #dbdbdb }
+ ul.blog-opinioni li.opinione a, ul.blog-opinioni li.opinione a:visited { font-size:12px; line-height:13px; font-weight:bold }
+ ul.blog-opinioni li.opinione a em.author { font-style:normal; font-weight:normal; font-size:11px }
+ 
+ ul.blog-opinioni .two-column ul { width:134px; float:left; list-style-type:none; margin-right:10px}
+ ul.blog-opinioni .two-column ul li {margin-bottom:5px; padding-bottom:5px; border-bottom:1px solid #dbdbdb}
+ ul.blog-opinioni .two-column a, ul.blog-opinioni .two-column a:visited { font-size:12px; line-height:13px; font-weight:bold }
+ ul.blog-opinioni .two-column a em.author { display:block; font-style:normal; font-weight:normal; font-size:11px }
+ ul.blog-opinioni .two-column li.other { border: none}
+ ul.blog-opinioni .two-column li.other a, ul.blog-opinioni .two-column li.other a:visited { font-weight:normal; font-size:11px }
+ 
+ ul.blog-opinioni li dl { clear:both; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid #dbdbdb }
+ ul.blog-opinioni li dl:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+ * html ul.blog-opinioni li dl { zoom:1 }
+ *:first-child+html ul.blog-opinioni li dl { zoom:1 } 
+
+ ul.blog-opinioni li.title dl { border:none; padding:3px 0 }
+ ul.blog-opinioni li.title dl dt { width:auto }
+
+ ul.blog-opinioni li dl.last { margin-bottom:0 } 
+ ul.blog-opinioni li dl dt { width:57px; float:left }
+ ul.blog-opinioni li dl dd { width:219px; padding-bottom:3px; float:left }
+ ul.blog-opinioni li dl dd a, ul.blog-opinioni li dl dd a:visited { font-size:12px; line-height:13px; font-weight:bold }
+ ul.blog-opinioni li dl dd a em.author { display:block; font-style:normal; font-weight:normal; font-size:11px }
+ 
+ ul.blog-opinioni li dl dd h4 a, ul.blog-opinioni li dl dd h4 a:visited { font-size:12px }
+ ul.blog-opinioni li dl dd p { margin-top:4px; font-size:12px; line-height:13px }
+
+
+
+
+ul.network-rep { clear:both;background-color:#e5e5e5; list-style:none; padding:10px 0 10px 0; margin-bottom:3px }
+	ul.network-rep:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+		* html ul.network-rep { zoom:1 }
+		*:first-child+html ul.network-rep { zoom:1 }
+	ul.network-rep li { margin:0; padding:0 8px 6px 12px; border-right:1px solid #fff; float:left; width: 178px !important; width /**/: 199px }
+	ul.network-rep ul { list-style:none; margin-bottom:10px; /*margin-left:10px;*/ }
+		ul.network-rep ul:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+		* html ul.network-rep ul { zoom:1 }
+		*:first-child+html ul.network-rep ul { zoom:1 }
+	ul.network-rep ul:last-child { margin-bottom:0 }
+	
+	ul.network-rep li li { margin:0; padding:0; border:none }
+	ul.network-rep li.fifth-col { border:none; padding-right:0 }
+	ul.network-rep li h5 { padding:0; margin:0; font-size:11px; text-transform:uppercase; font-weight:bold }
+	
+	ul.network-rep a, ul.network-rep a:visited { display:block; padding:3px 0; font-size:11px; line-height:12px }
+
+ul.footer-small-service { list-style:none; background-color:#fff; padding:8px 0; border-bottom:3px solid #dbdbdb }
+	ul.footer-small-service:after { visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0 }
+		* html ul.footer-small-service{ zoom:1 }
+		*:first-child+html ul.footer-small-service { zoom:1 }
+
+	ul.footer-small-service li { float:left; border-right:1px solid #9b9b9b }
+	ul.footer-small-service li a,ul.footer-small-service li a:visited { display:block; font-size:11px; line-height:13px; padding:1px 8px }
+
+	p.footer-small { padding:8px; font-size:11px; line-height:15px }
+	p.footer-small a, p.footer-small a:visited { font-weight:bold }
+
+
+/* * * * * * * * * * * * * * * */
+.col-B .articles img.rep-domani { margin-right: 105px !important }
+
+
+
+/* * * * * * * * * * * * * */
+@media print {
+body	{ background:#fff} 
+.nav li	{ display:none}
+
+#spalla-rotator #tab-spalla-2, #spalla-rotator #tab-spalla-3, #spalla-rotator #tab-spalla-4 { display:block !important; margin-bottom:15px}
+#spalla-rotator-nav { display:none}
+
+	.adv, .shared-content-vetrina { display: none !important }
+	.manchette-left, .manchette-right { text-indent: -9999px }
+	#search-bar, ul.network { display:none }
+	#brand { border:none }
+	
+	a.Video, a.Video:visited,
+	a.Foto, a.Foto:visited,
+	a.Interattivo, a.Interattivo:visited,
+	a.Audio, a.Audio:visited,
+	a.Articolo,a.Articolo:visited { background:none; padding-left:0 }
+}
+
+
+/* oggisupubblico ------------------------------------ */
+
+ul.oggisupubblico li.title dl a, ul.oggisupubblico li.title dl a:visited, ul.oggisupubblico li.title dl a:hover { display:block;width:170px;text-indent:-9999px }
+
+ul.oggisupubblico li.title dl dt { width:170px;background:url("../../../images/pubblico/sprites-repubblico.gif") no-repeat scroll -16px -791px transparent }
+
+.lasituazione { font:14px Georgia,"Times New Roman", Times,serif; }
+.lasituazione .lasituazione-title { font: bold 14px Georgia,"Times New Roman", Times,serif; color:#333333 }
+.lasituazione a.lasituazione-header, .lasituazione a.lasituazione-header:visited, .lasituazione a.lasituazione-header:hover { display:block; background:url("../../../images/pubblico/sprites-repubblico.gif") no-repeat scroll -14px -704px transparent; height:30px; margin-bottom:2px; padding:0; text-indent:-9999px; width:230px }
+
+.oggisupubblico .ipoteri li {
+background:url("../../../images/pubblico/sprite_poteri.png") no-repeat scroll top left transparent;
+padding-left:52px;
+margin-bottom:4px;
+min-height: 40px; height: auto !important; height: 40px;
+}
+
+.oggisupubblico .ipoteri li a {
+font: bold 12px Georgia,"Times New Roman", Times,serif;
+color:#00386B;
+}
+
+.oggisupubblico .ipoteri li span {
+text-transform:uppercase;
+}
+
+.oggisupubblico .ipoteri .lobby {
+background-position:-651px -640px;
+}
+.oggisupubblico .ipoteri .poteri_invisibili {
+background-position:-651px -790px;
+}
+.oggisupubblico .ipoteri .toghe {
+background-position:-651px -190px;
+}
+.oggisupubblico .ipoteri .monsignore {
+background-position:-651px -340px;
+}
+.oggisupubblico .ipoteri .colle {
+background-position:-651px -1095px;
+}
+.oggisupubblico .ipoteri .antenne {
+background-position:-651px -490px;
+}
+.oggisupubblico .ipoteri .feluche {
+background-position:-651px -990px;
+}
+
+.titleipoteri { font-weight:bold; margin-top:6px }
+
+
+	ul.oggisupubblico { position:relative; list-style:none }
+	ul.oggisupubblico li { padding:4px 0 0 0 }
+		ul.oggisupubblico li a, ul.oggisupubblico li a:visited { display:block }
+		ul.oggisupubblico li a:hover { background-color:#dbdbdb }
+		ul.oggisupubblico li a strong { display:block; color:#00386B }
+			ul.oggisupubblico li ul { list-style:none; background-color:#fff; overflow:hidden}
+			ul.oggisupubblico li.other { border-bottom:1px solid #dbdbdb; padding:0 0 10px 0; margin-top:-4px }
+			ul.oggisupubblico li li li { padding:0 0 5px 0 }
+
+
+
+/* ------------------------------------------------------------
+:: COLOR SKIN :: 
+red: 					9f0d00
+blue:					00386b
+green:					006b4a
+light blue: 			2992c1
+black:					222
+:: 
+light gray:				dbdbdb
+dark gray: 				9b9b9b
+light blue overtitle: 	dfe9f3
+:: 
+*/

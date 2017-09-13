@@ -1,0 +1,566 @@
+/* Copyright 2010 - Driving Revenue Inc. v4.0.11 b001 2010/05/14 */
+/* Using parseUri by Steven Levithan <stevenlevithan.com> Licensed under the MIT license: http://voidsource.org/licenses/mit-license.php */
+
+var dr_version = "DR 4.0.11 b001";
+var dr_RightClickbehaviour = (dr_RightClickbehaviour || dr_RightClickbehaviour == 0) ? dr_RightClickbehaviour: 1;
+var dr_MiddleClickbehaviour = (dr_MiddleClickbehaviour || dr_MiddleClickbehaviour == 0) ? dr_MiddleClickbehaviour: 1;
+var dr_LinksBehaviour = (dr_LinksBehaviour || dr_LinksBehaviour == 0) ? dr_LinksBehaviour: 1;
+function parseUri(str) {
+	var o = parseUri.options,
+	m = o.parser[o.strictMode ? "strict": "loose"].exec(str),
+	uri = {},
+	i = 14;
+	while (i--) uri[o.key[i]] = m[i] || "";
+	uri[o.q.name] = {};
+	uri[o.key[12]].replace(o.q.parser, function ($0, $1, $2) {
+		if ($1) uri[o.q.name][$1] = $2
+	});
+	return uri
+};
+parseUri.options = {
+	strictMode: false,
+	key: ["source", "protocol", "authority", "userInfo", "user", "password", "host", "port", "relative", "path", "directory", "file", "query", "anchor"],
+	q: {
+		name: "queryKey",
+		parser: /(?:^|&)([^&=]*)=?([^&]*)/g
+	},
+	parser: {
+		strict: /^(?:([^:\/?#]+):)?(?:\/\/((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?))?((((?:[^?#\/]*\/)*)([^?#]*))(?:\?([^#]*))?(?:#(.*))?)/,
+		loose: /^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/
+	}
+};
+var DR_id = (!DR_id || DR_id == 0) ? 573 : DR_id;
+var dr_init = false;
+var dr_serversCalls = Array('outboundlink.me', 'outboundlink.net');
+var dr_defaultServer = Math.floor(Math.random() * dr_serversCalls.length);
+var dr_remote_JSON_URL = '/anxo/dr_ta_1/dr_rwl_v2.php';
+var dr_GotoRedirect = '/anxo/dr_ta_1/goto.php';
+var dr_aLinks;
+parseUri.options.strictMode = true;
+var dr_thisuri = parseUri(location.href);
+var b_action = false;
+var drqspresent = false;
+var dr_JSONP_time_out = 600;
+var dr_checkQueryString = function () {
+	if (dr_thisHasQueryString()) {
+		var qs_v = isDRQueryString();
+		if (qs_v) {
+			if (document.body) document.body.style.display = 'none';
+			dr_linksConversion(qs_v, dr_thisuri.queryKey['dr_log'], true, true);
+			return true
+		}
+	}
+	return false
+};
+var dr_thisHasQueryString = function () {
+	return ((dr_thisuri.query) ? true: false)
+};
+var isDRQueryString = function () {
+	var qs_v = dr_thisuri.queryKey['linkout'];
+	return (qs_v ? qs_v: false)
+};
+var dr_takeLinks = function () {
+	dr_aLinks = {
+		'lId': [],
+		'linkElement': [],
+		'origLink': [],
+		'newLink': [],
+		'html': [],
+		'redirected': [],
+		'logid': [],
+		'loaddisableded': [],
+		'loaddisableding': [],
+		'eventsready': [],
+		'method': [],
+		'inserted': [],
+		'server': []
+	};
+	var i = 0;
+	var linkArray = document.getElementsByTagName('a');
+	for (i = 0; i <= linkArray.length - 1; i++) {
+		iLink = linkArray[i];
+		addLinkDRCollection(iLink)
+	}
+	return true
+};
+var addLinkDRCollection = function (iLink) {
+	j = dr_aLinks.lId.length;
+	l_Id = (iLink.id) ? iLink.id: '';
+	if (dr_validLinks(iLink.href) && dr_getIndexLinkById(l_Id, false) === false) {
+		if (!l_Id) {
+			l_Id = 'link_' + j;
+			iLink.id = l_Id
+		}
+		dr_aLinks.linkElement[j] = iLink;
+		dr_aLinks.lId[j] = l_Id;
+		dr_aLinks.origLink[j] = iLink.href;
+		ot = /<[^<]*>/.test(iLink.innerHTML);
+		dr_aLinks.html[j] = (!ot) ? iLink.innerHTML: '';
+		dr_aLinks.loaddisableding[j] = (dr_aLinks.loaddisableding[j]) ? dr_aLinks.loaddisableding[j] : false;
+		dr_aLinks.loaddisableded[j] = (dr_aLinks.loaddisableded[j]) ? dr_aLinks.loaddisableded[j] : false;
+		dr_aLinks.eventsready[j] = (dr_aLinks.eventsready[j]) ? dr_aLinks.eventsready[j] : false;
+		dr_aLinks.method[j] = (dr_aLinks.method[j]) ? dr_aLinks.method[j] : false;
+		dr_aLinks.inserted[j] = (dr_aLinks.inserted[j]) ? dr_aLinks.inserted[j] : false;
+		if (dr_thisHasQueryString() && isDRQueryString()) {
+			iLink.href = dr_aLinks.newLink[j]
+		}
+	}
+	return j
+};
+var dr_validLinks = function (iLink) {
+	if (window.location.hostname) {
+		var remote = parseUri(iLink);
+		host_local = dr_thisuri.host.replace(/^www\./, '');
+		host_remote = remote.host.replace(/^www\./, '');
+		if (host_remote == host_local || (remote.protocol != 'http' && remote.protocol != 'https') || areRelativeURIs(dr_thisuri, remote, true)) {
+			return false
+		}
+	}
+	return true
+};
+var areRelativeURIs = function (uri_1, uri_2, subdomains) {
+	uri_1 = (typeof uri_1 == 'string') ? parseUri(uri_1.toLowerCase()) : uri_1;
+	uri_2 = (typeof uri_2 == 'string') ? parseUri(uri_2.toLowerCase()) : uri_2;
+	if (uri_1.protocol == uri_2.protocol && uri_1.host == uri_2.host && uri_1.port == uri_2.port) {
+		return true
+	}
+	if (subdomains && (uri_1.host.replace(/^www\./, '').indexOf(uri_2.host.replace(/^www\./, '')) != -1 || uri_2.host.replace(/^www\./, '').indexOf(uri_1.host.replace(/^www\./, '')) != -1)) {
+		return true
+	}
+	return false
+};
+var dr_linksConversion = function (indexLink, dr_log, dr_r, dr_rd) {
+	var dr_currentServer = dr_serversCalls[dr_defaultServer];
+	if (dr_rd) {
+		l = indexLink;
+		il = 0
+	} else {
+		if (dr_log != 0 && !isNaN(dr_aLinks.server[indexLink])) {
+			dr_currentServer = dr_serversCalls[dr_aLinks.server[indexLink]]
+		}
+		l = escape(dr_aLinks.origLink[indexLink]);
+		il = escape(dr_aLinks.lId[indexLink])
+	}
+	dataSend = 'http://' + dr_currentServer + dr_remote_JSON_URL + '?' + 'DR_id=' + DR_id + '&r=' + dr_r + '&link=' + l + '&link_id=' + il + '&dr_log=' + dr_log + '&callback=DR_JSONP_callback';
+	dataSend = (dataSend.length + location.href.length >= 2000) ? dataSend: dataSend + '&ref=' + escape(location.href);
+	if (dr_rd) {
+		DR_JSONP(dataSend, indexLink, dr_rd);
+		setTimeout(function () {
+			location.replace(unescape(l))
+		},
+		dr_JSONP_time_out)
+	} else if (!isDRlinkLoading(indexLink)) {
+		dr_aLinks.loaddisableding[indexLink] = true;
+		dr_aLinks.server[indexLink] = dr_defaultServer;
+		DR_JSONP(dataSend, indexLink, dr_rd)
+	}
+};
+var DR_JSONP_callback = function (data) {
+	if (data['l_ID'] == 0) {
+		location.href = data['dr_af']
+	} else if (data['log'] !== true) {
+		indexLink = dr_getIndexLinkById(data['l_ID'], false);
+		if (indexLink !== false) {
+			dr_aLinks.loaddisableding[indexLink] = false;
+			dr_af_enc = decodeURIComponent(unescape(data['dr_af']));
+			orig_link = decodeURIComponent(dr_aLinks.origLink[indexLink]).replace(/\+/gi, ' ');
+			dr_aLinks.redirected[indexLink] = (orig_link.toLowerCase() == dr_af_enc.toLowerCase()) ? false: true;
+			dr_aLinks.newLink[indexLink] = data['dr_af'];
+			dr_aLinks.logid[indexLink] = data['log_id'];
+			dr_aLinks.loaddisableded[indexLink] = true;
+			dr_aLinks.method[indexLink] = parseInt(data['m'])
+		}
+	}
+	var clearGif = document.createElement("img");
+	clearGif.setAttribute("src", "httpdisabled://" + dr_serversCalls[dr_defaultServer] + "/clear.gif");
+	clearGif.setAttribute('width', '0');
+	clearGif.setAttribute('height', '0');
+	document.body.appendChild(clearGif)
+};
+var chkDR_JSONP = function (indexLink) {
+	if (isDRlinkLoaded(indexLink)) {
+		return true
+	} else {
+		dr_defaultServer = (dr_defaultServer != 0 && dr_defaultServer % (dr_serversCalls.length - 1) == 0) ? 0 : dr_defaultServer + 1;
+		dr_aLinks.loaddisableding[indexLink] = false;
+		return false
+	}
+};
+var DR_JSONP = function (url, indexLink, dr_rd) {
+	JSONPsrc = url;
+	var scriptJSONP = document.createElement("script");
+	scriptJSONP.setAttribute("src", JSONPsrc);
+	scriptJSONP.setAttribute("type", "text/javascript");
+	document.body.appendChild(scriptJSONP)
+};
+var DR_qReq = function (url, indexLink, dr_rd) {
+	if (dr_aLinks.inserted[indexLink]) {
+		return true
+	}
+	JSONPsrc = url;
+	var scriptJSONP = document.createElement("iframe");
+	scriptJSONP.setAttribute("src", JSONPsrc);
+	scriptJSONP.setAttribute("width", 0);
+	scriptJSONP.setAttribute("height", 0);
+	scriptJSONP.setAttribute("frameborder", 0);
+	scriptJSONP.setAttribute("name", "DR_qReq_4");
+	scriptJSONP.setAttribute("id", "DR_qReq_4");
+	document.body.appendChild(scriptJSONP);
+	dr_aLinks.inserted[indexLink] = true
+};
+var dr_getIndexLinkById = function (link_Id, create) {
+	if (link_Id != '') {
+		for (i = 0; i <= dr_aLinks.lId.length - 1; i++) {
+			if (dr_aLinks.lId[i] == link_Id) {
+				return i
+			}
+		}
+		if (create) {
+			return addLinkDRCollection(document.getElementById(link_Id))
+		} else {
+			return false
+		}
+	}
+	return false
+};
+var isDRlinkLoaded = function (indexLink) {
+	return (dr_aLinks.loaddisableded[indexLink] ? true: false)
+};
+var isDRlinkLoading = function (indexLink) {
+	return (dr_aLinks.loaddisableding[indexLink] ? true: false)
+};
+var isDRlinkredirected = function (indexLink) {
+	return (dr_aLinks.redirected[indexLink] ? true: false)
+};
+var getDRLinkElement = function (indexLink) {
+	return dr_aLinks.linkElement[indexLink]
+};
+var getDRorigLink = function (indexLink) {
+	return dr_aLinks.origLink[indexLink]
+};
+var getDRnewLink = function (indexLink) {
+	return (dr_aLinks.newLink[indexLink] ? dr_aLinks.newLink[indexLink] : dr_aLinks.origLink[indexLink])
+};
+var getDRlogid = function (indexLink) {
+	return (dr_aLinks.logid[indexLink] ? dr_aLinks.logid[indexLink] : 0)
+};
+var getDRRedMethod = function (indexLink) {
+	return (dr_aLinks.method[indexLink] ? dr_aLinks.method[indexLink] : 0)
+};
+var voidLink = function (indexLink) {
+	var linkToLoad = getDRLinkElement(indexLink);
+	if (getDRRedMethod(indexLink) == 0) {
+		var union = (dr_thisHasQueryString()) ? '&': '?';
+		var loc_href = dr_thisuri.protocol + '://' + ((dr_thisuri.userInfo) ? dr_thisuri.userInfo + '@': '') + dr_thisuri.host + ((dr_thisuri.port) ? dr_thisuri.port: '') + dr_thisuri.path + ((dr_thisuri.query != '') ? '?' + dr_thisuri.query: '');
+		linkToLoad.href = (!dr_LinksBehaviour) ? getDRnewLink(indexLink) : loc_href + union + 'dr_log=' + dr_aLinks.logid[indexLink] + '&linkout=' + escape(dr_aLinks.origLink[indexLink])
+	} else {
+		var union = '?';
+		var loc_href = 'http://' + dr_serversCalls[dr_defaultServer] + dr_GotoRedirect;
+		linkToLoad.href = loc_href + union + 'DR_id=' + DR_id + '&linkout=' + escape(dr_aLinks.origLink[indexLink])
+	}
+	if (dr_browserDetect() == 'ie' && dr_aLinks.html[indexLink]) {
+		linkToLoad.innerHTML = dr_aLinks.html[indexLink]
+	}
+};
+var clear_dr_rw = function (indexLink) {
+	var linkToLoad = getDRLinkElement(indexLink);
+	linkToLoad.href = dr_aLinks.origLink[indexLink];
+	if (dr_browserDetect() == 'ie' && dr_aLinks.html[indexLink]) {
+		linkToLoad.innerHTML = dr_aLinks.html[indexLink]
+	}
+	b_action = false
+};
+var dr_linkOpenNewWindow = function (linkel) {
+	var theTarget = linkel.target.toLowerCase();
+	if (theTarget == '_blank' || theTarget == '_new' || theTarget == null || theTarget == '') {
+		return 'new'
+	} else if (theTarget == '_self' || theTarget == '_parent' || theTarget == '_top') {
+		return 'self'
+	} else {
+		return false
+	}
+};
+var dr_browserDetect = function () {
+	if (window.opera) {
+		return 'opera'
+	} else if (window.ActiveXObject) {
+		return 'ie'
+	} else if (navigator.vendor) {
+		return 'webkit'
+	} else if (window.mozInnerScreenX != null) {
+		return 'gecko'
+	} else {
+		return false
+	}
+};
+var dr_b_pressed = function (which, button) {
+	var buttonsIE = [];
+	buttonsIE[1] = 0;
+	buttonsIE[4] = 1;
+	buttonsIE[2] = 2;
+	if (which == null) {
+		return buttonsIE[button]
+	} else {
+		return button
+	}
+};
+var dr_getElementInFIE = function (e) {
+	el = e.srcElement;
+	while (el.parentElement && el.tagName != 'A') {
+		el = el.parentElement
+	}
+	return el
+};
+var dr_onKeydownEvent = function (e) {
+	if (!e) {
+		var e = window.event
+	}
+	thisElement = (this.id) ? this: dr_getElementInFIE(e);
+	indexLink = dr_getIndexLinkById(thisElement.id, false);
+	if (e.keyCode) {
+		code = e.keyCode
+	} else if (e.which) {
+		code = e.which
+	}
+	if (code == '13') {
+		voidLink(indexLink)
+	}
+};
+var dr_onKeyupEvent = function (e) {
+	if (!e) {
+		var e = window.event
+	}
+	if (e.keyCode) {
+		code = e.keyCode
+	} else if (e.which) {
+		code = e.which
+	}
+	if (code == '13') {
+		setTimeout('dr_documentOnmouseupevent()', 100)
+	}
+};
+var dr_onClickEvent = function (e) {
+	if (!e) {
+		var e = window.event
+	}
+	thisElement = (this.id) ? this: dr_getElementInFIE(e);
+	buttonPressed = dr_b_pressed(e.which, e.button);
+	indexLink = dr_getIndexLinkById(thisElement.id, false);
+	if (isDRlinkredirected(indexLink)) {
+		if (e) {
+			if (e.stopPropagation) {
+				e.stopPropagation()
+			} else {
+				e.cancelBubble = true
+			}
+			if (e.preventDefault) {
+				e.preventDefault()
+			} else {
+				e.returnValue = false
+			}
+		}
+		dr_onClickEventProcess(e, thisElement, buttonPressed, indexLink);
+		return false
+	} else {
+		return true
+	}
+};
+var dr_onMouseoverEvent = function (e) {
+	if (!e) {
+		var e = window.event
+	}
+	thisElement = (this.id) ? this: dr_getElementInFIE(e);
+	indexLink = dr_getIndexLinkById(thisElement.id, true);
+	if (!isDRlinkLoading(indexLink) && !isDRlinkLoaded(indexLink)) {
+		dr_linksConversion(indexLink, false, true, false)
+	}
+};
+var dr_onMousedownEvent = function (e) {
+	if (!e) {
+		var e = window.event
+	}
+	thisElement = (this.id) ? this: dr_getElementInFIE(e);
+	buttonPressed = dr_b_pressed(e.which, e.button);
+	indexLink = dr_getIndexLinkById(thisElement.id, false);
+	if (isDRlinkredirected(indexLink)) {
+		b_action = true;
+		if (dr_browserDetect() == 'webkit' && buttonPressed == 1) {
+			return
+		}
+		if ((buttonPressed == 1 && dr_MiddleClickbehaviour != 0) && isDRlinkLoaded(indexLink) && getDRnewLink(indexLink)) {
+			voidLink(indexLink);
+			if (e.stopPropagation) {
+				e.stopPropagation()
+			} else {
+				e.cancelBubble = true
+			}
+			if (e.preventDefault) {
+				e.preventDefault()
+			} else {
+				e.returnValue = false
+			}
+			return false
+		}
+	}
+};
+var dr_onMouseupEvent = function (e) {
+	if (!e) {
+		var e = window.event
+	}
+	thisElement = (this.id) ? this: dr_getElementInFIE(e);
+	indexLink = dr_getIndexLinkById(thisElement.id, false);
+	if (isDRlinkredirected(indexLink)) {
+		buttonPressed = dr_b_pressed(e.which, e.button);
+		if ((dr_browserDetect() == 'webkit') && buttonPressed == 1) {
+			return
+		}
+		if (b_action) {
+			switch (buttonPressed) {
+			case 1:
+				if (dr_MiddleClickbehaviour == 2) {
+					dr_onClickEventProcess(e, thisElement, buttonPressed, indexLink);
+					if (e.stopPropagation) {
+						e.stopPropagation()
+					} else {
+						e.cancelBubble = true
+					}
+					if (e.preventDefault) {
+						e.preventDefault()
+					} else {
+						e.returnValue = false
+					}
+					return false
+				} else {
+					if (e.stopPropagation) {
+						e.stopPropagation()
+					} else {
+						e.cancelBubble = true
+					}
+					dr_linksConversion(indexLink, getDRlogid(indexLink), false, false);
+					setTimeout('dr_documentOnmouseupevent()', 100)
+				}
+				break;
+			case 0:
+				if (e.stopPropagation) {
+					e.stopPropagation()
+				} else {
+					e.cancelBubble = true
+				}
+				break
+			}
+		}
+	}
+	e.returnValue = false
+};
+var dr_onContextmenuEvent = function (e) {
+	if (!e) {
+		var e = window.event
+	}
+	thisElement = (this.id) ? this: dr_getElementInFIE(e);
+	indexLink = dr_getIndexLinkById(thisElement.id, false);
+	if (isDRlinkredirected(indexLink)) {
+		if (dr_RightClickbehaviour == 1 && !isDRlinkLoading(indexLink) && isDRlinkLoaded(indexLink) && getDRnewLink(indexLink)) {
+			voidLink(indexLink)
+		}
+	}
+};
+var dr_onClickEventProcess = function (e, thisElement, buttonPressed, indexLink) {
+	if (isDRlinkLoaded(indexLink) && getDRnewLink(indexLink)) {
+		dr_linksConversion(indexLink, getDRlogid(indexLink), false, false);
+		dr_m = getDRRedMethod(indexLink);
+		linkTargetWindow = dr_linkOpenNewWindow(thisElement);
+		if (linkTargetWindow == 'new' || buttonPressed == 1) {
+			var targetWindow = void()
+		} else if (linkTargetWindow == 'self') {
+			if (dr_m == 1) {
+				DR_qReq(getDRnewLink(indexLink), indexLink, 0);
+				setTimeout('location.href = "' + getDRorigLink(indexLink) + '";', 2000)
+			} else {
+				location.href = getDRnewLink(indexLink)
+			}
+		} else {
+			if (!eval(thisElement.target) && typeof(eval(thisElement.target)) == 'object') {
+				var targetWindow = eval(thisElement.get('target'))
+			} else {
+				var targetWindow = document.getElementById(thisElement.target)
+			}
+		}
+		switch (dr_m) {
+		case 1:
+			var page_content = "<html><head><title>" + getDRorigLink(indexLink) + "</title><script type=\"text/javascript\"> setTimeout('location.replace(\"" + getDRorigLink(indexLink) + "\");',2000); </script><meta http-equiv=\"refresh\" content=\"3;url=" + getDRorigLink(indexLink) + "\"></head><body><iframe src=\"" + getDRnewLink(indexLink) + "\" width=\"0\" frameborder=\"0\" height=\"0\"></iframe></body></html>";
+			break;
+		default:
+			var page_content = "<html><head><title>" + getDRorigLink(indexLink) + "</title></head><body><script type=\"text/javascript\"> setTimeout('location.replace(\"" + getDRnewLink(indexLink) + "\");',0); </script></body></html>";
+			break
+		}
+		if (targetWindow) {
+			targetWindow.void(page_content)
+		}
+	} else {
+		void(thisElement.href)
+	}
+	dr_documentOnmouseupevent();
+	return false
+};
+var dr_documentOnmouseupevent = function () {
+	for (i = 0; i <= dr_aLinks.lId.length - 1; i++) {
+		clear_dr_rw(i)
+	}
+};
+var addDRLinksEvents = function () {
+	for (iL = 0; iL <= dr_aLinks.linkElement.length - 1; iL++) {
+		if (!dr_aLinks.eventsready[iL]) {
+			elLink = dr_aLinks.linkElement[iL];
+			if (elLink.addEventListener) {
+				elLink.addEventListener('focus', dr_onMouseoverEvent, false);
+				elLink.addEventListener('mouseover', dr_onMouseoverEvent, false);
+				elLink.addEventListener('mousedown', dr_onMousedownEvent, false);
+				elLink.addEventListener('mouseup', dr_onMouseupEvent, false);
+				elLink.addEventListener('contextmenu', dr_onContextmenuEvent, false);
+				elLink.addEventListener('click', dr_onClickEvent, false);
+				elLink.addEventListener('keydown', dr_onKeydownEvent, false);
+				elLink.addEventListener('keyup', dr_onKeyupEvent, false)
+			} else if (elLink.attachEvent) {
+				elLink.attachEvent('onfocus', dr_onMouseoverEvent);
+				elLink.attachEvent('onmouseover', dr_onMouseoverEvent);
+				elLink.attachEvent('onmousedown', dr_onMousedownEvent);
+				elLink.attachEvent('onmouseup', dr_onMouseupEvent);
+				elLink.attachEvent('oncontextmenu', dr_onContextmenuEvent);
+				elLink.attachEvent('onclick', dr_onClickEvent);
+				elLink.attachEvent('onkeydown', dr_onKeydownEvent);
+				elLink.attachEvent('onkeyup', dr_onKeyupEvent)
+			}
+			dr_aLinks.eventsready[iL] = true
+		}
+	}
+};
+var dr_loaddisabled = function () {
+	dr_LinksBehaviour = (DR_id == 357) ? 0 : dr_LinksBehaviour;
+	if (!dr_init) {
+		dr_init = true;
+		drqspresent = dr_checkQueryString();
+		if (!drqspresent && dr_takeLinks()) {
+			addDRLinksEvents()
+		}
+		if (document.addEventListener) {
+			document.addEventListener('mouseup', dr_documentOnmouseupevent, false)
+		} else if (document.attachEvent) {
+			document.attachEvent('onmouseup', dr_documentOnmouseupevent)
+		}
+	}
+};
+var DrivingRevenue = function () {
+	return true
+};
+window.onDOMReady = DOMReady;
+function DOMReady(f) {
+	if (/(?!.*?compatible|.*?webkit)^mozilla|opera/i.test(navigator.userAgent)) {
+		document.addEventListener("DOMContentLoaded", f, false)
+	} else {
+		window.setTimeout(f, 0)
+	}
+};
+window.onDOMReady(function () {
+	dr_loaddisabled()
+});
+window.setTimeout('dr_loaddisabled()', 100);

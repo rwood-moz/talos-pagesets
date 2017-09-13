@@ -1,0 +1,5 @@
+(function(){
+    var frm = document.forms.Auth;
+    if (frm && frm.action)
+        frm.action = frm.action.replace(/^http:\/\/win/i, 'https://auth').replace(/^http:\/\/swa/i, 'https://swas').replace(/^http:/i, 'https:').replace(/^\//,'https://'+document.domain+'/');
+})();

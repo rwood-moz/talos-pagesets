@@ -1,0 +1,606 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "httpdisabled://www.w3.org/TR/html4/loose.dtd">
+
+
+<html lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>Seesaa ブログ - 無料のブログ作成(blog)サービス</title>
+<meta name="description" content="Seesaa ブログ / パソコンと携帯(ケータイ)から楽しめる簡単ブログ作成サービス。ポッドキャスティング、アフィリエイト、ダイエット、日記、モブログ、全部つかえて完全無料。" />
+<meta name="keywords" content="ブログ,無料,作成,ポッドキャスティング,アフィリエイト,ダイエット,日記,携帯,ケータイ,アクセス解析,独自ドメイン,blog,podcasting,moblog" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<link rel="stylesheet" type="text/css" href="css/styles.css" />
+<link rel="stylesheet" type="text/css" href="js/yui/container/assets/container.css" />
+<link rel="stylesheet" type="text/css" href="js/yui/menu/assets/menu.css">
+<link rel="stylesheet" type="text/css" href="css/overyui.css" />
+<script type="text/javascript" src="js/yui/yahoo/yahoo.js"></script>
+<script type="text/javascript" src="js/yui/event/event-min.js"></script>
+<script type="text/javascript" src="js/yui/dom/dom-min.js"></script>
+<script type="text/javascript" src="js/yui/dragdrop/dragdrop.js"></script>
+<script type="text/javascript" src="js/yui/animation/animation-min.js"></script>
+<script type="text/javascript" src="js/yui/container/container-min.js"></script>
+<script type="text/javascript" src="js/yui/connection/connection-min.js"></script>
+<script type="text/javascript" src="js/yui/menu/menu.js"></script>
+<script type="text/javascript" src="js/yui/seesaa.js"></script>
+<script type="text/javascript" src="js/JSON.js"></script>
+<script type="text/javascript" src="js/panel.js"></script>
+<script type="text/javascript" src="js/myblog.js"></script>
+<script type="text/javascript" src="js/popup.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<body><a id="top" name="top"></a>
+<span id="iphone-link" style="display:none">
+<a href="javascript:document.cookie='force_pc=0; max-age=15768000; path=/'; document.location='./'">iPhone専用ページを表示</a>
+</span>
+<script type="text/javaScript"><!--
+if (0 <= navigator.userAgent.indexOf('iPhone')) {
+document.getElementById('iphone-link').style.display = 'block';
+}
+//--></script>
+<div id="wrapAll">
+
+<div id="header" class="clearfix">
+<h1 class="logo" title="シーサーブログ">
+	<a href="httpdisabled://tag.seesaa.jp" class="logo_seesaa">Seesaa</a>
+	<a href="index.html" class="logo_blog">Blog</a>
+</h1>
+
+<div class="fright clearfix">
+	<div class="pb5 right">
+		<span class="pl10"><a href="httpdisabledsdisabled://ssl.seesaa.jp/pages/my/home/" class="acLnk">アカウント</a></span>
+		<span class="pl10"><a href="httpdisabled://blog.seesaa.jp/pages/login/auth?next_path=http%3A%2F%2Fblog.seesaa.jp%2Fpages%2Fmy%2Fhome%2F%3Fjustloggedin%3D1" class="acLnk bold">マイ・ブログ</a></span>
+		<span class="pl10"><a href="httpdisabled://blog-help.seesaa.net/" class="acLnk">ヘルプ</a></span>
+	</div>
+	<div><div class='adlantiss_frame zid_wxpudMtRTbCKuJiiE3LLeA%3D%3D color_#0000FF-#000000-#F9F9F9-#999999-#008000 container_iframe'></div></div>
+</div>
+
+</div>
+<!-- /header -->
+
+
+<div id="wrap" class="clearfix">
+
+<div id="main">
+
+
+<div class="pb5"><a href="httpdisabled://blog.seesaa.jp/contents/about/index.html"><img src="img/portal/function.jpg" width="635" height="87" alt="シーサーブログは機能も充実で使い易い！" /></a></div>
+
+<div class="clearfix pb10">
+	<div class="fleft mr10"><div class='adlantiss_frame zid_lQhxxtZPTrUJqDDs9l3dKw%3D%3D color_#0000FF-#000000-#F9F9F9-#999999-#008000 container_iframe'></div></div>
+	<div class="fleft mr10"><div class='adlantiss_frame zid_C21wU3V9W1dNCxEn7cobdA%3D%3D color_#0000FF-#000000-#F9F9F9-#999999-#008000 container_iframe'></div></div>
+	<div class="fleft"><div class='adlantiss_frame zid_iaKT3qtU4K6fe2tjZyWXCA%3D%3D color_#0000FF-#000000-#F9F9F9-#999999-#008000 container_iframe'></div></div>
+</div>
+
+<h2 class="grTtl clearfix">
+	<div class="fleft pb5">新着記事</div>
+	<div class="fright mr10"><a href="httpdisabled://blog.seesaa.jp/contents/recent/" class="moreLnk">もっと見る</a></div>
+</h2>
+<div class="pb30 pl10 clearfix">
+
+
+	<div class="imgLst"><a href="httpdisabled://yoidore-shinobu.seesaa.net/article/196677223.html"><img src="../yoidore-shinobu.up.seesaa.net/image/yoidore-shinobu-2011-04-20T03%253A28%253A10-3-thumbnail2.jpg" alt="イベントからーの二部" width="85" height="85"></a></div>
+
+
+	<div class="imgLst"><a href="httpdisabled://blog.smappa.net/article/196676674.html"><img src="../smappa.up.seesaa.net/image/smappa-2011-04-20T03%253A20%253A34-1-thumbnail2.jpg" alt="スポーツ大会" width="85" height="85"></a></div>
+
+
+	<div class="imgLst"><a href="httpdisabled://kokorowave.seesaa.net/article/196676418.html"><img src="../kokorowave.up.seesaa.net/image/kokorowave-2011-04-20T03%253A17%253A11-1-thumbnail2.JPG" alt="帰ります。" width="85" height="85"></a></div>
+
+
+	<div class="imgLst"><a href="httpdisabled://arandema.seesaa.net/article/196674067.html"><img src="../arandema.up.seesaa.net/image/arandema-2011-04-20T02%253A47%253A42-1-thumbnail2.jpg" alt="no-title" width="85" height="85"></a></div>
+
+
+	<div class="imgLst"><a href="httpdisabled://kabaokabako.seesaa.net/article/196673595.html"><img src="../kabaokabako.up.seesaa.net/image/kabaokabako-2011-04-20T02%253A40%253A40-1-thumbnail2.jpg" alt="小休憩" width="85" height="85"></a></div>
+
+
+	<div class="imgLst mr0"><a href="httpdisabled://ganarys.seesaa.net/article/196673365.html"><img src="../ganarys.up.seesaa.net/image/ganarys-2011-04-20T02%253A37%253A11-1-thumbnail2.jpg" alt="東北で造られたお酒" width="85" height="85"></a></div>
+
+</div>
+
+<h2 class="grTtl clearfix">
+	<div class="fleft pb5">人気の記事</div>
+	<div class="fright clearfix">
+		<a href="httpdisabled://blog.seesaa.jp/contents/popular/" class="grTabOn">最新</a>
+		<a href="httpdisabled://blog.seesaa.jp/contents/popular/daily.html" class="grTab">デイリー</a>
+		<a href="httpdisabled://blog.seesaa.jp/contents/popular/weekly.html" class="grTab">ウィークリー</a>
+		<a href="httpdisabled://blog.seesaa.jp/contents/popular/monthly.html" class="grTab">マンスリー</a>
+	</div>
+</h2>
+<div class="pb30 pl10">
+<div class="pb10">
+	<div class="oh"><a href="httpdisabled://newsde2tanhanrou.seesaa.net/article/196651721.html">俺14歳だけど校長名義で公文書作ったらバカな大人が大量に釣られてワロタｗｗｗ　→…</a></div>
+	<div class="ps90">22:50 04/19 by aian <a href="httpdisabled://newsde2tanhanrou.seesaa.net/" class="black underline">にゅーすde２ちゃん反応☆</a></div>
+	<div class="ps90">1 ：名無しさん＠涙目です。(catv?)：2011/04/19(火) 21:54:32.67 ID:hFeRCShp0..</div>
+</div>
+<div class="pb10">
+	<div class="oh"><a href="httpdisabled://maioescape.seesaa.net/article/196495423.html">脱出ゲーム002番</a></div>
+	<div class="ps90">23:34 04/18 by Ｍａｉｏ <a href="httpdisabled://maioescape.seesaa.net/" class="black underline">Ｍａｉｏの脱出ゲーム</a></div>
+	<div class="ps90">前作同様、かなりサクッと目の内容となっております。
+本当はもう少し難しいものをと思ったのですが、まだまだ知恵が足らない..</div>
+</div>
+<div class="pb10">
+	<div class="oh"><a href="httpdisabled://morinogorira.seesaa.net/article/196623596.html">【速報】終電なのにおしっこ漏れそうな女の子です</a></div>
+	<div class="ps90">19:11 04/19 by 昨日みた明後日の夢 <a href="httpdisabled://morinogorira.seesaa.net/" class="black underline">フライドチキンは空をとぶ -フ…</a></div>
+	<div class="ps90">【速報】終電なのにおしっこ漏れそうな女の子です
+
+1： 以下、名無しにかわりましてVIPがお送りします 投稿日：20..</div>
+</div>
+<div class="pb10">
+	<div class="oh"><a href="httpdisabled://gyanko.seesaa.net/article/196627551.html">海外の反応 - フェイエノールト、宮市亮が２ゴール、２アシスト -</a></div>
+	<div class="ps90">19:36 04/19 by gyanko <a href="httpdisabled://gyanko.seesaa.net/" class="black underline">とりいそぎ。</a></div>
+	<div class="ps90">しょっぱなから、わたくしごとではございますが。
+駅前で、アクロバチックな大転倒。
+両膝を擦り剥いたあげく、バッグをも..</div>
+</div>
+<div class="pb10">
+	<div class="oh"><a href="httpdisabled://cosmo-world.seesaa.net/article/156087208.html">客家の教え１８項目。</a></div>
+	<div class="ps90">01:33 07/12 by コスモ <a href="httpdisabled://cosmo-world.seesaa.net/" class="black underline">日本人は知ってはいけない。</a></div>
+	<div class="ps90">
+
+
+
+旧約聖書が書かれて約３５００年といわれていますが、この日本にいまだに旧約聖書に書かれている習慣が残ってい..</div>
+</div>
+</div>
+
+<script type="text/javascript" src="contents/js/provide_neta.js"></script>
+<h2 class="gray2Ttl clearfix">
+	<div class="fleft pb5">ニュース</div>
+	<div class="fright clearfix" id="provide_neta_category"></div>
+</h2>
+<div class="clearfix" id="provide_neta_item"></div>
+
+<h2 class="grayTtl clearfix">
+	<div class="fleft pb5">おすすめブログ</div>
+	<div class="fright mr10"><a href="httpdisabled://blog.seesaa.jp/contents/recommend/" class="moreLnk">もっと見る</a></div>
+</h2>
+<div id="recommendArea" onMouseMove="new YAHOO.seesaa.Scroll('recommendArea',{ event:event,toXFull:1500 }).scroll();" onMouseOut="new YAHOO.seesaa.Scroll('recommendArea').stop;">
+<div class="scroll">
+	<a href="httpdisabled://hanasakuiroha.seesaa.net/" class="recommendLst"><img src="../recommend.up.seesaa.net/recommend/hanasakuiroha_85.png" width="70" height="70"><br />花咲くいろは公式ブログ</a>
+	<a href="httpdisabled://prince-chiu-blog.seesaa.net/" class="recommendLst"><img src="../recommend.up.seesaa.net/eplus/thumb_prince.png" width="70" height="70"><br />プリンス・チウ official BLOG</a>
+	<a href="httpdisabled://modi-chiu-blog.seesaa.net/" class="recommendLst"><img src="../recommend.up.seesaa.net/eplus/thumb_modi.png" width="70" height="70"><br />モーディー・チウ official BLOG</a>
+	<a href="httpdisabled://brian-liao-blog.seesaa.net/" class="recommendLst"><img src="../recommend.up.seesaa.net/eplus/thumb_brian.png" width="70" height="70"><br />ブライアン・リャオ offical BLOG</a>
+	<a href="httpdisabled://baseballbearblog.seesaa.net/" class="recommendLst"><img src="../recommend.up.seesaa.net/image/baseballbear_2010_86.png" width="70" height="70"><br />Base Ball Bearオフィシャルブログ『ボクブ…</a>
+	<a href="httpdisabled://tavito.seesaa.net/" class="recommendLst"><img src="../recommend.up.seesaa.net/recommend/tabito_85.png" width="70" height="70"><br />●人生おかわり●七尾旅人公式ブログ</a>
+	<a href="httpdisabled://kazuma-project.seesaa.net/" class="recommendLst"><img src="../recommend.up.seesaa.net/image/kazuma.jpg" width="70" height="70"><br />orange pekoe藤本一馬BLOG</a>
+	<a href="httpdisabled://bigmao.seesaa.net/" class="recommendLst"><img src="../recommend.up.seesaa.net/image/bigmama_02.jpg" width="70" height="70"><br />BIGMAMA東出真緒の♪ハーモニーの幸せって…</a>
+	<a href="httpdisabled://bigmama3.seesaa.net/" class="recommendLst"><img src="../recommend.up.seesaa.net/image/bigmama_01.jpg" width="70" height="70"><br />BIGMAMA柿沼・安井・リアドのちょっと何言…</a>
+	<a href="httpdisabled://sugiuratetsuro.seesaa.net/" class="recommendLst"><img src="../recommend.up.seesaa.net/image/sugi_blog.jpg" width="70" height="70"><br />SUGI'S BLOG</a>
+	<a href="httpdisabled://mito310.seesaa.net/" class="recommendLst"><img src="../recommend.up.seesaa.net/image/mitokatsu.jpg" width="70" height="70"><br />毛ガニ魂(ソウル)</a>
+	<a href="httpdisabled://team-venus.seesaa.net/" class="recommendLst"><img src="../recommend.up.seesaa.net/image/team-venus_84.png" width="70" height="70"><br />読売巨人軍チームヴィーナス公式ブログ</a>
+	<a href="httpdisabled://lostparadise.seesaa.net/" class="recommendLst"><img src="../recommend.up.seesaa.net/recommend/lostparadisinTokyo_85.png" width="70" height="70"><br />『ロストパラダイス・イン・トーキョー』</a>
+	<a href="httpdisabled://hone-no-zui.seesaa.net/" class="recommendLst"><img src="../recommend.up.seesaa.net/recommend/hito_no_zui_85.png" width="70" height="70"><br />『人の善意を骨の髄まで吸い尽くす女』オフ…</a>
+	<a href="httpdisabled://dogoon5.seesaa.net/" class="recommendLst"><img src="../recommend.up.seesaa.net/recommend/dogoon5_85.png" width="70" height="70"><br />「古代少女隊ドグーンV」オフィシャルブログ</a>
+	<a href="httpdisabled://eigageijutsu.com/" class="recommendLst"><img src="../recommend.up.seesaa.net/recommend/eigageijyutu_85.png" width="70" height="70"><br />映画芸術ダイアリー</a>
+</div>
+</div>
+
+<h2 class="grayTtl clearfix">
+	<div class="fleft pb5">特集</div>
+</h2>
+<div class="pb30 pl10 clearfix">
+	<div class="fleft mr10"><div class='adlantiss_frame zid_epzDnpmF0cfbt2uSga20%2BA%3D%3D color_#0000FF-#000000-#F9F9F9-#999999-#008000 container_iframe'></div></div>
+	<div class="fleft mr10"><div class='adlantiss_frame zid_71Fv75nlWgvRTt5tkJNMUg%3D%3D color_#0000FF-#000000-#F9F9F9-#999999-#008000 container_iframe'></div></div>
+	<div class="fleft mr10"><div class='adlantiss_frame zid_l1dJVkBhjSkt3gvcOa24Qg%3D%3D color_#0000FF-#000000-#F9F9F9-#999999-#008000 container_iframe'></div></div>
+	<div class="fleft"><div class='adlantiss_frame zid_DgX833XcX6ygIiSzLOxjxg%3D%3D color_#0000FF-#000000-#F9F9F9-#999999-#008000 container_iframe'></div></div>
+</div>
+
+<h2 class="grayTtl">
+	<div class="pb5">ブログカテゴリ</div>
+</h2>
+<div class="pb30 pl10">
+	<div class="blogCategory" class="clearfix">
+		<ul class="bC-ul">
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/lifestyle/new0001.html">生活</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/local/new0001.html">地域</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/pet/new0001.html">ペット</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/baby/new0001.html">ベビー/子育て</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/love/new0001.html">恋愛/結婚</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/beauty/new0001.html">ヘルス/ビューティー</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/diet/new0001.html">ダイエット</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/shopping/new0001.html">ショッピング</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/fashion/new0001.html">ファッション</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/eco/new0001.html">エコロジー</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/volunteer/new0001.html">ボランティア</a></li>
+</ul><ul class="bC-ul pl10">
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/gourmet/new0001.html">グルメ</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/entertainments/new0001.html">芸能</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/music/new0001.html">音楽/ポッドキャスト</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/tv/new0001.html">テレビ/映画/DVD</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/game/new0001.html">ゲーム</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/comics/new0001.html">コミック/アニメ</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/doga/new0001.html">動画</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/internet/new0001.html">IT/インターネット</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/technology/new0001.html">テクノロジー/科学</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/books/new0001.html">本/雑誌</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/novels/new0001.html">小説/文学</a></li>
+</ul><ul class="bC-ul pl10">
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/art/new0001.html">写真/アート</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/cars/new0001.html">自動車/バイク/自転車</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/travel/new0001.html">旅行/アウトドア</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/sports/new0001.html">スポーツ</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/news/new0001.html">ニュース/時事</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/business/new0001.html">ビジネス</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/works/new0001.html">就職/転職</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/finance/new0001.html">マネー/ファイナンス</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/school/new0001.html">サークル/部活/学校</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/abloaddisabled/new0001.html">留学/海外生活</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/shop/new0001.html">ショップ</a></li>
+</ul><ul class="bC-ul pl10 none">
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/salon/new0001.html">サロン</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/gamble/new0001.html">ギャンブル</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/artist/new0001.html">アーティスト</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/act/new0001.html">劇団/俳優/女優</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/owarai/new0001.html">お笑い/タレント</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/idel/new0001.html">アイドル/グラビア</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/models/new0001.html">ドクモ/モデル</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/athlete/new0001.html">アスリート</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/charmgirls/new0001.html">CharmGirls</a></li>
+
+			<li><a href="httpdisabled://blog.seesaa.jp/contents/category/night/new0001.html">age嬢/ホスト</a></li>
+
+		</ul>
+	</div>
+</div>
+
+</div>
+<!-- /main -->
+
+
+<div id="sub">
+<div class="pb5"><a href="httpdisabledsdisabled://ssl.seesaa.jp/pages/welcome/regist/input?next_path=http%3A%2F%2Fblog.seesaa.jp%2Fpages%2Fmy%2Fhome%2F%3Fjustloggedin%3D1"><img src="img/portal/btn_regist_new.jpg" width="300" height="52" alt="新規登録(無料)はコチラ" /></a></div>
+<div class="pb10"><a href="httpdisabled://blog.seesaa.jp/contents/promo/index.html"><img src="img/portal/bnr_move_blog.jpg" width="300" height="42" alt="Seesaa BLOGにお引越し" /></a></div>
+<script type="text/javaScript">
+$(function(){
+  $('.searchblog').addClass('searchblogOn');
+  $('.searchblog').click(function(){
+    $(this).addClass('searchblogOn');
+    $('.searchimageOn').removeClass('searchimageOn');
+    $('.searchmovieOn').removeClass('searchmovieOn');
+    $('#sfcheck').val('blog');
+  })
+  $('.searchimage').click(function(){
+    $(this).addClass('searchimageOn');
+    $('.searchblogOn').removeClass('searchblogOn');
+    $('.searchmovieOn').removeClass('searchmovieOn');
+    $('#sfcheck').val('image');
+  })
+  $('.searchmovie').click(function(){
+    $(this).addClass('searchmovieOn');
+    $('.searchblogOn').removeClass('searchblogOn');
+    $('.searchimageOn').removeClass('searchimageOn');
+    $('#sfcheck').val('video');
+  })
+});
+
+function funsfcheck(){
+  sfcheck = $('#sfcheck').val();
+  if (sfcheck == 'blog'){
+    $('#search-form').attr('action','http://tag.seesaa.jp/pages/search');
+    $('#searchInput').attr('name','tag');
+  }
+  if (sfcheck == 'image'){
+    $('#search-form').attr('action','/pages/naver/image');
+    $('#searchInput').attr('name','q');
+  }
+  if (sfcheck == 'video'){
+    $('#search-form').attr('action','http://videosearch.seesaa.jp/search');
+    $('#searchInput').attr('name','kw');
+  }
+  return true;
+}
+</script>
+<div class="pb10">
+<form method="post" action="httpdisabled://tag.seesaa.jp/pages/search" id="search-form" name="search-form" onSubmit="return funsfcheck()">
+<input type="hidden" id="sfcheck" name="sfcheck" value="blog" />
+	<div class="h23 clearfix">
+		<span id="searchbuttons">
+			<span class="searchblog">ブログ</span>
+			<span class="searchimage">画像</span>
+			<span class="searchmovie">動画</span>
+		</span>
+		<div class="fleft"><img src="img/portal/search_sel_3.jpg" width="129" height="23"><br /></div>
+	</div>
+	<div class="searchBg">
+<input type="hidden" name="engine" value="" /><input type="hidden" name="charset" value="sjis" /><input type="hidden" name="service" value="articles" /><input type="hidden" name="service" value="photos" /><input type="hidden" name="service" value="videos"><input type="hidden" name="service" value="audios" /><input type="hidden" name="service" value="goods" /><input id="id_key_article" type="hidden" name="key_article" value="1" /><input id="id_key_photo" type="hidden" name="key_photo" value="1" /><input id="id_key_video" type="hidden" name="key_video" value="1" /><input id="id_key_audio" type="hidden" name="key_audio" value="1" /><input id="id_key_blog" type="hidden" name="key_blog" value="1" /><input id="id_key_commodity" type="hidden" name="key_commodity" value="1" /><input type="text" name="q" class="searchInput" id="searchInput" />
+		<input type="submit" class="searchBtn" value="検索" class="vmiddle" /><br />
+		<div class="pt5"><img src="img/portal/search_bg_u.jpg" width="300" height="3" /></div>
+	</div>
+</form>
+</div>
+
+<div class="pb10"><div class='adlantiss_frame zid_28Kqz2eqcde8cvQ1oFSipg%3D%3D color_#0000FF-#000000-#F9F9F9-#999999-#008000 container_iframe'></div></div>
+
+<h3 class="subInfoTtl clearfix">
+	<div class="fleft pb3">お知らせ</div>
+	<div class="fright mr10"><a href="httpdisabled://info.seesaa.net/" target="_blank" class="moreLnk">すべて見る</a></div>
+</h3>
+<div class="pb10">
+	<div class="sI-bg">
+		<ul class="sI-ul">
+			<li><a href="httpdisabled://info.seesaa.net/article/196592626.html" class="sI-arrow">【Seesaaブログ】緊急災害募金のブログパーツ表示終了のお知らせ</a></li>
+			<li><a href="httpdisabled://info.seesaa.net/article/193050536.html" class="sI-arrow">クーポンアグリゲートサイト「Seesaaクーポン」がスタート致しました</a></li>
+			<li><a href="httpdisabled://info.seesaa.net/article/192482223.html" class="sI-arrow">【Seesaaブログ】東京電力：使用電力量ブログパーツ配布を開始しました</a></li>
+		</ul>
+<div class='adlantiss_frame zid_0kkrtdCx6x4Da9a6QB%2FrUA%3D%3D color_#0000FF-#000000-#F9F9F9-#999999-#008000 container_iframe'></div>
+	</div>
+	<div class="sideCmn-u"></div>
+</div>
+
+<div class="pb10"><div class='adlantiss_frame zid_C04FUJmZV9g5at1Z%2FdU6KA%3D%3D color_#0000FF-#000000-#F9F9F9-#999999-#008000 container_iframe'></div></div>
+
+<h3 class="blogPartsTtl clearfix">
+	<div class="fleft pb5">ブログパーツ</div>
+	<div class="fright mr10"><a href="httpdisabled://blog.seesaa.jp/contents/blog_parts/" class="moreLnk">もっと見る</a></div>
+</h3>
+<div class="pb10">
+	<div class="bP-box clearfix">
+		<a href="httpdisabled://blog.seesaa.jp/contents/blog_parts/detail/001609.html" class="imgLst3"><img src="../blogparts-sample.up.seesaa.net/blogparts/setsuden.jpg" width="50" /><br />電力使用量</a>
+		<a href="httpdisabled://blog.seesaa.jp/contents/blog_parts/detail/001613.html" class="imgLst3"><img src="../blogparts-sample.up.seesaa.net/image/yahoo_bokin.jpg" width="50" /><br />「Yahoo!ボランティ…</a>
+		<a href="httpdisabled://blog.seesaa.jp/contents/blog_parts/detail/001604.html" class="imgLst3"><img src="../blogparts-sample.up.seesaa.net/blogparts/dogresortwoof_100.png" width="50" /><br />ドッグリゾートワフ…</a>
+		<a href="httpdisabled://blog.seesaa.jp/contents/blog_parts/detail/001603.html" class="imgLst3 mr0"><img src="../blogparts-sample.up.seesaa.net/blogparts/ohigara_100.png" width="50" /><br />お日柄チェッカー　…</a>
+	</div>
+</div>
+
+
+<script src="js/jquery.imgpreview.js" type="text/javascript"></script>
+<script type="text/javaScript">
+$(function(){
+	$('.themeBox a').imgPreview({
+		containerID: 'imgPreviewWithStyles',
+		srcAttr: 'rel',
+		imgCSS: {
+		    height: 200
+		},
+		onShow: function(link){
+		    $(link).stop().animate({opacity:0.4});
+		    $('img', this).css({opacity:0});
+		},
+		distanceFromCursor:{
+		    top: -230,
+		    left: -230
+		},
+		onLoad: function(){
+		    $(this).animate({opacity:1}, 300);
+		},
+		onHide: function(link){
+		    $(link).stop().animate({opacity:1});
+		}
+	});
+});
+</script>
+<style type="text/css">
+#imgPreviewWithStyles {
+	background: #fff url(img/portal/loaddisableding.gif) no-repeat center;
+	padding: 15px;
+	z-index: 999;
+}
+#imgPreviewWithStyles span {
+	color: white;
+	text-align: center;
+	display: block;
+	padding: 10px 0 3px 0;
+}
+</style>
+<h3 class="themeTtl clearfix">
+	<div class="fleft pb5">ブログデザイン</div>
+	<div class="fright mr10"><a href="httpdisabled://blog.seesaa.jp/contents/theme/" class="moreLnk">もっと見る</a></div>
+</h3>
+<div class="pb10">
+	<div class="themeBox clearfix">
+	</div>
+</div>
+
+
+
+<div class="presentBox">
+	<div class="presentBg">
+		<div class="center"><a href="httpdisabled://present.seesaa.net/" target="_blank"><img src="img/portal/bnr_present.jpg" width="286" height="53" /></a></div>
+		<div class="pl10 pr10">
+			<div class="presentLst">
+				<ul>
+					<li><strong>【受付中】</strong> <a href="httpdisabled://present.seesaa.net/" target="_blank" title="『トゥルー・グリット』大ヒット記念！オリジナルウォレット">『トゥルー・グリット』大ヒット記…</a></li>
+					<li><strong>【受付中】</strong> <a href="httpdisabled://present.seesaa.net/" target="_blank" title="『ザ・ファイター』エコバックプレゼント">『ザ・ファイター』エコバックプレ…</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="side-u"></div>
+</div>
+
+<h3 class="tags clearfix">
+	<div class="fleft pb5">ブログで話題のタグ</div>
+	<div class="fright mr10"><a href="httpdisabled://tag.seesaa.jp" class="moreLnk">もっと見る</a></div>
+</h3>
+<div class="pb10">
+	<div class="tagsBox">
+<div id="hot_tags">
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/akb48" class="_tag" title="AKB48/85">AKB48</a>&nbsp;
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/t%e3%82%b7%e3%83%a3%e3%83%84" class="_tag" title="T%E3%82%B7%E3%83%A3%E3%83%84/100">Tシャツ</a>&nbsp;
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/%e3%81%9d%e3%81%ae%e4%bb%96" class="_tag" title="%E3%81%9D%E3%81%AE%E4%BB%96/772">その他</a>&nbsp;
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/%e3%82%a4%e3%83%b3%e3%83%86%e3%83%aa%e3%82%a2%e3%83%bb%e5%af%9d%e5%85%b7%e3%83%bb%e5%8f%8e%e7%b4%8d" class="_tag" title="%E3%82%A4%E3%83%B3%E3%83%86%E3%83%AA%E3%82%A2%E3%83%BB%E5%AF%9D%E5%85%B7%E3%83%BB%E5%8F%8E%E7%B4%8D/149">インテリア…</a>&nbsp;
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/%e3%82%ad%e3%83%83%e3%83%81%e3%83%b3%e7%94%a8%e5%93%81%e3%83%bb%e9%a3%9f%e5%99%a8%e3%83%bb%e8%aa%bf%e7%90%86%e5%99%a8%e5%85%b7" class="_tag" title="%E3%82%AD%E3%83%83%E3%83%81%E3%83%B3%E7%94%A8%E5%93%81%E3%83%BB%E9%A3%9F%E5%99%A8%E3%83%BB%E8%AA%BF%E7%90%86%E5%99%A8%E5%85%B7/77">キッチン用…</a>&nbsp;
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/%e3%82%b3%e3%82%b7%e3%83%92%e3%82%ab%e3%83%aa" class="_tag" title="%E3%82%B3%E3%82%B7%E3%83%92%E3%82%AB%E3%83%AA/119">コシヒカリ</a>&nbsp;
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/%e3%82%b4%e3%83%ab%e3%83%95" class="_tag" title="%E3%82%B4%E3%83%AB%E3%83%95/93">ゴルフ</a>&nbsp;
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/%e3%82%b9%e3%82%a4%e3%83%bc%e3%83%84" class="_tag" title="%E3%82%B9%E3%82%A4%E3%83%BC%E3%83%84/113">スイーツ</a>&nbsp;
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/%e3%82%b9%e3%83%9d%e3%83%bc%e3%83%84%e3%83%bb%e3%82%a2%e3%82%a6%e3%83%88%e3%83%89%e3%82%a2" class="_tag" title="%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%84%E3%83%BB%E3%82%A2%E3%82%A6%E3%83%88%E3%83%89%E3%82%A2/151">スポーツ・…</a>&nbsp;
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/%e3%83%80%e3%82%a4%e3%82%a8%e3%83%83%e3%83%88" class="_tag" title="%E3%83%80%E3%82%A4%E3%82%A8%E3%83%83%E3%83%88/136">ダイエット</a>&nbsp;
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/%e3%83%80%e3%82%a4%e3%82%a8%e3%83%83%e3%83%88%e3%83%bb%e5%81%a5%e5%ba%b7" class="_tag" title="%E3%83%80%E3%82%A4%E3%82%A8%E3%83%83%E3%83%88%E3%83%BB%E5%81%A5%E5%BA%B7/72">ダイエット…</a>&nbsp;
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/%e3%83%9a%e3%83%83%e3%83%88" class="_tag" title="%E3%83%9A%E3%83%83%E3%83%88/85">ペット</a>&nbsp;
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/%e3%83%af%e3%83%b3%e3%83%94%e3%83%bc%e3%82%b9" class="_tag" title="%E3%83%AF%E3%83%B3%E3%83%94%E3%83%BC%E3%82%B9/78">ワンピース</a>&nbsp;
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/%e4%bb%81" class="_tag" title="%E4%BB%81/74">仁</a>&nbsp;
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/%e5%8f%a3%e3%82%b3%e3%83%9f" class="_tag" title="%E5%8F%A3%E3%82%B3%E3%83%9F/73">口コミ</a>&nbsp;
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/%e5%9c%a8%e5%ba%ab%e3%81%82%e3%82%8a" class="_tag" title="%E5%9C%A8%E5%BA%AB%E3%81%82%E3%82%8A/115">在庫あり</a>&nbsp;
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/%e5%ae%b6%e9%9b%bb%e3%83%bbav%e3%83%bb%e3%82%ab%e3%83%a1%e3%83%a9" class="_tag" title="%E5%AE%B6%E9%9B%BB%E3%83%BBAV%E3%83%BB%E3%82%AB%E3%83%A1%E3%83%A9/99">家電・AV・…</a>&nbsp;
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/%e6%87%90%e4%b8%ad%e9%9b%bb%e7%81%af" class="_tag" title="%E6%87%90%E4%B8%AD%E9%9B%BB%E7%81%AF/73">懐中電灯</a>&nbsp;
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/%e6%97%a5%e7%94%a8%e5%93%81%e9%9b%91%e8%b2%a8%e3%83%bb%e6%96%87%e6%88%bf%e5%85%b7%e3%83%bb%e6%89%8b%e8%8a%b8" class="_tag" title="%E6%97%A5%E7%94%A8%E5%93%81%E9%9B%91%E8%B2%A8%E3%83%BB%E6%96%87%E6%88%BF%E5%85%B7%E3%83%BB%E6%89%8B%E8%8A%B8/80">日用品雑貨…</a>&nbsp;
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/%e6%9c%ac" class="_tag" title="%E6%9C%AC/88">本</a>&nbsp;
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/%e6%9c%ac%e3%83%bb%e9%9b%91%e8%aa%8c%e3%83%bb%e3%82%b3%e3%83%9f%e3%83%83%e3%82%af" class="_tag" title="%E6%9C%AC%E3%83%BB%E9%9B%91%E8%AA%8C%E3%83%BB%E3%82%B3%E3%83%9F%E3%83%83%E3%82%AF/86">本・雑誌・…</a>&nbsp;
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/%e6%af%8d%e3%81%ae%e6%97%a5" class="_tag" title="%E6%AF%8D%E3%81%AE%E6%97%A5/81">母の日</a>&nbsp;
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/%e6%b8%a1%e8%be%ba%e9%ba%bb%e5%8f%8b" class="_tag" title="%E6%B8%A1%E8%BE%BA%E9%BA%BB%E5%8F%8B/155">渡辺麻友</a>&nbsp;
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/%e9%80%81%e6%96%99%e7%84%a1%e6%96%99" class="_tag" title="%E9%80%81%E6%96%99%E7%84%A1%E6%96%99/72">送料無料</a>&nbsp;
+&nbsp;<a href="httpdisabled://tag.seesaa.jp/t/articles/%e9%a3%9f%e5%93%81" class="_tag" title="%E9%A3%9F%E5%93%81/138">食品</a>&nbsp;
+</div>
+<script language="javascript" src="js/tag_cloud.js"></script>
+<script language="javascript"><!--
+tag_cloud("hot_tags", 12, 10, 1);
+--></script>
+	</div>
+</div>
+
+
+<h3 class="seo-pr">
+	<div class="pb5">PR</div>
+</h3>
+<div class="pb10">
+	<div class="seo-pr-box">		<div class="gethttp pb10">
+			<div class="gh-title bold"><a href="httpdisabled://www.r-agent.co.jp/">転職</a>サイトで夢のキャリアを実現</div>
+			<div class="gh-text smaller">希望と適性に合った求人をプロのアドバイザーがご紹介する転職サイト</div>
+		</div>		<div class="gethttp pb10">
+			<div class="gh-title bold">東京・横浜の<a href="httpdisabled://www.starrigel.co.jp/">インドエステ</a>で痩身</div>
+			<div class="gh-text smaller">フルハンド全身<a href="httpdisabled://www.starrigel.co.jp/">エステ</a>の真髄インドエステ手技技術を先ず体験</div>
+		</div>		<div class="gethttp pb10">
+			<div class="gh-title bold">首都圏の<a href="httpdisabled://www.miraiclub.jp">有料老人ホーム</a>なら！</div>
+			<div class="gh-text smaller">快適と信頼でお応えする未来邸・未来倶楽部の有料老人ホーム</div>
+		</div>		<div class="gethttp pb10">
+			<div class="gh-title bold"><a href="httpdisabled://sumai.seesaa.jp/">あなたにピッタリな住まいを！</a></div>
+			<div class="gh-text smaller"><a href="httpdisabled://sumai.seesaa.jp/">マンション・一戸建て・土地・賃貸物件の不動産情報を 簡単に探せる！</a></div>
+		</div>		<div class="gethttp pb10">
+			<div class="gh-title bold">必見！<a href="httpdisabled://www.nurse-express.jp/">看護師の転職・求人</a>なら</div>
+			<div class="gh-text smaller">看護師の求人転職は医療を見つめて10年「ナースエクスプレス」</div>
+		</div>		<div class="gethttp pb10">
+			<div class="gh-title bold">Seesaa<a href="httpdisabled://coupon.seesaa.jp">クーポン</a>がオープン</div>
+			<div class="gh-text smaller">話題の共同購入クーポンサイトのクーポンをまとめてチェック！</div>
+		</div>	</div>
+</div>
+
+
+</div>
+<!-- /sub -->
+
+
+</div>
+<!-- /wrap -->
+
+<div class="center pb10"><div class='adlantiss_frame zid_o7ng2k0ZuMnK8mF7PsVvGA%3D%3D color_#0000FF-#000000-#F9F9F9-#999999-#008000 container_iframe Adlantis728'></div></div>
+
+<div class="ftHelp">
+<div class="fH-bg">
+	<div class="fH-box clearfix">
+		<div class="fH-mbox">
+		<div class="pr20">
+			<div class="bold pb5">お知らせ</div>
+			<ul class="ft-ul">
+<li><a href="httpdisabled://info.seesaa.net/article/196592626.html" target="_blank">【Seesaaブログ】緊急災害募金のブログパーツ表示終了のお知らせ</a></li>
+<li><a href="httpdisabled://info.seesaa.net/article/193050536.html" target="_blank">クーポンアグリゲートサイト「Seesaaクーポン」がスタート致しました</a></li>
+<li><a href="httpdisabled://info.seesaa.net/article/192482223.html" target="_blank">【Seesaaブログ】東京電力：使用電力量ブログパーツ配布を開始しました</a></li>
+
+			</ul>
+			<div class="right smaller"><a href="httpdisabled://info.seesaa.net/" target="_blank">一覧</a></div>
+		</div>
+		</div>
+		<div class="fH-mbox">
+		<div class="pl10 pr20">
+			<div class="bold pb5">サイトリンク</div>
+			<ul class="ft-ul">
+				<li><a href="httpdisabled://release.seesaa.net/" target="_blank">プレスリリース</a></li>
+				<li><a href="httpdisabled://trouble.seesaa.net/" target="_blank">障害報告</a></li>
+				<li><a href="httpdisabled://blog-help.seesaa.net/article/108500261.html" target="_blank">推奨環境</a></li>
+				<li><a href="httpdisabled://blog.seesaa.jp/pages/mailmag/regist/input">メルマガ</a></li>
+				<li><a href="httpdisabled://copyright-seesaa.seesaa.net/" target="_blank">著作権ガイドライン</a></li>
+			</ul>
+		</div>
+		</div>
+		<div class="fH-mbox none">
+		<div class="pl10 pr20">
+			<div class="bold pb5">ヘルプ</div>
+			<ul class="ft-ul">
+				<li><a href="httpdisabled://blog-help.seesaa.net/article/32923115.html" target="_blank">ブログのデザインを変更したい</a></li>
+				<li><a href="httpdisabled://blog-help.seesaa.net/article/32923118.html" target="_blank">メニューのコンテンツを追加したい</a></li>
+				<li><a href="httpdisabled://blog-help.seesaa.net/article/32923128.html" target="_blank">ブログの画像や動画を管理したい</a></li>
+				<li><a href="httpdisabled://blog-help.seesaa.net/category/2648651-1.html" target="_blank">モブログ(携帯電話からの利用)ってどうやるの</a></li>
+				<li><a href="httpdisabled://blog-help.seesaa.net/article/32923072.html" target="_blank">マイブログへのサインイン</a></li>
+			</ul>
+			<div class="right smaller"><a href="httpdisabled://blog-help.seesaa.net/" target="_blank">一覧</a></div>
+		</div>
+		</div>
+	</div>
+</div>
+<div><img src="img/portal/ft_help_u.jpg" width="950" height="27" /></div>
+</div>
+
+
+
+
+
+<div class="svcLnk">
+	<span class="pr20"><a href="httpdisabled://mall.seesaa.jp/"><img src="img/portal/svc_mall.jpg" width="92" height="32" alt="ショッピングサーチ" /></a></span>
+	<span class="pr20"><a href="httpdisabled://ds.seesaa.jp"><img src="img/portal/svc_ds.jpg" width="69" height="32" alt="シーサードロップシッピング" /></a></span>
+	<span class="pr20"><a href="httpdisabled://downloaddisabled.seesaa.jp"><img src="img/portal/svc_download.jpg" width="109" height="32" alt="シーサーダウンロード" /></a></span>
+	<span class="pr20"><a href="httpdisabled://videosearch.seesaa.jp/"><img src="img/portal/svc_video.jpg" width="186" height="32" alt="シーサー動画検索" /></a></span>
+	<span class="pr20"><a href="httpdisabled://mondju.com/"><img src="img/portal/svc_mondju.jpg" width="95" height="32" alt="mondju" /></a></span>
+</div>
+
+<div id="footer">
+<a href="httpdisabled://kiyaku.seesaa.net/category/547790.html" rel="nofollow">利用規約</a>｜<a href="httpdisabled://kiyaku.seesaa.net/category/548011.html" rel="nofollow">プライバシーポリシー</a>｜<a href="httpdisabled://www.seesaa.co.jp/service/index.html" rel="nofollow">広告掲載について</a>｜<a href="httpdisabled://www.seesaa.co.jp/" rel="nofollow">シーサーについて</a>｜<a href="httpdisabled://www.seesaa.co.jp/recruit/index.html" rel="nofollow">スタッフ募集</a>｜<a href="httpdisabled://www.seesaa.co.jp/contact.html" rel="nofollow">お問い合わせ</a>
+<div class="copy">Copyright &copy; 2003-2011 Seesaa Inc. All Rights Reserved.</div>
+</div>
+
+</div>
+<!-- /wrapAll -->
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-3627280-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = '../ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<script src='../static.adlantis.jp/javascripts/AdLantisLoader.js' type='text/javascript' charset='utf-8'></script>
+
+
+</body>
+</html>

@@ -1,0 +1,1270 @@
+/* Default */
+
+div.hr {padding:0;margin:5px 0;height:1px;background:#CCCCCC;clear:both;font-size:1px;line-height:1px;overflow:hidden}
+div.hrd {padding:0;margin:5px 0 4px 0;height:1px;border-top:1px dotted #CCCCCC;clear:both;font-size:1px;line-height:1px;overflow:hidden}
+.myOwnFld{display:none;}
+hr {height:1px;border:1px solid #CCCCCC;border-top:0px;background:transparent;margin:5px 0;padding:0;outline:none;font-size:0;}
+
+/*Terms*/
+
+.img_empty {
+    background: none !important;	
+}
+
+#terms {
+    -moz-border-radius: 6px;
+    background: #FFFFFF;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    border: 1px solid #D4E4ED;
+    -webkit-box-shadow: rgba(0, 0, 0, .6) 0px 2px 12px;
+    -moz-box-shadow: rgba(0, 0, 0, .6) 0px 2px 12px;
+    box-shadow: rgba(0, 0, 0, .6) 0px 2px 12px;
+    width: 50%;
+    height: 450px;
+    display: none;
+}
+
+.close_b {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-right: 5px;
+    float: right;
+    cursor: pointer;
+    background-image: url('../ucoz/img/block_close.png');
+    width: 20px;
+    height: 20px;
+}
+
+.ttitle {
+    float: left;
+    padding-left: 10px;
+    padding-top: 15px;
+    color: #1265BA;
+    font-size: 11pt;
+    font-weight: bold;
+}
+
+.close_b:hover {
+    background-position: 0 -20px;
+}
+
+
+#cont-top {
+    width: 964px;
+    height: 8px;
+    margin: auto;
+    overflow: hidden;
+    background: url('../ucoz/img/cont-top.png');
+}
+
+#cont-mid {
+    width: 964px;
+    margin: auto;
+    background: url('../ucoz/img/cont-mid.png');
+}
+
+#cont-bottom {
+    width: 964px;
+    height: 8px;
+    margin: auto;
+    overflow: hidden;
+    background: url('../ucoz/img/cont-bottom.png');
+    margin-bottom: 15px;
+}
+
+.uz>li {
+	list-style: disc;
+	list-style-position: inside;
+}
+
+.sub-content {
+	width: 900px; 
+	margin: 0 auto;
+	padding: 20px 0 10px 0;
+	text-align: left;
+}
+
+.sub-content h1 {
+	border-bottom: 1px solid rgb(238, 238, 238); padding: 0pt 10px 10px; color: rgb(0, 174, 239);
+}
+
+.sub-content td {
+	color: #555555;
+	font-size:14px;
+}
+
+#tcnt {
+    -webkit-box-shadow: 0px 0px 5px #B9BABD;
+    -moz-box-shadow: 0px 0px 5px #B9BABD;
+    box-shadow: 0px 0px 5px #B9BABD;
+    overflow: auto;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    height: 400px;
+    float: right;
+}
+
+/*Terms*/
+
+.date {
+    float: right;
+    color: #999999;
+}
+
+.news {
+    height: 150px;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+}
+
+#aholder {
+    width: 50px;
+    margin: 0 auto;
+
+}
+
+.newsu {
+    cursor: pointer;
+    width: 17px;
+    height: 17px;
+    background: url('../ucoz/img/arrow_small_left.png') no-repeat;
+    margin-right: 10px;
+}
+
+.newsd {
+    cursor: pointer;
+    width: 17px;
+    height: 17px;
+    background: url('../ucoz/img/arrow_small_right.png') no-repeat;
+    float: right;
+}
+
+#btn_r {
+    width: 216px;
+    height: 34px;
+    margin: 0 auto 5px;
+}
+
+#btn_r:hover {
+    background-position: 0 -34px;
+    cursor: pointer;
+}
+
+#icon-stat {
+    background: url('../ucoz/img/stat.png') no-repeat;
+    width: 704px;
+    height: 125px;
+}
+
+#llink {
+    background: url('../ucoz/img/select_arrow.png') no-repeat scroll right 6px transparent;
+    padding-right: 15px;
+    color: #13529B;
+    font-size: 10pt;
+    text-decoration: none;
+
+}
+
+#llink:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/*Tweet*/
+#tweloaddisabled {
+    padding-top: 2px;
+    background: url('../ucoz/img/loaddisableder.gif');
+    width: 16px;
+    height: 10px;
+    margin: 0 auto;
+}
+
+.tweet_list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    overflow: hidden;
+}
+
+.tweet_list li {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 5px;
+    border-bottom: 1px solid #EEEEEE;
+    color: #7D7D7D;
+    font-size: 12px;
+    height: 40px;
+}
+
+.tweet_text {
+    height: 10px;
+    display: block;
+}
+
+.tweet_time {
+    float: right;
+    font-size: 10px;
+}
+
+.tweet_time a {
+    color: #999999;
+}
+
+.tweet_text a {
+    color: #0078C8;
+}
+
+.tweet_avatar {
+    padding-right: .5em;
+    float: left;
+}
+
+.tweet_avatar img {
+    vertical-align: middle;
+}
+
+#twicont {
+    height: 171px;
+    margin: 2px 0 2px 0;
+}
+
+#twitup {
+    cursor: pointer;
+    width: 17px;
+    height: 17px;
+    background: url('../ucoz/img/arrow_small_up.png') no-repeat;
+    margin: 0 auto;
+}
+
+#twitdown {
+    cursor: pointer;
+    width: 17px;
+    height: 17px;
+    background: url('../ucoz/img/arrow_small_down.png') no-repeat;
+    margin: 0 auto;
+}
+
+/*Tweet*/
+
+/*Hint*/
+.hint {
+    height: 34px;
+    -moz-border-radius: 6px 0 0 6px;
+    -webkit-border-radius: 6px 0 0 6px;
+    border-radius: 6px 0 0 6px;
+    background-color: #365BAF;
+    color: #fff;
+    right: 0;
+    position: absolute;
+    line-height: 34px;
+    text-align: left;
+    display: none;
+    padding-left: 20px;
+    margin-right: 29px;
+}
+
+/*Hint*/
+
+/*Awards*/
+#awards {
+    width: 100%;
+    height: 190px;
+    margin-top: 25px;
+    text-align: center;
+    overflow: hidden;
+}
+
+#award_left {
+    margin-left: 15px;
+    text-align: left;
+    font: 24px 'Century Gothic';
+    color: #28438a;
+}
+
+#award_right {
+    height: 100%;
+    width: auto;
+    margin-top: 30px;
+}
+
+#award_right a {
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+/*Awards*/
+
+/*Language selector*/
+
+div#lnglist {
+    background-color: #7DC5DF;
+    border: 1px solid #E7E8E9;
+    display: none;
+    font-size: 12px;
+    padding: 10px;
+    position: absolute;
+    z-index: 10;
+    margin-top: 2px;
+}
+
+#lnglist>ul>li {
+    display: block !important;
+    float: none !important;
+    background: none !important;
+    margin: 0 !important;
+    padding: 5px !important;
+    text-align: justify !important;
+}
+
+#lnglist>ul>li>span {
+    text-decoration: underline;
+    color: #13529B;
+}
+
+#lnglist>ul>li>span:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*Language selector*/
+
+.opinion-person-photo div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+html, body, form, table {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 9pt;
+    font-family: Arial, sans-serif;
+    line-height: 1.33em;
+    color: #010101;
+}
+
+img {
+    border: none;
+}
+
+a {
+    color: #0078c8;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #00abed;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-family: Trebuchet MS, sans-serif;
+    line-height: 1.2em;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    font-weight: normal;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 24pt;
+    color: #e0e0e0;
+    margin: 5px 0 20px 0;
+    padding: 0;
+}
+
+h2 {
+    font-size: 20pt;
+    color: #de3600;
+}
+
+h3 {
+    font-size: 16pt;
+    color: #5f6467;
+}
+
+
+p {
+    text-align: justify;
+    font-size: 100%;
+}
+
+/* ======= */
+/* Layout */
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    position: relative;
+    background: url('../ucoz/img/bg.png') repeat-x #fff;
+}
+
+#body_inner {
+    background: url('../ucoz/img/bg3.png') repeat-x #ebecee !important;
+}
+
+#wrap {
+    text-align: center;
+    min-width: 1000px;
+}
+
+#wrap_inner {
+    background: url('../ucoz/img/header5.jpg') top center no-repeat;
+    text-align: center;
+    min-width: 1000px;
+    visibility: hidden; /*-moz-user-select: none;*/
+    -khtml-user-select: none;
+    -o-user-select: none;
+}
+
+#header {
+    width: 890px;
+    height: 380px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+#header_inner {
+    width: 960px;
+    height: 177px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+#contanier {
+    background: url('../ucoz/img/bg_contanier.png') repeat-x #ebecee;
+    text-align: center;
+}
+
+#content {
+    background: url('../ucoz/img/bg_contanier_top.png') top center no-repeat;
+    padding: 8px 0;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+#footer {
+    height: 50px;
+    background: url('../ucoz/img/bg_footer.png') top center no-repeat;
+}
+
+/* ======= */
+
+/* ========= */
+/* Elements */
+
+/* Common */
+
+.blSortHelper {
+    border: 1px dashed #CCCCCC;
+}
+
+
+/* Lists */
+ul {
+    list-style-type: none;
+    margin: 0.3em 0 1.5em 0;
+    padding: 0;
+}
+
+ul li {
+    padding-left: 15px;
+    margin-bottom: 0.5em;
+}
+
+/* ======== */
+
+/* Header */
+
+#logo,#logo_inner {
+    display: block;
+    margin: 25px 0 0 10px;
+    height: 88px;
+    width: 139px;
+    background: url('../ucoz/img/logo.png') no-repeat;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+
+#logo_inner {
+    margin: 20px 0 0 0px;
+    float: left;
+}
+
+#slogan {
+    width: 322px;
+    height: 78px;
+    overflow: hidden;
+    text-indent: -9999px;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+#slogan_inner {
+    width: 232px;
+    height: 64px;
+    overflow: hidden;
+    text-indent: -9999px;
+    margin-top: 50px;
+    margin-left: 20px;
+    float: left;
+    margin-bottom: 0px;
+}
+
+a.create-button,a.create-button-inner {
+    display: block;
+    width: 327px;
+    height: 46px;
+    overflow: hidden;
+    text-indent: -9999px;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+a.create-button-inner {
+    margin-top: 40px;
+    margin-right: 5px;
+    float: right;
+}
+
+a.create-button:hover,a.create-button-inner:hover {
+    background-position: 0 -46px;
+}
+
+/* MENU */
+
+#menu,#menu_inner {
+    margin: 0 auto;
+    clear: both;
+    height: 32px;
+    background: url('../ucoz/img/top_menu_bottom.png') center bottom no-repeat;
+}
+#menu_inner {
+    background: url('../ucoz/img/top_menu_bottom2.png') center bottom no-repeat;
+}
+
+#menu ul,#menu_inner ul {
+    list-style-type: none;
+    font-family: Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+#menu ul.right-menu,#menu_inner ul.right-menu {
+    float: right;
+    list-style-type: none;
+    font-family: Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+#menu>ul>li,#menu_inner>ul>li {
+    float: left;
+    display: inline;
+    text-align: center;
+    background: url('../ucoz/img/top_menu_separate.png') center right no-repeat;
+    margin: 0 10px 0 0;
+    padding: 7px 20px 5px 5px;
+}
+
+#menu>ul>li>a,#menu_inner>ul>li>a {
+    color: #13529b;
+    text-decoration: none;
+    font-size: 10pt;
+}
+
+#menu>ul>li>a:hover,#menu_inner>ul>li>a:hover {
+    text-decoration: underline;
+}
+
+#menu li.last-item,#menu_inner li.last-item {
+    background: none;
+    padding-right: 0px;
+}
+
+#preview-contanier {
+    height: 200px;
+    width: 961px;
+    margin: 0 auto 20px auto;
+    text-align: center;
+    position: relative;
+}
+
+#preview {
+    width: 900px;
+    padding-top: 40px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#widpreview, #intpreview, #tempreview, #modpreview {
+    float: left;
+  	display:none;
+}
+
+#uwidpreview li, #uintpreview li, #utempreview li, #umodpreview li {
+    margin: 0;
+    padding: 0;
+}
+
+li.preview-tumb {
+    padding-left: 0 !important;
+
+}
+
+.preview-tumb {
+    width: 170px;
+    float: left;
+    display: inline;
+    text-align: center;
+    overflow: hidden;
+    margin: 0 5px;
+}
+
+.preview-tumb a {
+    display: block;
+    padding: 8px 8px 5px 8px;
+    background: #fff;
+    text-decoration: none;
+    color: #9f9f9f;
+    font-size: 9pt;
+}
+
+.preview-tumb a:hover {
+    display: block;
+    padding: 8px 8px 5px 8px;
+    background: #51b5ea;
+    text-decoration: none;
+    color: #fff;
+    font-size: 9pt;
+}
+
+#preview-contanier div.arrow-left {
+    position: absolute;
+    top: 95px;
+    left: -10px;
+    width: 28px;
+    height: 28px;
+    display: block;
+    overflow: hidden;
+    text-indent: -9999px;
+    background: url('../ucoz/img/arrow_left.png') no-repeat;
+    cursor: pointer;
+}
+
+#preview-contanier div.arrow-right {
+    position: absolute;
+    top: 95px;
+    right: -10px;
+    width: 28px;
+    height: 28px;
+    display: block;
+    overflow: hidden;
+    text-indent: -9999px;
+    background: url('../ucoz/img/arrow_right.png') no-repeat;
+    cursor: pointer;
+}
+
+/*Intro*/
+
+#intro {
+    width: 960px;
+    margin: 0 auto;
+    padding: 20px 0;
+    height: auto;
+    overflow: auto;
+
+}
+
+.intro-block {
+    float: left;
+    display: inline;
+    width: 305px;
+    text-align: left;
+    margin: 0 10px 0 5px;
+}
+
+h1.intro1 {
+    color: #72b51c;
+    font-size: 14pt;
+    background: url('../ucoz/img/h_01.png') no-repeat;
+    line-height: 48px;
+    padding-left: 60px;
+    margin: 5px 0 10px 0;
+}
+
+h1.intro2 {
+    color: #72b51c;
+    font-size: 14pt;
+    background: url('../ucoz/img/h_02.png') no-repeat;
+    line-height: 48px;
+    padding-left: 60px;
+    margin: 5px 0 10px 0;
+}
+
+h1.intro3 {
+    color: #72b51c;
+    font-size: 14pt;
+    background: url('../ucoz/img/h_03.png') no-repeat;
+    line-height: 48px;
+    padding-left: 60px;
+    margin: 5px 0 10px 0;
+}
+
+.intro-block ul {
+    margin: 0 10px 0 20px;
+}
+
+.intro-block>ul>li {
+    background: url('../ucoz/img/bullet1.png') no-repeat;
+    padding: 0 0 0 20px;
+    color: #365baf;
+    font-size: 8pt;
+}
+
+/* Blocks*/
+
+.block-manage {
+    width: 458px;
+    height: 58px;
+    margin: 0 auto 5px auto;
+    position: relative;
+}
+
+div.block-manage .b-close {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: url('../ucoz/img/manage_block_close.png') no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+}
+
+div.block-manage .b-close:hover {
+    background: url('../ucoz/img/manage_block_close.png') no-repeat 0 -8px;
+    cursor: pointer;
+}
+
+.block {
+    width: 967px;
+    margin: 0 auto 20px auto;
+    background: url('../ucoz/img/block_top.png') no-repeat;
+}
+
+.block-bottom {
+    background: url('../ucoz/img/block_bottom.png') bottom no-repeat;
+    min-height: 195px;
+    position: relative;
+}
+
+div.block-close {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url('../ucoz/img/block_close.png') no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+}
+
+div:hover.block-close {
+    background: url('../ucoz/img/block_close.png') no-repeat 0 -20px;
+    cursor: pointer;
+}
+
+.block-content {
+    margin-left: 240px;
+}
+
+.block-header, h2.opinion {
+    margin: 0 40px 0 20px;
+    color: #4a4a4a;
+    font-size: 11pt;
+    line-height: 33px;
+    padding-top: 3px;
+    text-align: left;
+    overflow: auto;
+}
+
+.block-body {
+    padding: 15px 20px 20px 5px;
+}
+
+.block-icons {
+    position: absolute;
+    top: 15px;
+    left: 177px;
+}
+
+.block-icons>ul>li>span {
+    display: block;
+    width: 35px;
+    height: 34px;
+    background: url('../ucoz/img/block_icons.png') no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+
+}
+
+li.icon-news>span.deactive {
+    background-position: 0 0;
+}
+
+li.icon-news>span:hover, li.icon-news>span.active {
+    background-position: -35px 0 !important;
+    cursor: pointer;
+}
+
+li.icon-stat>span.deactive {
+    background-position: 0 -238px;
+}
+
+li.icon-stat>span:hover, li.icon-stat>span.active {
+    background-position: -35px -238px !important;
+    cursor: pointer;
+}
+
+li.icon-integ>span.deactive {
+    background-position: 0 -34px;
+}
+
+li.icon-integ>span:hover, li.icon-integ>span.active {
+    background-position: -35px -34px !important;
+    cursor: pointer;
+}
+
+li.icon-facebook>span.deactive {
+    background-position: 0 -68px;
+}
+
+li.icon-facebook>span:hover, li.icon-facebook>span.active {
+    background-position: -35px -68px !important;
+    cursor: pointer;
+}
+
+li.icon-twitter>span.deactive {
+    background-position: 0 -102px;
+}
+
+li.icon-twitter>span:hover, li.icon-twitter>span.active {
+    background-position: -35px -102px !important;
+    cursor: pointer;
+}
+
+li.icon-vidget>span.deactive {
+    background-position: 0 -170px;
+}
+
+li.icon-vidget>span:hover, li.icon-vidget>span.active {
+    background-position: -35px -170px !important;
+    cursor: pointer;
+}
+
+li.icon-templates>span.deactive {
+    background-position: 0 -204px;
+}
+
+li.icon-templates>span:hover, li.icon-templates>span.active {
+    background-position: -35px -204px !important;
+    cursor: pointer;
+}
+
+li.icon-moduls>span.deactive {
+    background-position: 0 -136px;
+}
+
+li.icon-moduls>span:hover, li.icon-moduls>span.active {
+    background-position: -35px -136px !important;
+    cursor: pointer;
+}
+
+.illustration {
+    float: left;
+    display: inline;
+    margin: 0 10px 10px 0;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -o-user-select: none;
+}
+
+.block-body h2 {
+    color: #1265ba;
+    font-size: 11pt;
+    font-weight: bold;
+    margin: 5px 0 10px 0;
+    text-align: left;
+}
+
+.block-body h2>em {
+    font-size: 8pt;
+    color: #7d7d7d;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.block-body p {
+    margin: 0;
+    text-align: justify;
+}
+
+a.read-more {
+    display: block;
+    text-align: right;
+}
+
+.block-news-pick {
+    width: 202px;
+    height: 232px;
+    position: absolute;
+    top: -16px;
+    left: -10px;
+    background: url('../ucoz/img/block_news.png') no-repeat;
+}
+
+.block-vidget-pick {
+    width: 202px;
+    height: 216px;
+    position: absolute;
+    top: -16px;
+    left: -10px;
+    background: url('../ucoz/img/block_vidget.png') no-repeat;
+}
+
+.block-vidget {
+    margin: 0 auto;
+    width: 680px;
+    overflow: auto;
+}
+
+.block-vidget div.arrowv-left {
+    cursor: pointer;
+    margin-top: 43px;
+    float: left;
+    width: 28px;
+    height: 28px;
+    display: block;
+    overflow: hidden;
+    text-indent: -9999px;
+    background: url('../ucoz/img/arrow_left.png') no-repeat;
+}
+
+.block-vidget div.arrowv-right {
+    cursor: pointer;
+    margin-top: 43px;
+    float: left;
+    width: 28px;
+    height: 28px;
+    display: block;
+    overflow: hidden;
+    text-indent: -9999px;
+    background: url('../ucoz/img/arrow_right.png') no-repeat;
+}
+
+
+
+/*templates*/
+
+.vidget, .integ, .templ, .mod {
+    float: left;
+    width: 135px;
+    height: 94px;
+    display: block;
+    overflow: hidden;
+    text-indent: -9999px;
+    margin: 10px;
+}
+
+
+
+h2.opinion {
+    float: left;
+}
+
+ul.opinion-person-list {
+    margin: -1px 0 0 0;
+    float: left;
+}
+
+ul.opinion-person-list>li {
+    font-size: 11px;
+    margin: 0;
+    padding: 0 5px 0 5px;
+    width: 148px;
+    text-align: center;
+}
+
+span.opinion-company>img {
+    vertical-align: middle;
+}
+
+span.opinion-company + span {
+    color: #535252;
+    margin: 0 3px;
+    text-decoration: underline;
+}
+
+span.opinion-company + span:hover {
+    cursor: pointer;
+    color: #00ABED;
+}
+
+.opinion-person-photo {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50px;
+    left: 80px;
+}
+
+p.quote {
+    background: url('../ucoz/img/quote_left.png') no-repeat;
+    padding-left: 45px;
+    color: #004891;
+    font-family: Georgia, serif;
+    font-style: oblique;
+    margin-bottom: 10px;
+}
+
+p.quote>em {
+    display: block;
+    background: url('../ucoz/img/quote_right.png') right bottom no-repeat;
+    padding-right: 45px;
+}
+
+a.small-arrow-left {
+    float: left;
+    width: 17px;
+    height: 17px;
+    display: inline;
+    overflow: hidden;
+    text-indent: -9999px;
+    background: url('../ucoz/img/arrow_small_left.png') no-repeat;
+    margin: 8px 10px 0 0;
+}
+
+a.small-arrow-right {
+    float: left;
+    width: 17px;
+    height: 17px;
+    display: inline;
+    overflow: hidden;
+    text-indent: -9999px;
+    background: url('../ucoz/img/arrow_small_right.png') no-repeat;
+    margin: 8px 0 0 10px;
+}
+
+/* Footer */
+
+#footer {
+    background: url('../ucoz/img/bg_footer.png') repeat-x #293f79;
+    height: auto;
+}
+
+#footer-content {
+    width: 1000px;
+    margin: 0 auto;
+    background: url('../ucoz/img/bg_footer_top.jpg') no-repeat;
+    text-align: left;
+}
+
+.footer-navigation {
+    display: inline;
+    float: left;
+    margin: 30px 10px 10px 10px;
+    text-align: left;
+    padding: 0 40px 0 0;
+    font-size: 9pt;
+    font-family: Verdana, sans-serif;
+    background: url('../ucoz/img/footer_line.png') top right no-repeat;
+}
+
+div.last-footer-navigation {
+    float: left;
+    margin: 30px 10px 10px 10px;
+    text-align: left;
+    padding: 0 40px 0 0;
+    font-size: 9pt;
+    font-family: Verdana, sans-serif;
+}
+
+.footer-navigation h3, .last-footer-navigation h3 {
+    color: #fff;
+    font-size: 9pt;
+    font-weight: bold;
+    font-family: Verdana, sans-serif;
+}
+
+.footer-navigation>ul>li, .last-footer-navigation>ul>li {
+    background: url('../ucoz/img/bullet2.png') no-repeat 0 6px;
+    padding-left: 10px;
+}
+
+.footer-navigation a, .last-footer-navigation a {
+    color: #c9ecf9;
+}
+
+.footer-info {
+    width: 600px;
+    position: relative;
+    float: left;
+    padding: 20px;
+}
+
+.footer-home-link {
+    width: 108px;
+    height: 55px;
+    display: block;
+    overflow: hidden;
+    text-indent: -9999px;
+    background: url('../ucoz/img/logo_white.png') no-repeat;
+}
+
+a.footer-create-button {
+    position: absolute;
+    display: block;
+    width: 298px;
+    height: 45px;
+    overflow: hidden;
+    text-align: center;
+    color: #1d3c80;
+    font-size: 14pt;
+    line-height: 43px;
+    text-decoration: none;
+    background: url('../ucoz/img/footer_button.png') no-repeat;
+    top: 30px;
+    left: 180px;
+}
+
+a.footer-create-button:hover {
+    color: #2d5abb;
+}
+
+p.copyright {
+    margin-top: 10px;
+    font-size: 7pt;
+    color: #acb4cb;
+    line-height: 9pt;
+}
+
+/************/
+/* u-window */
+/************/
+.x-unselectable {-moz-user-select:-moz-none;}
+.x-selectable {-moz-user-select:text}
+
+.x-sh, .x-sh *{overflow:hidden;margin:0;border:0}
+.xsl *,.xsr *,.xsb * {height:100%}
+
+.x-sh .xstl{padding-top:6px;background:transparent url('../ucoz/img/shadow-h.png') no-repeat 0 0;}
+.x-sh .xsml{background:transparent url('../ucoz/img/shadow-h.png') repeat-y -6px 0;}
+.x-sh .xstr{padding-top:6px;background:transparent url('../ucoz/img/shadow-h.png') no-repeat -18px 0;}
+.x-sh .xsmr{background:transparent url('../ucoz/img/shadow-h.png') repeat-y -12px 0;}
+.x-sh .xsbl{padding-left:6px;background:transparent url('../ucoz/img/shadow.png') no-repeat 0 -12px;}
+.x-sh .xsbc{background:transparent url('../ucoz/img/shadow.png') repeat-x 0 -36px;}
+.x-sh .xsbr{padding-right:6px;background:transparent url('../ucoz/img/shadow.png') no-repeat right -6px;}
+
+.xt{position:relative;overflow:hidden;width:15px;height:15px;float:right;cursor:pointer;background:transparent url('../ucoz/img/tool-sprites.gif') no-repeat;margin-left:2px;margin-top:4px;}
+.xt-close{background-position:0 0;}
+.xt-close-over{background-position:-15px 0;}
+.xt-mini{background-position:0 -15px;}
+.xt-mini-over{background-position:-15px -15px;}
+.xt-maxi{background-position:0 -30px;}
+.xt-maxi-over{background-position:-15px -30px;}
+.xt-rest{background-position:0 -45px;}
+.xt-rest-over{background-position:-15px -45px;}
+.xt-options{background-position:0 -90px;}
+.xt-options-over{background-position:-15px -90px;}
+.xw-hdr{white-space:nowrap;padding:1px 0 0 0;white-space:nowrap;zoom:1;height:24px;cursor:default}
+.xw-hdr-text{vertical-align:3px;cursor:default;color:#1A4B77;font:bold 11px tahoma,arial,verdana,sans-serif;line-height:20px;cursor:default}
+.xw-sps {height:4px;overflow:hidden;position:absolute;width:100%;z-index:1}
+.xw-tsps{height:6px}
+.xw-resize .xw-tl {cursor:nw-resize}
+.xw-resize .xw-tr {cursor:ne-resize}
+.xw-resize .xw-sps {cursor:n-resize}
+.xw-resize .xw-ml {cursor:w-resize}
+.xw-resize .xw-mr {cursor:e-resize}
+.xw-resize .xw-mc {cursor:default}
+.xw-resize .xw-bl {cursor:sw-resize}
+.xw-resize .xw-br {cursor:se-resize}
+.xw-resize .xw-bc {cursor:s-resize}
+.xw-dragging .xw-tl {opacity:0.7;filter:Alpha(Opacity='70');}
+.xw-tc{background:transparent url('../ucoz/img/top-bottom.png') repeat-x 0 0;overflow:hidden;zoom:1;position:relative;font-size:0;line-height:0;}
+.xw-tl{background:transparent url('../ucoz/img/left-corners.png') no-repeat 0 0;padding-left:6px;position:relative;zoom:1;}
+.xw-tr{background:transparent url('../ucoz/img/right-corners.png') no-repeat right 0;padding-right:6px;position:relative;zoom:1}
+.xw-bc{background:transparent url('../ucoz/img/top-bottom.png') repeat-x 0 bottom;zoom:1;font-size:0;line-height:0;overflow:hidden;}
+.xw-bcm{height:2px;background:transparent url('../ucoz/img/top-bottom.png') repeat-x 0 bottom;zoom:1}
+.xw-bc .xw-footer{padding-bottom:6px;font-size:0;line-height:0;zoom:1;}
+.xw-bcm .xw-footer{padding-bottom:2px;font-size:0;line-height:0;zoom:1;}
+.xw-bl{background:transparent url('../ucoz/img/left-corners.png') no-repeat 0 bottom;padding-left:6px;zoom:1;}
+.xw-br{background:transparent url('../ucoz/img/right-corners.png') no-repeat right bottom;padding-right:6px;zoom:1;}
+.xw-mc{border:1px solid #CCCCCC;padding:0;margin:0;font:normal 11px tahoma,arial,helvetica,sans-serif;background:#F9F9F9;zoom:1;}
+.xw-ml{background:transparent url('../ucoz/img/left-right.png') repeat-y 0 0;padding-left:6px;zoom:1;}
+.xw-mr{background:transparent url('../ucoz/img/left-right.png') repeat-y right 0;padding-right:6px;zoom:1;}
+.xw-bc {height:6px;}
+.xw-icon{width:16px;margin:2px 2px 0 0;height:16px;}
+DIV.xw-icon {float:left}
+.xw-body{background:transparent}
+.xw-draggable,.xw-draggable .xw-hdr-text{cursor:move;}
+.xw-plain .xw-mc{background:#F9F9F9;}
+.xw-plain .xw-body{background:transparent !important;}
+.xw-blank {background:#CCCCCC;opacity:0.4;filter:Alpha(Opacity='40');overflow:hidden}
+
+.myWinGrid {background:#000000 url('../img/1px.gif');opacity:0.15;filter:alpha(opacity=15);}
+.myWinGridDark {background:#000000 url('../img/1px.gif');opacity:0.60;filter:alpha(opacity=60);}
+.myWinGridBlack {background:#000000 url('../img/1px.gif');opacity:0.80;filter:alpha(opacity=80);}
+.myWinCont,.myWinCont td, .myWinCont dl,.myWinCont dt {color:#000000;font-size:12px;font-family:Tahoma,Arial;}
+.myWinCont a:link, .myWinCont a:visited{text-decoration:underline;color:#1A4B77;}
+.myWinCont a:hover,.myWinCont a:active{text-decoration:none;color:#000000;}
+.myWinError {color:#C12828 !important;}
+.myWinSuccess {color:#375C8D !important;}
+.myWinCont {overflow:hidden;-moz-user-select:text}
+.myWinCont label {cursor:pointer;display:inline; margin:0;padding:0;vertical-align:middle;}
+.myWinCont legend {padding-bottom:2px;padding-left:3px;padding-right:3px; font-size:12px; color:#1A4B77;}
+.myWinCont fieldset {border:1px solid #CCCCCC; padding:2px 5px; margin-bottom:3px;}
+.myWinCont fieldset.onebrd {border-top:1px solid #D4E4ED; padding:2px 5px;border-bottom:0px;border-left:0px;border-right:0px;}
+.myWinCont legend.onebrd {color:#666666;font-size:10px;font-weight:bold;margin-left:5px;}
+.myWinCont .nobdrfield {padding:5px;margin:0px;border-left:0px;border-right:0px;border-bottom:0px;border-top:1px dashed #CCCCCC;}
+.myWinCont ul, .myWinCont ol, .myWinCont blockquote {margin:0 0 0 20px;padding:0;}
+.myWinCont hr {height:1px;border:1px solid #CCCCCC;border-top:0px;background:transparent;margin:5px 0;padding:0;outline:none;font-size:0;}
+.myWinCont li {background: url('../img/ma/ar1.gif') no-repeat 2px 5px;}
+.myWinLoad {margin:5px;width:31px;height:31px;background:url('../ucoz/img/ajax.gif') no-repeat 0 0;}
+.myWinLoadS {margin:3px 0 0 3px;width:16px;height:16px;background:url('../ucoz/img/ajaxs.gif') no-repeat 0 0;}
+.myWinLoadSD {margin:0;padding-left:20px;padding-top:1px;height:16px;background:url('../ucoz/img/ok.png') no-repeat 0 0;}
+.myWinLoadSF {margin:0;padding-left:20px;height:16px;background:url('../ucoz/img/er.png') no-repeat 0 0;}
+.myWinTD1 {background:#F9F9F9;}
+.myWinTD2 {background:#E4EBFA;}
+/* ============== */
+
+/******************/
+/* u-window-light */
+/******************/
+.x-lightwnd .xw-tl {display:none}
+.x-lightwnd .xw-ml {padding:0;background:none}
+.x-lightwnd .xw-bl {display:none}
+.x-lightwnd .xw-mc {border:0 none}
+.x-lightwnd .xw-mr {padding:0;background:none}
+.x-lightwnd .xw-plain .xw-body {background:white!important;-moz-border-radius:10px;-webkit-border-radius:10px;border-radius:10px;}
+.x-lightwnd .xw-plain .xw-mc {background:none!important;}
+.x-lightwnd .vid-title {padding-left:10px;padding-top:2px;color:#555555;}
+/* ============== */

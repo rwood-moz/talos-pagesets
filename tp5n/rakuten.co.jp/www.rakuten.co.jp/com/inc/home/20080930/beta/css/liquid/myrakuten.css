@@ -1,0 +1,237 @@
+@charset "EUC-JP";
+ 
+/*=========================================================================
+
+種別 ： myrakuten.css
+適用 ： myrakuten用CSS
+
+=========================================================================*/
+
+/*
+ myrakuten
+-------------------------------------------------------------------------*/
+
+
+/* logout
+---------------------------------------------*/
+#myRakutenColumn {
+	border: solid 1px #bbbbbb;	
+	margin-right: 2px;
+	background: #f8f8f8;
+}
+#myRakutenColumn #logout {
+	border-bottom: solid 1px #bbbbbb;	
+}
+#myRakutenColumn .logoutCont {
+	background: #f8f8f8;
+	border-bottom: solid 1px #bbbbbb;
+	padding: 7px;
+}
+#myRakutenColumn .logoutCont .forlog {
+	font-size: 125%;
+	font-weight: bold;
+	padding-top: 7px;
+}
+#myRakutenColumn .logoutCont .firstUse {
+	background: url(../../../../../../../../jp.rakuten-static.com/1/bu/myraku/im/beginner.jpg) no-repeat left 5px;
+	padding: 5px 5px 5px 15px;
+}
+#myRakutenColumn .logoutCont .serviceUse {
+	padding-left:15px;
+}
+#myRakutenColumn #logout .logoutSubCont {
+	padding: 10px 7px 0;
+	background: #ffffff;
+}
+#myRakutenColumn #logout .info {
+	background:url(../../../../../../../../jp.rakuten-static.com/1/bu/myraku/im/line_normal.gif) repeat-x left top;
+	margin: 0 0 7px!important;
+	text-align: center;	
+	padding: 7px 0 3px;
+}
+#myRakutenColumn #logout .logoutSubCont .topics {
+	padding: 7px;	
+}
+
+/* normal
+---------------------------------------------*/
+#myRakutenColumn #normal .subCont {
+	width: 284px;	
+	margin: 0 2px;
+	border: solid 1px #bbbbbb;
+	padding: 8px 4px;
+	background: #ffffff;
+}
+#myRakutenColumn #normal .subCont .topics {
+	padding: 7px 7px 0;		
+}
+#myRakutenColumn #normal .subCont .member a {
+	color: #000;	
+}
+#myRakutenColumn #normal .member a {
+	font-weight: bold;
+}
+
+/* platinum
+---------------------------------------------*/
+#myRakutenColumn #platinum .subCont {
+	width: 286px;	
+	margin: 0 2px;
+	padding: 8px 4px;
+	background:url(../../../../../../../../image.www.rakuten.co.jp/com/img/home/200809/loginarea_bg_platinum03.gif) no-repeat left top;
+	border-bottom: solid 1px #72BDE8;
+}
+#myRakutenColumn #platinum .member a {
+	font-weight: bold;
+	color: #0099cc;
+}
+
+/* gold
+---------------------------------------------*/
+#myRakutenColumn #gold .subCont {
+	width: 286px;	
+	margin: 0 2px;
+	padding: 8px 4px;
+	background:url(../../../../../../../../image.www.rakuten.co.jp/com/img/home/200809/loginarea_bg_gold03.gif) no-repeat left top;
+	border-bottom: solid 1px #aa7930;
+}
+#myRakutenColumn #gold .member a {
+	font-weight: bold;
+	color: #996600;
+}
+
+/* silver
+---------------------------------------------*/
+#myRakutenColumn #silver .subCont {
+	width: 286px;	
+	margin: 0 2px;
+	padding: 8px 4px;
+	background:url(../../../../../../../../image.www.rakuten.co.jp/com/img/home/200809/loginarea_bg_silver03.gif) no-repeat left top;
+	border-bottom: solid 1px #A4A4A4;
+}
+#myRakutenColumn #silver .member a {
+	font-weight: bold;
+	color: #565656;
+}
+
+/* 共通
+---------------------------------------------*/
+#myRakutenColumn .name {
+	font-weight: bold;
+	background: #f8f8f8;
+	padding-top: 7px;
+	text-align: center;
+}
+#myRakutenColumn .notMe {
+	text-align: center;	
+	padding-bottom: 7px;
+}
+#myRakutenColumn .name a{
+	color: #bf0000;
+	text-decoration: underline;
+}
+#myRakutenColumn .info {
+	background:url(../../../../../../../../jp.rakuten-static.com/1/bu/myraku/im/line_normal.gif) repeat-x left top;
+	margin: 0 15px;
+	text-align: center;	
+	padding: 7px 0;
+}
+#myRakutenColumn .colrPt01 {
+	color: #bf0000;
+}
+#myRakutenColumn .colrPt02 {
+	color: #05319a;
+}
+.regi {
+	overflow:hidden;
+	height:1px;
+}
+
+/*-- pointClub --*/
+#myRakutenColumn .pointClub {
+	background: url(../../../../../../../../jp.rakuten-static.com/1/bu/myraku/im/line_normal.gif) repeat-x left bottom;	
+	padding-bottom: 5px;
+}
+#myRakutenColumn .pointClub .pointClubName a{
+	background: url(../../../../../../../../image.www.rakuten.co.jp/com/img/home/200809/icn_arrow_solid.gif) no-repeat left 1px;	
+	color: #bf0000;	
+	padding: 0 3px 0 15px;
+}
+#myRakutenColumn .topics {
+	padding: 7px;		
+}
+#myRakutenColumn .topics li {
+	background: url(../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201008/topic02.gif) no-repeat left 2px;
+	padding-left: 33px;
+}
+
+/*-- member --*/
+#myRakutenColumn .statusDetail {
+	padding-top: 5px;	
+}
+#myRakutenColumn .member{
+	padding: 5px 0 5px 0;
+	text-align:center;
+}
+#myRakutenColumn .member img.point {
+	padding: 0 5px 0 0;
+	margin-top: -5px; 
+}
+#myRakutenColumn .member img.invit {
+	padding: 0 0 0 5px;
+	margin-top: -5px; 
+}
+#myRakutenColumn .member a.invittxt {
+	padding-right: 0;
+	color: #1D54A7!important;
+	font-weight: normal!important;
+}
+#myRakutenColumn .member a.invittxt:hover {
+	color: #bf0000!important;
+}
+#myRakutenColumn .statusDetail .holdPoint{
+	width:268px;
+	color: #bf0000;
+	margin: 0 0 3px 0;
+	padding-left: 10px;
+}
+#myRakutenColumn .statusDetail .holdPoint .totalPossession{
+	font-weight: bold;
+	color: #000;
+}
+#myRakutenColumn .statusDetail .holdPoint .totalPoint {
+	font-weight: bold;
+	font-size:125%;	
+	padding-left: 6px;
+}
+#myRakutenColumn .statusDetail .limitPoint {
+	margin: 0 12px;	
+	padding: 0 0 0 13px;
+	background: url(../../../../../../../../jp.rakuten-static.com/1/bu/myraku/im/bg_pointinfo.gif) no-repeat left top;
+}
+
+/*-- riRankGadget --*/
+#myRakutenColumn #riRankGadget{
+	background: url(../../../../../../../../jp.rakuten-static.com/1/bu/myraku/im/line_normal.gif) repeat-x left bottom;
+	padding: 5px 0;
+	text-align: center;
+}
+#myRakutenColumn #user_rank_gadget table{
+	margin: 0 auto;
+	text-align: left;
+}
+
+/*-- otherService --*/
+#myRakutenColumn .otherService{
+	padding: 7px 15px;	
+}
+#myRakutenColumn .otherService li{
+	padding-left: 15px;
+	background: url(../../../../../../../../image.www.rakuten.co.jp/com/img/home/200809/icn_ex.gif) no-repeat left 1px;	
+}
+#myRakutenColumn .entry{
+	padding: 0 5px;
+	margin: 0 15px 7px;
+	/*background: url(http://jp.rakuten-static.com/1/bu/myraku/im/line_normal.gif) repeat-x left bottom;*/	
+}
+

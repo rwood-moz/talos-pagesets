@@ -1,0 +1,514 @@
+/**
+ * @author ellen ellen@nhncorp.com
+ * @version 1.0
+ * @since 2008.4.10
+ * @sdoc ./sdoc/da.sdoc
+ */
+
+/** @id Agent */
+var Agent = function () {
+	var a = navigator.userAgent;
+	function is(s,t) {
+		return ((s||"").indexOf(t)>-1);
+	}
+	this.isWin = is(a,"Windows");
+	this.isMac = is(a,"Macintosh");
+	this.isOP = typeof window.opera != "undefined" || is(a,"Opera");
+	this.isIE = !this.isOP && is(a,"MSIE");
+	this.isFF = is(a,"Firefox");
+	this.isCR = is(a,"Chrome");
+	this.isSF = !this.isCR && is(a,"Apple");
+	if (this.isIE) {
+		var v = parseFloat(a.match(/MSIE ([0-9\.]+)/)[1]);
+		if (isNaN(v)) this.isIE0 = true;
+		if (6 <= v && v < 7) {
+			this.isIE6 = true;
+			return;
+		} else if (7 <= v && v < 8) {
+			this.isIE7 = true;
+			return;
+		} else if (5.5 <= v && v < 6) {
+			this.isIE55 = true;
+			return;
+		} else if (v < 5.5) {
+			this.isIE5 = true;
+			this.isIE = false;
+			return;
+		} else if (8 <= v) {
+			this.isIE8 = true;
+			return;
+		}		
+	}
+};
+
+Agent.prototype = {
+	/** @id Agent.support */
+	support : function (i) {
+		if (i===10) {
+			return (this.isWin)&&(this.isIE && !this.isIE8) ? true : false ;	
+		} else if (i===20) {
+			return (this.isWin)&&(this.isIE) ? true : false ;		
+		} else if (i===30) {
+			return (this.isWin)&&(this.isIE || this.isCR) ? true : false ;		
+		} else if (i===40) {
+			return (this.isWin)&&(this.isIE || this.isCR || this.isSF) ? true : false ;
+		} else if (i===45) {
+			return (this.isWin)&&(this.isIE || this.isSF || this.isOP) ? true : false ;
+		} else if (i===50) {
+			return (this.isWin)&&(this.isIE || this.isCR || this.isSF || this.isOP) ? true : false ;			
+		} else if (i===60) {
+			return (this.isWin)&&(this.isIE || this.isCR || this.isSF || this.isFF) ? true : false ;
+		} else if (i===80) {
+			return (this.isWin)&&(this.isIE || this.isFF || this.isCR || this.isSF || this.isOP) ? true : false ;
+		} else if (i===90) {
+			return (this.isIE || this.isFF || this.isCR || this.isSF || this.isOP) ? true : false ;			
+		}		
+		return false;
+	},
+	hasFP : function() {
+		if(navigator.plugins&&navigator.mimeTypes.length){
+			var x=navigator.plugins["Shockwave Flash"];
+			if(x&&x.description){
+				return true;
+			}
+		}else{
+			try{
+				var axo=new ActiveXObject("ShockwaveFlash.ShockwaveFlash");
+				if(axo!=null) {
+					return true;
+				}
+			}catch(e){}
+		}
+		return false;
+	},
+	dump : function() {
+		void(navigator.userAgent +"<hr>");
+		void("Win : " + this.isWin +"<br>");
+		void("Mac : " + this.isMac +"<br>");
+		void("IE : " + this.isIE +"<br>");
+		void("IE0 : " + this.isIE0 +"<br>");
+		void("IE5 : " + this.isIE5 +"<br>");
+		void("IE55 : " + this.isIE55 +"<br>");
+		void("IE6 : " + this.isIE6 +"<br>");				
+		void("IE7 : " + this.isIE7 +"<br>");						
+		void("IE8 : " + this.isIE8 +"<br>");								
+		void("FF : " + this.isFF +"<br>");
+		void("CR : " + this.isCR +"<br>");		
+		void("SF : " + this.isSF +"<br>");
+		void("OP : " + this.isOP +"<br>");
+	}
+};
+
+/** @id Flash */
+var Flash = function (sSwfUrl, iWidth, iHeight, sWmode) {	
+	this.params = {};
+	this.vals = {};
+	this.atts = {};
+	if (sSwfUrl) {
+		this.setAtt("src", sSwfUrl);
+		this.setParam("movie", sSwfUrl);
+	}
+	if (iWidth) {
+		this.setAtt("width", iWidth); 
+	}
+	if (iHeight) {
+		this.setAtt("height", iHeight);
+	}
+	if (sWmode) {
+		this.setParam("wmode", sWmode);
+	}
+	this.setAtt("classid", "clsid:D27CDB6E-AE6D-11cf-96B8-444553540000");
+	this.setAtt("type", "application/x-shockwave-flash");
+	this.setAtt("codebase", "httpdisabled://fpdownloaddisabled.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0");
+	this.setParam("quality", "high");
+	this.setParam("allowScriptAccess", "always");
+	this.setParam("swliveconnect", "true");
+};
+
+Flash.prototype = {
+	/** @id Flash.setAtt */
+	setAtt : function (sName, vValue) {
+		this.atts[sName] = vValue;
+	},
+	/** @id Flash.getAtt */
+	getAtt : function (sName) {
+		return this.atts[sName];
+	},
+	/** @id Flash.setVal */
+	setVal : function (sName, vValue) {
+		this.vals[sName] = vValue;
+	},
+	/** @id Flash.getVal */
+	getVal : function (sName) {
+		return this.vals[sName];
+	},
+	/** @id Flash.setValByArray */
+	setValByArray : function (aName, aValue) {
+		if (aName !== null && aValue !== null && aName.length === aValue.length)  {
+			for (var i = 0, n = aName.length ; i < n ; i++){
+				this.setVal(aName[i], aValue[i]);
+			}
+		}
+	},
+	/** @id Flash.setParam */
+	setParam : function (sName, vValue) {
+		this.params[sName] = vValue;
+	},	
+	/** @id Flash.getParam */
+	getParam : function (sName) {
+		return this.params[sName];
+	},
+	/** @id Flash.getHTML */
+	getHTML : function () {
+		var a = [];
+		var i;
+		for (i in this.vals) {
+			if (this.vals.hasOwnProperty(i)) {								
+				a.push(i + "=" + this.vals[i]);								
+			}
+		}	
+		var v = a.join("&");		
+		if (v!==null && v.length > 0) {
+			this.setParam("flashvars", v);
+		}
+		var s = "";
+		var k;
+		if (navigator.plugins && navigator.mimeTypes && navigator.mimeTypes.length) {
+			s = "<embeddisabled ";
+			for (k in this.atts) {
+				if (this.atts.hasOwnProperty(k)) {
+					s += k;
+					s += "=\"";
+					s += this.atts[k];
+					s += "\" ";
+				}
+			}
+			for (k in this.params) {
+				if (this.params.hasOwnProperty(k)) {
+					s += k;
+					s += "=\"";
+					s += this.params[k];
+					s += "\" ";
+				}
+			}
+			s += "/>";
+		} else {
+			s = "<objectdisabled ";			
+			for (k in this.atts) {
+				if (this.atts.hasOwnProperty(k)) {
+					s += k;
+					s += "=\"";
+					s += this.atts[k];
+					s += "\" ";
+				}
+			}
+			s += ">\n";
+			for (k in this.params) {
+				if (this.params.hasOwnProperty(k)) {
+					s += "<param name=\"";
+					s += k;
+					s += "\" value=\"";
+					s += this.params[k];
+					s += "\" />";
+				}
+			}
+			s += "</object>";
+		}
+		return s;
+	}
+};
+
+
+/** @id Da */
+var Da = {
+	/** @id Da.$ */
+	$ : function (sIDValue) {
+		return document.getElementById(sIDValue);
+	}, 
+	/** @id Da.$$ */
+	$$ : function (sIDValue) {
+		return parent.document.getElementById(sIDValue);
+	},
+	/** @id Da.$$$ */
+	$$$ : function (sIDValue) {
+		return Da.$(sIDValue)!=null?Da.$(sIDValue):Da.$$(sIDValue);
+	},
+	/** @id Da.SH */ 
+	SH : function (oElement, sHTML) {
+		oElement.innerHTML = sHTML;
+	},
+	/** @id Da.CE */
+	CE : function (oElement, sTag, oAttributes, sStyle, sHTML) {
+		var o = parent.document.createElement(sTag);
+		var k;
+		for (k in oAttributes) {
+			if (oAttributes.hasOwnProperty(k)) {
+				o.setAttribute(k, oAttributes[k]);
+			}
+		}		
+		if (sStyle!==null) {
+			o.style.cssText = sStyle;
+		}
+		oElement.appendChild(o);
+		if (sHTML !== null) {
+			o.innerHTML = sHTML;
+		}
+	}, 
+	/** @id Da.CS */
+	CS : function (sText) { 
+		var o = parent.document.createElement("script"); 
+		o.type = "text/javascript"; 
+		o.defer = true; 
+		o.text = sText; 
+		o.charset = "euc-kr";
+		parent.document.getElementsByTagName('head')[0].appendChild(o); 
+	},
+	/** @id Da.EF */
+	EF : function (sText) {
+		if (typeof encodeURIComponent == "function" ) return encodeURIComponent(sText);
+    	else return sText.replace(/\%/g, "%25").replace(/\&/g, "%26").replace(/\?/g, "%3F").replace(/\"/g, "%22").replace(/\+/g, "%2B");
+	},
+	/** @id Da.RE */
+	RE : function (oElement) {
+		for(var oChild=oElement.firstChild; oChild ; oChild = oChild.nextSibling) {
+			if(oChild.style)
+				oChild.style.cssText = "width:0px;height:0px";
+		}
+		setTimeout(function() {
+			oElement.innerHTML = "";
+			oElement.parentNode.removeChild(oElement);
+		}, 0);
+	},
+	/** @id Da.RM */
+	RM : function (oElement) {
+		for(var oChild=oElement.firstChild; oChild ; oChild = oChild.nextSibling) {
+			if(oChild.style)
+				oChild.style.cssText = "width:0px;height:0px";
+		}
+		oElement.innerHTML = "";
+		oElement.parentNode.removeChild(oElement);
+	},	
+	/** @id Da.W */
+    W : function (sText) {
+        void(sText);
+    },
+	/** @id Da.AE */
+	AE : function(oElement, sEvent, fn, bBubble) {
+		var s = sEvent.toLowerCase();
+		if (oElement != null) {
+			if (typeof oElement.addEventListener != "undefined") {
+				oElement.addEventListener(s, fn, false);
+			} else if (typeof oElement.attachEvent != "undefined") {
+				oElement.attachEvent("on" + s, fn);
+			}
+		}
+	}, 
+	/** @id Da.FE */
+	FE : function(oElement, sEvent) {
+		var s = sEvent.toLowerCase();
+		if (typeof oElement.dispatchEvent != "undefined") {
+			var e = document.createEvent("HTMLEvents");
+			e.initEvent(s, true, true);
+			oElement.dispatchEvent(e);			
+		} else {
+			oElement.fireEvent("on"+s);
+		}
+		return false;	
+	}, 
+	/** @id Da.SE */
+	SE : function(oEvent) {
+		if (typeof oEvent.stopPropagation != "undefined") oEvent.stopPropagation();
+		else oEvent.cancelBubble = true;
+	},
+	/** @id Da.DE */
+	DE: function(oElement, sEvent, fn){
+		var s = sEvent.toLowerCase();
+		if (typeof oElement.removeEventListener != "undefined") {
+			oElement.removeEventListener(s, fn, false);
+		} else {
+			oElement.detachEvent("on"+s, fn);
+		}
+	}, 
+	MF: function(sSwfURL, sID, iWidth, iHeight, sWmode, varsKey, varsValue){
+		sWmode = (typeof sWmode == "undefined") ? "opaque" : sWmode;
+		var s = "";
+		if (typeof(varsKey)=="string" && typeof(varsValue)=="string") {
+			s = varsKey + "=" + varsValue;
+		}
+		else 
+			if (varsKey instanceof Array && varsValue instanceof Array) {
+				if (varsKey.length > 0 && varsKey.length == varsValue.length) {
+					for (var i = 0; i < varsKey.length; i++) {
+						if (i > 0) 
+							s += "&";
+						s += varsKey[i] + "=" + varsValue[i];
+					}
+				}
+			}
+		var h = "";
+		if (navigator.plugins && navigator.mimeTypes && navigator.mimeTypes.length) {
+			h = "<embeddisabled src=\""+sSwfURL+"\" width=\""+iWidth+"\" height=\""+iHeight+"\" id=\""+sID+"\" tabindex=\"-1\" movie=\""+sSwfURL+"\" wmode=\""+sWmode+"\" quality=\"high\" allowScriptAccess=\"always\" swliveconnect=\"true\" ";
+			h += "flashvars=\""+s+"\" type=\"application/x-shockwave-flash\" />";
+		} else {
+			h = "<objectdisabled type=\"application/x-shockwave-flash\" classid=\"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000\" codebase=\"httpdisabled://fpdownloaddisabled.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0\" width=\"" + iWidth + "\" height=\"" + iHeight + "\" id=\"" + sID + "\" tabindex=-1>";
+			h += "<param name=\"movie\" value=\"" + sSwfURL + "\" />";
+			h += "<param name=\"quality\" value=\"high\" />";
+			h += "<param name=\"wmode\" value=\"" + sWmode + "\" />";
+			h += "<param name=\"menu\" value=\"false\" />";
+			h += "<param name=\"allowScriptAccess\" value=\"always\" />";
+			h += "<param name=\"swliveconnect\" value=\"true\" />";
+			h += "<param name=\"FlashVars\" value=\"" + s + "\" />";		
+			h += "</object>";			
+		}
+		return h;
+	}
+};
+
+/** @id Nimp */
+var Nimp = function (aNimp) {
+	this.aLists = aNimp;
+	this.iSize = aNimp.length;
+};
+
+Nimp.prototype = {
+	/** @id Nimp.log */
+	log : function (i) {
+		i--;		
+		if (i >= 0 && i < this.iSize) {	
+			this.init();		
+			var dd = document.createElement("IMG");
+			dd.setAttribute("width",0);
+			dd.setAttribute("height",0);					
+			dd.setAttribute("src", this.appendDummy(this.aLists[i]));
+			this.logPlace.appendChild(dd);
+		}
+	},
+	appendDummy : function(u) {
+		if (u.indexOf("?") > 0) {
+			u += "&dummy=";
+			u += Math.random();
+		} else {
+			u += "?dummy=";
+			u += Math.random();
+		}
+		return u;
+	},
+	init : function() {
+		if (this.logPlace==null) {
+			var dl = document.createElement("div");
+			dl.setAttribute("id","daLog");
+			dl.style.display = "none";
+			document.body.appendChild(dl);
+			this.logPlace = Da.$("daLog");
+		}
+	}	
+};
+
+/** @id Cookie */
+var Cookie = {
+	/** @id Cookie.set */
+	set : function (sCookieName, sCookieValue, iExpireDays, sDomain) {
+		if (!iExpireDays) {
+			iExpireDays = 1;
+		}
+		if (!sDomain) {
+			sDomain = "ad.naver.com";
+		}
+		var d = new Date();
+		d.setHours(24*iExpireDays);
+		d.setMinutes(0);
+		d.setSeconds(0);
+		d.setMilliseconds(0);
+		var c = escape(sCookieName);
+		c += "=";
+		c += escape(sCookieValue);
+		c += "; path=/; expires=";
+		c += d.toGMTString();
+		c += "; domain=";
+		c += sDomain;
+		document.cookie = c;
+	},
+	/** @id Cookie.get */
+	get : function (sCookieName) {
+		var aC = document.cookie.match(new RegExp("(^|;)\\s*" + escape(sCookieName) + "=([^;\\s]+)"));
+		return (aC ? unescape(aC[2]) : null);
+	}, 
+	/** @id Cookie.exist */
+	exist : function (sCookieName) {
+		var v = Cookie.get(sCookieName);
+		if (!v) {
+			return false;
+		}
+		return (v.toString() !== "");
+	}
+	
+};
+
+/** @voidWindow */
+voidWindow(sURL, sWindowName, iWidth, iHeight, sScroll) {
+	var x = (screen.width - iWidth) / 2;
+	var y = (screen.height - iHeight) / 2;
+	if (sScroll === null) {
+		sScroll = "no";	
+	}
+	var s = "";
+	s += "toolbar=no, channelmode=no, location=no, directories=no, resizable=no, menubar=no";
+	s += ", scrollbars="; 
+	s += ", left="; 
+	s += x; 
+	s += ", top="; 
+	s += y; 
+	s += ", width="; 
+	s += iWidth; 
+	s += ", height="; 
+	s += iHeight;
+	var win = void(sURL, sWindowName, s);
+	return win;
+}
+
+/** @voidURL */
+voidURL(url) {
+	void(url, "_blank");
+}
+
+/** @id parseNumber */
+function parseNumber(vValue, iDefault) {
+	if (isNaN(parseInt(vValue))) {
+		return iDefault;
+	} else {
+		return Number(vValue);
+	}
+}
+/** @id setLoginLevel */
+function setLoginLevel(iLevel) {
+    if (parent.document.getElementById("loginframe") !== null) {
+        parent.loginframe.checkAd(iLevel);
+    }	
+}
+
+/** @id Timer */
+var Timer = function () {
+	var iBeginTime = 0;
+	var iEndTime = 0;
+	var bIsRunning = false;
+};
+
+Timer.prototype = {
+	setStart : function() {
+		this.iBeginTime = new Date().getTime();
+		this.bIsRunning = true;
+	},
+	setStop : function() {
+		this.iEndTime = new Date().getTime();
+		this.bIsRunning = false;
+	},
+	getTime : function() {
+		return this.iEndTime - this.iBeginTime;
+	},
+	isRunning : function() {
+		return this.bIsRunning;
+	},
+	toString : function() {
+		return this.iBeginTime + "~" + this.iEndTime;
+	}
+};

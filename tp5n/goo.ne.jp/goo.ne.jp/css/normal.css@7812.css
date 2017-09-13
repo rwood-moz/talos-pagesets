@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+/* ### center column ### */
+#tcCenter .ccBox {border:solid 1px #bfced7; margin:0 0 10px;}
+#tcCenter .ccBox h2 {background:#fff url("../img/gr.gif") 0 0 repeat-x;}
+#tcCenter .ccBox .ccContents {background:#fff url("../img/service.gif") 0 -320px repeat-x;}
+
+#topNews {background:url("../img/news_bg.gif") bottom repeat-x; border:solid 1px #c0cfd8;}
+#newsTab {background:#2aace0 url("../img/news_bg.gif") top repeat-x;}
+#newsTab li span {border-right:solid 1px #dbf2f9; border-bottom: solid 1px #bfcfd8;}
+#newsTab li span a {border-top:solid 1px #c2e9f6; border-right:solid 1px #b8dbf0;}
+#newsTab li span.top a {border-left:solid 1px #c0cfd8;}
+#newsTab li span.last {border-right:solid 1px #c0cfd8;}
+
+#newsTab li.on span a {border-right:solid 1px #bfced7;}
+
+#newsFt {border-top:dotted 1px #bfcfd8;}
+
+#zoom {border:solid 1px #bbbbbb; background:#fff url("../img/gr.gif") 0 -200px repeat-x;}
+
+#zoom ul.paging li a:hover {background:#efefef;}
+#zoom ul.paging li.on a {background:#0ab7f3;}
+#zoom ul.paging li.on a:hover {background:#0ab7f3;}
+
+#zoomContents {background:url("../img/service.gif") 0 -320px repeat-x;}
+
+#osusume {border:solid 1px #c1d0d9;}
+#osusume h2 {background:url("../img/icon.gif@7811") -32px -116px no-repeat;}
+
+#gtContents .gtcModule h2 {background:url("../img/icon.gif@7811") -32px -57px no-repeat;}
+
+#oshiete h3 {background:url("../img/oshiete_bg.gif") bottom repeat-x;}
+
+
+/* ### left column ### */
+#tcLeft .tc, #tcLeft .bc {background:#c0ced7;}
+#tcLeft .tc span, #tcLeft .bc span {border-color:#c0ced7;}
+
+.lcBox .lcHeader {border-left:solid 1px #c0ced7; border-right:solid 1px #c0ced7; background:#fff url("../img/gr.gif") 0 0 repeat-x;}
+.lcBox .lcContents {border-left:solid 1px #c0ced7; border-right:solid 1px #c0ced7;}
+.lcBox .lcContents .lcinbox {background:url("../img/service.gif") 0 -320px repeat-x;}
+
+.lcFooter {background:url("../img/service.gif") 0 -320px repeat-x; border-left:solid 1px #c0ced7; border-right:solid 1px #c0ced7;}
+.lcFooter div {background:url("../img/gr_w2g.gif") bottom repeat-x;}
+
+#login .tc, #login .bc {background:#d9d9d9;}
+#login .tc span, #login .bc span {border-color:#d9d9d9;}
+
+#login .outBox {border-left:solid 1px #d9d9d9; border-right:solid 1px #d9d9d9; background:#fff url("../img/login_bg.gif") top repeat-x;}
+
+#pService .tc, #pService .bc {background:#e1e1e1;}
+#pService .tc span, #pService .bc span {border-color:#e1e1e1;}
+
+#psOutbox {border-left:solid 1px #e1e1e1; border-right:solid 1px #e1e1e1;}
+li#mail, li#blog, li#sns, li#bmark {background:#fff url("../img/ps_bg.gif") bottom repeat-x;}
+ul#psList li div.inbox {border-top:solid 1px #e1e1e1;}
+
+#gooServices div.header {background:url("../img/service.gif") 0 -288px;}
+#gooServices div.header h3 {background:url("../img/service.gif") 0 0 no-repeat;}
+
+/* ### right column ### */
+.rcBox {border:solid 1px #bfcfd8;}
+.rcBox h2 {background:#fff url("../img/gr.gif") 0 0 repeat-x;}
+.rcBox .rcContents {background:#fff url("../img/service.gif") 0 -320px repeat-x;}
+
+#fun h3 {background:url("../img/icon.gif@7811") -32px -56px no-repeat; *background-position:-32px -57px;}
+
+#areaInfo {border:solid 1px #c1d0d9;}
+#areaInfo h2 {background:#fff url("../img/gr.gif") 0 -100px repeat-x;}
+
+#areaInfo .rcContents {background-color:#fbffff;}
+
+#areaInfo .rcContents .aiModule h3 {border-bottom:dotted 1px #69cef1;}
+#areaInfo .rcContents .aiModule h3 span {background:url("../img/icon.gif@7811") -32px 5px no-repeat; *background-position:-32px 3px;}
+
+#traffic h4 {border-bottom:solid 1px #68cdf0;}
+
+#tv .tvMenu li {background:#fff url("../img/gr.gif") 0 0 repeat-x;}
+
+/* ### header ### */
+#startPage {background:#fafbfd url("../img/bg_ghtop.gif") bottom repeat-x; border-left:solid 1px #a5b6c6; border-right:solid 1px #a5b6c6;}
+
+#gooCustom {background:#fafbfd url("../img/bg_ghtop.gif") bottom repeat-x;}
+
+#ghBody {background:#fff url("../img/bg_ghbody.gif") repeat-x bottom;}
+
+#ghsWrapper {margin:0 0 0 205px;}
+#ghSearch {background:url("../img/bg_ghbody.gif") 0 0 repeat-x;}
+#ghsInbox {background:url("../img/sch_main.gif") -10px 0 no-repeat;}
+#ghsInbox .inbox {background:url("../img/sch_main.gif") 0 bottom no-repeat;}
+
+#ghsForm ul li a {border-right:solid 1px #cfcbca;}
+#ghsForm ul li a.on {background:#0191c3;}
+
+/* ### footer ### */
+#gFooter {background:url("../img/bg_gfooter.gif") bottom repeat-x;}
+
+#gfSearch {background:url("../img/bg_f_sch.gif") bottom repeat-x;}

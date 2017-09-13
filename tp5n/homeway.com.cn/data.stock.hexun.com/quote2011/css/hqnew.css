@@ -1,0 +1,49 @@
+/* CSS Document */
+ *{ padding:0px; margin:0px; list-style:none; font-size:12px;}
+img{ border:0px;}
+.hqnewmod{float:left;overflow:hidden;background:#f7f7f7 url(hqnew.css) no-repeat 0px 170px; border:1px solid #ccc; padding:12px 10px 14px 10px; font-size:12px; line-height:normal; height:212px; width:277px;}
+.hqnewmod a{ color:#000; text-decoration:none}.hqnewmod a:hover{ color:#c00; text-decoration:underline}
+
+.hqnmenu{ width:52px; float:left; padding-top:3px; }
+.hqnmenu li{width:42px; height: 16px; background:url(../libg.gif) no-repeat left bottom; line-height: normal; padding:4px 0 0 11px; margin-bottom:6px; cursor: pointer;}
+.hqnmenu li a:hover{ text-decoration:none}
+.hqnmenu li.current{ background:url(../libg.gif) no-repeat left top; color:#fff}
+.hqnmenu li.current a{ color:#fff;}
+
+.hqncont{ border:1px solid #b0272e; float:left; width:214px; height:205px; padding:5px 4px 0 4px; background:#fff; overflow:hidden}
+.hqntab{ border: solid #cbcdcc; border-width:1px 1px 0 0; line-height:25px; height:25px; width:213px; background:url(../line.gif) repeat-x bottom #f0f0f0; }
+.hqntab li a:hover{ text-decoration:none}
+.hqntab li{ float:left; text-align:center; border-left:1px solid #cbcdcc; width:34px; cursor:pointer}
+.hqntab li.current{ background:#fff}
+.hqnsbox{ background:url(../searchbg.gif) no-repeat; height:25px; text-align:center; padding-top:4px;}
+.hqnsbox .hqtxt{ border:1px solid #ccc; height:19px; line-height:19px; width:142px; padding:0px 4px; float:left; margin:0px 0 0 5px; display:inline}
+.hqntab01{ border:solid #b7b7b7; border-width:1px 0 1px 0; margin:4px 0}
+.hqntab01 td{ border-top:1px solid #dbdbdb; line-height:16px; text-align:center; background:url(http://data.stock.hexun.com/quote2011/img/lineh.gif) repeat-y left top; padding-top:2px;}
+.hqntab01 td.left{ text-align:left;background:none}
+.hqntab01 td.left div{ width:62px; height:16px; overflow:visible; padding:0 5px;}
+.hqntab01 td.left div.w110{width:109px; padding:0px 2px; overflow:hidden}
+.hqntab01 td.left div.w95{width:110px; padding:0px 2px;  }
+.hqntab01 th{ line-height:16px; color:#666; font-weight:normal;background:url(http://data.stock.hexun.com/quote2011/img/lineh.gif) repeat-y left top; padding-top:3px; }
+.hqntab01 th.left{;background:none}
+.hqnbtn{ text-align:right;}
+.hqnbtn span{ float:left}
+.hqnbtnli{ margin-top:2px;}
+.hqnbtnli li{ text-align: center; float:left; margin:6px 3px 0 0; display:inline }
+.hqnbtnli li.end{margin-right:0px;}
+.hqnbtnli li a{width:67px; height:20px; border:1px solid #ccc; display:block; line-height:20px; background:url(http://data.stock.hexun.com/quote2011/img/btnbg.gif) repeat-x bottom;}
+.hqnbtnli li.w104 a{ width:103px;}
+.hqnbtnli li a:hover{ background:url(http://data.stock.hexun.com/quote2011/img/btnbg.gif) repeat-x top; color:#000; text-decoration:none; border:1px solid #95bed4}
+.hqcd0{ color:#cd0001}
+.hq197{ color:#197802}
+.hqb2b{ color:#b2b2b2}
+.hqnlist{ margin-top:7px; color:#676767}
+.hqnlist li{ margin-top:3px;}
+.hqnlist td{ text-align:center;}
+.hqbtn{ background:url(http://data.stock.hexun.com/quote2011/img/btnbg.gif) repeat-x bottom #fff; width:72px; height:17px; cursor:pointer; border:1px solid #b3b3b3}
+h3.zqtit{ font-weight:normal; clear:both; height:20px; line-height:20px; padding-top:4px; background:url(http://data.stock.hexun.com/quote2011/img/h3ico.gif) no-repeat 0px 7px; padding-left:14px; color:#666}
+.hqndata ul.hqnbtnli{ margin-top:-6px; width:214px; overflow:hidden}
+.hqndata ul li a{ height:17px; padding-top:0px; line-height:17px;}
+
+.star{color:#C66C20}
+.fbsjj06{background-color:#F9F2EC}
+.hqnewmod{ padding-top:0px; position:absolute; height:217px; border:0px; width:278px; background: #f1f1f1; padding-bottom:0}

@@ -1,0 +1,121 @@
+td.on div div div {padding:0 !important;}
+td.on div div {padding: 2px 5px;}
+.search_bare {width:99%;}
+.search_bare td{vertical-align:middle; color: #FFFFFF;}
+.search_bare .inp{width:50%;}
+.search_bare input{margin:0pt;width:100%;}
+.pl20 {padding-left: 20px;}
+.search_form .input input {font-size: 1.2em;}
+
+#goSuggest {position: absolute; font-size: .8em; font-family: arial; z-index: 1000;}
+#goSuggest .sInnr {background: #FFF; border: #666 1px solid; padding: 1px; overflow: hidden;}
+#goSuggest .mrp-item {padding: 1px 5px; white-space: nowrap; cursor: pointer; _cursor: hand;}
+#goSuggest .mrp-item div {min-width: 340px; _width: 340px;}
+#goSuggest .mrp-item a {display: block; color: #5C6566; font-size: 11px; line-height: 16px; padding-left: 8px; margin-top: -2px;}
+#goSuggest .mrp-item a:hover {color: #5C6566; text-decoration: none;}
+#goSuggest .mrp-item b {color: #00468C;}
+#goSuggest .mrp-item .spch {color: #f00; font-weight: bold;}
+#goSuggest .mrp-item-select {background: #DEDFE3;}
+#goSuggest .mrp-item-select a {color: #5C6566;}
+#goSuggest .opts {margin-top: 5px; padding: 4px 6px 4px 0; min-width: 316px; //min-width: auto; border-top: 1px solid #DBDADD;}
+#goSuggest .opts label {float: left; margin: 0 14px 0 4px; font-size: 12px;}
+#goSuggest .opts input {margin: 0 2px 2px 0; vertical-align: middle; //width: 15px; //height: 15px; //overflow: hidden;}
+#goSuggest .sClose {font-size: 11px; text-align: right;}
+#goSuggest .sClose a {color: #0857A6; text-decoration: underline; cursor: pointer; _cursor: hand;}
+#goSuggest .sClose a:hover {color: #F26D00; text-decoration: none;}
+#goSuggest .loaddisableding {position: absolute; right: 6px; top: 6px; display: none; width: 16px; height: 16px; background: url(../../../../go.imgsmail.ru/img/ajax_loaddisableder_mc.gif) 0 0 no-repeat;}
+#goSuggest .notfound {padding: 1px 5px; color: #666; text-align: center;}
+
+#goSuggest div.sClose {padding: 0px 6px 2px; font-size: 11px; text-align: right;}
+#goSuggest div.sShadow {width: 100%; height: 11px;}
+#goSuggest a.sClose {color: #0857A6; text-decoration: underline; cursor: pointer; _cursor: hand;}
+#goSuggest a.sClose:hover {color: #F26D00; text-decoration: none;}
+
+/* Shadow for absolute block */
+.bShadow1 .sCrnTR, .bShadow1 .sCrnBL, .bShadow1 .sCrnBR, .bShadow1 .sBrdR, .bShadow1 .sBrdB {position: absolute; display: block; overflow: hidden;}
+.bShadow1 .sCrnTR, .bShadow1 .sCrnBL {width: 12px; height: 12px;}
+.bShadow1 .sCrnBR {width: 17px; height: 17px;}
+.bShadow1 .sCrnTR, .bShadow1 .sCrnBR, .bShadow1 .sBrdR {right: -12px;}
+.bShadow1 .sCrnBL, .bShadow1 .sCrnBR, .bShadow1 .sBrdB {bottom: -12px;}
+.bShadow1 .sCrnTR {background: url('../../../../go.imgsmail.ru/img/shadow/1_crn_tr.png') 0 0 no-repeat; top: 0;}
+.bShadow1 .sCrnBL {background: url('../../../../go.imgsmail.ru/img/shadow/1_crn_bl.png') 0 0 no-repeat; left: auto;}
+.bShadow1 .sCrnBR {background: url('../../../../go.imgsmail.ru/img/shadow/1_crn_br.png') 0 0 no-repeat;}
+.bShadow1 .sBrdR {background: url('../../../../go.imgsmail.ru/img/shadow/1_brd_r.png') 0 0 repeat-y; width: 12px; top: 0; bottom: 0; margin-top: 12px; margin-bottom: 5px;}
+.bShadow1 .sBrdB {background: url('../../../../go.imgsmail.ru/img/shadow/1_brd_b.png') 0 0 repeat-x; height: 12px; left: 0; right: 0; margin-left: 12px; margin-right: 5px;}
+.bShadow1 .sCrnTR, .bShadow1 .sCrnBL, .bShadow1 .sCrnBR, .bShadow1 .sBrdR, .bShadow1 .sBrdB {_background: none;}
+.bShadow1 .sCrnTR {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://go.imgsmail.ru/img/shadow/1_crn_tr.png',sizingMethod='crop');}
+.bShadow1 .sCrnBL {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://go.imgsmail.ru/img/shadow/1_crn_bl.png',sizingMethod='crop');}
+.bShadow1 .sCrnBR {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://go.imgsmail.ru/img/shadow/1_crn_br.png',sizingMethod='crop');}
+.bShadow1 .sBrdR {_height: expression((parentNode.offsetHeight-17)); _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://go.imgsmail.ru/img/shadow/1_brd_r.png',sizingMethod='scale');}
+.bShadow1 .sBrdB {_width: expression((parentNode.offsetWidth-17)); _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://go.imgsmail.ru/img/shadow/1_brd_b.png',sizingMethod='scale');}
+
+#menuWrap {width:100%; font-family:Arial, Helvetica, sans-serif;}
+#menuWrap #menuLogo {}
+#menuWrap #menuLogo .mw {height:1xp; width:240px; font-size:1px}
+#menuWrap .mainCont {width:100%; margin: 0 auto; cursor:}
+#menuWrap #menuSelf {}
+#menuWrap input {border:none; background:none}
+#menuWrap table {padding: 0px; margin: 0px; border-collapse:collapse;}
+#menuWrap .h55 {height:55px}
+#menuWrap #menuSelf .mw {height:1px; width:680px; font-size:1px}
+#menuWrap .tweb {font-size:14px; font-weight:bold; padding-top:3px}
+#menuWrap .tnorm {font-size:12px;}
+#menuWrap .item {padding-left:20px}
+#menuWrap .ct {width:18px; font-size:1px; height:50%; background:url(../../../../limg2.imgsmail.ru/r/go/c_t.gif) no-repeat top left; font-size:0.1em; padding:0px; margin:0px}
+#menuWrap .cb {width:18px; font-size:1px; height:50%; background:url(../../../../limg4.imgsmail.ru/r/go/c_b.gif) no-repeat bottom left; font-size:0.1em; padding:0px; margin:0px}
+#menuWrap .q {border: none; width:98%; background:#FFF; color:#000; font-size:12px; font-family:Arial, Helvetica, sans-serif;outline-style:none;}
+#menuWrap .inhold {background:#FFFFFF url(../../../../limg4.imgsmail.ru/r/go/x_gr.gif) bottom left repeat-x; border-left: solid 1px #d6d6d6; border-top: solid 1px #d6d6d6;}
+#menuWrap .strin {}
+#menuWrap .btnplace {padding-left:10px; padding-right:10px}
+#menuWrap .btn {height:20px; width: 60px; color: #FFF; font-weight:bold; font-size:12px; font-family:Arial, Helvetica, sans-serif; background: no-repeat top left url('../../../../limg3.imgsmail.ru/r/go/btn_back.png'); //background: none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://limg3.imgsmail.ru/r/go/btn_back.png',sizingMethod='crop');}
+#menuWrap .c1, #menuWrap .c2, #menuWrap .c3, #menuWrap .c4 {display: block;}
+#menuWrap .c1 {background: url(../../../../limg2.imgsmail.ru/1.gif) no-repeat;}
+#menuWrap .c2 {background: url(../../../../limg2.imgsmail.ru/1.gif) right top no-repeat;}
+#menuWrap .c3 {background: url(../../../../limg2.imgsmail.ru/1.gif) left bottom no-repeat;}
+#menuWrap .c4 {background: url(../../../../limg2.imgsmail.ru/1.gif) right bottom no-repeat;}
+#menuWrap .mrk_in {margin:0px; padding-left:10px; background:#00468c url(../../../../limg2.imgsmail.ru/1.gif) top left no-repeat; font-family:Arial, Helvetica, sans-serif;}
+#menuWrap .mrk_out {vertical-align:top; margin:0px; padding:0px; color:#FFFFFF; padding-right:20px; background:#00468c url(http://img.mail.ru/crn.gif) bottom right no-repeat; }
+#menuWrap .mrk_in a {color:#ffffff; text-decoration: none}
+#menuWrap .spu a {padding-left:20px; padding-top:2px; padding-bottom:2px; text-decoration:underline; color:#f25100; background:url(../../../../limg3.imgsmail.ru/r/go/spu.gif) 0% 100% no-repeat}
+#menuWrap .spu a:hover {text-decoration:none}
+#menuWrap .logolinks {text-align:center; font-size:12px; padding-top:4px; white-space:nowrap}
+#menuWrap .logolinks a {width:50%; text-align:center}
+#menuWrap .inputpad {padding: 8px 8px 7px;}
+#menuWrap .toggler {text-decoration:none; color:#0857A6; _cursor:hand; cursor:pointer}
+#menuWrap .current,
+#menuWrap .common {margin: 0; padding: 0; height: 20px; float: left; list-style-type: none; white-space: nowrap;}
+#menuWrap .common {padding-left: 4px; padding-right:4px; font-size:80%;}
+#menuWrap .common div {}
+#menuWrap .common div a:link, #menuWrap .common div a:visited {text-decoration:underline; color:#0757a5}
+#menuWrap .common div a:hover {text-decoration:none;  color:#0757a5}
+#menuWrap .common div.ahold {padding:0px 0px 0px 0px; margin:0px;}
+#menuWrap .current {background:#00468c url('../../../../limg1.imgsmail.ru/r/go/crn_inv.gif') bottom right no-repeat; font-family:Arial, Helvetica, sans-serif; color:#FFF; font-weight:bold; font-size:90%}
+#menuWrap .current div.tlc {background:url(../../../../limg2.imgsmail.ru/1.gif) top left no-repeat; padding-left:10px}
+#menuWrap .current div.ahold {padding:2px 25px 0px 0px; margin:0px; color:#FFFFFF;}
+#menuWrap .current div.ahold a {text-decoration:none; color:#FFFFFF}
+#menuWrap .brand_back {background:#00468C; width:100%;}
+#menuWrap .bookmarksBrand {width: 100%;}
+#menuWrap .bookmarksCell {width: 100%; vertical-align: bottom;}
+#menuWrap .bookmarksList {margin: 0; padding: 0; height: 20px; overflow: hidden; list-style-type: none;}
+#menuWrap .brandCell {white-space: nowrap; text-align: right;}
+#GOBrand {display: none;}
+#GOBrand .brandWrap {display: block; height: 20px; overflow: hidden;}
+
+
+.onAirNow {background: #fff; width: 240px; text-align: left; padding-left:10px}
+.onAirNow .brd {border: none;}
+.onAirNow .runstr {background: #58564b url('../../../../go.mail.ru/img/slot/onair/runstr.gif') 0 0 no-repeat; height: 30px;}
+.onAirNow .onAirLoadBlock {background: #fff url('../../../../go.mail.ru/img/ajax_loaddisableder_hor.gif') center center no-repeat; position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.8; filter: alpha(opacity=80); zoom: 1;}
+.onAirNow .header {position: relative; background: #03488d url('../../../../go.mail.ru/img/slot/onair/header_bg1.png') 0 0 no-repeat; height: 80px;}
+.onAirNow .header a img {border: 0;}
+.onAirNow .header a.prj, .onAirNow .header a.prt {position: absolute; top: 20px;}
+.onAirNow .header a.prj {left: 51px;}
+.onAirNow .header a.prt {left: 119px;}
+.onAirNow .header a.prj img {width: 68px; height: 24px;}
+.onAirNow .header a.prt img {width: 100px; height: 24px;}
+.onAirNow .onAirList {_width: 100%; padding: 0; margin: 0; list-style-type: none;}
+.onAirNow .onAirItem {background: none; padding: 0; margin: 0; font-family: Arial, Helvetica, sans-serif; white-space: nowrap;}
+.onAirNow .onAirItem a {display: block; padding: 0 10px 7px 0px; text-decoration: underline; zoom: 1;}
+.onAirNow .onAirItem a:hover {}
+.onAirNow .odd {}
+.onAirNow .even {}
