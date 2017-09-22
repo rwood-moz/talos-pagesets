@@ -1,0 +1,235 @@
+/* Mod 504 */ 
+#mod-504-olympic { padding:21px 0 0 0; }
+#mod-504-olympic h3 a,
+#mod-504-olympic h3 span { display:block; width:191px; height:20px; margin:0 0 20px 0; background:url(../_img/mod-504-olympic-tll.png); overflow:hidden; text-indent:-9999px; }
+#mod-504-olympic .ctn-highlight { margin:0 0 17px 0; }
+#mod-504-olympic .lin-hor-dotted { border-bottom-width:17px; }
+.LNG_en #mod-504-olympic h3 a,
+.LNG_en #mod-504-olympic h3 span { background-position:0 -20px; }
+
+.mod-audience-pulse-ver { margin-bottom:8px; }
+
+#ctn-tgm-header {margin-left:208px; position:absolute; top:0; width:728px; z-index:1000;}
+
+
+/*pbuttons featured news*/
+.ctn-tgm-button-5 { width:195px; height:30px; padding:0 0 17px 0; }
+.ctn-tgm-buttons-holder{padding:0px; height:auto;}
+.ctn-tgm-buttons-holder .ctn-tgm-button-4{ float:left; }
+.ctn-tgm-buttons-holder .ctn-tgm-button-5{ float:right; }
+
+/* Mod video store */
+.mod-video-store{background:#191917; display:block; height:8px; margin-bottom:22px;}
+.mod-533-video-store{background:#191917; display:block; height:201px; margin-bottom:22px; padding:0 6px;}
+.mod-533-video-store .lin-hor-dotted{z-index: 1; border-color: #191917; border-width: 17px 0px 12px; background: url("../../core/_img/lin-dotted-5.png") repeat-x scroll left top transparent;}
+.mod-533-video-store .ttl-section {display:block; overflow: hidden; margin-bottom: 7px;}
+.mod-533-video-store .ttl-section span{background: url(../_img/ttl-section.png) no-repeat 0 5px transparent; width: 162px;}
+.mod-533-video-store .ttl-section:hover span{background-position: -205px 5px; width: 162px;}
+.mod-533-video-store ul{ display: block; float: left; height: 96px; overflow: hidden; width: 222px;}
+.mod-533-video-store li{ float: left; margin-left:12px; width:66px; height:94px; display:block;}
+.mod-533-video-store li a {display:block; overflow:hidden; position:relative;}
+.mod-533-video-store li a .info {display:none; z-index:10; top:0px; left:0px; position:absolute;  width:56px; height:84px; padding:5px 4px; text-align:center; vertical-align:middle;  color:#fff !important;}
+.mod-533-video-store li a .layer { display:none; z-index:5; background:#191917; filter: alpha(opacity = 70); opacity:0.7; position:absolute; width:60px; height:88px; top:0px; left:0px;}
+.mod-533-video-store li a:hover .info,
+.mod-533-video-store li a:hover .layer{display:block; cursor: pointer;}
+.mod-533-video-store a.navigation{display:block; margin-top: 36px; height:25px; width:12px; text-indent:-99999px; background: url("../../core/_img/arrow-carrousel.png") no-repeat 0 0 transparent;}
+.mod-533-video-store a.previous{float:left; margin-left: 9px; margin-right: 12px;}
+.mod-533-video-store a.next{float:right;  margin-left: 12px;  margin-right: 9px;  background-position:-32px 0;}
+.mod-533-video-store a.previous:hover{background-position:-127px 0; cursor: pointer;}
+.mod-533-video-store a.next:hover{background-position:-160px 0; cursor: pointer;}
+.mod-533-video-store a.disabled-prev{background-position:-64px 0!important; cursor: default !important;}
+.mod-533-video-store a.disabled-next{background-position:-96px 0!important; cursor: default !important;}
+
+
+/* Mod 214b */ 
+.LNG_pt .mod-214b-services .ttl-section span { width:151px; background-image:url("../../pt/_img/ttl-section.png"); }
+.LNG_es .mod-214b-services .ttl-section span { width:157px; background-image:url("../../es/_img/ttl-section.png"); }
+.mod-214b-services { position:relative; width:635px; height:141px; }
+.mod-214b-services .ttl-section span { height:24px; background-position:0 -200px; }
+.mod-214b-services .ttl-section a:hover span { background-position:-200px -200px; }
+.mod-214b-services .col { float:left; width:263px; margin-right:19px; }
+.mod-214b-services label { float:left; margin:11px 0 5px 0px; font-size:11px; font-weight:bold; }
+.mod-214b-services input { float:left; clear:left; width:264px; border:1px solid #BEB7AF; padding:2px; color:#999999; }
+.mod-214b-services input.focus { border-color:#FF9900; }
+.mod-214b-services input.content { color:#47423A; }
+.mod-214b-services button { float:left; margin-top:26px; }
+.mod-214b-services .feedback { position:absolute; display:none; border:2px solid #FF9900; padding:20px 5px 5px; top:81px; width:256px; margin-right:0; background:#FFFFFF; color:#FF0000; font-size:11px; font-weight:bold; text-align:center; }
+.mod-214b-services .feedback.active { display:block; }
+.mod-214b-services .feedback a { overflow:hidden; float:right; position:absolute; width:9px; height:9px; top:5px; right:5px; background:url("../../core/_img/ico-general.png") no-repeat scroll 0 -900px transparent; text-indent:-9999px; }
+.mod-214b-services ul { position:absolute; display:none; border:2px solid #FF9900; left:282px; padding:5px 5px 3px; width:256px; background:#FFFFFF; text-transform:uppercase; }
+.mod-214b-services ul.active { display:block; }
+.mod-214b-services ul li { margin-bottom:5px; padding-bottom:5px; background:url("../../core/_img/lin-dotted.gif") repeat-x left bottom; }
+.mod-214b-services ul li.bottom { background:none; }
+.mod-214b-services ul li a { display:block; padding-left:13px; padding-bottom:2px; background:url("../../core/_img/ico-general.png") no-repeat -192px -221px; cursor:pointer; }
+.mod-214b-services ul .city { width:220px; }
+.mod-214b-services ul .city,
+.mod-214b-services ul .state { overflow:hidden; display:inline-block; max-height:13px; }
+.mod-214b-services ul .state { width:20px; text-align:right; }
+
+
+
+/* MOD SOCCER GUIDE */
+.mod-064c-soccer-guide { float:left; width:100%; padding-top:9px; }
+.mod-064c-soccer-guide .ttl { float:left; height:10px; margin:1px 8px 0 0; background-repeat:no-repeat; line-height:99em; overflow:hidden; }
+.LNG_pt .mod-064c-soccer-guide .ttl { width:102px; }
+.mod-064c-soccer-guide span,
+.mod-064c-soccer-guide ul,
+.mod-064c-soccer-guide ul li { float:left; }
+.mod-064c-soccer-guide .tabs a { float:left; height:10px; margin-top:1px; background-repeat:no-repeat; line-height:99em; overflow:hidden; }
+.mod-064c-soccer-guide .tabs .selected a,
+.mod-064c-soccer-guide .tabs a:hover,
+.mod-064c-soccer-guide .tabs a:focus { background-position:0 -12px; }
+.mod-064c-soccer-guide .tabs .selected a { cursor:default; }
+.mod-064c-soccer-guide .tabs li { margin-right:8px; }
+.LNG_pt .mod-064c-soccer-guide .tabs .first a { width:34px; }
+.mod-064c-soccer-guide .tabs li span { float:left; height:13px; width:2px; margin-left:7px; background:url("../../core/_img/lin-dotted.png") repeat-y; }
+.mod-064c-soccer-guide .tabs .last span { margin:0; background:none; }
+.mod-064c-soccer-guide .teams { clear:left; float:left; width:100%; margin-top:9px; }
+.mod-064c-soccer-guide .teams li { height:22px; }
+.RGN_BR .mod-064c-soccer-guide .teams li { margin-right:9px; }
+.mod-064c-soccer-guide .teams li { width:22px; height:22px; margin-right:12px; }
+.mod-064c-soccer-guide .teams li a { display:block; width:24px; height:24px; }
+.mod-064c-soccer-guide .teams #first a { background:url("../../../../../esportes.terra.com.br/futebol/brasileiro/conteudo/mod-064c-soccer-guide-br-a.png") no-repeat; }
+.mod-064c-soccer-guide .teams #first a:focus,
+.mod-064c-soccer-guide .teams #first a:hover { background:url("../../../../../esportes.terra.com.br/futebol/brasileiro/conteudo/mod-064c-soccer-guide-br-a-hover.png") no-repeat; }
+.mod-064c-soccer-guide .teams #second a { background:url("../../../../../esportes.terra.com.br/futebol/brasileiro/conteudo/mod-064c-soccer-guide-br-b.png") no-repeat; }
+.mod-064c-soccer-guide .teams #second a:focus,
+.mod-064c-soccer-guide .teams #second a:hover { background:url("../../../../../esportes.terra.com.br/futebol/brasileiro/conteudo/mod-064c-soccer-guide-br-b-hover.png") no-repeat; }
+.mod-064c-soccer-guide .teams #first li .p1 { background-position:0 0; }
+.mod-064c-soccer-guide .teams #first li .p1:focus,
+.mod-064c-soccer-guide .teams #first li .p1:hover { background-position:0 0; }
+.mod-064c-soccer-guide .teams #first li .p2 { background-position:0 -25px; }
+.mod-064c-soccer-guide .teams #first li .p2:focus,
+.mod-064c-soccer-guide .teams #first li .p2:hover { background-position:0 -25px; }
+.mod-064c-soccer-guide .teams #first li .p3 { background-position:0 -54px; }
+.mod-064c-soccer-guide .teams #first li .p3:focus,
+.mod-064c-soccer-guide .teams #first li .p3:hover { background-position:0 -54px; }
+.mod-064c-soccer-guide .teams #first li .p4 { background-position:0 -80px; }
+.mod-064c-soccer-guide .teams #first li .p4:focus,
+.mod-064c-soccer-guide .teams #first li .p4:hover { background-position:0 -80px; }
+.mod-064c-soccer-guide .teams #first li .p5 { background-position:0 -106px; }
+.mod-064c-soccer-guide .teams #first li .p5:focus,
+.mod-064c-soccer-guide .teams #first li .p5:hover { background-position:0 -106px; }
+.mod-064c-soccer-guide .teams #first li .p6 { background-position:0 -132px; }
+.mod-064c-soccer-guide .teams #first li .p6:focus,
+.mod-064c-soccer-guide .teams #first li .p6:hover { background-position:0 -132px; }
+.mod-064c-soccer-guide .teams #first li .p7 { background-position:0 -158px; }
+.mod-064c-soccer-guide .teams #first li .p7:focus,
+.mod-064c-soccer-guide .teams #first li .p7:hover { background-position:0 -158px; }
+.mod-064c-soccer-guide .teams #first li .p8 { background-position:0 -184px; }
+.mod-064c-soccer-guide .teams #first li .p8:focus,
+.mod-064c-soccer-guide .teams #first li .p8:hover { background-position:0 -184px; }
+.mod-064c-soccer-guide .teams #first li .p9 { background-position:0 -210px; }
+.mod-064c-soccer-guide .teams #first li .p9:focus,
+.mod-064c-soccer-guide .teams #first li .p9:hover { background-position:0 -210px; }
+.mod-064c-soccer-guide .teams #first li .p10 { background-position:0 -236px; }
+.mod-064c-soccer-guide .teams #first li .p10:focus,
+.mod-064c-soccer-guide .teams #first li .p10:hover { background-position:0 -236px; }
+.mod-064c-soccer-guide .teams #first li .p11 { background-position:0 -262px; }
+.mod-064c-soccer-guide .teams #first li .p11:focus,
+.mod-064c-soccer-guide .teams #first li .p11:hover { background-position:0 -262px; }
+.mod-064c-soccer-guide .teams #first li .p12 { background-position:0 -288px; }
+.mod-064c-soccer-guide .teams #first li .p12:focus,
+.mod-064c-soccer-guide .teams #first li .p12:hover { background-position:0 -288px; }
+.mod-064c-soccer-guide .teams #first li .p13 { background-position:0 -314px; }
+.mod-064c-soccer-guide .teams #first li .p13:focus,
+.mod-064c-soccer-guide .teams #first li .p13:hover { background-position:0 -314px; }
+.mod-064c-soccer-guide .teams #first li .p14 { background-position:0 -340px; }
+.mod-064c-soccer-guide .teams #first li .p14:focus,
+.mod-064c-soccer-guide .teams #first li .p14:hover { background-position:0 -340px; }
+.mod-064c-soccer-guide .teams #first li .p15 { background-position:0 -366px; }
+.mod-064c-soccer-guide .teams #first li .p15:focus,
+.mod-064c-soccer-guide .teams #first li .p15:hover { background-position:0 -366px; }
+.mod-064c-soccer-guide .teams #first li .p16 { background-position:0 -392px; }
+.mod-064c-soccer-guide .teams #first li .p16:focus,
+.mod-064c-soccer-guide .teams #first li .p16:hover { background-position:0 -392px; }
+.mod-064c-soccer-guide .teams #first li .p17 { background-position:0 -418px; }
+.mod-064c-soccer-guide .teams #first li .p17:focus,
+.mod-064c-soccer-guide .teams #first li .p17:hover { background-position:0 -418px; }
+.mod-064c-soccer-guide .teams #first li .p18 { background-position:0 -444px; }
+.mod-064c-soccer-guide .teams #first li .p18:focus,
+.mod-064c-soccer-guide .teams #first li .p18:hover { background-position:0 -444px; }
+.mod-064c-soccer-guide .teams #first li .p19 { background-position:0 -470px; }
+.mod-064c-soccer-guide .teams #first li .p19:focus,
+.mod-064c-soccer-guide .teams #first li .p19:hover { background-position:0 -470px; }
+.mod-064c-soccer-guide .teams #first li .p20 { background-position:0 -496px; }
+.mod-064c-soccer-guide .teams #first li .p20:focus,
+.mod-064c-soccer-guide .teams #first li .p20:hover { background-position:0 -496px; }
+.mod-064c-soccer-guide .teams #second li .p1 { background-position:0 0; }
+.mod-064c-soccer-guide .teams #second li .p1:focus,
+.mod-064c-soccer-guide .teams #second li .p1:hover { background-position:0 0; }
+.mod-064c-soccer-guide .teams #second li .p2 { background-position:0 -26px; }
+.mod-064c-soccer-guide .teams #second li .p2:focus,
+.mod-064c-soccer-guide .teams #second li .p2:hover { background-position:0 -26px; }
+.mod-064c-soccer-guide .teams #second li .p3 { background-position:0 -54px; }
+.mod-064c-soccer-guide .teams #second li .p3:focus,
+.mod-064c-soccer-guide .teams #second li .p3:hover { background-position:0 -54px; }
+.mod-064c-soccer-guide .teams #second li .p4 { background-position:0 -80px; }
+.mod-064c-soccer-guide .teams #second li .p4:focus,
+.mod-064c-soccer-guide .teams #second li .p4:hover { background-position:0 -80px; }
+.mod-064c-soccer-guide .teams #second li .p5 { background-position:0 -106px; }
+.mod-064c-soccer-guide .teams #second li .p5:focus,
+.mod-064c-soccer-guide .teams #second li .p5:hover { background-position:0 -106px; }
+.mod-064c-soccer-guide .teams #second li .p6 { background-position:0 -132px; }
+.mod-064c-soccer-guide .teams #second li .p6:focus,
+.mod-064c-soccer-guide .teams #second li .p6:hover { background-position:0 -132px; }
+.mod-064c-soccer-guide .teams #second li .p7 { background-position:0 -158px; }
+.mod-064c-soccer-guide .teams #second li .p7:focus,
+.mod-064c-soccer-guide .teams #second li .p7:hover { background-position:0 -158px; }
+.mod-064c-soccer-guide .teams #second li .p8 { background-position:0 -184px; }
+.mod-064c-soccer-guide .teams #second li .p8:focus,
+.mod-064c-soccer-guide .teams #second li .p8:hover { background-position:0 -184px; }
+.mod-064c-soccer-guide .teams #second li .p9 { background-position:0 -210px; }
+.mod-064c-soccer-guide .teams #second li .p9:focus,
+.mod-064c-soccer-guide .teams #second li .p9:hover { background-position:0 -210px; }
+.mod-064c-soccer-guide .teams #second li .p10 { background-position:0 -236px; }
+.mod-064c-soccer-guide .teams #second li .p10:focus,
+.mod-064c-soccer-guide .teams #second li .p10:hover { background-position:0 -236px; }
+.mod-064c-soccer-guide .teams #second li .p11 { background-position:0 -262px; }
+.mod-064c-soccer-guide .teams #second li .p11:focus,
+.mod-064c-soccer-guide .teams #second li .p11:hover { background-position:0 -262px; }
+.mod-064c-soccer-guide .teams #second li .p12 { background-position:0 -288px; }
+.mod-064c-soccer-guide .teams #second li .p12:focus,
+.mod-064c-soccer-guide .teams #second li .p12:hover { background-position:0 -288px; }
+.mod-064c-soccer-guide .teams #second li .p13 { background-position:0 -314px; }
+.mod-064c-soccer-guide .teams #second li .p13:focus,
+.mod-064c-soccer-guide .teams #second li .p13:hover { background-position:0 -314px; }
+.mod-064c-soccer-guide .teams #second li .p14 { background-position:0 -340px; }
+.mod-064c-soccer-guide .teams #second li .p14:focus,
+.mod-064c-soccer-guide .teams #second li .p14:hover { background-position:0 -340px; }
+.mod-064c-soccer-guide .teams #second li .p15 { background-position:0 -366px; }
+.mod-064c-soccer-guide .teams #second li .p15:focus,
+.mod-064c-soccer-guide .teams #second li .p15:hover { background-position:0 -366px; }
+.mod-064c-soccer-guide .teams #second li .p16 { background-position:0 -392px; }
+.mod-064c-soccer-guide .teams #second li .p16:focus,
+.mod-064c-soccer-guide .teams #second li .p16:hover { background-position:0 -392px; }
+.mod-064c-soccer-guide .teams #second li .p17 { background-position:0 -418px; }
+.mod-064c-soccer-guide .teams #second li .p17:focus,
+.mod-064c-soccer-guide .teams #second li .p17:hover { background-position:0 -418px; }
+.mod-064c-soccer-guide .teams #second li .p18 { background-position:0 -444px; }
+.mod-064c-soccer-guide .teams #second li .p18:focus,
+.mod-064c-soccer-guide .teams #second li .p18:hover { background-position:0 -444px; }
+.mod-064c-soccer-guide .teams #second li .p19 { background-position:0 -470px; }
+.mod-064c-soccer-guide .teams #second li .p19:focus,
+.mod-064c-soccer-guide .teams #second li .p19:hover { background-position:0 -470px; }
+.mod-064c-soccer-guide .teams #second li .p20 { background-position:0 -496px; }
+.mod-064c-soccer-guide .teams #second li .p20:focus,
+.mod-064c-soccer-guide .teams #second li .p20:hover { background-position:0 -496px; }
+
+/* Mod 215b */ 
+.mod-215b-video {clear: both;}
+.mod-215b-video  .ctn-captioned-image{ margin-bottom:8px;}
+.mod-215b-video  .ctn-captioned-image a:hover .play-video{top:10px;}
+.mod-215b-video  .ctn-captioned-image.bgr-lightgray a:hover .play-video{   background: url("../../core/_img/btn-play-large.png") no-repeat scroll 0 0 transparent; height: 68px;    left: 100px;    top: 55px;   width: 99px;}	
+.mod-215b-video  .bgr-lightgray{padding: 5px;}
+.mod-215b-video  .bgr-lightgray a.txt{ display: block; padding: 8px 0 0 3px; overflow: hidden;}
+.mod-215b-video .ctn-more{font-weight:bold;margin-top: 19px;}
+.mod-215b-video .ctn-more li{background: url("../../core/_img/lin-dotted.png") repeat-y scroll right top transparent; float:left; margin-right: 8px;padding: 0 9px 0 0;}
+.mod-215b-video .ctn-more li a{color:#F90;}
+.mod-215b-video .ctn-more .first{margin-right:2px;}
+.mod-215b-video .ctn-more .first,
+.mod-215b-video .ctn-more .last{background:none;}
+
+/* 1280 */
+#tgm-bar1_1280.ctn-tgm-b1280 { top:90px; }
+#tgm-bar2_1280.ctn-tgm-b1280 { top:548px; }

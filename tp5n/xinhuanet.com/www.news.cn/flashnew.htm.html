@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="publishid" content="119387.0.3"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <title>Highflash</title>
+    <link rel="STYLESHEET" type="text/css" href="../imgs.xinhuanet.com/icon/2010sy/shexpo0910.css" />
+  </head>
+  <body>
+    <div id="focus">
+      <div id="au" />
+<div style="display: block"><a href="http://news.xinhuanet.com/photo/2011-04/08/c_121283507.htm" target="_blank"><img src="titlepic/11760275_l0h.jpg" width="610" height="265" /></a></div>
+<div style="display: none"><a href="http://news.xinhuanet.com/photo/2011-04/08/c_121283195.htm" target="_blank"><img src="titlepic/11760236_l0h.jpg" width="610" height="265" /></a></div>
+<div style="display: none"><a href="http://news.xinhuanet.com/photo/2011-04/08/c_121283186.htm" target="_blank"><img src="titlepic/11760218_l0h.jpg" width="610" height="265" /></a></div>
+<div style="display: none"><a href="http://www.xinhuanet.com/photo/staticcontent/2011rikan/20110408/rikan.html" target="_blank"><img src="titlepic/11760148_l0h.jpg" width="610" height="265" /></a></div>
+<div style="display: none"><a href="http://news.xinhuanet.com/photo/2011-04/08/c_121282087.htm" target="_blank"><img src="titlepic/11759881_l0h.jpg" width="610" height="265" /></a></div>
+<div style="display: none"><a href="http://www.gd.xinhuanet.com/zhibo/cgb/" target="_blank"><img src="titlepic/11758511_l0h.jpg" width="610" height="265" /></a></div>
+      <div id="no" style="display: none"></div>
+      <div class="lunbo">
+        <table border="0" cellPadding="0" cellSpacing="0" align="right">
+          <tr>
+            <td class="active" id="t0" onmouseover="Mea(0);clearAuto();" onmouseout="setAuto();">1</td>
+            <td width="6"></td>
+            <td class="bg" id="t1" onmouseover="Mea(1);clearAuto();" onmouseout="setAuto();">2</td>
+            <td width="6"></td>
+            <td class="bg" id="t2" onmouseover="Mea(2);clearAuto();" onmouseout="setAuto();">3</td>
+            <td width="6"></td>
+            <td class="bg" id="t3" onmouseover="Mea(3);clearAuto();" onmouseout="setAuto();">4</td>
+            <td width="6"></td>
+            <td class="bg" id="t4" onmouseover="Mea(4);clearAuto();" onmouseout="setAuto();">5</td>
+            <td width="6"></td>
+            <td class="bg" id="t5" onmouseover="Mea(5);clearAuto();" onmouseout="setAuto();">6</td>
+          </tr>
+        </table>
+      </div>
+      <div id="conau">
+        <div> </div>
+        <div style="display: none"> </div>
+        <div style="display: none"> </div>
+        <div style="display: none"> </div>
+        <div style="display: none"> </div>
+        <div style="display: none"> </div>
+      </div>
+    </div>
+    <script type="text/javascript"> 
+      var n=0;
+      function Mea(value){
+      	n=value;
+      	setBg(value);
+      	plays(value);
+      	conaus(n);
+      	}
+      function setBg(value){
+      	for(var i=0;i<6;i++)
+      		document.getElementById("t"+i+"").className="bg";
+      		document.getElementById("t"+value+"").className="active";
+      	} 
+      function plays(value){
+      	try
+      	{
+      		with (au){
+      			filters[0].Apply();
+      			for(i=0;i<6;i++)i==value?children[i].style.display="block":children[i].style.display="none"; 
+      			filters[0].play(); 		
+      			}
+      	}
+      	catch(e)
+      	{
+      		var d = document.getElementById("au").getElementsByTagName("div");
+      		for(i=0;i<6;i++)i==value?d[i].style.display="block":d[i].style.display="none"; 
+      	}
+      }
+      function conaus(value){
+      	try
+      	{
+      		with (conau){
+      
+      				for(i=0;i<6;i++)i==value?children[i].style.display="block":children[i].style.display="none"; 
+      				
+      				}
+      	}
+      	catch(e)
+      	{
+      		var d = document.getElementById("conau").getElementsByTagName("div");
+      		for(i=0;i<6;i++)i==value?d[i].style.display="block":d[i].style.display="none"; 
+      	}
+      
+      }
+      function clearAuto(){clearInterval(autoStart)}
+      function setAuto(){autoStart=setInterval("auto(n)", 4000)}
+      function auto(){
+      	n++;
+      	if(n>5)n=0;
+      	Mea(n);
+      	conaus(n);
+      } 
+      setAuto(); 
+       
+    </script>
+  </body>
+</html>

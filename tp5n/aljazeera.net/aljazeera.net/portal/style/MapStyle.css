@@ -1,0 +1,54 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+#subMenuMap {
+	position: absolute;
+	top:0px;
+	left:0px;
+	display:none;
+	background-image: url(../images/submenumap.png);
+	background-repeat: no-repeat;
+	height: 242px;
+	width: 248px;
+}
+.mapArrow {
+	position:absolute;
+	float:right;
+	top:30px;
+	right:-8px;
+}
+.mapArrow2 {
+	position:absolute;
+	float:left;
+	top:30px;
+	left:-10px;
+}
+.submenuTitle {
+	font-family: "Arabic Transparent";
+	font-size: 16px;
+	font-weight: bold;
+	color: #FFF;
+	text-decoration: none;
+}
+.submenuSummary {
+	font-family: "Arabic Transparent";
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFF;
+	text-decoration: none;
+	padding-top:5px;
+	padding-bottom:7px;
+}
+.submenuSummary a {
+	font-family: "Arabic Transparent";
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFF;
+	text-decoration: none;
+}
+.submapImgBorder {
+	border: 1px solid #0F274C;
+}

@@ -1,0 +1,136 @@
+/* Global */
+*{margin:0; padding:0; font-size:12px; line-height:normal; font-style:normal; font-family:"µ¸¿ò", Dotum, "±¼¸²", Gulim, AppleGothic, Sans-serif;}
+h1, h2, legend{display:block; position:absolute; width:0; height:0; left:0; top:0; overflow:hidden; font:0/0 Sans-serif;}
+img, fieldset{border:none;}
+li{list-style:none;}
+a{text-decoration:none;}
+a:hover, a:active, a:focus{text-decoration:underline;}
+button, label{cursor:pointer; _cursor /**/:hand;}
+/* Layout */
+#login_wrap{overflow:hidden; position:relative; width:280px; height:99px; background:#f2f6f0 url(../../../bg_login2.gif) no-repeat 0 0;}
+#login_wrap form{height:98px;overflow:hidden;}
+#login_header{position:relative; width:76px; height:79px; top:1px; left:191px; border-left:1px solid #dcdcdc;}
+#login_container{position:absolute; width:161px; left:15px; top:25px;}
+#login_footer{position:relative; left:18px; top:-60px; width:160px; white-space:nowrap;}
+.login_error{position:absolute; left:0; top:0; overflow:visible;}
+/* Header */
+#login_header *{font-size:11px;}
+#login_header button{width:18px; height:12px;}
+/* Header - Level */
+#login_header .login_level{position:absolute; left:13px; top:29px; width:55px; height:15px; overflow:visible;}
+#login_header .login_level li{position:absolute; top:2px; left:0;}
+#login_header .login_level .level1{left:2px;}
+#login_header .login_level .level2{left:20px;}
+#login_header .login_level .level3{left:38px;}
+#login_header .login_level li a{display:block; width:19px; height:15px;}
+#login_header .login_level li.level_on{z-index:2;}
+/* Header - Information */
+#login_header .login_info{position:absolute; left:15px; top:9px;}
+#login_header .login_info li{display:none; position:absolute; top:0; left:0;}
+#login_header .login_info li.info1 a:hover, #login_header .login_info li.info1 a:focus, #login_header .login_info li.info1 a:active, 
+#login_header .login_info li.info2 a:hover, #login_header .login_info li.info2 a:focus, #login_header .login_info li.info2 a:active, 
+#login_header .login_info li.info3 a:hover , #login_header .login_info li.info3 a:focus, #login_header .login_info li.info3 a:active{text-decoration:none;} 
+#login_header .login_info li.ip_security{display:block !important; position:absolute; top:49px; left:0; width:61px; white-space:nowrap;}
+#login_header .login_info li.ip_security *{vertical-align:top;}
+#login_header .login_info li.ip_security a{position:relative; top:1px; left:1px; margin:0 3px 0 0; color:#6b6d70; letter-spacing:-1px;text-decoration:none;}
+#login_header .login_info li.ip_security button{position:absolute; right:0; top:-4px; height:20px; border:none 0; background:none;}
+#login_header .login_info li.ip_security button img{display:none;}
+#login_header .login_info li.ip_security button.on{width:28px; background:url(../../../btn_on_2.gif) no-repeat 3px 5px;}
+#login_header .login_info li.ip_security button.off{width:34px; background:url(../../../btn_off.gif) no-repeat 5px 5px;}
+#login_header .login_info li .level_txt{white-space:nowrap; font-size:11px; color:#6b6d70; letter-spacing:-1px;}
+#login_header .login_info li .level_txt img{position:relative; top:2px; margin:0 -1px;}
+/* Container - Login */
+#login_container fieldset{display:none; position:relative;}
+#login_container dl{position:relative; height:49px; overflow:hidden;}
+#login_container dl dt label{position:absolute; left:0; top:0; width:0; height:0; font:0/0 Sans-serif; overflow:hidden;}
+#login_container dt,
+#login_container dd{display:block; position:absolute;}
+#login_container dd.uid{left:1px; top:1px;}
+#login_container dd.upw{left:1px; top:26px;}
+#login_container .input_text{display:block; position:relative; border:1px solid #bebebe; width:98px; height:16px; color:#444; *margin:-1px 0; padding:4px 2px 0 2px; font-size:12px; vertical-align:top;}
+:root #login_container .input_text{padding-top:2px; padding-bottom:2px;}
+@media tty { 
+i{content:"\";/*" "*/}}@m; #login_container .input_text{width:104px; height:22px;}/*";} 
+}/* */
+#login_container #uid{background:#fff url(../../../bg_login_id_main_4.gif) no-repeat 0px 0px;}
+#login_container #upw{background:#fff url(../../../bg_login_pw_main_4.gif) no-repeat 0px 0px;}
+@media tty { 
+i{content:"\";/*" "*/}}@m; #login_container #uid, #login_container #upw{background-position:1px 0;}/*";} 
+}/* */ 
+#login_container .input_text.focus{border:1px solid #5aa409; background:#fff !important;}
+#login_container .input_text.focusnot{background:#fff !important;}
+#login_container p.keeping{position:absolute; left:109px; top:5px; overflow:visible;}
+#login_container p.keeping *{vertical-align:top;}
+#login_container p.keeping .input_check{_margin:-4px -3px -3px -4px;}
+*:first-child+html #login_container p.keeping .input_check{margin:-4px -3px -3px -4px;}
+#login_container p.keeping label{position:relative; top:2px; left:4px; color:#6b6d70; font-size:11px; letter-spacing:-1px;}
+#login_container p.keeping .submit{position:absolute; left:0; top:21px;}
+#login_container p.keeping .chk_area{position:absolute;top:47px;left:-106px;width:150px}
+#login_container p.keeping .chk_me {width:13px; height:13px; margin:0; vertical-align:top}
+#login_container p.keeping .lbl_me {left:0;display:inline-block;color:#5f6164;font-size:11px;letter-spacing:-1px;vertical-align:top;cursor:pointer;cursor:hand}
+
+/* link list */
+#lst_lnk{margin:9px 0 -14px 18px}
+#lst_lnk li{display:inline; padding:0 1px 0 6px; background:url(../../../vr_d6.gif) no-repeat 0 1px; white-space:nowrap; color:##6b6d70;}
+#lst_lnk li.first{padding-left:0; background:none;}
+#lst_lnk a{color:#848689; font-size:11px; letter-spacing:-1px;}
+#lst_lnk li.first a{color:#2f3743; font-weight:bold;}
+#lst_lnk li .vr{margin:0 -4px; color:#848689; font-size:11px;}
+/* Step */
+.step1 .level1 img,
+.step2 .level2 img,
+.step3 .level3 img,
+.step1 .info1,
+.step2 .info2,
+.step3 .info3,
+.step1 #login_level1,
+.step2 #login_level2,
+.step3 #login_level3{display:block !important;}
+/* Error Message */
+.login_error li{position:absolute; display:none; z-index:10;}
+.login_error li *{font-size:11px;}
+.login_error li strong{color:#32a800; font-weight:bold;}
+.login_error li em{letter-spacing:normal;}
+.login_error li em.accent{color:#32a800; letter-spacing:-1px;}
+.login_error li.bx{width:280px; height:99px; background:url(../../../bg_bx.gif) no-repeat;}
+.login_error li.bx p{position:relative; color:#2f3743; line-height:14px; text-align:center;}
+.login_error li.bx p.description{width:100%; margin:0 auto;}
+.login_error li.bx p.button{width:100%; margin:0 auto; line-height:normal;}
+.login_error li.bx p.button *{vertical-align:top;}
+.login_error li.bx p.button .activex,
+.login_error li.bx p.button .close{padding:3px 4px 0; line-height:1.1em; letter-spacing:-1px;}
+.login_error li.bx p.button .close span{visibility:hidden;overflow:hidden;position:absolute;top:0;left:0;width:0;height:0;font-size:0;line-height:0;}
+.login_error li.bx p.button .activex{width:96px;}
+.login_error li .close_x{position:absolute; top:4px; right:6px; width:18px; height:18px; border:none 0; background:url(../../../btn_close.gif) no-repeat 5px 5px !important;}
+.login_error li .close_x img{display:none;}
+.login_error .e1{top:72px; left:15px;}
+.login_error .e2{left:0; top:0; width:187px; height:100px;}
+.login_error#ex li{display:none;}
+.login_error#e1 #m1,
+.login_error#e2 #m2,
+.login_error#e3 #m3,
+.login_error#e4 #m4,
+.login_error#e5 #m5,
+.login_error#e6 #m6,
+.login_error#e7 #m7,
+.login_error#e8 #m8,
+.login_error#e9 #m9,
+.login_error#e10 #m10,
+.login_error#e11 #m11,
+.login_error#e12 #m12,
+.login_error#e13 #m13{display:block;}
+.login_error #m2 .description,
+.login_error #m4 .description,
+.login_error #m6 .description,
+.login_error #m7 .description,
+.login_error #m8 .description,
+.login_error #m12 .description{padding:20px 0 15px 0;}
+.login_error #m13 .description{padding:20px 0 5px 0;}
+.login_error #m3 .description,
+.login_error #m5 .description,
+.login_error #m9 .description,
+.login_error #m11 .description{padding:15px 0 6px 0;}
+.login_error #m10 .description1{padding:18px 0 0 0;}
+.login_error #m10 .description2{padding:5px 0 0 0;}
+
+

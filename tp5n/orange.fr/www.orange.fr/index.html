@@ -1,0 +1,519 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "httpdisabled://www.w3.org/TR/html4/strict.dtd"> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- pv 201104192028 -->
+
+
+
+<html lang="fr">
+<head>
+<script type="text/javascript">
+//<![CDATA[
+//<!--
+//recup débit
+var recup_cat= 'vis';
+var beginDate= new Date ();
+var queryString= '';
+var aJalon= new Array();
+var bLoadTimeDone = false;
+
+/**
+ * objet pour stocker un jalon (donne l'instant time de création du jalon name)
+ */
+function Jalon(name,time,timeCompare) {
+this.sName = name;
+this.oTime = time;
+this.oTimeCompare = timeCompare;
+}
+
+/**
+ * Fonction permettant d'ajouter un jalon a la liste des jalons
+ */
+function addJalon(sName,oDate,oDateCompare){
+aJalon.push(new Jalon(sName,oDate,oDateCompare));
+}
+
+function timeLast (variable,marqueur,marqueurCompare){
+var duree = 0;
+if (marqueurCompare != null) duree = marqueur.getTime() - marqueurCompare.getTime();
+else duree = marqueur.getTime() - beginDate.getTime();
+queryString = queryString + variable + "=" + duree + "&";
+}
+
+function putTime (){
+addJalon('timeTotal',new Date());
+queryString = /*queryString*/(APPLoadTime?"APP="+APPLoadTime+"&":"")+"acces="+recup_cat+"&";
+
+if (document.all){
+var coor= "size=|" +parseInt(document.body.clientWidth) + "|" + parseInt(document.body.clientHeight)+"|M|"+ parseInt(screen.width) + "|" + parseInt(screen.height);
+} else {
+var coor= "size=|" + window.innerWidth + "|" + window.innerHeight + "|N|" + window.outerWidth + "|" + window.outerHeight ;
+}
+
+for (var i=0;i<aJalon.length;i++){
+try { timeLast(aJalon[i].sName,aJalon[i].oTime,aJalon[i].oTimeCompare); } catch(e) {}
+}
+document.getElementById("timeQOS").innerHTML += "<img src='http://c.orange.fr/z.gif?"+queryString+coor+ "' width=10 height=10 alt='' title=''><br>";
+bLoadTimeDone = true;
+}
+//-->
+//]]>
+</script>
+<title>Orange : t&eacute;l&eacute;phones, forfaits, Internet, actualit&eacute;, sport, video</title><meta name="description" content="Orange vous pr&eacute;sente ses offres de t&eacute;l&eacute;phones portables, de forfaits mobiles et internet. &#10;Retrouvez aussi la messagerie, l'actualit&eacute;, le sport, la video sur le portail Orange "><meta name="keywords" content="telephones,mobiles,cl&eacute;s 3G">
+<meta name="google-site-verification" content="Qcl-WAlDKw8eTMVaAjrJBFCpATgjyiNinVFtoQ28Cnc">
+<meta name="google-site-verification" content="c4OfrczLMSJm4DyV_ROkN-H3IoVB-up0QI0FfErDj2Y">
+<meta name="WT.ti" content="[orange.fr prospect homepage]">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="search" type="voidsearchdescription+xml" href="httpdisabled:/voidsearch.search.ke.voila.fr/orange.xml" title="Orange">
+<link rel="shortcut icon" href="../hp3.b.woopic.com/favicon.ico@13">
+<link rel="apple-touch-icon-precomposed" href="httpdisabled://hp3.b.woopic.com/I/WebClipIcon_Ofr.png">
+<script type="text/javascript">
+//<![CDATA[
+//<!--
+var o_bNoWalledGarden = true;
+//-->
+//]]>
+</script>
+
+<style type="text/css" media="all">
+@import url(../hp3.a.woopic.com/Css/Build/prospect.css@11.css);
+</style>
+<script type="text/javascript" src="../hp3.b.woopic.com/Js/o.js@4"></script>
+<script type="text/javascript" src="../hp3.b.woopic.com/Js/common.js@7"></script>
+<script type="text/javascript" src="../hp3.a.woopic.com/Js/Build/prospect.js@8"></script>
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+//<!--
+var static_server_a = "httpdisabled://hp3.a.woopic.com";
+var static_server_b = "httpdisabled://hp3.b.woopic.com";
+var APPLoadTime = "HPCPSP";
+// il s'agit forcément d'un client visiteur prospect
+o_bSetCookie("ty","6","domain = .orange.fr");
+hpc = {'authentified':false};
+var sUrlReferrer = "HPCPSP_vis_prospect";
+initUrlReferrer();
+
+//-->
+//]]>
+</script>
+<!--[if IE 6]>
+<style type="text/css">
+A.Obutton { background-image:url('http://hp3.a.woopic.com/I/IE6/bouton.gif');}
+DIV.majeure, DIV.mineures { background-image:none;}
+DIV.engagements LI { border-top:1px solid #CCC; }
+DIV.promoBckTop {margin-top:20px}
+</style>
+<![endif]-->
+
+</head>
+<body class="prospect">
+<div id="timeQOS"></div>
+
+<!-- accessibilité : liens pour passer directement au contenu -->
+<ul class="evitement" addRef="accessibilite">
+<li><a href="index.html#contenu" notChanged="true">Contenu du site</a></li>
+<li><a href="index.html#piedpage" notChanged="true">Pied de page</a></li>
+</ul>
+
+<div class="o_main">
+<div id="o_content">
+
+<div id="o_header" addRef="header_logo">
+<a class="mask headerLogoOrange" href="index.html"><img src="../hp3.a.woopic.com/I/sprite-HPC.gif" alt="Accueil" title="Accueil" width="525" height="360"></a>
+<span>bienvenue</span>
+</div>
+
+<div class="mainContent">
+
+<a name="contenu" id="contenu" class="ancre"></a>
+<div class="flash">
+<div id="flashCode2replace">
+<ul addRef="zoneprivee_eshop_carrousel">
+<li>
+<a href="httpdisabled://sites.orange.fr/boutique/files/html/pe_pack_fbloque_m6.html">BlackBerry Curve 8520 1&euro; avec le forfait aventure M6 Mobile</a>
+</li>
+<li>
+<a href="httpdisabled://abonnez-vous.orange.fr/?IDD=14957">Livebox Zen </a>
+</li>
+<li>
+<a href="httpdisabled:/void.orange.fr/default.aspx?IDD=14225">Open Orange</a>
+</li>
+<li>
+<a href="httpdisabled://abonnez-vous.orange.fr/?IDD=14958">Livebox Zen Fibre</a>
+</li>
+</ul>
+
+</div>
+</div>
+
+
+<div class="decal" addRef="zoneprivee_eshop">
+<h1>boutique internet, mobile, internet + mobile</h1>
+
+
+<div addRef="boutiquesmajeures">
+<div class="majeure" addRef="internet">
+<div class="bord m1">
+<h2>
+<a href="httpdisabled://abonnez-vous.orange.fr/residentiel/accueil/accueil.aspx" addRef="lien">internet</a>
+</h2>
+<a href="httpdisabled://abonnez-vous.orange.fr/residentiel/cremaillere-des-offres.aspx" addRef="container"><img src="../hp3.b.woopic.com/Magic/I/Boutique/Prospect/Majeure/196x142_A_decouvrez_offre.gif" alt="d&eacute;couvrez nos offres internet " title="d&eacute;couvrez nos offres internet " width="196" height="142"></a>
+<ul>
+<li addRef="1">
+<a href="httpdisabled://abonnez-vous.orange.fr/residentiel/cremaillere-des-offres.aspx">offres internet</a>
+</li>
+<li addRef="2">
+<a href="httpdisabled://abonnez-vous.orange.fr/residentiel/tv/accueil-offres-tv.aspx">TV d'Orange</a>
+</li>
+<li addRef="3">
+<a href="httpdisabled://abonnez-vous.orange.fr/residentiel/equipements/livebox.aspx">Livebox</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="majeure mobile" addRef="mobile">
+<div class="bord m1">
+<h2>
+<a href="httpdisabled://mobile-shop.orange.fr/" addRef="lien">mobile</a>
+</h2>
+<div id="mobilesSwitch" addRef="container">
+<a style="background-image:url('../hp3.b.woopic.com/Magic/I/Boutique/Prospect/Majeure/zoom_iphone4.png'); width:69px;" class="m1" addRef="1" href="httpdisabled://mobile-shop.orange.fr/telephones-portables/3/iphone-4" title="iPhone 4" onmouseover="switchM(this)"></a><a style="background-image:url('../hp3.b.woopic.com/Magic/I/Boutique/Prospect/Majeure/zoom_BB_curve9300.png'); width:69px;" class="m2" addRef="2" href="httpdisabled://mobile-shop.orange.fr/telephone-portable/blackberry-curve-3g-9300" title="BlackBerry Curve 9300" onmouseover="switchM(this)"></a><a style="background-image:url('../hp3.b.woopic.com/Magic/I/Boutique/Prospect/Majeure/zoom_htc_7_mozart.png'); width:69px;" class="m3" addRef="3" href="httpdisabled://mobile-shop.orange.fr/telephone-portable/htc-7-mozart-noir" title="HTC 7 Mozart" onmouseover="switchM(this)"></a>
+</div>
+<div class="cartouche">
+<span id="libel">iPhone 4</span>
+<div class="arrow"></div>
+</div>
+<ul>
+<li addRef="1">
+<a href="httpdisabled://mobile-shop.orange.fr/choisir-forfait">forfaits mobiles
+</a>
+</li>
+<li addRef="2">
+<a href="httpdisabled://mobile-shop.orange.fr/choisir-mobile">t&eacute;l&eacute;phones mobiles
+</a>
+</li>
+<li addRef="3">
+<a href="httpdisabled://sites.orange.fr/boutique/promotions/accueil.html">promotions mobiles
+
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="majeure majeureLast" addRef="zone3">
+<div class="bord m1">
+<h2>
+<a href="httpdisabled:/void.orange.fr" addRef="lien">internet + mobile</a>
+</h2>
+<a href="httpdisabled:/void.orange.fr" addRef="container"><img src="../hp3.b.woopic.com/Magic/I/Boutique/Prospect/Majeure/OrangeOpen_C.gif" alt="" title="" width="196" height="142"></a>
+<ul>
+<li addRef="1">
+<a href="httpdisabled:/void.orange.fr">toutes les offres Orange Open</a>
+</li>
+<li addRef="2">
+<a href="httpdisabled:/void.orange.fr/forfaits/void-mini.aspx">Orange Open mini
+</a>
+</li>
+<li addRef="3">
+<a href="httpdisabled:/void.orange.fr/forfaits/void-24-7.aspx">Orange Open 24/7
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="c_sep"></div>
+
+</div>
+<div class="mineures" addRef="boutiquesecondaires">
+<div class="bord">
+<div class="mineure m1" addRef="zone1">
+<h2>
+<a href="httpdisabled://boutiques.orange.fr/Pro/">pro - pme
+</a>
+</h2>
+<ul>
+<li addRef="1">
+<a href="httpdisabled://boutique.orange.fr/ESHOP_mx_ft/?tp=php&amp;IDCible=2&amp;type=4&amp;code_rubrique=5-623365">mobile Pro
+
+
+</a>
+</li>
+<li addRef="2">
+<a href="httpdisabled://boutique.orange.fr/ESHOP_mx_orange/?tp=PHP&amp;code_rubrique=5-622837&amp;type=3&amp;IDCible=2">cr&eacute;ateurs d'entreprises
+
+</a>
+</li>
+</ul>
+<a class="posIMG" href="httpdisabled://boutiques.orange.fr/Pro/"><img src="../hp3.a.woopic.com/Magic/I/Boutique/Prospect/Mineure/modele_vignette_pro.jpg" alt="" width="223" height="85"></a>
+</div>
+<div class="mineure m2" addRef="zone2">
+<h2>
+<a href="httpdisabled://boutique.orange.fr/ESHOP_mx_ft/?tp=php&amp;IDCible=1&amp;code_rubrique=5-622848">high-tech</a>
+</h2>
+<a href="httpdisabled://boutique.orange.fr/ESHOP_mx_ft/?tp=php&amp;IDCible=1&amp;code_rubrique=5-622848"><img src="../hp3.a.woopic.com/Magic/I/Boutique/Prospect/Mineure/vignette_hightech2.gif" alt="BOUTIQUE HIGH-TECH" title="BOUTIQUE HIGH-TECH" width="223" height="104"></a><span style="position:absolute; left:100px; top:30px; width:100px;">les &eacute;quipements PC, Livebox et iPhone</span><a href="httpdisabled://boutique.orange.fr/ESHOP_mx_ft/?tp=php&amp;IDCible=1&amp;code_rubrique=5-622848" class="decouvrir" rel="nofollow">d&eacute;couvrir</a>
+</div>
+<div class="mineure m3" addRef="zone3">
+<h2>
+<a href="httpdisabled://abonnez-vous.orange.fr/default.aspx?IDD=13702">Cl&eacute; 3G+</a>
+</h2>
+<a href="httpdisabled://abonnez-vous.orange.fr/default.aspx?IDD=13702"><img src="../hp3.a.woopic.com/Magic/I/Boutique/Prospect/Mineure/223x104_cle3G.jpg" alt="Cl&eacute; 3G+" title="Cl&eacute; 3G+" width="223" height="104"></a><span style="position:absolute; left:100px; top:50px; width:100px;">d&eacute;couvrez toutes les offres cl&eacute;s 3G+</span><a href="httpdisabled://abonnez-vous.orange.fr/default.aspx?IDD=13702" class="decouvrir" rel="nofollow">d&eacute;couvrir</a>
+</div>
+<div class="mineure m4" addRef="zone4">
+<h2>
+<a href="httpdisabled://boutique.orange.fr/ESHOP_mx_orange/?tp=PHP&amp;code_rubrique=5-623477&amp;type=3&amp;IDCible=1">fixe</a>
+</h2>
+<a href="httpdisabled://boutique.orange.fr/ESHOP_mx_orange/?tp=PHP&amp;code_rubrique=5-623477&amp;type=3&amp;IDCible=1"><img src="../hp3.a.woopic.com/Magic/I/Boutique/Prospect/Mineure/modele_vignette_fixe.jpg" alt="Samsung D16T duo" title="Samsung D16T duo" width="223" height="104"></a><span style="position:absolute; left:100px; top:50px; width:100px;">les offres, services et t&eacute;l&eacute;phones fixes</span><a href="httpdisabled://boutique.orange.fr/ESHOP_mx_orange/?tp=PHP&amp;code_rubrique=5-623477&amp;type=3&amp;IDCible=1" class="decouvrir" rel="nofollow">d&eacute;couvrir</a>
+</div>
+
+</div>
+</div>
+
+
+<div class="engagementsBckTop">&nbsp;</div>
+<div class="engagements" id="engagements" addRef="reassurance">
+<h2>nos engagements</h2>
+<ul>
+<li>
+<h3 onmouseover="popinManager.getPopin({'id':'pEngagements','element':this,'shiftX':-5,'shiftY':17,'content':nextNode(this).innerHTML});" class="livr">livraison gratuite</h3>
+<p>La livraison des produits intervient sous 3 jours ouvr&eacute;s à compter de la validation de votre commande</p>
+</li>
+
+<li>
+<h3 onmouseover="popinManager.getPopin({'id':'pEngagements','element':this,'shiftX':-5,'shiftY':21,'content':nextNode(this).innerHTML});" class="paie">paiement s&eacute;curis&eacute;</h3>
+<p>Pour les paiements par carte bancaire, nous utilisons la norme SSL, standard le plus r&eacute;pandu</p>
+</li>
+<li>
+<h3 onmouseover="popinManager.getPopin({'id':'pEngagements','element':this,'shiftX':-5,'shiftY':20,'content':nextNode(this).innerHTML});" class="satis">satisfait ou rembours&eacute;</h3>
+<p>La boutique Orange vous ouvre cette possibilit&eacute; pendant les 14 jours qui suivent la r&eacute;ception de votre colis.</p>
+
+</li>
+<li>
+<h3 onmouseover="popinManager.getPopin({'id':'pEngagements','element':this,'shiftX':-5,'shiftY':20,'content':nextNode(this).innerHTML});" class="sav">SAV</h3>
+<p>En 48h maximum, Orange vous &eacute;change votre mobile à l'adresse de votre choix contre un mat&eacute;riel identique</p>
+</li>
+<li>
+<a title="conditions g&eacute;n&eacute;rales de vente" href="httpdisabled://www.agence.francetelecom.com/vf/accueil/conditions_generales/CGV_laboutiqueOrange.pdf" target="_blank">conditions g&eacute;n&eacute;rales de vente</a>
+</li>
+</ul>
+</div>
+<div class="engagementsBckBot">&nbsp;</div>
+
+
+
+<div class="promoBckTop"></div>
+<div addRef="zonepromotionnelle" class="promo">
+<a href="httpdisabled://boutique.orange.fr/mx/?tp=php&amp;IDCible=1&amp;type=0&amp;code_rubrique=5-546393"><img src="../hp3.b.woopic.com/Magic/I/Boutique/Prospect/Promo/promo.png" alt="promo" title="promo" width="81" height="88"><span>Inscrivez-vous et recevez tous nos bons plans</span></a>
+</div>
+
+<div class="promoBckBot"></div>
+
+
+
+<div class="c_sep"></div>
+
+
+<p class="seo" addRef="Zoneseo">D&eacute;couvrez l&rsquo;univers Mobile Orange avec une large gamme de t&eacute;l&eacute;phones mobiles, et un grand choix d&rsquo;offres mobiles : mobicarte, forfaits bloqu&eacute;s, forfaits Origami avec illimit&eacute; et cl&eacute; 3G+. Retrouvez l&rsquo;univers Internet d&rsquo;Orange avec les offres ADSL, TV, fixe et fibre optique mais &eacute;galement la Livebox et tous ses accessoires high tech. Acc&eacute;dez &agrave; Internet en d&eacute;placement depuis votre ordinateur portable avec la Cl&eacute; 3G+ avec les pass, forfaits bloqu&eacute;s ou illimit&eacute;s Orange.</p>
+
+
+</div>
+</div>
+
+<div class="leftContent">
+
+<div class="acces">
+<div class="top"></div>
+<div class="cont" addRef="zoneprivee_identification">
+<h2>Clients Orange</h2>
+<span class="desc">pour profiter de tous vos services : messagerie, espace client, <br/>changer de mobile ...</span>
+<a class="Obutton" href="httpdisabled://id.orange.fr/auth_user/bin/auth_user.cgi?url=http://www.orange.fr"><span>identifiez-vous</span></a>
+<div class="assistance" addRef="assistance">
+une question ? un probl&egrave;me ?
+<a href="httpdisabled://r.orange.fr/r/Oassistance">consultez l'assistance</a>
+</div>
+<div id="blocAide" class="aide close">
+<span class="trigger">besoin d'aide pour vous identifier</span>
+<ul class="block">
+<li><a addRef="clientmobile" href="httpdisabled://assistance.orange.fr/759.php">c'est votre premi&egrave;re visite</a></li>
+<li><a addRef="clientfixe" href="httpdisabled://assistance.orange.fr/vous-identifier-comme-client-du-fixe-4495.php">vous &ecirc;tes client du fixe</a></li>
+<li><a addRef="idperdu" href="httpdisabled://assistance.orange.fr/mot-de-passe-perdu-46.php">vous avez perdu vos identifiants</a></li>
+<li><a addRef="mobileperdu" href="httpdisabled://assistance.orange.fr/mobile/urgences-et-depannage-mobile-perdu-vole-en-panne-perdu.php">vous avez perdu votre mobile</a></li>
+</ul>
+</div>
+</div>
+<div class="manchette" addRef="Alaune_prospect">
+
+<h3>pour parcourir orange.fr</h3>
+<div class="rappel"><img src="../hp3.b.woopic.com/Magic/I/Manchette/233641_193.jpg" alt="Exclu du FN pour un salut nazi" title="Exclu du FN pour un salut nazi" width="193"><span>Exclu du FN pour un salut nazi</span></div>
+
+<a href="httpdisabled://www.orange.fr/portail" class="btn"><strong>acc&eacute;dez au portail</strong></a>
+<p>et suivez l'actualit&eacute;, consultez la m&eacute;t&eacute;o, visionnez le programme TV, interrogez l'assistance, comparez et achetez au meilleur prix, trouvez un correspondant avec le 118712 ...</p>
+</div>
+<div class="bottom"></div>
+</div>
+
+<div class="suivi" addRef="zoneprivee_eshop_suivicommande">
+
+<a href="httpdisabled://espaceclientv2.orange.fr/suivicommande.php"><strong>suivi de commande</strong></a>
+Suivez en direct l'&eacute;tat d'avancement de votre commande.
+</div>
+<div class="comRela" addRef="encemoment_comrelationnelle" gstatclick="hst=www.orange.fr|ptf=prod|id=183905170|zones=En ce moment,Com relationnelle|day=2011-04-19|hour=07:00:46|chanel=|title=en savoir plus|url=http://lecollectif.orange.fr/la-vie-plus-pratique/dossier-du-mois-green"><img src="../hp3.b.woopic.com/Magic/I/232679.jpg" alt="Mettez-vous au vert&nbsp;!" title="Mettez-vous au vert&nbsp;!" width="216" height="119" href="../lecollectif.orange.fr/la-vie-plus-pratique/dossier-du-mois-green.html" target="_blank"><div class="pad"><strong>Mettez-vous au vert&nbsp;!
+
+</strong>Faites rimer num&eacute;rique et &eacute;cologique
+<a href="../lecollectif.orange.fr/la-vie-plus-pratique/dossier-du-mois-green.html" target="_blank">en savoir plus</a></div></div>
+</div>
+
+<div class="c_sep"></div>
+<a name="piedpage" id="piedpage" class="ancre"></a>
+
+<p class="seo" addRef="Zoneseo"> <A href="httpdisabled://regimes.femmes.orange.fr/">perdre du poids</A> | <A href="httpdisabled://programme-tv.orange.fr/programmes/chaines-tnt/ce-soir.html">programme tele</A> | <A href="httpdisabled://voyages.orange.fr/reportages-photos/30-idees-originales-pour-vos-vacances/">vacances originales</A> | <A href="httpdisabled://detective-avenue.video-party.orange.fr/">detective avenue</A> | <A href="httpdisabled://www.orange.fr/plan-site">plan portail Orange</A></p>
+
+
+
+
+<script type="text/javascript">
+var footer_simple_js = [{
+		"href":"httpdisabled://r.orange.fr/r/Oinfoslegales_abo",
+		"target":"_blank","popup":true,
+		"innerHTML":"informations légales"},{
+		"href":"httpdisabled://r.orange.fr/r/Eorangepublicite",
+		"target":"_blank",
+		"innerHTML":"publicité"},{
+		"href":"httpdisabled://r.orange.fr/r/Ohome_aproposdorange",
+		"target":"_blank",
+		"innerHTML":"Orange en France"},{
+		"href":"httpdisabled://r.orange.fr/r/Ohome_environnement",
+		"target":"_blank",
+		"innerHTML":"environnement"},{
+		"href":"httpdisabled://r.orange.fr/r/Einternetplus",
+		"target":"_blank",
+		"innerHTML":"internet +"},{
+		"href":"httpdisabled://r.orange.fr/r/Ohome_preventionetprotection",
+		"target":"_blank",
+		"innerHTML":"prévention et protection"},{
+		"href":"httpdisabled://r.orange.fr/r/Ohome_donneespersonnelles",
+		"target":"_blank",
+		"innerHTML":"données personnelles"},{
+		"href":"httpdisabled://r.orange.fr/r/Esignaler",
+		"target":"_blank",
+		"innerHTML":"signaler un contenu illicite"},{
+		"href":"httpdisabled://r.orange.fr/r/Eafa",
+		"target":"_blank",
+		"innerHTML":"AFA protection de l'enfance"},{
+		"href":"httpdisabled://r.orange.fr/r/Ehome_buyster",
+		"target":"_blank",
+		"innerHTML":"buyster"}];
+createFooter('o_content',footer_simple_js);
+</script>
+ 
+
+</div>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+//<!--
+addJalon('timehtml',new Date());// pour le temps de chargement
+
+// methode explicite pour l'appel du flash
+// activation du flash
+var flashvars = {
+"sx":"httpdisabled://flash.orange.fr/Magic/NoCache/prospect.coverflow.xml",
+"autoPl":"0",
+"urlReferer":"zoneprivee_eshop_carrousel_",
+"imgServer":"httpdisabled://flash.orange.fr/"
+};
+var params = {
+"play":"true",
+"loop":"true",
+"menu":"true",
+"quality":"best",
+"scale":"noscale",
+"salign":"tl",
+"wmode":"window",
+"bgcolor":"FFFFFF",
+"devicefont":"false",
+"allowfullscreen":"false",
+"allowscriptaccess":"always"
+};
+var attributes = {
+"id":"flashCode2replace",
+"name":"caroussel",
+"align":"middle"
+}
+swfobject.embedSWF("httpdisabled://flash.orange.fr/Flash/caroussel.swf", "flashCode2replace", "714", "232", "10.0.0", false, flashvars, params, attributes);
+
+try { o_changeAllLinks(null,null,true); } catch(e) {}// modification des liens (passage par r.orange.fr)
+try { startDownloaddisabledTimers(); } catch(e) {}// modification de la source des images non chargées 
+var oBlocAide = document.getElementById('blocAide');
+new Hider({'id':'blocAide', 'node':oBlocAide, 'cssClass':'aide', 'closeNode':oBlocAide,'activeCapping':false, 'min':21,'max':92, 'step':5, 'initialState':'close','event':'over','closeDelay':1000});
+
+
+// imagette IAPREF (uniquement si PROD)
+o_audience();
+//-->
+//]]>
+</script>
+<script type="text/javascript">
+_gstat.audience();
+</script>
+<script src="../hp3.a.woopic.com/Js/wtinit.js" type="text/javascript"></script>
+<script src="../hp3.b.woopic.com/Js/wtbase.js" type="text/javascript"></script>
+<noscript>
+<img alt="" border="0" name="DCSIMG" width="1" height="1" src="../sdc.francetelecom.com/dcsl8l479854f3emawx840q4m_3u3k/njs.gif@dcsredirect=1&amp;dcsuri=%252Fnojavascript&amp;WT.js=No&amp;WT.tv=8.0.2" />
+</noscript>
+
+</body>
+</html>

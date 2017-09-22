@@ -1,0 +1,216 @@
+body{background-attachment:fixed;}
+body{background-image:url('../../../../../c2.ac-images.myspacecdn.com/images02/148/l_b16f6adde34b4bea8a57d39ff757bd09.jpg');}
+body{background-repeat:no-repeat;}
+body{background-position:left bottom;}
+/* -----------------------------------------
+Palette Theme Name: 
+Palette Theme Id: 
+Template Version: 1.1
+Last Generated: Tue, 19 Apr 2011 18:27:21 GMT
+-------------------------------------------- */
+/* =reset
+	------------------------------------- */
+ol.allplaylists li.odd, ol.allplaylists li.even { padding: 10px 0; }
+.musicPlayerModule .moduleMid { margin-top: 0; }
+.glue.primary, .tabs > ul > li:hover > a, .tabs .selected a { text-shadow: none; }
+
+
+/* base */
+body { 
+ background-color: #ffffff; 
+ color: #212121; 
+}
+/* Branding bar */
+.brandingBar { background-position: center 69px; }
+.brandingBar > .wrap { padding-top: 115px; }
+.brandingBar #leaderboard { position: absolute; top: 36px; left: 0px; width: 100%; padding-top: 10px; background-color: #ffffff; }
+
+ .layout, .sitesHeader { background: #dfdfdf; } 
+ .module a, .userStatus a, .sitesHeader .gearLinks a, .profileLayout .mediaAction a, .tabs > ul > li > a { color: #586566; } 
+
+/* Buttons */
+.friendSpaceSearchBtn { 
+ background: #A5B1B2; 
+ border-color: #2C2C2C; 
+ color: #FFFFFF; 
+}
+ .friendSpaceSearchBtn:hover { background-color: #6EA9AC; } 
+.sitesHeader .glue.primary { 
+ background: #6b7b7c; 
+ color: #FFFFFF; 
+ border-color: #5A5A5A; 
+}
+.sitesHeader .glue.primary:hover { 
+ background: #6EA9AC; 
+ color: #FFFFFF; 
+}
+
+/* Music Nav */
+#msSubnav .nav {
+ background-color: #283a3e; 
+ border-color: #3C575D; 
+} 
+#msSubnav .nav li a { 
+ border-color: #3C575D; 
+ color: #DEE1E2; 
+} 
+#msSubnav .nav li a:hover, #msSubnav .nav li:first-child a, #msSubnav .nav li:first-child a:hover { 
+ background: #6b7b7c; 
+ color: #FFFFFF; 
+} 
+
+/* UserBadge */
+.userBadgeSideBar nav a { 
+ background: #283a3e; 
+ border-color: #3C575D; 
+ color: #DEE1E2; 
+} 
+.userBadgeSideBar nav .selected, .userBadgeSideBar nav a:hover { 
+ background: #6b7b7c; 
+ border-color: #3C575D; 
+ color: #FFFFFF; 
+}
+ .styleRound .userBadgeSideBar nav a { padding: 4px 10px; margin-top: 2px; border: 1px solid #3C575D; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; } 
+
+/* Mini profile */
+ .userBadgeSideBar .userInfoToolTip div { border-color: #6b7b7c; } 
+ .userBadgeSideBar .userInfoToolTip .outter  { border-right-color: #6b7b7c; } 
+
+/* SitesHeader */
+ .sitesHeader { border-bottom-color: #b8191d; } 
+ .sitesHeader a { color: #000000; } 
+.styleRound .sitesHeader, .styleBoxed .sitesHeader { border: none; }
+
+/* User status */
+.userStatus { 
+ background-color: #999999;  
+ color: #000000;  
+}
+ .userStatus small { border-bottom-color: #999999; } 
+ .userStatus strong { color: #1E1E1E; } 
+ .userStatus .activitySourceTimestamp, .userStatus .activitySourceTimestamp a { color: #000000; } 
+
+/* Modules */
+ .moduleHead { color: #000000; } 
+.styleSolid .moduleHead { 
+ background-color: #b8191d;  
+ color: #FFFFFF;  
+}
+ .styleOverline .moduleHead, .styleUnderline .moduleHead { border-color: #b8191d; } 
+
+/* Apply Colors to modules, not layout */
+ .styleBoxed .module, .styleBoxed .sitesHeader, .styleRound .module, .styleRound .sitesHeader { background-color:#dfdfdf; } 
+
+/* Tabs, Pagination, MorePager */
+.tabs > ul > li:hover > a, .tabs .selected a, .tabs .dropdown:hover > a { 
+ background-color: #586566;  
+ border-color: #586566;  
+ color: #FFFFFF;  
+	text-shadow: none; 
+} 
+
+/* Pagination */
+.pagination a:hover, .pagination .selected { 
+ background: #586566;  
+ border-color:#586566;  
+ color:#FFFFFF;  
+}
+
+/* MorePager */
+ .morePager a { background-color: #586566; border-color: #dfdfdf; color: #FFFFFF; } 
+ .morePager a:hover { background-color: #708081; color: #FFFFFF; } 
+
+/* Events */
+ .upcomingShowsModule .eventsList .entryDate { border-color: #424242; } 
+ .upcomingShowsModule .eventsList .entryDate .month { background: #424242; } 
+ .upcomingShowsModule .eventsList .entryDate .day  { color: #424242; } 
+
+/* Badges */
+
+/* Transparency */
+ .hasImage .sitesHeader, .hasImage .layout { background-color: rgba(223, 223, 223, 0.9); filter: alpha(opacity = 95); zoom: 1; } 
+.hasImage .userBadgeSideBar nav a { 
+ background-color: rgba(40, 58, 62, 0.8);  
+ border: 1px solid rgba(40, 58, 62, 0.8);  
+	filter: alpha(opacity = 95); 
+	zoom: 1; 
+}
+.hasImage .userBadgeSideBar nav .selected, .hasImage .userBadgeSideBar nav a:hover { 
+ background-color: rgba(107, 123, 124, 0.9);  
+ border-color: rgba(107, 123, 124, 0.8); 
+}
+ .hasImage .userStatus { background-color: rgba(153, 153, 153, 0.9); filter: alpha(opacity = 95); zoom: 1; } 
+
+/* Image + Boxed/Round styles */
+.hasImage.styleBoxed .layout, .hasImage.styleRound .layout { background: transparent; }
+.hasImage.styleBoxed .module, .hasImage.styleBoxed .sitesHeader, .hasImage.styleRound .module, .hasImage.styleRound .sitesHeader { 
+ background-color: #dfdfdf; 
+ background-color: rgba(223, 223, 223, 0.9);  
+	filter: alpha(opacity = 95); 
+	zoom: 1;
+}
+
+/* Old, redo */
+ .module .templateList > li, .module .statusMood > li, .module .moduleList > li { border-bottom: 1px dotted #B3B3B3; } 
+ .genericComments ul.moduleList > li{ border-top:1px dotted #B3B3B3; } 
+
+/* FOR SITES, REMOVE LATER WHEN ALL IN FUTURA */
+/* =header =nav------------------------------------- */
+ div#gblmslogo { background: #283a3e; height: auto; } 
+div#gbltopnav, .ie.sites #gbltopnav{ 
+ border-color: #3C575D; 
+	filter: none;
+}
+ #gbltopnav ul.gblsubMenu { border-color: #3C575D; } 
+ 
+#gbltopnav ul#gblrightNav li a, #gbltopnav ul li a { 
+ border-color: #3C575D; 
+}
+
+
+#gbltopnav ul li a:hover, #gbltopnav #gblrightNav li:hover {
+ border-color: #3C575D; 
+}
+
+#gblleftNav li a .topCountNav { 
+ background-color: #586566; 
+ color:#FFFFFF; 
+}
+/* =footer------------------------------------- */
+/* =old buttons--------------------------------*/
+div#gblheader div.srchButton div #submit_Header,.friendSpaceSearchBtn {
+ color: #FFFFFF !important; 
+	font-weight:bold;
+ border-color: #2C2C2C; 
+ background: #A5B1B2 !important; 
+	}
+
+#gblheader div.srchButton div #submit_Header:hover, .friendSpaceSearchBtn:hover {
+ background-color: #6EA9AC !important;  
+}
+.gapControl .mainAction a { 
+ 
+		background-color: #6b7b7c;
+		background: -webkit-gradient(linear, left top, left bottom, from(#6b7b7c), to(#6b7b7c));
+		background: -moz-linear-gradient(center top, #6b7b7c,  #6b7b7c);
+		filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#6b7b7c', endColorstr='#6b7b7c');	
+ color:#FFFFFF; 
+ border-color: #2C2C2C; 
+}
+.gapControl .mainAction a:hover { 
+ background: #6EA9AC; 
+ color: #FFFFFF; 
+}
+.gapControl .alreadyFriend { 
+	padding-right: 5px; 
+ background: rgba(153, 153, 153, 0.4 ); 
+ color:#000000; 
+ border:1px solid rgba(153, 153, 153, 0.5 ); 
+}
+/* Tabs, Pagination, MorePager */
+.horizontalMenu li a:hover, .horizontalMenu li.selected a, .horizontalMenu li a:hover, .horizontalMenu li:hover a { 
+ background-color: #586566;  
+ border-color: #586566;  
+ color: #FFFFFF;  
+	text-shadow: none; 
+}  

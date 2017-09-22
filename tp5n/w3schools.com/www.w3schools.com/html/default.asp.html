@@ -1,0 +1,554 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "httpdisabled://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-US" xml:lang="en-US" xmlns="httpdisabled://www.w3.org/1999/xhtml">
+<head>
+
+<title>HTML Tutorial</title>
+ 
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Keywords" content="xml,tutorial,html,dhtml,css,xsl,xhtml,javascript,asp,ado,vbscript,dom,sql,colors,soap,php,authoring,programming,training,learning,beginner's guide,primer,lessons,school,howto,reference,examples,samples,source code,tags,demos,tips,links,FAQ,tag list,forms,frames,color table,w3c,cascading style sheets,active server pages,dynamic html,internet,database,development,Web building,Webmaster,html guide" />
+
+<meta name="Description" content="Free HTML XHTML CSS JavaScript DHTML XML DOM XSL XSLT RSS AJAX ASP ADO PHP SQL tutorials, references, examples for web building." />
+
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="-1" />
+
+<link rel="stylesheet" type="text/css" href="../stdtheme.css" />
+
+<script type="text/javascript">
+<!--
+var gaJsHost = (("httpdisabledsdisabled:" == document.location.protocol) ? "httpdisabledsdisabled://ssl." : "httpdisabled://www.");
+void(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+//-->
+</script>
+<script type="text/javascript">
+<!--
+function searchfield_focus(obj)
+{
+obj.style.color=""
+obj.style.fontStyle=""
+if (obj.value=="Search w3schools.com")
+	{
+	obj.value=""
+	}
+}
+
+var pageTracker = _gat._getTracker("UA-3855518-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+
+var addr=document.location.href;
+function displayError()
+{
+document.getElementById("err_url").value=addr;
+document.getElementById("err_form").style.display="block";
+document.getElementById("err_desc").focus();
+hideSent();
+}
+function hideError()
+{
+document.getElementById("err_form").style.display="none";
+}
+function hideSent()
+{
+document.getElementById("err_sent").style.display="none";
+}
+function sendErr()
+{
+var xmlhttp;
+var err_url=document.getElementById("err_url").value;
+var err_email=document.getElementById("err_email").value;
+var err_desc=document.getElementById("err_desc").value;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+void("POST","/err_sup.asp",true);
+xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+xmlhttp.send("err_url=" + err_url + "&err_email=" + err_email + "&err_desc=" + escape(err_desc));
+hideError();
+document.getElementById("err_sent").style.display="block";
+}
+//-->
+</script>
+
+<!--[if gt IE 7]>
+<style>
+body
+{
+overflow-y:scroll;
+}
+</style>
+<![endif]-->
+</head>
+<body>
+
+<center>
+<table style="width:960px;margin-top:0px;margin-bottom:0px;" border="0" cellpadding="0" cellspacing="0">
+<tr><td align="center"><a name="top"></a>
+<table width="960" border="0" cellpadding="0" cellspacing="0"
+style="margin-top:5px;">
+<tr>
+<td align="left">
+<a href="httpdisabled://www.w3schools.com"><img border="0" width="336" height="69" src="../images/w3schoolslogo.gif" alt="W3Schools.com" style="margin-top:5px;" /></a>
+</td>
+<td align="right">
+<br />
+<div style="width:200px;height:25px;float:right;text-align:right">
+<div id="google_translate_element" style="display:none"></div>
+<div id="translate_link">
+<a href="default.asp.html#" class="topnav"
+onclick="document.getElementById('google_translate_element').style.display='inline';document.getElementById('translate_link').style.display='none';return false;">
+TRANSLATE
+</a>
+</div>
+</div>
+<br />
+<br />
+<form style="font-size:11px;" method="get" name="searchform" action="httpdisabled://www.google.com/search" target="_blank">
+<table cellpadding="0" cellspacing="0" border="0"><tr>
+<td><input type="hidden" name="sitesearch" value="www.w3schools.com" /></td>
+<td><input onfocus="searchfield_focus(this)" style="width:150px;color:#808080;font-style:italic;" alt="search" type="text" name="as_q" size="20" value="Search w3schools.com" /></td>
+<td><input type="submit" value="Search" title="Search" /></td>
+</tr></table>
+</form>
+</td>
+<td>&nbsp;&nbsp;</td>
+</tr>
+</table>
+<table id="topnav" width="960" border="0" cellpadding="0" cellspacing="3">
+<tr>
+<td align="left" style="width:500px;word-spacing:12px;font-size:90%;padding-left:12px;padding-right:10px;white-space:nowrap;">
+<a class="topnav" href="httpdisabled://www.w3schools.com/default.asp" target="_top">HOME </a>
+<a class="topnav" href="default.asp.html" target="_top">HTML </a>
+<a class="topnav" href="httpdisabled://www.w3schools.com/css/default.asp" target="_top">CSS </a>
+<a class="topnav" href="httpdisabled://www.w3schools.com/xml/default.asp" target="_top">XML </a>
+<a class="topnav" href="httpdisabled://www.w3schools.com/js/default.asp" target="_top">JAVASCRIPT </a>
+<a class="topnav" href="httpdisabled://www.w3schools.com/asp/default.asp" target="_top">ASP </a>
+<a class="topnav" href="httpdisabled://www.w3schools.com/php/default.asp" target="_top">PHP </a>
+<a class="topnav" href="httpdisabled://www.w3schools.com/sql/default.asp" target="_top">SQL </a>	
+<a class="topnav" href="httpdisabled://www.w3schools.com/sitemap/default.asp" target="_top">MORE...</a>
+</td>
+<td align="right" style="word-spacing:6px;font-size:80%;padding-right:10px;color:#888888;white-space:nowrap;">
+<a class="topnav" href="httpdisabled://www.w3schools.com/sitemap/default.asp#references" target="_top">REFERENCES</a> |
+<a class="topnav" href="httpdisabled://www.w3schools.com/sitemap/default.asp#examples" target="_top">EXAMPLES</a> |
+<a class="topnav" href="httpdisabled://www.w3schools.com/forum/default.asp" target="_top">FORUM</a> |
+<a class="topnav" href="httpdisabled://www.w3schools.com/about/default.asp" target="_top">ABOUT</a>	
+</td>
+</tr>
+</table>
+
+<div style="width:960px;height:94px;position:relative;margin-left:auto;margin-right:auto;margin:0px;padding:0px;overflow:hidden">
+
+<div class="toprect_img">
+<a target="_blank" rel="nofollow" href="httpdisabled://www.doteasy.com/index.cfm?A=w3schools1">
+<img src="../banners/doteasy_201103_1.gif" alt="Doteasy" border="0" width="227" height="90" /></a><br />
+
+</div><div style="width:728px;height:90px;position:absolute;right:0px;top:0px;">
+<iframe id="leaderframe" style="background-color:#ffffff;height:90px;width:728px"
+src="../banners/leaderframe.asp@adpartner=dfp&amp;numb=0.3703359.html"
+height="90" width="728" marginwidth="0" marginheight="0" frameborder="0" scrolling="no">
+Your browser does not support inline frames or is currently configured not to display inline frames.
+</iframe>
+</div></div>
+
+<table width="960" border="0" cellpadding="0" cellspacing="0" style="padding:0">
+<tr><td id="leftcolumn" width="171" align="left" valign="top">
+<div style="margin-left:1px;margin-top:5px"><h2 class="left"><span class="left_h2">HTML</span> Basic</h2>
+<a target="_top" href="default.asp.html" style='font-weight:bold;'>HTML HOME</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_intro.asp" >HTML Introduction</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_getstarted.asp" >HTML Get Started</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_primary.asp" >HTML Basic</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_elements.asp" >HTML Elements</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_attributes.asp" >HTML Attributes</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_headings.asp" >HTML Headings</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_paragraphs.asp" >HTML Paragraphs</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_formatting.asp" >HTML Formatting</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_styles.asp" >HTML Styles</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_links.asp" >HTML Links</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_images.asp" >HTML Images</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_tables.asp" >HTML Tables</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_lists.asp" >HTML Lists</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_forms.asp" >HTML Forms</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_frames.asp" >HTML Frames</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_iframe.asp" >HTML Iframes</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_colors.asp" >HTML Colors</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_colornames.asp" >HTML Colornames</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_colorvalues.asp" >HTML Colorvalues</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_quick.asp" >HTML Quick List</a><br />
+<br />
+<h2 class="left"><span class="left_h2">HTML</span> Advanced</h2>
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_doctype.asp" >HTML Doctypes</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_css.asp" >HTML CSS</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_head.asp" >HTML Head</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_meta.asp" >HTML Meta</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_scripts.asp" >HTML Scripts</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_entities.asp" >HTML Entities</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_url.asp" >HTML URLs</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_urlencode.asp" >HTML URL Encode</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_webserver.asp" >HTML Webserver</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_summary.asp" >HTML Summary</a><br />
+<br />
+<h2 class="left"><span class="left_h2">HTML</span> Examples</h2>
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_examples.asp" >HTML Examples</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_quiz.asp" >HTML Quiz</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/html/html_exam.asp" >HTML Certificate</a><br />
+<br />
+<h2 class="left"><span class="left_h2">HTML</span> References</h2>
+<a target="_top" href="httpdisabled://www.w3schools.com/tags/default.asp">HTML Tag List</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/tags/ref_standardattributes.asp">HTML Attributes</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/tags/ref_eventattributes.asp">HTML Events</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/tags/ref_colornames.asp">HTML Colornames</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/tags/ref_colorpicker.asp">HTML Colorpicker</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/tags/ref_charactersets.asp">HTML Character Sets</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/tags/ref_ascii.asp">HTML ASCII</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/tags/ref_entities.asp">HTML ISO-8859-1</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/tags/ref_symbols.asp">HTML Symbols</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/tags/ref_urlencode.asp">HTML URL Encode</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/tags/ref_language_codes.asp">HTML Lang Codes</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/tags/ref_httpmessages.asp">HTML Status Codes</a><br />
+<br />
+<a target="_top" href="httpdisabled://www.w3schools.com/cn/html/default.asp"><img border="0" src="chinese.jpg" alt="Chinese" style="margin-right:3px;position:relative;top:2px;" />Chinese Version</a><br /></div>
+</td>
+<td align="left" valign="top">
+<table style="background-color:#ffffff;color:#000000;padding-bottom:8px;padding-right:5px" width="639" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td style="padding-top:4px">
+
+<h1>HTML <span class="color_h1">Tutorial</span></h1>
+<table class="chapter" border="0" width="100%" cellspacing="0" cellpadding="0"><tr>
+<td class="prev"><a class="chapter" href="httpdisabled://www.w3schools.com/default.asp">&laquo; W3Schools Home</a></td>
+<td class="next"><a class="chapter" href="httpdisabled://www.w3schools.com/html/html_intro.asp">Next Chapter &raquo;</a></td>
+</tr></table>
+<br />
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top" width="120">
+<img src="../images/w3html.gif" height="132" width="100" border="0" alt="HTML" /></td>
+<td valign="top">
+<p class="tutintro">With HTML you can create your own Web site.</p>
+<p class="tutintro">This tutorial teaches you everything about HTML.</p>
+<p class="tutintro">HTML is easy to learn - You will enjoy it.</p>
+</td>
+</tr></table>
+<h2 class="tutheader">Examples in Each Chapter</h2>
+<p>This HTML tutorial contains hundreds of HTML examples.</p>
+<p>With our online HTML editor, you can edit the HTML, and click on a button to view the result.</p>
+
+<table class="example" border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<h2 class="example">Example</h2>
+<table class="example_code notranslate" border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+&lt;html&gt;<br />
+&lt;body&gt;<br /><br />
+&lt;h1&gt;My First Heading&lt;/h1&gt;<br />
+<br />
+&lt;p&gt;My first paragraph.&lt;/p&gt;<br />
+<br />
+&lt;/body&gt;<br />
+&lt;/html&gt;
+</td></tr></table>
+<br /><a target="_blank" href="httpdisabled://www.w3schools.com/html/tryit.asp?filename=tryhtml_intro" class="tryitbtn">Try it yourself &raquo;</a>
+<br />
+Click on the &quot;Try it yourself&quot; button to see how it works
+</td></tr></table>
+
+<p><a href="httpdisabled://www.w3schools.com/html/html_intro.asp">Start learning HTML now!</a></p>
+
+<h2 class="tutheader">HTML Examples</h2>
+
+<p>At the end of the HTML tutorial you will find more than 100 examples you 
+can edit and test yourself.</p>
+<p><a href="httpdisabled://www.w3schools.com/html/html_examples.asp">Goto HTML Examples!</a></p>
+
+<h2 class="tutheader">HTML Quiz Test</h2>
+<p>Test your HTML skills at W3Schools!</p>
+<p><a href="httpdisabled://www.w3schools.com/html/html_quiz.asp">Start HTML Quiz!</a></p>
+
+<h2 class="tutheader">HTML References</h2>
+<p>At W3Schools you will find complete references about tags, standard attributes,
+standard events, colornames, entities, character-sets, URL encoding, language 
+codes, HTTP messages, and more.</p>
+<p>
+<a href="httpdisabled://www.w3schools.com/tags/default.asp">HTML 4.01 Tag Reference</a>
+</p>
+
+<h2 class="tutheader">HTML Exam - Get Your Diploma!</h2>
+<table>
+<tr>
+<td width="220"><a href="httpdisabled://www.w3schools.com/cert/default.asp"><img src="../images/w3cert.gif" alt="W3Schools Certification" border="0" /></a></td>
+<td valign="middle">
+<h2>W3Schools' Online Certification</h2>
+<p>The perfect solution for professionals who need to balance work, family, and career building.</p>
+<p>More than 6000 certificates already issued!</p>
+<p><a class="tryitbtn" style="width:200px;font-size:120%;margin-top:5px;" href="httpdisabled://www.w3schools.com/cert/default.asp">Get Your Certificate &raquo;</a></p>
+</td>
+</tr>
+</table>
+<p>The <a href="httpdisabled://www.w3schools.com/cert/default.asp">HTML Certificate</a> documents your knowledge of HTML.</p>
+<p>The <a href="httpdisabled://www.w3schools.com/cert/default.asp">CSS Certificate</a> documents your knowledge of advanced CSS.</p>
+<p>The <a href="httpdisabled://www.w3schools.com/cert/default.asp">JavaScript Certificate</a> documents your knowledge of JavaScript and HTML DOM.</p>
+<p>The <a href="httpdisabled://www.w3schools.com/cert/default.asp">jQuery Certificate</a> documents your knowledge of jQuery.</p>
+<p>The <a href="httpdisabled://www.w3schools.com/cert/default.asp">XML Certificate</a> documents your knowledge of XML, XML DOM and XSLT.</p>
+<p>The <a href="httpdisabled://www.w3schools.com/cert/default.asp">ASP Certificate</a> documents your knowledge of ASP, SQL, and ADO.</p>
+<p>The <a href="httpdisabled://www.w3schools.com/cert/default.asp">PHP Certificate</a> documents your knowledge of PHP and SQL (MySQL).</p>
+
+
+
+<br />
+<table class="chapter" border="0" width="100%" cellspacing="0" cellpadding="0"><tr>
+<td class="prev"><a class="chapter" href="httpdisabled://www.w3schools.com/default.asp">&laquo; W3Schools Home</a></td>
+<td class="next"><a class="chapter" href="httpdisabled://www.w3schools.com/html/html_intro.asp">Next Chapter &raquo;</a></td>
+</tr></table>
+
+<hr />
+
+<!-- **** SPOTLIGHTS 1 **** -->
+
+<h2><a class="header" target="_blank" rel="nofollow" href="httpdisabled://www.wix.com/start/matrix/?utm_campaign=w3&amp;experiment_id=ma_w500">
+Free Online Website Builder - No Downloaddisableding Needed</a></h2>
+<p>Create a free Flash website with our simple, online web design editing platform. Stunning templates
+and user-friendly tools make website building easy and fun.</p>
+<p><a target="_blank" rel="nofollow" href="httpdisabled://www.wix.com/start/matrix/?utm_campaign=w3&amp;experiment_id=ma_w500">
+Start Creating your free website now!</a></p>
+<hr />
+
+<!-- **** SPOTLIGHTS 2 **** -->
+
+<h2><a target="_blank" rel="nofollow" href="httpdisabled://www.altova.com/ref/?s=w3s_spotlight&amp;q=convertxmlb">
+Altova® MapForce®<br />Graphical XML Conversion Tool from the Developers of XMLSpy®</a></h2>
+<a target="_blank" rel="nofollow" href="httpdisabled://www.altova.com/ref/?s=w3s_spotlight&amp;q=convertxmlb">
+<img border="0" src="../images/altova_mapforce_2011.gif" alt="Altova MapForce" /></a><br />
+<p>Need an easy way to get data into XML, or transform XML to another format?
+MapForce lets you map XML data to/from any combination of XML, database, flat file,
+Excel 2007, XBRL, or Web services data. Then it transforms data instantly or 
+auto-generates royalty-free code for recurrent conversions.
+<b>New features in Version 2011!</b></p>
+<table>
+<tr>
+<td align="left" valign="top">
+<ul>
+<li>Easy-to-use, graphical data mapping interface</li>
+<li>Instant data transformation</li>
+<li>XSLT 1.0/2.0 and XQuery code generation</li>
+<li>Java, C#, and C++ code generation</li>
+<li>Advanced data processing functions</li>
+<li>Support for all major relational databases including SQL Server, IBM DB2, Oracle, and more</li>
+<li>Integration with Altova StyleVision for report rendering</li>
+<li>Visual Studio &amp; Eclipse integration</li>
+<li>Available in 32-bit and 64-bit versions</li>
+</ul>
+<p><a target="_blank" rel="nofollow" href="httpdisabled://www.altova.com/ref/?s=w3s_spotlight&amp;q=convertxmlb">
+<b>Downloaddisabled a fully-functional trial today!</b></a></p>
+</td>
+<td width="5">&nbsp;</td>
+<td width="205" align="right" valign="top">
+<a target="_blank" rel="nofollow" href="httpdisabled://www.altova.com/ref/?s=w3s_spotlight&amp;q=convertxmlb">
+<img border="0" src="../images/data-mapping-tool.gif" alt="Altova MapForce" /></a>
+</td>
+</tr>
+</table>
+<hr />
+
+<!-- **** SPOTLIGHTS 3 **** -->
+<table cellpadding="0" cellspacing="0"><tr><td width="108">&nbsp;</td><td>
+<script type="text/javascript">
+<!--
+google_ad_client = "pub-3440800076797949";
+/*txt*/
+google_ad_slot = "1699448869";
+google_ad_width = 336;
+google_ad_height = 280;
+//-->
+</script>
+<script type="text/javascript" src="../../pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+</td></tr></table>
+
+<hr />
+<center>
+<iframe id="w3schools_lq2" name="w3schools_lq2" style="background-color:#ffffff" src="../banners/aspallbannerframe.asp.html" height="60" width="468" marginwidth="0" marginheight="0" frameborder="0" scrolling="no">
+Your browser does not support inline frames or is currently configured not to display inline frames.
+</iframe>
+</center>
+
+
+<div id="err_form" style="display:none">
+<h2>Your suggestion:</h2>
+<p><label for="err_email">Your E-mail (optional):</label> <input type="text" id="err_email" name="err_email" /></p>
+<p><label for="err_url">Page address:</label> <input type="text" disabled="disabled" id="err_url" name="err_url" /></p>
+<p><label for="err_desc">Description:</label> <textarea name="err_desc" id="err_desc" cols="92" rows="20"></textarea></p>
+<p class="submit"><input type="button" value="Submit" onclick="sendErr()" /></p>
+<div class="err_close" onclick="hideError()">Close [X]</div>
+</div>
+<div id="err_sent" style="display:none">
+<h2>Thank you for your support.</h2>
+<div class="err_close" onclick="hideSent()">Close [X]</div>
+</div>
+
+</td></tr>
+</table>
+</td>
+
+<td id="rightcolumn" width="150" align="center" valign="top">
+<table cellspacing="0">
+<tr><th>WEB HOSTING</th></tr>
+<tr><td>
+<a target="_blank" rel="nofollow" href="httpdisabled://www.lunarpages.com">Best Web Hosting</a>
+</td></tr>
+<tr><td>
+<a target="_blank" rel="nofollow" href="httpdisabled://www.eukhost.com">PHP MySQL Hosting</a>
+</td></tr>
+<tr><td>
+<a target="_blank" rel="nofollow" href="httpdisabled://www.web-hosting-top.com">Top 10 Web Hosting</a>
+</td></tr>
+<tr><td>
+<a target="_blank" rel="nofollow" href="httpdisabled://www.heartinternet.co.uk/index.shtml">UK Reseller Hosting</a>
+</td></tr>
+<tr><td>
+<a target="_blank" rel="nofollow" href="httpdisabled://www.webhosting.uk.com/cloud-hosting.php">Cloud Hosting</a>
+</td></tr>
+<tr><td>
+<a target="_blank" rel="nofollow" href="httpdisabled://stats.justhost.com/track?c878c3580275f4db3720fbc777a282233">Top Web Hosting</a>
+</td></tr>
+<tr><td>
+<a target="_blank" rel="nofollow" href="httpdisabled://www.doteasy.com/index.cfm?A=w3text">$6.93 Domain w/ Extras</a>
+</td></tr>
+</table>
+
+<table cellspacing="0">
+<tr><th>WEB BUILDING</th></tr>
+<tr><td>
+
+<a target="_blank" rel="nofollow" href="httpdisabled://www.altova.com/ref/?s=w3s_text&amp;q=xmlspy">Downloaddisabled XML Editor</a>
+
+</td></tr>
+<tr><td>
+<a target="_blank" rel="nofollow" href="httpdisabled://www.wix.com/start/wfree?utm_campaign=w3&amp;experiment_id=w300">FREE Flash Website</a>
+</td></tr>
+<tr><td>
+<a target="_blank" rel="nofollow" href="httpdisabled://www.dreamtemplate.com">Free Website Templates</a>
+<a target="_blank" rel="nofollow" href="httpdisabled://www.templatesold.com">Free WordPress Themes</a>
+</td></tr>
+</table>
+
+<table cellspacing="0">
+<tr><th>W3SCHOOLS EXAMS</th></tr>
+<tr><td>
+<a target="_blank" href="httpdisabled://www.w3schools.com/cert/default.asp">Get Certified in:<br />HTML, CSS, JavaScript, XML, PHP, and ASP</a>
+</td></tr>
+</table>
+
+<table cellspacing="0">
+<tr><th>W3SCHOOLS BOOKS</th></tr>
+<tr><td>
+<a target="_blank" href="httpdisabled://www.w3schools.com/books/default.asp">
+New Books:<br />HTML, CSS<br />
+JavaScript, and Ajax</a>
+</td></tr>
+</table>
+
+<table cellspacing="0">
+<tr><th>STATISTICS</th></tr>
+<tr><td>
+<a target="_top" href="httpdisabled://www.w3schools.com/browsers/browsers_stats.asp">Browser Statistics</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/browsers/browsers_os.asp">Browser OS</a><br />
+<a target="_top" href="httpdisabled://www.w3schools.com/browsers/browsers_display.asp">Browser Display</a>
+</td></tr></table>
+
+<script type="text/javascript">
+<!--
+function sharethis()
+{
+txt='<a href="httpdisabled://www.facebook.com/sharer.php?u='+document.URL+'" target="_blank" title="Facebook">'
+txt=txt+'<img src="/images/share_facebook.gif" border="0" width="16px" height="16px" style="margin-right:4px" /></a>';
+txt=txt+'<a href="httpdisabled://twitter.com/home?status=Currently reading '+document.URL+'" target="_blank" title="Twitter">';
+txt=txt+'<img src="/images/share_twitter.gif" border="0" width="16px" height="16px" style="margin-right:4px" /></a>';
+txt=txt+'<a href="mailto:?&amp;subject='+document.title+'&amp;body=Take%20a%20look%20at%20this%20page%20at%20W3Schools.com:%20'+document.URL+'" target="_blank" title="E-mail">';
+txt=txt+'<img src="/images/share_email.gif" border="0" width="16px" height="16px" style="margin-right:4px" /></a>';
+txt=txt+'<a href="httpdisabled://delicious.com/save?v=5&noui&jump=close&url='+document.URL+'&title='+document.title+'" target="_blank" title="Delicious">';
+txt=txt+'<img src="/images/share_delicious.gif" border="0" width="16px" height="16px" style="margin-right:4px" /></a>';
+txt=txt+'<a href="httpdisabled://www.reddit.com/submit?url='+document.URL+'" target="_blank" title="Reddit">';
+txt=txt+'<img src="/images/share_reddit.gif" border="0" width="16px" height="16px" style="margin-right:4px" /></a>';
+txt=txt+'<a href="httpdisabled://digg.com/submit?url='+document.URL+'&amp;title='+document.title+'" target="_blank" title="Digg">';
+txt=txt+'<img src="/images/share_digg.gif" border="0" width="16px" height="16px" style="margin-right:4px" /></a>';
+txt=txt+'<a href="httpdisabled://www.stumbleupon.com/submit?url='+document.URL+'%26title%3D'+document.title+'" target="_blank" title="Stumbleupon">';
+txt=txt+'<img src="/images/share_stumbleupon.gif" border="0" width="16px" height="16px" /></a>';
+document.getElementById("sharethis").innerHTML=txt;
+}
+//-->
+</script>
+<table cellspacing="0">
+<tr><th>SHARE THIS PAGE</th></tr>
+<tr>
+<td id="sharethis">
+<div style="height:16px">
+<a href="default.asp.html#" onclick="sharethis();return false;">Share with &raquo;</a>
+</div>
+</td>
+</tr>
+</table>
+
+
+</td></tr></table>
+
+</td>
+</tr></table>
+</center>
+
+<table id="footer" cellspacing="0" cellpadding="0" align="center" border="0" width="100%">
+<tr>
+<td align="center">
+	<table align="center" border="0" width="960">
+	<tr>
+	<td align="left" width="200">
+		<a href="httpdisabled://www.w3schools.com"><img border="0" src="../images/w3schoolscom_gray.gif" alt="W3Schools.com" /></a>
+	</td>
+	<td align="right" style="word-spacing:6px;font-size:80%;padding-right:10px;">
+		<a href="httpdisabled://www.w3schools.com/default.asp" target="_top">HOME</a> |
+		<a href="default.asp.html#top" target="_top">TOP</a> |
+		<a href='http://www.w3schools.com/html/default.asp?output=print' target="_blank">PRINT</a> |
+		<a href="httpdisabled://www.w3schools.com/forum/default.asp" target="_blank">FORUM</a> |
+		<a href="httpdisabled://www.w3schools.com/about/default.asp" target="_top">ABOUT</a>
+	</td>
+	</tr>
+
+	<tr>
+	<td valign="top" colspan="2" align="center" style="color:#404040;">
+			<a href="default.asp.html" onclick="displayError();return false">Help W3Schools. Suggest corrections to this page.</a>
+	</td>
+	</tr>
+	<tr>
+	<td valign="top" colspan="2" align="center" style="padding-top:7px;color:#404040;">
+		W3Schools is optimized for learning, testing, and training. Examples might be simplified to improve reading and basic understanding.<br />
+		Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content.<br />
+		While using this site, you agree to have read and accepted our
+		<a href="httpdisabled://www.w3schools.com/about/about_copyright.asp">terms of use</a> and
+		<a href="httpdisabled://www.w3schools.com/about/about_privacy.asp">privacy policy</a>.<br />
+		<a href="httpdisabled://www.w3schools.com/about/about_copyright.asp">Copyright 1999-2011</a> by Refsnes Data. All Rights Reserved.
+	</td>
+	</tr>
+	</table>
+	<br />
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+<!--
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: false,    
+    gaTrack: true,
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
+//-->
+</script><script src="../../translate.google.com/translate_a/element.js@cb=googleTranslateElementInit" type="text/javascript"></script>
+
+</body>
+</html>

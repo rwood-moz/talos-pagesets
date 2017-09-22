@@ -1,0 +1,617 @@
+/* Engraving Gallery Overlay */
+
+/* Chrome */
+#engravingOverlay .tl,
+#touchTabOverlay .tl,
+#nanoTabOverlay .tl,
+#shuffleTabOverlay .tl,
+#engravingTabOverlay .tl {
+    background-image: url(overlay-tl.png);
+    _background: none;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/Catalog/regional/amr/engraving_gallery/overlay-tl.png',sizingMethod='scale');
+    left: -28px;
+    top: -28px;
+    width: 50px;
+    height: 50px;
+}
+#engravingOverlay .tr,
+#touchTabOverlay .tr,
+#nanoTabOverlay .tr,
+#shuffleTabOverlay .tr,
+#engravingTabOverlay .tr {
+    background-image: url(overlay-tr.png);
+    _background: none;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/Catalog/regional/amr/engraving_gallery/overlay-tr.png',sizingMethod='scale');
+    right: -28px;
+    top: -28px;
+    width: 50px;
+    height: 50px;
+}
+#engravingOverlay .top,
+#touchTabOverlay .top,
+#nanoTabOverlay .top,
+#shuffleTabOverlay .top,
+#engravingTabOverlay .top {
+    background-image: url(overlay-top.png);
+    background-repeat: repeat-x;
+    _background: none;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/Catalog/regional/amr/engraving_gallery/overlay-top.png',sizingMethod='scale');
+    left: 22px;
+    right: 22px;
+    top: -28px;
+    _width: expression(this.parentElement.offsetWidth - 44 + 'px');
+    height: 50px;
+}
+#engravingOverlay .left,
+#touchTabOverlay .left,
+#nanoTabOverlay .left,
+#shuffleTabOverlay .left,
+#engravingTabOverlay .left {
+    background-image: url(overlay-left.png);
+    background-repeat: repeat-y;
+    _background: none;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/Catalog/regional/amr/engraving_gallery/overlay-left.png',sizingMethod='scale');
+    left: -28px;
+    top: 22px;
+    bottom: 38px;
+    _height: expression(this.parentElement.offsetHeight - 61 + 'px');
+    width: 50px;
+}
+#engravingOverlay .right,
+#touchTabOverlay .right,
+#nanoTabOverlay .right,
+#shuffleTabOverlay .right,
+#engravingTabOverlay .right {
+    background-image: url(overlay-right.png);
+    background-repeat: repeat-y;
+    _background: none;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/Catalog/regional/amr/engraving_gallery/overlay-right.png',sizingMethod='scale');
+    right: -28px;
+    top: 22px;
+    bottom: 38px;
+    _height: expression(this.parentElement.offsetHeight - 61 + 'px');
+    width: 50px;
+}
+#engravingOverlay .bottom,
+#touchTabOverlay .bottom,
+#nanoTabOverlay .bottom,
+#shuffleTabOverlay .bottom,
+#engravingTabOverlay .bottom {
+    background-image: url(overlay-bottom.png);
+    background-repeat: repeat-x;
+    _background: none;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/Catalog/regional/amr/engraving_gallery/overlay-bottom.png',sizingMethod='scale');
+    bottom: -28px;
+    left: 22px;
+    right: 22px;
+    height: 66px;
+    _width: expression(this.parentElement.offsetWidth - 44 + 'px');
+}
+#engravingOverlay .bl,
+#touchTabOverlay .bl,
+#nanoTabOverlay .bl,
+#shuffleTabOverlay .bl,
+#engravingTabOverlay .bl {
+    bottom: -28px;
+    left: -28px;
+    width: 50px;
+    height: 66px;
+    background-image: url(overlay-bl.png);
+    _background: none;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/Catalog/regional/amr/engraving_gallery/overlay-bl.png',sizingMethod='scale');
+}
+#engravingOverlay .br,
+#touchTabOverlay .br,
+#nanoTabOverlay .br,
+#shuffleTabOverlay .br,
+#engravingTabOverlay .br {
+    bottom: -28px;
+    right: -28px;
+    width: 50px;
+    height: 66px;
+    background-image: url(overlay-br.png);
+    _background: none;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/Catalog/regional/amr/engraving_gallery/overlay-br.png',sizingMethod='scale');
+}
+#engravingOverlay .center,
+#touchTabOverlay .center,
+#nanoTabOverlay .center,
+#shuffleTabOverlay .center,
+#engravingTabOverlay .center {
+    background: white;
+    left: 22px;
+    right: 22px;
+    top: 22px;
+    bottom: 38px;
+    _height: expression(this.parentElement.offsetHeight - 60 + 'px');
+    _width: expression(this.parentElement.offsetWidth - 44 + 'px');
+}
+
+/* Container and Header */
+#engravingGallery {
+    width: 920px;
+    height: 561px;
+	margin: auto;
+}
+#engravingGallery .header {
+    height: 73px;
+    width: 920px;
+    border-bottom: 1px solid #d1d1d1;
+    position: relative;
+    background: transparent url(header.png) no-repeat;
+    !position: static;
+	_background: none;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/Catalog/regional/amr/engraving_gallery/header.png',sizingMethod='scale');
+    _z-index: 9999;
+}
+#engravingGallery .header p {
+    padding: 19px 25px;
+}
+#engravingGallery .header p img {
+    behavior: url(http://storeimages.apple.com/Catalog/global/iepngfix/iepngfix.htc);
+	float: left;
+}
+#engravingGallery .header p.freeshipping {
+/*    position: absolute;
+    bottom: 15px;
+    right: 25px;*/
+    float: right;
+/*	margin-top: -35px;
+*/    margin-right: 25px;
+    color: #e0e4ea;
+    padding: 0;
+    display: block;
+}
+#engravingGallery .header p.freeshipping strong {
+    font-weight: normal;
+    color: #e0e4ea;
+}
+
+/* Footer */
+#engravingGallery .footer {
+    height: 37px;
+	position: relative;
+	padding: 0px 0 0 10px;
+	!position: static;
+}
+#engravingGallery .footer p {
+    line-height: 37px;
+    text-align: right;
+	color: #000;
+	_padding-top: 10px;
+}
+#engravingGallery .footer img {
+    vertical-align: top;
+    position: relative;
+    top: -23px;
+	margin-bottom: -35px;
+	margin-right: 170px;
+	padding-left: 10px;
+	!position: static;
+	!margin-top: -33px;
+	_overflow: visible;
+	_margin-top: -15px;
+}
+
+#engravingGallery .gallery_content {
+    height: 449px;
+    width: 920px;
+    border-bottom: 1px solid #d1d1d1;
+    overflow: hidden;
+    background: #fff url(gallery_bg.png) right top repeat-x;
+}
+
+/* Tabs */
+#engravingGallery .tabs {
+    position: relative;
+    top: -1px;
+    height: 450px;
+    width: 165px;
+    border-right: 1px solid #d1d1d1;
+    background: #fff;
+    _overflow-y: hidden;
+    float: left;
+}
+#engravingGallery .tabs ul {
+    position: absolute;
+    top: 1px;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    height: 450px;
+    z-index: 10;
+    list-style: none;
+}
+#engravingGallery .tabs li {
+    display: block;
+    list-style: none;
+    width: 189px;
+    height: 91px;
+    line-height: 90px;
+    margin: -1px 0 0 0;
+    padding: 0;
+    background: url(tab_divider.png) 0 90px no-repeat;
+}
+#engravingGallery .tabs li a {
+    display: block;
+	width: 166px;
+    height: 92px;
+    color: #666;
+	text-align: left;
+    font-size: 13px;
+    line-height: 91px;
+    margin: 0;
+    padding: 0 0 0 25px;
+    background: transparent url(flag.png) -189px 0 no-repeat;
+    !background: none;
+}
+#engravingGallery .tabs li a:hover {
+    color: #0085CF;
+}
+/*#engravingGallery .tabs li a span {
+	line-height: 17px;
+	display: block;
+	width: 67px;
+	float: left;
+	margin-top: 17px;
+	font-weight: normal;
+    color: inherit;
+}
+#engravingGallery .tabs li a span.image {
+    margin-top: 21px;
+    width: 52px;
+    height: 26px;
+    overflow: hidden;
+}
+#engravingGallery .tabs li.shuffle a span.image {
+    background: url(item_shuffle.png) no-repeat;
+    _background: url(item_shuffle.gif) no-repeat;
+}
+#engravingGallery .tabs li.video a span.image {
+    margin-top: 11px;
+    margin-left: 5px;
+    width: 49px;
+    height: 40px;
+    background: url(item_video.png) no-repeat;
+    _background: url(item_video.gif) no-repeat;
+}*/
+#engravingGallery .tabs li.selected a {
+    width: 166px;
+    color: #000;
+    background-position: 0 0;
+	!background: url(flag.gif) 0px 0px no-repeat;
+    cursor: default;
+}
+#engravingGallery .tabs li.selected a:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Body */
+#engravingGallery .gallery {
+    position: relative;
+    height: 449px;
+    margin-left: 166px;
+}
+#engravingGallery .gallery .engravings ul {
+    list-style: none;
+    display: none;
+    margin: 0px;
+}
+#engravingGallery .gallery .engravings ul.selected {
+    display: block;
+}
+#engravingGallery .gallery .engravings li {
+    position: absolute;
+}
+#engravingGallery .gallery li.item1,
+#engravingGallery .gallery li.item10 { 
+    left: 30px;
+    top: 30px;
+}
+#engravingGallery .gallery li.item2,
+#engravingGallery .gallery li.item11 { 
+    left: 50%;
+    margin-left: -101px;
+    top: 30px;
+}
+
+#engravingGallery .gallery li.item3,
+#engravingGallery .gallery li.item12 { 
+    right: 30px;
+    top: 30px;
+}
+#engravingGallery .gallery li.item4,
+#engravingGallery .gallery li.item13 { 
+    left: 30px;
+    top: 130px;
+}
+#engravingGallery .gallery li.item5,
+#engravingGallery .gallery li.item14 { 
+    right: 30px;
+    top: 130px;
+}
+#engravingGallery .gallery li.item6,
+#engravingGallery .gallery ul.shuffle li.item5,
+#engravingGallery .gallery li.item15 { 
+    left: 30px;
+    top: 230px;
+}
+#engravingGallery .gallery li.item7,
+#engravingGallery .gallery li.item16 { 
+    right: 30px;
+    top: 230px;
+}
+#engravingGallery .gallery li.item8,
+#engravingGallery .gallery ul.shuffle li.item7,
+#engravingGallery .gallery li.item17 { 
+    left: 30px;
+    top: 330px;
+}
+#engravingGallery .gallery li.item9,
+#engravingGallery .gallery li.item18 { 
+    right: 30px;
+    top: 330px;
+}
+
+/* the shuffles are special. */
+#engravingGallery .gallery ul.shuffle li.item2 {
+	left: 622px;
+}
+
+#engravingGallery .gallery ul.shuffle li.item3 {
+	left: 30px;
+	top: 130px;
+}
+
+#engravingGallery .gallery ul.shuffle li.item4,
+#engravingGallery .gallery ul.shuffle li.item6,
+#engravingGallery .gallery ul.shuffle li.item8 {
+	left: 521px;
+}
+
+#engravingGallery .gallery .engravings a {
+    display: block;
+    width: 195px;
+    height: 50px;
+    padding: 17px 4px 3px;
+    color: #000;
+    text-align: center;
+    font-size: 13px;
+    background: url(item_bg.png) -203px 0 no-repeat;
+    _background: url(item_bg.gif) -203px 0 no-repeat;
+}
+
+#engravingGallery .gallery .engravings .shuffle a {
+	width: 95px;
+	padding: 20px 54px 0px;
+}
+
+#engravingGallery .gallery .engravings a:hover,
+#engravingGallery .gallery .engravings li.selected a {
+    background-position: 0 0;
+    text-decoration: none;
+}
+#engravingGallery .gallery .engravings .one-line a {
+    padding-top: 27px;
+    height: 40px;
+}
+#engravingGallery .gallery .engravings.short .long-msg { display: none;}
+#engravingGallery .gallery .engravings.long .short-msg { display: none;}
+
+#engravingGallery .gallery .preview { display: none; }
+#engravingGallery .gallery .preview.ips10,
+#engravingGallery .gallery .preview.ipn10,
+#engravingGallery .gallery .preview.ip7,
+#engravingGallery .gallery .preview.iq7,
+#engravingGallery .gallery .preview.pad10 {
+	display: block;
+    position: absolute;
+    width: 270px;
+    height: 200px;
+    left: 50%;
+    top: 50%;
+    margin: -125px 0 0 -135px;
+    background-repeat: no-repeat;
+    background-position: bottom; 
+}
+#engravingGallery .gallery .preview.ipn10,
+#engravingGallery .gallery .preview.iq7 {
+	width: 271px;
+}
+
+/*#engravingGallery .gallery .preview.ips10 {
+	height: 323px;
+	top: 35%;
+}*/
+
+#engravingGallery .gallery .preview span {
+    position: absolute;
+    overflow: hidden;
+}
+
+#engravingGallery .gallery .ipn10 span   { top: 32px; left: 2px; width: 248px; height: 50px; }
+#engravingGallery .gallery .ipn10 img    { margin-left: -12px; }
+#engravingGallery .gallery .ipn10_silver { background-image: url(ipod_nano_silver.jpg); }
+#engravingGallery .gallery .ipn10_charcoal   { background-image: url(ipod_nano_charcoal.jpg); }
+#engravingGallery .gallery .ipn10_blue   { background-image: url(ipod_nano_blue.jpg); }
+#engravingGallery .gallery .ipn10_green  { background-image: url(ipod_nano_green.jpg); }
+#engravingGallery .gallery .ipn10_gold { background-image: url(ipod_nano_gold.jpg); }
+#engravingGallery .gallery .ipn10_red    { background-image: url(ipod_nano_red.jpg); }
+#engravingGallery .gallery .ipn10_pink   { background-image: url(ipod_nano_pink.jpg); }
+
+#engravingGallery .gallery .ip7 span    { top: 50px; left: 29px; width: 212px; height: 50px; }
+#engravingGallery .gallery .ip7_silver  { background-image: url(ipod_classic.jpg); }
+
+#engravingGallery .gallery .iq7 span    { top: 52px; left: 31px; width: 206px; height: 50px; }
+#engravingGallery .gallery .iq7_silver  { background-image: url(ipod_touch.jpg); }
+
+#engravingGallery .gallery .ips10 span   { top: 28px; left: -1px; width: 240px; height: 45px; }
+#engravingGallery .gallery .ips10_silver { background-image: url(ipod_shuffle_silver.jpg); }
+#engravingGallery .gallery .ips10_blue   { background-image: url(ipod_shuffle_blue.jpg); }
+#engravingGallery .gallery .ips10_green  { background-image: url(ipod_shuffle_green.jpg); }
+#engravingGallery .gallery .ips10_pink   { background-image: url(ipod_shuffle_pink.jpg); }
+#engravingGallery .gallery .ips10_gold   { background-image: url(ipod_shuffle_gold.jpg); }
+
+#engravingGallery .gallery div.selector {
+    position: absolute;
+    width: 250px;
+    left: 50%;
+    top: 50%;
+    margin: 85px 0 0 -125px;
+    text-align: center;
+}
+#engravingGallery .gallery .selector .ipod-list ul {
+    line-height: 66px;
+}
+#engravingGallery .gallery .selector .ipod-list li {
+    display: inline;
+    padding: 0 4px;
+}
+#engravingGallery .gallery .selector .ipod-list li.shuffle a {
+	height: 34px;
+}
+#engravingGallery .gallery .selector .ipod-list li.nano a {
+	height: 37px;
+}
+#engravingGallery .gallery .selector .ipod-list li.touch a {
+	height: 66px;
+}
+#engravingGallery .gallery .selector .ipod-list li a {
+    -webkit-border-radius: 4px;
+    display: inline-block;
+    padding: 4px 5px;
+    line-height: 62px;
+    overflow: hidden;
+}
+#engravingGallery .gallery .selector .ipod-list li a:hover {
+    background: #ededed;
+}
+#engravingGallery .gallery .selector .ipod-list li.selected a,
+#engravingGallery .gallery .selector .ipod-list li.selected a:hover {
+    background: #cee4f5;
+}
+#engravingGallery .gallery .selector .variations {
+    margin-top: 8px;
+	_padding-left: 40px;
+}
+#engravingGallery .gallery .selector .variations li {
+    display: inline;
+	_height: 19px; _width: 19px;
+	_position: relative;
+	_display: block; _float: left;
+}
+#engravingGallery .gallery .selector .variations a {
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+/*    padding: 0 1px;
+*/	_position: absolute;
+	_display: block;
+	_top: 0; _left: 0;
+	_margin: 0;
+}
+#engravingGallery .gallery .selector .variations span {
+    display: block;
+    text-indent: -9999px;
+    height: 24px;
+    width: 24px;
+	background: no-repeat;
+}
+
+#engravingGallery .gallery .selector .variations a.ipn10 span { 
+    background-image: url(colors_ipod_nano.png); 
+}
+#engravingGallery .gallery .selector .variations a.ipn10 span.silver { background-position: 0 0;}
+#engravingGallery .gallery .selector .variations li.selected a.ipn10 span.silver { background-position: 0 100%;}
+#engravingGallery .gallery .selector .variations a.ipn10 span.charcoal { background-position: -24px 0;}
+#engravingGallery .gallery .selector .variations li.selected a.ipn10 span.charcoal { background-position: -24px 100%;}
+#engravingGallery .gallery .selector .variations a.ipn10 span.blue { background-position: -48px 0;}
+#engravingGallery .gallery .selector .variations li.selected a.ipn10 span.blue { background-position: -48px 100%;}
+#engravingGallery .gallery .selector .variations a.ipn10 span.green { background-position: -72px 0;}
+#engravingGallery .gallery .selector .variations li.selected a.ipn10 span.green { background-position: -72px 100%;}
+#engravingGallery .gallery .selector .variations a.ipn10 span.gold { background-position: -96px 0;}
+#engravingGallery .gallery .selector .variations li.selected a.ipn10 span.gold { background-position: -96px 100%;}
+#engravingGallery .gallery .selector .variations a.ipn10 span.red { background-position: -120px 0;}
+#engravingGallery .gallery .selector .variations li.selected a.ipn10 span.red { background-position: -120px 100%;}
+#engravingGallery .gallery .selector .variations a.ipn10 span.pink { background-position: -144px 0;}
+#engravingGallery .gallery .selector .variations li.selected a.ipn10 span.pink { background-position: -144px 100%;}
+
+#engravingGallery .gallery .selector .variations a.ips10 span { 
+	background-image: url(colors_ipod_shuffle.png); 
+}
+
+#engravingGallery .gallery .selector .variations a.ips10 span.blue { background-position: 0 2px;}
+#engravingGallery .gallery .selector .variations li.selected a.ips10 span.blue { background-position: 0px 100%;}
+#engravingGallery .gallery .selector .variations a.ips10 span.silver { background-position: -24px 2px;}
+#engravingGallery .gallery .selector .variations li.selected a.ips10 span.silver { background-position: -24px 100%;}
+#engravingGallery .gallery .selector .variations a.ips10 span.pink { background-position: -48px 2px;}
+#engravingGallery .gallery .selector .variations li.selected a.ips10 span.pink { background-position: -48px 100%;}
+#engravingGallery .gallery .selector .variations a.ips10 span.green { background-position: -72px 2px;}
+#engravingGallery .gallery .selector .variations li.selected a.ips10 span.green { background-position: -72px 100%;}
+#engravingGallery .gallery .selector .variations a.ips10 span.gold { background-position: -96px 2px;}
+#engravingGallery .gallery .selector .variations li.selected a.ips10 span.gold { background-position: -96px 100%;}
+
+/*Video Player*/
+#engravingGallery .gallery .video #video-href,
+#engravingGallery .gallery .video .selector { display: none; }
+#engravingGallery #video-container { position: relative; width: 640px; text-align: center; margin-left: 28px; height: 360px; }
+
+.gallery .engravings ul.last { _position: static; /* fix IE */ }
+
+/* iPad Engraving Gallery Overrides */
+#engravingGallery.ipad .gallery li.item1,
+#engravingGallery.ipad .gallery li.item2,
+#engravingGallery.ipad .gallery li.item3 {
+    top: 20px;
+}
+#engravingGallery.ipad .gallery li.item4 {
+    top: 100px;
+}
+#engravingGallery.ipad .gallery li.item5 {
+    top: 100px;
+    left: 50%;
+    margin-left: -101px;
+}
+#engravingGallery.ipad .gallery li.item6 {
+    top: 100px;
+    right: 30px;
+    left: auto;
+}
+
+#engravingGallery.ipad .gallery .preview.pad10 {
+    margin: 0;
+    top: 190px; left: 88px;
+    width: 578px;
+    height: 192px;
+}
+#engravingGallery.ipad .gallery .pad10_wifi  { background-image: url(ipad_wifi_back.png); }
+#engravingGallery.ipad .gallery .pad10_wifi3g  { background-image: url(ipad_3g_back.png); }
+#engravingGallery.ipad .gallery .preview.pad10 span { width: 500px; left: 20px; }
+#engravingGallery.ipad .gallery .preview.pad10 span img { margin: -30px 0 0 -101px; }
+#engravingGallery.ipad .gallery .preview.pad10_wifi3g span img { margin-top: -28px; margin-left: -102px; }
+#engravingGallery.ipad .gallery .preview.pad10 span {
+    left: 20px;
+    width: 500px;
+}
+
+#engravingGallery.ipad ul.ipod-list { display: none; }
+
+#engravingGallery.ipad .gallery div.selector {
+    top: 312px;
+}
+#engravingGallery.ipad .gallery .selector .variations li,
+#engravingGallery.ipad .gallery .selector .variations a, 
+#engravingGallery.ipad .gallery .selector .variations span { 
+    text-indent: 0; 
+    width: auto;
+    height: auto;
+    display: inline;
+    font-size: 12px;
+}
+#engravingGallery.ipad .gallery .selector .variations li.first {
+    margin-right: 8px;
+    padding-right: 8px;
+    border-right: 1px solid #000;
+}
+#engravingGallery.ipad .gallery .selector .variations li.selected a { color: #000; }

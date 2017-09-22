@@ -1,0 +1,1148 @@
+/**
+* IMPORTANT!!!!
+* ALL CSS PROPERTIES THAT CONTAIN  AN OPTIONAL VARIABLE WHICH REQUIRES TO DELETE ONE OR MANY PROPERTIES SHOULD BE ON A SINGLE LINE.
+*/
+
+/****************************************************************************
+ * Body
+ *************************************************************************** */
+body #above_all
+{
+
+    width: 936px;
+    display: block;
+    margin: auto;
+}
+
+div#topwrapper
+{
+    background-color: #000000;
+}
+
+div#wrapper
+{
+    padding-top: 14px;
+
+    background-image: url(img/body.jpg.vdd2c50e1657feb37); background-position: center 0px; background-repeat: no-repeat;
+    background-position: center -91px;
+}
+
+div#push_footer
+{
+    background-color: transparent;
+}
+
+/****************************************************************************
+ * Link
+ *************************************************************************** */
+.dmco_simplelink,
+.dmco_link_tools,
+.video_description a,
+.icon_menu a,
+.dmpi_comment_item .comment_text a,
+ul.dmco_menu_vertical a
+{
+    color: #333333;
+}
+
+.link,
+a.link,
+.foreground2 a.link
+{
+    color: #333333;
+}
+
+.label_50
+{
+    color :#8BABDA !important;
+}
+
+/****************************************************************************
+ * Header
+ *************************************************************************** */
+
+div#header_full div#header
+{
+    background-color: #193d5e;
+    border-bottom-color: #122d46; /* header_background_color contrast 5 */
+/*    border-top-color: #ffffff; */
+}
+
+div#header_full div#header div.login_info
+{
+    background-color: #193d5e;
+    border-bottom-color: #204f79;
+    border-top-color: #122d46;
+    border-right-color: #163653;
+    border-left-color: #1c4367;
+}
+
+div#header_full div#header div.login_info:hover
+{
+    background-color: #173856;
+}
+
+div#header_full div#header ul.header_main_menu li a,
+div#header_full div#header div#language_menu div#selected_locale a,
+div#header_full div#header .dm_login_info,
+div#header_full div#header div.login_info span,
+div#header_full div#header div.login_info a,
+div#header_full div#header div#utility_links a,
+div#header_full #header #family_filter,
+div#header_full #header #family_filter a,
+div#header_full div#header div#utility_links span
+{
+    color: #ffffff;
+}
+
+div#header_full div#header ul.header_main_menu li div.menu_link a:hover
+{
+    text-shadow: 0 0 8px #ffffff;
+}
+
+div#header_full div#header #header_login_menu
+{
+    border-color: #dcdcdc;
+    background-color: #ffffff;
+}
+
+div#header_full div#header div.login_info .header_login_info
+{
+    border-top-color: #193d5e;
+    border-right-color: #193d5e;
+    border-left-color: #193d5e;
+}
+
+div#header_full div#header div.login_info:hover .header_login_info
+{
+    border-top-color: #173856;
+    border-right-color: #173856;
+    border-left-color: #173856;
+}
+
+div#header_full div#header div.login_info .header_login_info.selected,
+div#header_full div#header div.login_info .header_login_info:hover
+{
+    border-top-color: #dcdcdc;
+    border-right-color: #dcdcdc;
+    border-left-color: #dcdcdc;
+    background-color: #ffffff;
+}
+
+div#header_full div#header div.login_info .header_login_info:hover
+{
+    border-bottom-color: #dcdcdc;
+}
+
+div#header_full div#header div.login_info .header_login_info.selected .dm_login_info,
+div#header_full div#header div.login_info .header_login_info:hover .dm_login_info
+{
+    background-color: #ffffff;
+}
+
+div#header_full div#header div.login_info .header_login_info.selected span.arrow,
+div#header_full div#header div.login_info span.arrow:hover,
+div#header_full div#header div.login_info .header_login_info:hover span.arrow
+{
+    background-color: #dcdcdc;
+}
+
+div#header_full div#header #header_login_menu li a,
+div#header_full div#header div.login_info .header_login_info.selected a.dm_login_info,
+div#header_full div#header div.login_info .header_login_info:hover a.dm_login_info,
+div#header_full div#header div.login_info .header_login_info.selected span.arrow,
+div#header_full div#header div.login_info span.arrow:hover,
+div#header_full div#header div.login_info .header_login_info:hover span.arrow,
+div#header_full div#header div.login_info .header_login_info:hover #fb_login_id,
+div#header_full div#header div.login_info .header_login_info.selected #fb_login_id
+{
+    color: #193d5e;
+}
+
+div#header_full div#header_nav
+{
+    background-color: #e8e8e8;
+    border-bottom-color: #dcdcdc; /* header_background_color contrast 5 */
+    border-top-color: #ffffff; /* header_background_color contrast -10 */
+}
+
+div#header_full div#header_nav li div.menu_link
+{
+    border-left-color: #dcdcdc;
+}
+
+div#header_full div#header_nav ul.header_main_menu li a
+{
+    color: #333333;
+}
+
+div#header_full div#header_nav div.menu_link:hover,
+div#header_full div#header_nav div.menu_link.menu_selected
+{
+    background-color: #ffffff;
+}
+
+div#header_full div#header_nav div.menu_link:hover a,
+div#header_full div#header_nav div.menu_link.menu_selected a
+{
+    color: #193d5e;
+}
+
+div#header_full div#header_nav ul.header_main_menu
+{
+    border-right-color: #dcdcdc;
+}
+
+/****************************************************************************
+ * Footer
+ *************************************************************************** */
+div#footer,
+div#flag_select
+{
+
+
+    background-image: url(../../public/default/img/footer.png.v5d5579fb9b08de20);
+}
+
+div.dmpi_footer span.footer_title,
+div.dmpi_footer .footer_link
+{
+    color: #333333;
+}
+
+div.dmpi_footer a,
+div.dmpi_footer li,
+div.dmpi_footer span,
+div.dmpi_footer div#footer_copyright
+{
+    color: #727272;
+}
+
+div.dmpi_footer a:hover
+{
+    color: #193d5e;
+}
+
+/****************************************************************************
+ * Content
+ *************************************************************************** */
+#content
+{
+    background-color: #ffffff;
+
+
+
+}
+
+div.dmpi_user_nav a.dmpi_user_avatar img.dmco_image
+{
+    margin: 2px 2px 0 0;
+}
+
+body.video div.data span.itnew
+{
+    color: #5f9dd6;
+}
+
+
+/****************************************************************************
+ * Box
+ *************************************************************************** */
+div.dmpi_box div.box_header div.header_left a,
+div.dmpi_box div.box_header div.header_right a,
+div.dmpi_box div.box_header div.header_center a
+{
+    color: #333333;
+}
+
+div.dmpi_box div.box_header div.header_center span.counter
+{
+
+}
+
+div.dmpi_box div.box_content,
+div.dmpi_box div.box_content div.content_right
+{
+    padding: 0;
+    background-color: #ffffff;
+    display: inline;
+    float: left;
+}
+
+div.dmpi_box div.box_header div.header_center div.header_right_separator,
+div.dmpi_box div.box_header div.header_center div.header_left_separator
+{
+    background: #333333;
+}
+
+/****************************************************************************
+ * Big box
+ *************************************************************************** */
+div.dmpi_bigbox div.box_header div.header_left,
+div.dmpi_bigbox div.box_header div.header_left a,
+div.dmpi_bigbox div.box_header div.header_right,
+div.dmpi_bigbox div.box_header div.header_right a,
+div.dmpi_bigbox div.box_header div.header_center,
+div.dmpi_bigbox div.box_header div.header_center
+{
+    color: #333333;
+}
+
+/****************************************************************************
+ * SubBox
+ *************************************************************************** */
+div.dmpi_subbox div.box_header span.dmco_title
+{
+    color: #333333;
+}
+
+.background_light
+{
+    background-color: #CCCCCC;
+}
+
+div.dmpi_subbox div.box_header div.header_left,
+div.dmpi_subbox div.box_header div.header_right,
+div.dmpi_subbox div.box_header div.header_center,
+div.dmpi_subbox div.box_header,
+h2.box_header,
+.top_border
+{
+    color: #333333;
+    border-top: 2px solid #CCCCCC;
+}
+
+.bottom_border
+{
+    border-bottom: 2px solid #CCCCCC;
+}
+
+div.dmpi_subbox div.box_header div.header_right
+{
+    background-position: right top;
+}
+
+div.dmpi_subbox div.box_header div.header_center
+{
+    background-position: center top;
+}
+
+div.dmpi_subbox div.box_header h2,
+div.dmpi_subbox div.box_header h2 a,
+div.dmpi_subbox div.box_header div.header_left a,
+div.dmpi_subbox div.box_header div.header_right a,
+div.dmpi_subbox div.box_header div.header_center a,
+div.dmpi_subbox div.box_header div.right_title a,
+div.dmpi_onestep div#tab_uploads a.tab.active,
+div.dmpi_onesteppreview div#tab_uploads a.tab.active
+{
+    color: #333333;
+}
+
+div.dmpi_subbox div.box_content,
+div.dmpi_subbox div.box_content div.content_right
+{
+    background-image: none;
+    background-color: #ffffff;
+}
+
+div.dmpi_bigbox
+{
+    background-image: none;
+    background-color: #ffffff;
+}
+
+div.dmpi_subbox_sep
+{
+
+    background-color: #e8e8e8;
+    background-position: -10px 0;
+    /* sprite__subbox_head(image,repeat,position,x_pos:-10) */
+}
+
+div.dmpi_subbox div.box_content h3
+{
+    color: #193d5e;
+}
+
+/****************************************************************************
+ * Box popup
+ *************************************************************************** */
+div#popup_dimmer div.close:hover
+{
+   border-color: #666666;
+}
+
+ul.dmpi_menu_channellist a.dmco_simplelink:hover,
+div.dmpi_slotlists_channelhome_links div.dmpi_slotitem_link a:hover
+{
+   color: #f7f7f7;
+   background-color: #202020;
+}
+
+/****************************************************************************
+ * Input, select
+ *************************************************************************** */
+input,
+select,
+textarea
+{
+    background: #fcfcfc;
+    color: #4c4c4c;
+    border-color: #d9d9d9;
+}
+
+input[type=text]:hover,
+select:hover,
+textarea:hover,
+input[type=text]:focus,
+select:focus,
+textarea:focus
+{
+    background: #f7f7f7;
+    border-color: #999999;
+}
+
+form.dmco_form div.text,
+form.dmco_form div.dmco_form_input label
+{
+    color: #4c4c4c;
+}
+
+div.dmco_select a
+{
+    background-color: #ffffff;
+}
+
+div.dmco_select a:hover
+{
+    background-color: #f2f2f2;
+    text-decoration: none;
+}
+
+
+
+/****************************************************************************
+ * Form
+ *************************************************************************** */
+form.dmco_form span.form_label
+{
+    color: #333333;
+}
+
+form.dmco_form div.form_item span.label
+{
+    color: #333333;
+}
+
+ul.dmpi_user_tools li div.dmpi_user_tools_addtomychannel a
+{
+    color: #3784cc;
+}
+
+/****************************************************************************
+ * User infos
+ *************************************************************************** */
+div.dmpi_user_card div.user_stats,
+div.dmpi_user_card div.user_details div.dmco_text,
+body.dm_page_html_user div.user_invite_friends h4.dmco_title,
+body.dm_page_html_user div.user_join_groups h4.dmco_title,
+body.dm_page_html_user div.user_your_opinion h4.dmco_title,
+body.dm_page_html_user div.user_myfeatured h4.dmco_title,
+body.dm_page_html_user div.user_myvideos h4.dmco_title,
+body.dm_page_html_user div.user_complete_profile h4.dmco_title,
+body.dm_page_html_user div.user_mychannel,
+body.dm_page_html_user div.user_invite_friends,
+body.dm_page_html_user div.user_join_groups,
+body.dm_page_html_user div.user_your_opinion,
+body.dm_page_html_user div.user_myfavorites,
+body.dm_page_html_user div.user_myplaylists,
+body.dm_page_html_user div.user_complete_profile,
+body.dm_page_html_user div.user_myfeatured,
+form.dmco_form div.form_input label
+{
+    color: #666666;
+}
+
+div.dmpi_video_item
+{
+    color: #666666;
+}
+
+/*html.gecko div.list_view div.dmpi_video_item:hover,
+html.gecko div.list_view div.dmpi_video_item:hover .background,*/
+div.dmpi_playlist_item:hover,
+div.hub_list_mode:hover,
+div.dmpi_user_item:hover,
+div.dmpi_group_item:hover,
+div.dmpi_playlist_item:hover .background,
+div.dmpi_group_item:hover .background,
+div.dmpi_user_item:hover .background
+{
+    background-color: #f7f7f7;
+}
+
+div.dmpi_playlist_minicard a.dmpi_playlist_title,
+div.dmpi_hub_minicard a.hub_title,
+div.dmpi_playlist_minicard a.dmpi_playlist_title:hover,
+div.dmpi_hub_minicard a.hub_title:hover
+{
+    color: #193d5e;
+}
+
+div.list_view div.dmpi_video_item span.dmpi_tag_item,
+div#video_flyout_box span.dmpi_tag_item,
+div.list_view div.dmpi_video_item span.dmpi_tag_item a,
+div#video_flyout_box span.dmpi_tag_item a
+{
+    color: #666666;
+    background-color: #f2f2f2;
+}
+
+/*html.gecko div.list_view div.dmpi_video_item:hover span.dmpi_tag_item,
+html.gecko div.list_view div.dmpi_video_item:hover span.dmpi_tag_item a
+{
+    background-color: #ffffff;
+}*/
+
+/*html.gecko div.list_view div.dmpi_video_item span.dmpi_tag_item:hover,
+html.gecko div.list_view div.dmpi_video_item span.dmpi_tag_item:hover a,*/
+div#video_flyout_box span.dmpi_tag_item:hover,
+div#video_flyout_box span.dmpi_tag_item:hover a,
+div.list_view div.dmpi_video_item:hover span.dmpi_tag_item:hover,
+div.list_view div.dmpi_video_item:hover span.dmpi_tag_item:hover a
+{
+    color: #f2f2f2;
+    background-color: #666666;
+}
+
+.inline_tabs
+{
+    border-color: #CCCCCC;
+}
+
+.inline_tabs a.tabselected,
+.inline_tabs span.tabselected
+{
+    border-color: #CCCCCC #CCCCCC #ffffff #CCCCCC;
+}
+
+.inline_tabs a.tab:hover,
+.inline_tabs span.tab:hover
+{
+    background-color: #CCCCCC;
+}
+
+.inline_tabs a.tabselected:hover,
+.inline_tabs span.tabselected:hover
+{
+    background-color: #ffffff;
+}
+
+
+
+div.dmpi_user_card div.dmpi_property span.dmpi_property_value
+{
+    color: #202020;
+}
+
+/****************************************************************************
+ * User status
+ *************************************************************************** */
+div.dmpi_user_card div.user_online span.dmpi_property_value,
+.user_online a
+{
+
+    font-weight: bold;
+}
+
+/****************************************************************************
+ * User link
+ *************************************************************************** */
+div.dmpi_user_card div.user_websites div.dmpi_property a.website
+{
+    color: #3784cc;
+}
+
+/****************************************************************************
+ * Button
+ *************************************************************************** */
+div.dmco_button a.dmco_link span
+{
+    background: transparent url(../../public/default/img/button.gif.ve2f9b235715470cc) no-repeat;
+}
+
+div.dmco_button a.dmco_link
+{
+
+    background: transparent url(../../public/default/img/button.gif.ve2f9b235715470cc) no-repeat scroll top right;
+}
+
+div.dmco_button a.dmco_link:active
+{
+
+}
+
+/****************************************************************************
+ * Tagcloud
+ *************************************************************************** */
+
+ /* more tags */
+ div.dmpi_tagcloud a.more_tags
+ {
+    color: #3784cc;
+ }
+
+div.dmpi_tagcloud a.t1
+{
+    color: #888888;
+}
+
+div.dmpi_tagcloud a.t1:hover
+{
+
+
+}
+
+div.dmpi_tagcloud a.t2
+{
+    color: #3399FF;
+}
+
+div.dmpi_tagcloud a.t2:hover
+{
+
+
+}
+
+div.dmpi_tagcloud a.t3
+{
+    color: #339999;
+}
+
+div.dmpi_tagcloud a.t3:hover
+{
+
+
+}
+
+div.dmpi_tagcloud a.t4
+{
+    color: #339933;
+}
+
+div.dmpi_tagcloud a.t4:hover
+{
+
+
+}
+
+div.dmpi_tagcloud a.t5
+{
+    color: #339933;
+}
+
+div.dmpi_tagcloud a.t5:hover
+{
+
+
+}
+
+
+div.dmpi_tagcloud a.t6
+{
+    color: #99CC33;
+}
+
+div.dmpi_tagcloud a.t6:hover
+{
+
+
+}
+
+div.dmpi_tagcloud a.t7
+{
+    color: #FF9933;
+}
+
+div.dmpi_tagcloud a.t7:hover
+{
+
+
+}
+
+div.dmpi_tagcloud a.t8
+{
+    color: #FF9933;
+}
+
+div.dmpi_tagcloud a.t8:hover
+{
+
+
+}
+
+div.dmpi_tagcloud a.t9
+{
+    color: #FF3300;
+}
+
+div.dmpi_tagcloud a.t9:hover
+{
+
+
+}
+
+div.dmpi_tagcloud a.t10
+{
+    color: #FF3300;
+}
+
+div.dmpi_tagcloud a.t10:hover
+{
+
+
+}
+
+/****************************************************************************
+ * Vertical menu
+ *************************************************************************** */
+/*ul.dmco_menu_vertical li
+{
+    background-color: #ffffff;
+}
+
+ul.dmco_menu_vertical li
+{
+    border-bottom: 1px solid #e8e8e8;
+}
+
+ul.dmco_menu_vertical li:hover
+{
+   background-color: #f2f2f2;
+}
+
+ul.dmco_menu_vertical li.no_hover:hover
+{
+    background-color: #ffffff;
+}
+*/
+/****************************************************************************
+ * Backgrounds
+ *************************************************************************** */
+.background,
+.background_on_hover:hover
+{
+ background-color: #ffffff;
+}
+
+.background_2,
+.background_2_on_hover:hover
+{
+ background-color: #fafafa;
+}
+
+.background_3,
+.background_3_on_hover:hover
+{
+    background-color: #f7f7f7;
+}
+
+.background_5,
+.background_5_on_hover:hover,
+.highlighted_item,
+.highlightable_item:hover
+{
+    background-color: #f2f2f2;
+}
+
+.highlightable_item:hover
+{
+    color: #202020;
+}
+
+/****************************************************************************
+ * Foregrounds
+ *************************************************************************** */
+.foreground,
+.foreground_hoverable,
+.foreground a
+{
+    color: #666666;
+}
+
+.foreground_hoverable:hover
+{
+    color: #202020;
+}
+
+.foreground2,
+.foreground2 a
+{
+    color: #666666;
+}
+
+.foreground a.label,
+.foreground2 a.label
+{
+    color: #333333;
+}
+
+.foreground_50,
+.foreground_50 a
+{
+    color: #666666;
+}
+
+.user_offline
+{
+    color: #666666;
+}
+
+/****************************************************************************
+ * Name
+ *************************************************************************** */
+.name,
+a.name,
+span.name a
+{
+    color: #3784cc;
+}
+
+.tag_hoverable:hover
+{
+    background-color: #3784cc;
+    color: #f2f2f2;
+    text-decoration: none;
+}
+
+.name_background
+{
+    background-color: #3784cc;
+}
+
+.player_mode_unselected:hover,
+.layout_unselected:hover
+{
+    color: #3784cc;
+}
+/****************************************************************************
+ * Video Title
+ *************************************************************************** */
+.video_title,
+a.video_title:hover
+{
+    color: #193d5e;
+}
+
+.video_title_30
+{
+    color: #5e778e;
+}
+
+/****************************************************************************
+ * Label
+ *************************************************************************** */
+.label,
+.label a,
+form.dmco_form div.form_item span.label
+{
+    color: #333333;
+}
+
+ul.dmpi_user_tools li a,
+ul.dmpi_user_tools li button
+{
+    color: #333333;
+}
+
+/****************************************************************************
+ * Tag
+ *************************************************************************** */
+.tag,
+.tag a,
+a.tag
+{
+    color: #3784cc;
+}
+
+div.icon_list div.icon div.icon_image
+{
+
+}
+
+.tag_background
+{
+    background-color: #3784cc;
+}
+
+/****************************************************************************
+ * Light border
+ *************************************************************************** */
+.light_border
+{
+    border-top: 1px solid #ededed;
+    border-left: 1px solid #ededed;
+    border-bottom: 1px solid #e8e8e8;
+    border-right: 1px solid #e8e8e8;
+}
+
+.light_border_bottom
+{
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.foreground2_border_bottom_dashed
+{
+    border-bottom: 1px dashed #666666;
+}
+
+
+.light_border_top
+{
+    border-top: 1px solid #ededed;
+}
+
+.light_border_left
+{
+    border-left: 1px solid #ededed;
+}
+
+.light_border_right
+{
+    border-right: 1px solid #e8e8e8;
+}
+
+.border_color_3
+{
+    border-color: #f7f7f7;
+}
+
+.border_color_5
+{
+    border-color: #f2f2f2;
+}
+
+/****************************************************************************
+ * Border
+ *************************************************************************** */
+div.image_border_empty,
+div.image_border,
+img.image_border_empty,
+img.image_border,
+a.image_border_empty,
+a.image_border,
+.image_border_color
+{
+    border-color: #cccccc;
+}
+
+div.image_border:hover, img.image_border:hover, a.image_border:hover, div.video_list div.dmpi_hub_preview div.hub_border:hover
+{
+    border-color:   #3784cc;
+}
+div.image_mini_border, img.image_mini_border, a.image_border_empty
+{
+    border-color:   #b2b2b2;
+}
+
+div.dmpi_playlist_preview div.playlist_border,
+div.dmpi_hub_preview div.hub_border
+{
+    background-color: #ffffff;
+}
+
+.white_border,
+.white_border_bottom,
+.white_border_left,
+.white_border_top,
+.white_border_right
+{
+    border-color: #ffffff;
+}
+
+.border_stronger
+{
+    border-color: #cccccc;
+}
+
+/****************************************************************************
+ * Round box
+ *************************************************************************** */
+.dmpi_box_round .content
+{
+    background: #f2f2f2 none repeat scroll 0%;
+    border-color: #e5e5e5;
+}
+
+.dmpi_box_round .xb1
+{
+    background: #e5e5e5 none repeat scroll 0%;
+}
+.dmpi_box_round .xb2,
+.dmpi_box_round .xb3,
+.dmpi_box_round .xb4
+{
+    background: #f2f2f2 none repeat scroll 0%;
+}
+.dmpi_box_round .xb2,
+.dmpi_box_round .xb3,
+.dmpi_box_round .xb4
+{
+    border-left: 1px solid  #e5e5e5;
+    border-right: 1px solid  #e5e5e5;
+}
+
+/****************************************************************************
+ * Branding
+ *************************************************************************** */
+div.partner_logo
+{
+
+}
+
+div.partner_logo a
+{
+
+}
+
+html.ie div.partner_logo a
+{
+    display: inline-block;
+    background-color: blue;
+    filter: Alpha(opacity='0');
+}
+
+
+div.dmpi_subheader div.subheader,
+div.dmpi_subheader a.subheader
+{
+    width: 970px; z-index: 0; background-image: url(img/top_banner.png.vd4e006e9fabde98f); background-repeat: no-repeat; background-position: center top;
+    display: block; height: 100px;
+    margin: 0 auto;
+}
+
+html.ie6 div.dmpi_subheader div.subheader, html.ie6 div.dmpi_subheader a.subheader
+{
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://static1.dmcdn.net/skin/data/default/partner/2606_confession_hp/img/top_banner.png.vd4e006e9fabde98f', sizingMethod='crop'); background-image: none;
+}
+
+div.dmpi_subheader div.subheader_partner
+{
+    font-size: 16px;
+    position: absolute;
+    right: 10px;
+    top: 189px;
+}
+
+div.dmpi_subheader div.subheader_partner a#logo_partner_link
+{
+    width: 120px;
+    height: 60px;
+}
+
+div.dmpi_subheader div.subheader_partner a#logo_partner_link img.partner_logo_img
+{
+    margin-bottom: -5px;
+}
+
+div.dmpi_bottombanner .bottom_banner
+{
+
+
+}
+
+html.ie6 div.dmpi_bottombanner div.bottom_banner, html.ie6 div.dmpi_bottombanner a.bottom_banner
+{
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='', sizingMethod='crop'); background-image: none;
+}
+
+body.dm_page_html_home div.dmpi_centerbanner .centerbanner
+{
+
+
+}
+
+html.ie body.dm_page_html_home div.dmpi_centerbanner .centerbanner
+{
+    margin-top: 12px;
+}
+
+html.ie6 div.dm_page_html_home .centerbanner
+{
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='', sizingMethod='crop'); background-image: none;
+}
+
+a.branding_member_cover
+{
+
+
+}
+
+html.ie6 a.branding_member_cover
+{
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='', sizingMethod='crop'); background-image: none;
+}
+
+/****************************************************************************
+ * Note
+ *************************************************************************** */
+
+div.dmpi_note:hover,
+div.over_note
+{
+    background-color: #f2f2f2;
+}
+
+div.dmpi_note div.note_infos
+{
+    border-color: #e8e8e8;
+}
+
+/****************************************************************************
+ * User Tools
+ *************************************************************************** */
+div.dmpi_user_tools_addtomychannel a.dmco_simplelink
+{
+
+}
+
+div.dmpi_user_tools_addtomychannel a.dmco_simplelink
+{
+
+}
+
+/****************************************************************************
+ * Tabs
+ *************************************************************************** */
+div.dmpi_box div.dmpi_user_nav,
+div.dmpi_box div.dmpi_group_nav,
+div.dmpi_box div.dmpi_contest_nav,
+div.dmpi_box div.hub_nav_cont
+{
+    border-bottom-color: #CCCCCC !important;
+}
+
+ul.tabs li a,
+ul.tabs li span
+{
+    color: #3784cc !important;
+    border-top-color: #f7f7f7;
+    border-bottom-color: #CCCCCC;
+}
+
+ul.tabs li a:hover,
+ul.tabs li span:hover
+{
+    border-top-color: #CCCCCC;
+    background-color: #CCCCCC;
+}
+
+ul.tabs li.selected a,
+ul.tabs li.selected span
+{
+    color: #333333 !important;
+    background-color: #ffffff;
+    border-color: #CCCCCC #CCCCCC #ffffff;
+}
+

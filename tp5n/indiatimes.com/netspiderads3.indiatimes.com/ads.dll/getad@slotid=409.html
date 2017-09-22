@@ -1,0 +1,37 @@
+<html><head><title>Indiatimes - Advertisement</title></head><body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bottommargin="0" STYLE="background-color:transparent"><style> 
+a {color:#3886b8; text-decoration:none;}
+a:hover{text-decoration:underline;}
+</style>
+<script language="javascript"> 
+var NS_textLines=[];
+var NS_CLICKTAG=[];
+var s;
+var ns_mmtSlotid=506;
+var ns_mmtCampid=1005;
+//Text Lines to be shown
+NS_textLines[0]=['7834142','Fly New York - Delhi @ $469'];
+NS_textLines[1]=['7834147','Fly Washington - Delhi @ $469'];
+NS_textLines[2]=['7834149','Fly Chicago - Mumbai @ $569'];
+NS_textLines[3]=['7834151','$500 off* on Europe packages'];
+ 
+//ClickTag URL
+NS_CLICKTAG[0]='http://netspiderads3.indiatimes.com/ads.dll/clickthrough?msid='+NS_textLines[0][0]+'&cid='+ns_mmtCampid+'&slotid='+ns_mmtSlotid;
+NS_CLICKTAG[1]='http://netspiderads3.indiatimes.com/ads.dll/clickthrough?msid='+NS_textLines[1][0]+'&cid='+ns_mmtCampid+'&slotid='+ns_mmtSlotid;
+NS_CLICKTAG[2]='http://netspiderads3.indiatimes.com/ads.dll/clickthrough?msid='+NS_textLines[2][0]+'&cid='+ns_mmtCampid+'&slotid='+ns_mmtSlotid;
+NS_CLICKTAG[3]='http://netspiderads3.indiatimes.com/ads.dll/clickthrough?msid='+NS_textLines[3][0]+'&cid='+ns_mmtCampid+'&slotid='+ns_mmtSlotid;
+ 
+//Table Style Properties
+//NS_TableStyle='font-family:arial;font-size:14px;font-weight:bold; list-style-image:url(http://timesofindia.indiatimes.com/photo/7540680.cms) ;margin:0;padding-left:20px;padding-top:3px;';
+NS_TDStyle='border-bottom: 1px solid #3886b8';
+NS_SpanStyle='color:black;';
+NS_ULStyle='font-weight:BOLD;font-family:arial;font-size:13px; list-style-image:url(http://adscontent.indiatimes.com/photo/7540680.cms) ;margin:0;padding-left:20px;padding-top:3px;';
+NS_Bullets=1;
+</script>
+<script language="javascript"> 
+s='<table border="0" cellpadding="0" cellspacing="0" width="100%"';
+if(typeof(NS_TableStyle)!='undefined'){s+='style="'+NS_TableStyle+'">';}else{s+='>';}
+if(NS_Bullets==0){for (i=0;i<NS_textLines.length ;i++ ){s+='<tr><td';if(i<NS_textLines.length-1){s+=' style="'+NS_TDStyle+'">';}else{s+='>';}s+='<a href="httpdisabled://netspiderads3.indiatimes.com/ads.dll/'+NS_CLICKTAG[i]+'" target="_blank">'+NS_textLines[i][1]+'</a>';if(typeof(NS_textLines[i][2]) != 'undefined'){s+='<span style="'+NS_SpanStyle+'">'+NS_textLines[i][2]+'</span>';}s+='</td></tr>';}}else{s+='<tr><td><ul style="'+NS_ULStyle+'">';for(i=0;i<NS_textLines.length ;i++ ){s+='<li>';s+='<a href="'+NS_CLICKTAG[i]+'" target="_blank">'+NS_textLines[i][1]+'</a>';if(typeof(NS_textLines[i][2]) != 'undefined'){s+='<span style="'+NS_SpanStyle+'">'+NS_textLines[i][2]+'</span>';}s+='</li>';}s+='</td></tr>';}
+s+='<tr><td align="right"><span style="font-size:14px;color:red;font-weight:bold"><a href="httpdisabled://us.makemytrip.com/?cmp=2:4:45:4:3:3:4:2:2:2:2:147:2:2:2:5:2:2:2:12:9:3:2:2:2:2" target="_blank">More >></a></span></td></tr>';
+s+='</table>';
+void(s);
+</script></body></html>

@@ -1,0 +1,150 @@
+Nico.onReady(function() {
+/* search form */
+	var isIPad = window.orientation !== undefined,
+		div    = $('searchFormInner'),
+		form   = $('searchForm'),
+		input  = $('searchWord'),
+		textp  = $('migiueText'),
+		cn = {migiue: 'migiue', active: 'active'},
+		track = 'track=nicouni_search_keyword',
+		fn = {
+			_getUrl: function(action, word, params) {
+				return [
+					action,
+					encodeURIComponent(word),
+					params || '',
+					params ? '&' : '?',
+					track
+				].join('');
+			},
+			getUrl: {
+				sVideo: function(a, w) {
+					return fn._getUrl(a, w.replace(/%20/g, '+'));
+				},
+				sMylist: function(a, w) {
+					return fn._getUrl(a, w.replace(/%20/g, '+'));
+				},
+				sSeiga: function(a, w) {
+					return fn._getUrl(a, w.replace(/([\.\/\#\?\&\%])/g, function(w, p){
+						return String.fromCharCode(p.charCodeAt(0) + 0xfee0);
+					}), '?mode=keyword&target=illust');
+				},
+				sLive: function(a, w) {
+					return fn._getUrl(a, w, '?kind=content');
+				}
+			},
+			focus: function() {
+				div.removeClassName(cn.migiue);
+				input.focus();
+				input.select();
+			},
+			search: function(e) {
+				e && Event.stop(e);
+				var word = input.value.strip(),
+					func = fn.getUrl[form.className];
+
+				div.hasClassName(cn.migiue) || !word || !func ?
+					fn.focus() : location.href = func(form.action, word);
+			}
+		};
+
+	// tabs
+	$$('#searchFormInner li a').each(function(el) {
+		Event.observe(el, 'click', function(e) {
+			Event.stop(e);
+			var pr = el.up();
+			if (pr.hasClassName(cn.active)) return;
+
+			pr.addClassName(cn.active).siblings()
+				.each(function(elm) {elm.removeClassName(cn.active);});
+
+			form.action = el.href;
+			form.className = el.className;
+			fn.search();
+		});
+	});
+
+	// form
+	form && Event.observe(form, 'submit', fn.search);
+
+	// textbox
+	input && Event.observe(input, 'focus', fn.focus);
+	isIPad && input && input.setStyle({width: '440px'});
+
+	// migiue text
+	textp && Event.observe(textp, 'click', fn.focus);
+
+
+/* topics */
+	var tabs = $$('#topicsTab li a'),
+		cont = $$('#topicsInner .topic'),
+		act = 'active';
+
+	tabs.length && tabs.each(function(el) {
+		el.observe('click', function(e) {
+			Event.stop(e);
+			var p = el.up(), id = el.readAttribute('href').replace('#', '');
+			if (p.hasClassName(act)) return;
+
+			p.addClassName(act).siblings().each(function(elm) {
+				elm.removeClassName(act);
+			});
+
+			cont.each(function(elm) {
+				elm[(elm.id == id ? 'add' : 'remove') + 'ClassName'](act);
+			});
+		});
+	});
+
+
+/* random display for hot(flog) and uad video */
+	var items = [
+			{elm: $$('#hotVideo .listWrap')[0], num: 8, ev: true},
+			{elm: $$('#uadVideo .listWrap')[0], num: 8}
+		],
+		flog = {url: 'http://www.flog.jp/w.php/', timer: null, delay: 5000},
+		shuffle = function(arr) {
+			var i = arr.length;
+			while(i){
+				var j = Math.floor(Math.random() * i);
+				var t = arr[--i];
+				arr[i] = arr[j];
+				arr[j] = t;
+			}
+			return arr;
+		};
+
+	items.each(function(item) {
+		var t = $A(item.elm.getElementsByTagName('li')), elms = [];
+		t.each(function(el) {elms.push(Element.remove(el));});
+
+		shuffle(elms).each(function(el, i) {
+			if (i >= item.num) return false;
+			Element.down(item.elm, 'ul').appendChild(el);
+		});
+
+		// loaddisabled image
+		elms.each(function(el) {
+			var img = Element.down(el, 'img');
+			if (!img) return;
+			var src = img.readAttribute('longdesc');
+			src && (img.src = src);
+		});
+
+		item.elm.setStyle({display: 'block'});
+
+		item.ev && $A(item.elm.getElementsByTagName('a')).each(function(el) {
+			el.observe('click', function(e) {
+				if (e.shiftKey || e.altKey || e.ctrlKey || e.metaKey) return;
+
+				flog.timer = setTimeout(function () {
+					location.href = el.href.replace(flog.url, '');
+				}, flog.delay);
+			});
+		});
+	});
+
+	Event.observe(window, 'unloaddisabled', function () {
+		flog.timer && clearTimeout(flog.timer);
+	});
+});

@@ -1,0 +1,159 @@
+
+<style type="text/css">
+@import "../css/meinwetter-2011.css";
+</style>
+
+<div class="meinwetter_box">
+
+	<div class="meinwetter_header">
+	<div class="meinwetter_link" style="position: absolute; top: 0px; left: 70px; width:55px;"><a href="httpdisabled://wetter.bild.de/?id=meinwetter" target="_top">einstellen</a></div>
+	<div class="meinwetter_link" style="position: absolute; top: 0px; left: 187px; text-align: right;"><a href="httpdisabled://wetter.bild.de" target="_top">Zur Wetter-&Uuml;bersicht</a></div>
+	<a href="httpdisabled://wetter.bild.de" target="_top">MEIN WETTER</a>
+	</div>
+
+	<div style="padding: 8px 8px 8px 8px;">
+	<table cellspacing="0" cellpadding="0">
+		<tr><td class="meinwetter_name" id="mw_name" width="90"></td><td class="meinwetter_name" id="mw_wetter"></td></tr>
+	</table>
+	</div>
+
+	<div class="meinwetter_text">
+		<table class="meinwetter_tabelle" cellspacing="0" cellpadding="0">
+			<tr><td width="90">Temperatur</td><td id="mw_temp"></td></tr>
+			<tr><td>Regen</td><td id="mw_rain"></td></tr>
+			<tr><td>Wind</td><td id="mw_wind"></td></tr>
+		</table>
+	</div>
+
+	<div class="meinwetter_warnungen">WETTERALARM
+		<div class="meinwetter_link" style="position: absolute; top: 0px; left: 80px; width: 220px;text-align: right;"><a href="httpdisabled://wetter.bild.de/?id=wetteralarm" target="_top">Aktuelle Unwetter-Warnungen f&uuml;r Deutschland</a></div>
+	</div>
+	
+	<div class="meinwetter_symbol2">
+		<img id="mw_icon" src="../symbols/ani75px/wolkig.gif" style="visibility: visible;">
+	</div>
+
+	<div class="meinwetter_suche">
+		<div style="position: absolute; left: 0px; top: 10px;">
+			<form name="wettersuche" action="javascript:Go(document.wettersuche.searchFor.value);" method="post">
+				<input class="meinwetter_eingabe" name="searchFor" value="ORT/POSTLEITZAHL" onblur="if(this.value=='')this.value='ORT/POSTLEITZAHL';" onfocus="if(this.value=='ORT/POSTLEITZAHL')this.value='';" type="text" style="vertical-align: middle;" />
+			</form>
+		</div>
+		<div style="position: absolute; left: 253px; top: 10px;"><a href="javascript:Go(document.wettersuche.searchFor.value);"><img border="0" src="../img/button-finden.png" onmouseover="this.src='/img/button-finden-hover.png'" onmouseout="this.src='/img/button-finden.png'" alt="" style="vertical-align: middle;"></a></div>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+<!--
+
+function getCookieVal (offset) {
+	var endstr = document.cookie.indexOf (";", offset);
+	if (endstr == -1)
+		endstr = document.cookie.length;
+	return decodeURI(document.cookie.substring(offset, endstr));
+}
+
+function GetCookie (name) {
+	var arg = name + "=";
+	var alen = arg.length;
+	var clen = document.cookie.length;
+	var i = 0;
+	while (i < clen) {
+		var j = i + alen;
+		if (document.cookie.substring(i, j) == arg)
+		return getCookieVal (j);
+		i = document.cookie.indexOf(" ", i) + 1;
+		if (i == 0) break;
+	}
+	return null;
+}
+
+var plz = GetCookie('MeinWetterPLZ');
+var name = GetCookie('MeinWetterName');
+
+if(plz == null) {
+
+	var content = ReadFile("/data/dl_meinwetter.txt");
+	var data = content.split('\n');
+//	var aktiv2 = window.setInterval("MyWeather()", 3000);
+
+}else{
+
+	var content = ReadFile("httpdisabled://wetter.bild.de/meinwetter.asp?p="+plz);
+	var data = new Array();
+	data[0]=name+"|"+plz+"|"+content;
+
+}
+
+
+var j1 = 0;
+var iDay = 0;
+
+SetWeather(data[0]);
+
+function SetWeather(dline) {
+
+	var dedata = dline.split('|');
+
+	document.getElementById('mw_name').innerHTML=dedata[0];
+	document.getElementById('mw_wetter').innerHTML="<b>"+dedata[3 + (iDay * 7)].toUpperCase()+"</b>";
+	document.getElementById('mw_rain').innerHTML="<b>"+dedata[6 + (iDay * 7)]+"%</b>";
+	document.getElementById('mw_temp').innerHTML="<b>"+dedata[4 + (iDay * 7)]+"&deg\;C, "+dedata[5 + (iDay * 7)]+"&deg\;C</b>";
+	document.getElementById('mw_wind').innerHTML="<b>"+dedata[7 + (iDay * 7)]+", "+dedata[8 + (iDay * 7)]+" Bft</b>";
+	document.getElementById('mw_icon').src='/symbols/ani75px/'+dedata[3 + (iDay * 7)]+'.gif';
+
+}
+
+function MyWeather() {
+
+	j1 = j1 + 1;
+	if (j1 > 16) j1=0;
+
+	SetWeather(data[j1]);
+
+
+}
+
+function ReadFile(fileUrl) {
+    var req;
+    var fileContent;
+    // branch for IE/Windows ActiveX version
+    if (window.ActiveXObject) {
+        req = new ActiveXObject("Microsoft.XMLHTTP");
+        void("GET", fileUrl, false);
+        req.onreadystatechange=function() {
+		if (req.readyState == 4) {
+			fileContent = req.responseText;
+			}
+		}
+        req.send(null);
+    // branch for native XMLHttpRequest object
+    } else if (window.XMLHttpRequest) {
+        req = new XMLHttpRequest();
+        void("GET", fileUrl, false);
+        req.send(null);
+        fileContent = req.responseText;
+    }
+    return fileContent;
+}// FileRead End
+
+function Go (select) {
+
+	if (select == "ORT/POSTLEITZAHL") {
+		alert("BITTE PLZ/ORT EINGEBEN");
+	}
+	else if (select == "") {
+		alert("BITTE PLZ/ORT EINGEBEN");
+	}
+	else
+	{
+
+		var search = "?suche="+select;
+		top.location.href = "httpdisabled://wetter.bild.de/" + search;
+    }
+}
+
+-->
+
+</script>

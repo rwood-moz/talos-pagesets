@@ -1,0 +1,21 @@
+.free-with-prime {
+    display:none;
+    position:absolute;
+    width:350px;
+    margin-left:-175px;
+    -moz-border-radius:12px;
+    -webkit-border-radius:12px;
+    border-radius:12px;
+    background-color:#fff;
+    -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    border:1px solid #D2C27F;
+    margin-bottom:0;
+    padding:10px 12px 8px 11px;
+    z-index: 100;
+}
+.free-with-prime a.close-prime {
+    float:right;
+    display:block;
+}

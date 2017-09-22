@@ -1,0 +1,300 @@
+
+	var xmlHttp;
+	var KeyDowncode;
+	var activeDiv="";
+	var activeDivT="";
+	var charCode,DIVLocalCtrl,TxtLocalCtrl;
+function make_search(){document.frmsearch.query.value ="";}
+function make_search_A(){document.frm1.query.value ="";}
+
+	function valid(){
+	if(document.frmsearch.query.value==""){
+		alert("Please enter text to search");
+		return false;
+		}
+		else if(window.location.href.indexOf("advancesearch")!=-1){
+		impsrch();return true;
+		}
+		else {
+		implementsearch();
+		return true;
+		}
+	}
+	var prevScript=null; 
+	function showHint(str,DIVCtrl,TxtCtrl,divchk){
+	try {
+		var headID = document.getElementsByTagName("head")[0];		
+		var newScript = document.createElement('script');
+		newScript.type = 'text/javascript';
+		newScript.src = 'http://www.google.com/complete/search?hl=en&js=true&qu=' + str ;		
+		if(prevScript!=null){		
+			headID.removeChild(prevScript);
+			}
+		prevScript=newScript;
+		headID.appendChild(newScript);		
+		}
+		catch(ex){}
+	} 
+		
+		
+		try {		
+			var google={
+			ac : {		
+			h:function(x){
+			var tmp="";
+			var y="";
+			var ss="";		
+			var len;
+			var txtSuggestedStr	="";
+			y=x;			
+			len=y[1].length;
+			var txtSuggest ="";
+			if(divchk=='tp'){
+			txtSuggest=document.getElementById('txtHint');
+			}
+			else {
+			txtSuggest=document.getElementById('txtHint1');
+			}
+			txtSuggest.innerHTML = '';
+			for(i=0;i<=len-1;i++)
+			{			
+				ss=y[1][i][0];				
+				tmp+=ss+"<br>";									
+			}	
+			var txtSuggestedStr=tmp.split("<br>");
+			for(i=0; i < txtSuggestedStr.length - 1; i++) {
+			var suggest="";
+			if(divchk=='tp'){
+			suggest = '<div id="suggestp' + i +'"  onmouseover="javascript:suggestOver(this);" ';
+			} else {
+			suggest = '<div id="suggest' + i +'"  onmouseover="javascript:suggestOver(this);" ';
+			}			
+			suggest += 'onmouseout="javascript:suggestOut(this);" ';
+			suggest += 'onclick="javascript:setSearch(\''+txtSuggestedStr[i]+'\',divchk);" ';			
+			suggest += 'class="suggest_link">' + txtSuggestedStr[i] +'</div>';			
+		    txtSuggest.innerHTML += suggest;	
+			}
+			
+			if(divchk=='tp'){
+			document.getElementById("txtHint").style.background="#ffffff";		
+			document.getElementById("txtHint").style.border="1px solid #bcbcbc";
+			}
+			else {
+			document.getElementById("txtHint1").style.background="#ffffff";
+			document.getElementById("txtHint1").style.border="1px solid #bcbcbc";
+			}
+			if(i>0)
+			   txtSuggest.style.display='inline';
+			else
+			   txtSuggest.style.display='none';
+
+			}
+		}
+	};
+}
+catch(ex){
+}
+	
+	//Mouse over function
+	function suggestOver(div_value,atrval) {
+		div_value.className = 'suggest_link_over';
+		if(atrval=="tp"){
+		activeDivT = div_value.id;
+		}
+		else {
+		activeDiv = div_value.id;
+		}		
+	}
+	//Mouse out function
+	function suggestOut(div_value,atrval) {
+		div_value.className = 'suggest_link';
+	}
+
+	function setSearch(xxx,divchk)
+	{		
+		strInputCode = document.getElementById(""+activeDiv).innerHTML;
+		strInputCode = strInputCode.replace(/&(lt|gt);/g, function (strMatch, p1){
+	 	return (p1 == "lt")? "<" : ">";
+	 	});
+	 	var strTagStrippedText = strInputCode.replace(/<\/?[^>]+(>|$)/g, "");	
+		if(bandx==3){
+			document.shopSearch.q.value = strTagStrippedText;
+		}
+		else if (bandx==4)
+		 {document.shopSearch.ss.value = strTagStrippedText;}
+		else{
+			document.frmweb.query.value = strTagStrippedText;
+		}			
+		if(divchk=='tp'){
+			document.getElementById('txtHint').style.display='none';	
+			impsrchtp();
+			return true;
+			}
+			else{
+			document.getElementById('txtHint1').style.display='none';
+			document.frm1.query.value = strTagStrippedText;
+			impsrch();return true;}
+	}
+	
+	var divchk="";
+	var strInputCode;	
+	function KeyCheck(e,xxx,atrval){
+		divchk=atrval;
+      //  alert(divchk);
+		var KeyID = window.event ? e.keyCode : e.which;
+		
+		if(atrval=='tp'){	
+			    if(KeyID == 40){    
+			   		if(activeDivT == ""){			
+						var divoverT="";						
+			   			divoverT= document.getElementById("suggestp0");						
+						suggestOver(divoverT,atrval);			
+			   		}else{
+						var divoutT="";
+						var divoverT="";		
+						divoutT = document.getElementById(""+activeDivT);						
+						divoverT= document.getElementById("suggestp"+(parseInt(activeDivT.substring(8,activeDivT.length))+1));						 
+						suggestOut(divoutT,atrval);					
+						suggestOver(divoverT,atrval);
+					}
+	
+			   }else if(KeyID == 38){
+				   	if(activeDivT == ""){
+				   			var divoverT="";						
+				   			divoverT= document.getElementById("suggestp0");						
+							suggestOver(divoverT,atrval);			
+				   		}else{					
+							divoutT = document.getElementById(""+activeDivT);						
+							divoverT= document.getElementById("suggestp"+(parseInt(activeDivT.substring(8,activeDivT.length))-1));
+							suggestOver(divoverT,atrval);
+							suggestOut(divoutT,atrval);	
+						}
+				   }else if(KeyID == 13){
+					   		try{	   
+					   		document.frmsearch.query.value = document.getElementById(""+activeDivT).innerHTML;
+							strInputCode = document.getElementById(""+activeDivT).innerHTML;
+							}
+							catch(ex){
+							strInputCode=document.frmsearch.query.value;			
+							}			
+							strInputCode = strInputCode.replace(/&(lt|gt);/g, function (strMatch, p1){
+					 		return (p1 == "lt")? "<" : ">";
+					 		});
+					 		var strTagStrippedText = strInputCode.replace(/<\/?[^>]+(>|$)/g, "");					
+							document.frmsearch.query.value = strTagStrippedText;						
+							if(document.frmsearch.query.value==""){
+								alert("Please enter text to search");
+								return false;
+							}
+							else {
+								document.getElementById('txtHint').style.display='none';	
+								impsrchtp();
+								return true;
+					   		}
+				   		}					   
+					   else{			  			   
+					   		if(window.location.href.indexOf("advancesearch")!=-1){				
+								document.getElementById('txtHint1').style.display='none';
+								}		
+								
+					   showHint(xxx.value,document.getElementById('txtHint'),xxx,divchk);
+					 }
+		}
+		else {
+		// For Second Input Control
+		if(KeyID == 40){    
+			   		if(activeDiv == ""){			
+						var divover="";						
+						divover= document.getElementById("suggest0");
+						suggestOver(divover,atrval);			
+			   		}else{
+						var divout="";
+						var divover="";		
+						divout = document.getElementById(""+activeDiv);						
+						divover= document.getElementById("suggest"+(parseInt(activeDiv.substring(7,activeDiv.length))+1));
+						suggestOut(divout,atrval);						
+						suggestOver(divover,atrval);
+					}	
+			   }else if(KeyID == 38){
+			   	if(activeDiv == ""){
+			   			var divover="";						
+						divover= document.getElementById("suggest0");
+						suggestOver(divover,atrval);			
+			   		}else{					
+						divout = document.getElementById(""+activeDiv);						
+						divover= document.getElementById("suggest"+(parseInt(activeDiv.substring(7,activeDiv.length))-1));
+						suggestOver(divover,atrval);
+						suggestOut(divout,atrval);	
+					}
+			   }else if(KeyID == 13){
+			   try{	   
+			   		document.frmsearch.query.value = document.getElementById(""+activeDiv).innerHTML;
+					strInputCode = document.getElementById(""+activeDiv).innerHTML;
+					}
+					catch(ex){
+					strInputCode=document.frmsearch.query.value;			
+					}			
+					strInputCode = strInputCode.replace(/&(lt|gt);/g, function (strMatch, p1){
+			 		return (p1 == "lt")? "<" : ">";
+			 		});
+			 		var strTagStrippedText = strInputCode.replace(/<\/?[^>]+(>|$)/g, "");					
+					document.frmsearch.query.value = strTagStrippedText;						
+					if(document.frmsearch.query.value==""){
+					alert("Please enter text to search");
+					return false;
+					}
+					else {
+					document.getElementById('txtHint1').style.display='none';
+					document.frm1.query.value = strTagStrippedText;
+					impsrch();return true;
+					}
+		
+			   }else{
+			    document.getElementById('txtHint').style.display='none';	
+			   	showHint(xxx.value,document.getElementById('txtHint1'),xxx,divchk);
+			   }
+
+		}
+}
+function impsrch()
+{
+var strsearch = "/searchresult.cms";
+document.frm1.action=strsearch;
+document.frm1.submit();
+}
+function impsrchtp(){	
+	if(bandx==3){			
+			var searchtext=document.shopSearch.q.value;
+		}
+		else if(bandx==4)
+			{
+				var searchtext=document.shopSearch.ss.value;
+			}
+		else{
+			var searchtext=document.frmweb.query.value;
+		}
+	if (searchtext==''){
+		alert('Please insert text to search');
+		document.frmweb.query.focus();
+		return false;
+	}	
+	if(bandx==1){
+	var strsearch = "httpdisabled://search.indiatimes.com/websearch.cms?type=0";	
+	document.frmweb.action=strsearch;
+	document.frmweb.submit();
+	}else if(bandx==2){
+	var strsearch = "httpdisabled://search.indiatimes.com/websearch.cms?type=1";	 
+	document.frmweb.action=strsearch; 
+	document.frmweb.submit();
+	}
+	else if(bandx==3){
+	//var strsearch = "httpdisabled://shopping.indiatimes.com/ism/faces/tiles/search.jsp";	
+	document.shopSearch.submit();
+	}
+	else if(bandx==4){
+	var strsearch = "httpdisabled://mobile.indiatimes.com/bstub?2052015767:services.apps.SearchModule";	
+	document.shopSearch.action=strsearch;
+	document.shopSearch.submit();}
+	return false;
+	}
+	 

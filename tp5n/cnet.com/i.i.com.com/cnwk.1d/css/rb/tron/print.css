@@ -1,0 +1,267 @@
+
+.pageType8301 #rb_header, .pageType8301 #footerWrap, .pageType8301 #prefoot, .pageType8301 .breadcrumb, .pageType8301 #contentAux, .pageType8301 .pageTools, .pageType8301 #fixedCommentBox, .pageType8301 .postLinks, .pageType8301 .recentPosts, .pageType8301 .postTalkback, .pageType8301 #bottom-leader, .pageType8301 .bidwar, .pageType8301 .commentTease, .pageType8301 #overviewHead img, .pageType8301 .commentwrapper,
+.pageType2100 #rb_header, .pageType2100 #footerWrap, .pageType2100 #prefoot, .pageType2100 .breadcrumb, .pageType2100 #contentAux, .pageType2100 .pageTools, .pageType2100 #fixedCommentBox, .pageType2100 .postLinks, .pageType2100 .recentPosts, .pageType2100 .postTalkback, .pageType2100 #bottom-leader, .pageType2100 .bidwar, .pageType2100 .commentTease, .pageType2100 .commentwrapper, .pageType8301 #contentBody .relatedPosts, .pageType8301 .contentTools li, .postLinks dl,
+.recentPosts, #content, #blogPromo,
+.pageType8300 #ces_header, .pageType8301 #ces_header, .cesDay #overviewHead, .cesNight #overviewHead, .cesDay #tweetmemeAndFacebook, .cesNight #tweetmemeAndFacebook, .cesDay .js-CommentsArea, .cesNight .js-CommentsArea, .infoboardWrap, .cesDay #mediaModule, .cesNight #mediaModule, .cesDay .contentTools, .cesNight .contentTools, .cesDay #footerWrap, .cesNight #footerWrap, .cesDay #contentAux, .cesNight #contentAux, .cesDay .paginationLower, .cesNight .paginationLower,
+#cnetToolbarWrap {
+	display:none;
+}
+
+.pageType8301 #rb_bodyWrap,
+.pageType2100 #rb_bodyWrap {
+	padding-top:0 !important;
+}
+
+.pageType8301 h1,
+.pageType2100 h1 {
+	font-size:181%;
+}
+
+.pageType8301, .pageType8301 #rb_bodyWrap, .pageType8301 #rb_shell, .pageType8301 #rb_content, .pageType8301 #overviewHead, .pageType8301 #overviewHead h1, .pageType8301 #overviewHead a.blogName, .pageType8301 #contentMain, .pageType8301 #contentBody,
+.pageType2100, .pageType2100 #rb_bodyWrap, .pageType2100 #rb_shell, .pageType2100 #rb_content, .pageType2100 #overviewHead, .pageType2100 #overviewHead h1, .pageType2100 #overviewHead a.blogName, .pageType2100 #contentMain, .pageType2100 #contentBody {
+	background:transparent !important;
+	text-indent: 0 !important;
+	width: auto !important;
+	margin:0 !important;
+	border: 0 !important;
+	padding: 0 !important;
+	float: none !important;
+	position:static !important;
+	overflow:visible !important;
+}
+
+.pageType8301,
+.pageType2100 {
+	font-size:108.5%;
+}
+
+
+.pageType8301 #overviewHead a.blogName {
+	height:auto !Important;
+}
+
+.pageType8301 #rb_bodyWrap,
+.pageType2100 #rb_bodyWrap {
+	margin: 0 5% !important;
+	min-width:0 !important;
+	padding:40px 0 0 !important;
+}
+
+.siteId3 #rb_bodyWrap:before {
+	content: "CNET News";
+}
+
+.siteId7 #rb_bodyWrap:before {
+	content: "CNET Reviews";
+}
+
+.siteId1 #rb_bodyWrap:before {
+	content: "CNET.com";
+}
+
+/* cbsnews specific print styles */
+
+    .siteId162 blockquote,.siteId162 #unibrow,.siteId162 #intromercial,.siteId162 #leaderboard,.siteId162 #breakingNewsBanner,.siteId162 #cbsFooterWrap,.siteId162 .networkCopy,.siteId162 #contentAux,.siteId162 .commentwrapper,.siteId162 .loginSearch,.siteId162 .universalSearch,.siteId162 #headerLinks,.siteId162 .brandLogo,.siteId162 .catNav,.siteId162 .siteNav li,.siteId162 .breadcrumb,.siteId162 .contentTools,.siteId162 .mediaPromos li,.siteId162 .mediaLinks,.siteId162 .wildCard,.siteId162 .socialTools,.siteId162 .relatedMedia,.siteId162 .moreContentWrap,.siteId162 h3,.siteId162 .playVideo,.siteId162 .featuredMedia span,.siteId162 .tags,.siteId162 embed {
+        display:none;
+    }
+
+    .siteId162 .siteNav li.snCbsNews,
+    .siteId162 .mediaPromos .featuredMedia {
+        display:block;
+    }
+    
+    .siteId162 .webNav,
+    .siteId162 #storyStrip,
+    .siteId162 #diggLatest,
+    .siteId162 #socialAreaStoryBlog,
+    .siteId162 #socialMediaCallout,
+    .siteId162 .cbsnewsTwoColStoryRelatedArea /* recent stories */
+    {
+    	display: none;
+    }
+
+    .siteId162 .siteNav li.snCbsNews a,
+    .siteId162 .siteNav li.snCbsNews a:link,
+    .siteId162 .siteNav li.snCbsNews a:visited,
+    .siteId162 .siteNav li.snCbsNews a:hover,
+    .siteId162 .siteNav li.snCbsNews a:active,
+    .siteId162 a.overviewHead,
+    .siteId162 a.overviewHead:link,
+    .siteId162 a.overviewHead:visited,
+    .siteId162 a.overviewHead:hover,
+    .siteId162 a.overviewHead:active,
+    .siteId162 .byline a,
+    .siteId162 .byline a:link,
+    .siteId162 .byline a:visited,
+    .siteId162 .byline a:hover,
+    .siteId162 .byline a:active {
+        text-decoration:none;
+        color:#000;
+        font-weight:bold;
+    }
+
+    .siteId162 .siteNav li.snCbsNews a {
+        display: list-item;
+        list-style-image: url(../../../i/cbs/print/logoDrkSm.gif);
+        list-style-position: inside;
+        letter-spacing: -1000em;
+        font-size: 1pt;
+        color: #fff;
+        float:left;
+    }
+
+    .siteId162 a.overviewHead {
+        display:block;
+        text-align:center;
+        font-size:125%;
+        padding:.15em 0 0;
+    }
+
+    .siteId162 #contentBody,
+    .siteId162 .siteNav {
+        width:100%;
+        margin:0 auto;
+        line-height:1.4em;
+        font-size:1em;
+        padding:0;
+    }
+
+    .siteId162 .storyMedia,
+    .siteId162 .postAux {
+        float:left;
+        width:244px;
+        padding:0 2em 0 0;
+        margin:0 2em 0 0;
+        border-right:1px solid #aaa;
+        font-size:.812em;
+        line-height:1.3em;
+    }
+
+    .siteId162 .postAux {
+        width:auto;
+    }
+
+    .siteId162 .storyMedia ul {
+        margin:0;
+        padding:0;
+    }
+
+    .siteId162 .featuredMedia {
+        margin:0;
+        padding:1em 0;
+    }
+
+    .siteId162 .featuredMedia p {
+        margin:.3em 0 1em;
+    }
+
+    .siteId162 .dateStamp {
+        border-top:1px solid #ccc;
+        padding:1.5em 0 0;
+        font-size:.812em;
+        color:#666;
+        display:block;
+    }
+
+    .siteId162 .overviewHead .dateStamp {
+        border:0;
+        padding:0;
+        color:#666;
+        font-size:1em;
+        font-weight:bold;
+        float:right;
+        clear:right;
+    }
+
+    .siteId162 .post .dateStamp {
+        border:0;
+        padding:0;
+        color:#666;
+        font-size:1em;
+        font-weight:bold;
+        position:relative;
+        top:-26px; /* 56 */
+        text-align:right;
+    }
+
+    .siteId162 .overviewHead h1,
+    .siteId162 .post h1 {
+        font:bold 2em Georgia,"Times New Roman",Times,serif;
+        border-bottom:1px solid #aaa;
+        margin:0 0 .5em;
+        padding:.5em 0;
+        clear:both;
+    }
+
+    .siteId162 .post h1 {
+        padding:0 0 .5em;
+    }
+
+    .siteId162 .overviewHead h2 {
+        font-size:1.25em;
+        margin:.5em 0 .83em;
+    }
+
+    .siteId162 .post .byline {
+        font-size:.875em;
+        font-weight:bold;
+        line-height:1.3em;
+        margin:0 0 .75em;
+    }
+
+.pageType4505 #rb_header, .pageType4505 #footerWrap, .pageType4505 #prefoot, .pageType4505 .breadcrumb, .pageType4505 #contentAux, .pageType4505 .contentTools, .pageType4505 .subnav,
+.pageType4505 #universalVideo,
+.pageType4505 #productThumbs,
+.pageType4505 .mediaGallery .series,
+.pageType4505 .addToList,
+.pageType4505 #similarProds,
+.pageType4505 #cnetReview #edStars2,
+.pageType4505 .listNav.lower,
+.pageType4505 #userReviews,
+.pageType4505 #submitOrUpdateArea,
+.pageType4505 #whereToBuyLarge,
+.pageType4505 .ad,
+.pageType4505 #overviewHeadBottom,
+.pageType4505 #cnetToolbarWrap {
+	display:none;
+}
+
+.pageType4505 #overviewHead div.byline {
+	float:none;
+}
+
+.pageType4505 #imageOverlay {
+	width:440px;
+	height:330px;	
+}
+
+.pageType4505 #imageOverlay img {
+	position:absolute;
+}
+
+.pageType4505 .quickLook {
+	float:left;
+}
+
+.pageType4505 #editorsTake {
+	clear:both;
+}
+
+.pageType4505 #cnetReview div {
+	float:left;
+	margin:20px 20px 20px 0;
+}
+
+.pageType4505 #cnetReview .byline div.reviewer {
+	display:inline;
+	margin:0;
+	float:none;
+}
+
+.pageType4505 li {
+	list-style-type:none;
+}
+  
+.pageType4505 .range .price {
+	padding-top:25px;
+}

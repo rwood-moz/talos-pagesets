@@ -1,0 +1,173 @@
+function o_bHeaderSetSearch(t,tdb){
+if (document.getElementById('lWeb')) document.getElementById('lWeb').className  = "noSelect";
+if (document.getElementById('lImg')) document.getElementById('lImg').className  = "noSelect";
+if (document.getElementById('lVid')) document.getElementById('lVid').className  = "noSelect";
+if (document.getElementById('lShop')) document.getElementById('lShop').className  = "noSelect";
+document.getElementById(t).className   = "select";
+document.getElementById('db').value = tdb;
+document.getElementById('rech').focus();
+document.getElementById('directSrch').value = "0";
+switch (tdb){
+case 'webr' :case 'webr3': 
+document.getElementById('btnHeadForm').title = document.getElementById('btnHeadForm').alt = 'Rechercher dans le web'; 
+break;
+case 'img': case 'img3':
+document.getElementById('btnHeadForm').title = document.getElementById('btnHeadForm').alt = 'Rechercher des images'; 
+document.getElementById('lWeb').className  = "noBordure";
+break;
+case 'vid': case 'vid3':
+document.getElementById('btnHeadForm').title = document.getElementById('btnHeadForm').alt = 'Rechercher des vid&eacute;os'; 
+document.getElementById('lImg').className  = "noBordure";
+break;
+case 'shop'  : 
+document.getElementById('btnHeadForm').title = document.getElementById('btnHeadForm').alt = 'Rechercher sur le shopping'; 
+document.getElementById('lVid').className  = "noBordure";
+break;
+default   : 
+document.getElementById('btnHeadForm').title = document.getElementById('btnHeadForm').alt = 'Rechercher'; 
+break;
+}
+return false;
+}
+function o_bHeaderFormSubmit(oForm,bWidthCompletion){
+bWidthCompletion = bWidthCompletion || false;
+var sDS = oForm.directSrch.value;
+var sBhv = oForm.bhv.value;
+var sRtype = oForm.rtype.value;
+var sProfil = (oForm.profil)?oForm.profil.value:"orange";
+var sSearch = oForm.rdata.value;
+if (oForm.categ) var sCateg = oForm.categ.value;
+if (((typeof sCateg == "undefined") || (sCateg!= "pro")) && (sSearch == '') && (sDS== "1")){
+top.location.href = "httpdisabled://r.orange.fr/r/Ohome_moteur";  
+} else if (sSearch != ''){
+var sQS = "rtype="+sRtype+"&bhv="+sBhv+"&profil="+sProfil+"&rdata="+encodeURIComponent(sSearch)+(bWidthCompletion?"&suggest=on":"");
+var cookieUid= o_sGetCookie('_gstat');
+if (cookieUid) sQS += '&uidora=' + cookieUid;
+if (oForm.action.indexOf('?')>=0){
+var aUrl = oForm.action.split("&");
+var sOpenURL = aUrl[0] + "&url=" + escape("httpdisabled://www.orange.fr/bin/frame1px.cgi?" + aUrl[1] + escape("?"+sQS));
+} else {
+var sOpenURL = "httpdisabled://www.orange.fr/bin/frame1px.cgi?url=" + escape(oForm.action+"?"+sQS);
+}
+top.location.href = sOpenURL;
+}
+return false;
+}
+function fillDirectSrch (element){
+if (element){
+element.value = "1";
+} else {
+document.getElementById('directSrch').value = "1";
+}
+return false;
+}
+function urlBL(expreg,autorise,bAuthentNeed){
+this.expreg = expreg;
+this.autorise = autorise;
+if (typeof bAuthentNeed != "undefined") this.authentNeed = bAuthentNeed;
+else this.authentNeed = false;
+}
+function bHeaderDeframe(adresse){
+var urlArray = new Array(
+new urlBL('www\.dev\.orange\.fr/index_test3\.html',true),
+new urlBL('www\.rec\.orange\.fr/index_test3\.html',true),
+new urlBL('forum\.rec\.orange\.fr',true),
+new urlBL('forum\.orange\.fr',true),
+new urlBL('http:\/\/forum\.pourelles\.orange\.fr',true),
+new urlBL('http:\/\/forum\.auto\.orange\.fr',true),
+new urlBL('http:\/\/forum\.voyages\.orange\.fr',true),
+new urlBL('http:\/\/finances\.forum\.orange\.fr',true),
+new urlBL('http:\/\/forum\.environnement\.orange\.fr',true),
+new urlBL('http:\/\/mobiles\.forum\.orange\.fr',true)
+);
+for( var index=0; index<urlArray.length; index++ ) {
+if (adresse.search(urlArray[index].expreg) > -1) {
+return urlArray[index].autorise;
+}
+}
+return false;
+}
+var strChUserAgent = navigator.userAgent;
+var intSplitStart = strChUserAgent.indexOf("(",0);
+var intSplitEnd = strChUserAgent.indexOf(")",0);
+var strChMid = strChUserAgent.substring(intSplitStart, intSplitEnd);
+function appel_o_header() {
+try {
+if (document.body){
+if (window.o_timerIE) clearInterval(window.o_timerIE);
+var headID = document.getElementsByTagName("head")[0];
+var jsNode = document.createElement('script');
+jsNode.type = 'text/javascript';
+jsNode.src = document.location.protocol+'//c.orange.fr/Js/o_headerPortail.js';
+headID.appendChild(jsNode);
+} else {
+if (typeof window.o_timerIE == "undefined") window.o_timerIE = setInterval("appel_o_header()",10);
+}
+} catch (e){}
+}
+if (typeof o_bNoHeaderDeframe == "undefined") o_bNoHeaderDeframe = false;
+if (typeof o_bHeaderDeframe == "undefined") o_bHeaderDeframe = false;
+if (o_bHeaderDeframe || (!o_bNoHeaderDeframe && bHeaderDeframe(document.location.href))){
+if (top.frames.length != 0 && (window.name == 'w_contenu' || window.name == 'w_service')){
+top.location.href = document.location.href;
+} else {
+var headID = document.getElementsByTagName("head")[0];
+var jsNode = document.createElement('script');
+jsNode.type = 'text/javascript';
+jsNode.src = document.location.protocol+'//c.orange.fr/Js/o_headerPortail.js';
+if(strChMid.indexOf("MSIE 6") != -1){
+var o_timerIE = setInterval("appel_o_header()",10);
+} else {
+headID.appendChild(jsNode);
+}
+}
+} else {
+if (typeof o_bNoWalledGarden == "undefined"){
+if (typeof o_noWalledGarden != "undefined") var o_bNoWalledGarden = o_noWalledGarden;
+else var o_bNoWalledGarden = false;
+}
+if (o_bNoWalledGarden && (top.frames.length != 0 && (window.name == 'w_contenu' || window.name == 'w_service'))){
+top.location.href = document.location.href;
+}
+if (!o_bNoWalledGarden){
+if (top.frames.length == 0 && (window.name != 'w_contenu' || window.name != 'w_service')){
+top.location.replace('http://www.orange.fr/bin/frame.cgi?u='+ escape(document.location.href));
+}
+}
+}
+var o_random_number = "ord="+(Math.round(Math.random()*10000000000))+"?"; 
+var random_number = o_random_number; 
+function popcopy()
+{
+var url = window.location.href;
+if ( url.indexOf(".orange.fr") != -1)
+{
+void("httpdisabled://r.orange.fr/r/Wcopy","","toolbar=0,location=0,directories=0,statfr=no,menubar=0,scrollbars=yes,resizable=yes,width=500,height=400");
+}
+else
+{
+void("httpdisabled://r.wanadoo.fr/r/Wcopy","","toolbar=0,location=0,directories=0,statfr=no,menubar=0,scrollbars=yes,resizable=yes,width=500,height=400");
+} 
+return false;
+}
+function popcontact()
+{
+if ( url.indexOf(".orange.fr") != -1)
+{
+n_url="httpdisabled://r.orange.fr/r?url=http://assistance.orange.fr/?ref_url="+escape(window.location.href);
+}
+else
+{
+n_url="httpdisabled://r.wanadoo.fr/r?url=http://assistance.wanadoo.fr/?ref_url="+escape(window.location.href);
+}
+void(n_url,"","toolbar=0,location=0,directories=0,statfr=no,menubar=0,scrollbars=yes,resizable=yes,width=384,height=474");
+return false;
+}
+function o_w(F,T,L,D,M,S,R,W,H)
+{
+void(F,'_blank','toolbar='+T+',location='+L+',directories='+D+',menuBar='+M+',scrollbars='+S+',resizable='+R+',width='+W+',height='+H);
+}
+function ow(f,w,h)
+{
+void(f,'_blank','toolbar=0,location=0,directories=0,menuBar=0,scrollbars=0,resizable=0,width='+w+',height='+h);
+}

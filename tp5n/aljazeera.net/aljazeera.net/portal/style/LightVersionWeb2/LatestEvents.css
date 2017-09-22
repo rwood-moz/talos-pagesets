@@ -1,0 +1,283 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+#layout {
+	width:665px;
+	position:relative;
+	clear:both;
+	background-color:#fff;
+}
+
+#layoutHeader {
+	height: 20px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #C1D0DB;
+	text-align:right;
+	cursor:move;
+	padding-top:3px;
+}
+
+#title {
+	font-family: "Arabic Transparent";
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: none;
+	float:right;
+	padding-right:5px;
+}
+
+#Close a {
+	font-family: "Arabic Transparent";
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: none;
+	float:left;
+	padding-left:2px;
+}
+
+#mainArticle {
+	margin-top:3px;
+	font-family: "Arabic Transparent";
+	font-size: 14px;
+	text-align:right;
+	direction:rtl;
+	padding:5px;
+	color: #000000;
+	text-decoration: none;
+	width: 273px;
+	float:right;
+}
+
+#mainArticle a {
+	font-size: 14px;
+	text-align:right;
+	direction:rtl;
+	text-decoration: none;
+	font-weight:bold;
+}
+
+#mainArticle img {
+	padding-left:5px;
+}
+
+#mainArticle p {
+	line-height:2px;
+	font-weight:bold;
+}
+
+#mainArticle_ {
+	margin-top:3px;
+	font-family: "Arabic Transparent";
+	font-size: 14px;
+	text-align:right;
+	direction:rtl;
+	padding:3px;
+	color: #000000;
+	text-decoration: none;
+	width: 260px;
+	float:right;
+}
+
+#mainArticle_ a {
+	font-size: 14px;
+	text-align:right;
+	direction:rtl;
+	text-decoration: none;
+	font-weight:bold;
+}
+
+#mainArticle_ img {
+	padding-left:4px;
+}
+
+#mainArticle_ p {
+	line-height:2px;
+	font-weight:bold;
+}
+
+#mainArticle1 {
+	margin-top:3px;
+	font-family: "Arabic Transparent";
+	font-size: 14px;
+	text-align:right;
+	direction:rtl;
+	padding:5px;
+	color: #000000;
+	text-decoration: none;
+	width: 322px;
+	float:right;
+}
+
+#mainArticle1 a {
+	font-size: 14px;
+	text-align:right;
+	direction:rtl;
+	text-decoration: none;
+	font-weight:bold;
+}
+
+#mainArticle1 img {
+	padding-left:5px;
+}
+
+#mainArticle1 p {
+	line-height:2px;
+	font-weight:bold;
+}
+
+#mainArticle1_ {
+	margin-top:3px;
+	font-family: "Arabic Transparent";
+	font-size: 14px;
+	text-align:right;
+	direction:rtl;
+	padding:2px;
+	color: #000000;
+	text-decoration: none;
+	width: 313px;
+	float:right;
+}
+
+#mainArticle1_ a {
+	font-size: 14px;
+	text-align:right;
+	direction:rtl;
+	text-decoration: none;
+	font-weight:bold;
+}
+
+#mainArticle1_ img {
+	padding-left:3px;
+}
+
+#mainArticle1_ p {
+	line-height:2px;
+	font-weight:bold;
+}
+
+#mainArticle2 {
+	margin-top:3px;
+	font-family: "Arabic Transparent";
+	font-size: 14px;
+	text-align:right;
+	direction:rtl;
+	padding:5px;
+	color: #000000;
+	text-decoration: none;
+	width: 322px;
+	float:left;
+}
+
+#mainArticle2 a {
+	font-size: 14px;
+	text-align:right;
+	direction:rtl;
+	text-decoration: none;
+	font-weight:bold
+}
+
+#mainArticle2 img {
+	padding-left:5px;
+}
+
+#mainArticle2 p {
+	line-height:2px;
+	font-weight:bold;
+}
+
+#Article1 {
+	margin-top:3px;
+	font-family: "Arabic Transparent";
+	font-size: 13px;
+	text-align:center;
+	direction:rtl;
+	padding-right:5px;
+	color: #000000;
+	text-decoration: none;
+	width: 89px;
+	float:right;
+}
+	
+#Article1 a {
+	font-family: "Arabic Transparent";
+	font-size: 13px;
+	text-align:center;
+	text-decoration: none;
+	font-weight:bold;
+}
+
+#Article1 img {
+	padding-left:5px;
+	padding-top:6px;
+	padding-bottom:15px;
+}
+
+#Article2 {
+	margin-top:3px;
+	font-family: "Arabic Transparent";
+	font-size: 13px;
+	text-align:center;
+	direction:rtl;
+	padding-right:5px;
+	color: #000000;
+	text-decoration: none;
+	width: 149px;
+	float:right;
+}
+	
+#Article2 a {
+	font-family: "Arabic Transparent";
+	font-size: 13px;
+	text-align:center;
+	text-decoration: none;
+	font-weight:bold;
+}
+
+#Article2 img {
+	padding-left:5px;
+	padding-top:6px;
+	padding-bottom:15px;
+}
+
+#AllArticles {
+	background-image: url(../../images/LVImages/layOutBorder.gif);
+	height:100%;
+	margin-top:7px;
+	background-repeat: repeat-y;
+}
+
+/* This Styles For All Tabs In Web 2 For Selected Tab*/
+/* Start */
+.hourlyTabSelected
+{
+	background-image: url(../../images/LVImages/hourleyTabselected.jpg);
+	background-repeat: no-repeat;
+	color: #000;
+}
+.hourlyTabSelected2
+{
+	background-image: url(../../images/LVImages/hourleyTabselected2.jpg);
+	background-repeat: no-repeat;
+	color: #000;
+}
+.hourlyTabSelected3
+{
+	background-image: url(../../images/LVImages/hourleyTabselected3.jpg);
+	background-repeat: no-repeat;
+	color: #000;
+}
+.TabbedPanelsTabSelected
+{
+	background-image: url(../../images/LVImages/tabBg_selected.jpg);
+	background-repeat: no-repeat;
+	color: #000;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #9DABB8;
+}
+/* End */

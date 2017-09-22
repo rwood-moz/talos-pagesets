@@ -1,0 +1,93 @@
+@charset "euc-jp";
+
+html {
+  filter: expression(document.execCommand("BackgroundImageCache", false, true));
+}
+#suggest {
+	background:#ffffff none repeat scroll 0 0;
+	border:1px solid #000000;
+	cursor:default;
+	line-height:18px;
+	margin:0;
+	position:absolute;
+	width:290px;
+}
+#suggest .sggstKeyword {
+	background:#ffffff none repeat scroll 0 0;
+	overflow:hidden;
+	font-size:15px;
+	padding-left:3px;
+	padding-right:3px;
+	text-align:left;
+	white-space:nowrap;
+	float:left;
+	width:284px;
+}
+#suggest .sggstSelect .sggstKeyword {
+	background:#3366CC none repeat scroll 0 0;
+	color:#ffffff;
+	cursor:pointer;
+}
+#suggest .sggstComment{
+	padding: 0 5px;
+}
+#suggest .sggstComment .sggstCommentbox{
+	border-top: 1px dotted #aeaeae;
+	background-color:#ffffff;
+	color:#808080;
+	font-size:12px;
+	padding-top: 2px;
+	clear:both;
+}
+#suggest .sggstBetabtn01{
+	float: left;
+	display: inline;
+}
+#suggest .sggstBetabtn02{
+	float: right;
+	display: inline;
+	width: 101px;
+}
+#suggest .sggstHidetext{
+	float: left;
+	display: inline;
+}
+#suggest .sggstHideimg {
+    display : block ;
+	width: 102px;
+	height: 0;
+	overflow: hidden;
+	padding-top:17px;
+	background: url(../../../../../../../../image.www.rakuten.co.jp/com/img/home/beta/201011/new_on_4.gif) no-repeat left top;
+	cursor : pointer;
+}
+#suggest .sggstHideimg:hover {
+	background: url(../../../../../../../../image.www.rakuten.co.jp/com/img/home/beta/201011/new_hover_4.gif) no-repeat left top;
+}
+#suggest .sggstHideimg{
+	float: right;
+	display: inline;
+}
+#suggest .betaimg {
+	width: 25px;
+	height: 18px;
+	overflow: hidden;
+	background: url(../../../../../../../../image.www.rakuten.co.jp/com/img/home/beta/201011/beta01.gif) no-repeat left top;
+}
+.sggstInputWrap voidSuggest {
+	display: block;
+    background: url(../../../../../../../../image.www.rakuten.co.jp/com/img/home/beta/201011/new_off_23.gif) no-repeat center center;
+    cursor: pointer;
+    height: 27px;
+    right: 3px;
+    position: absolute;
+    top: 2px;
+    width: 112px;
+}
+.sggstInputWrap voidSuggest:hover {
+    background: url(../../../../../../../../image.www.rakuten.co.jp/com/img/home/beta/201011/new_hover_23.gif) no-repeat center center;
+}
+.sggstInputWrap {
+	position:relative;
+	width:100%;
+}

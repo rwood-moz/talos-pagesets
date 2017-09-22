@@ -1,0 +1,188 @@
+﻿BODY {
+	PADDING: 0px; BACKGROUND: #fff; MARGIN: 0px auto; FONT: 12px '宋体'; COLOR: #333; TEXT-ALIGN: center
+}
+UNKNOWN {
+	MARGIN-LEFT: auto; MARGIN-RIGHT: auto; TEXT-ALIGN: center
+}
+DIV {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+FORM {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+UL {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+OL {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+LI {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+SPAN {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+P {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+DL {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+DT {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+DD {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+IMG {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+H1 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: normal; FONT-SIZE: 12px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+H2 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: normal; FONT-SIZE: 12px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+H3 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: normal; FONT-SIZE: 12px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+H4 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: normal; FONT-SIZE: 12px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+H5 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: normal; FONT-SIZE: 12px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+H6 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: normal; FONT-SIZE: 12px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+UL {
+	LIST-STYLE-TYPE: none
+}
+OL {
+	LIST-STYLE-TYPE: none
+}
+LI {
+	LIST-STYLE-TYPE: none
+}
+TABLE {
+	FONT-SIZE: 12px
+}
+TD {
+	FONT-SIZE: 12px
+}
+INPUT {
+	FONT-SIZE: 12px
+}
+TEXTAREA {
+	FONT-SIZE: 12px
+}
+A {
+	COLOR: #333; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #db0010; TEXT-DECORATION: underline
+}
+.nl {
+	TEXT-DECORATION: none
+}
+.nl A {
+	TEXT-DECORATION: none
+}
+.nl A:hover {
+	TEXT-DECORATION: none
+}
+A.nl {
+	TEXT-DECORATION: none
+}
+A.nl:hover {
+	TEXT-DECORATION: none
+}
+.ul {
+	TEXT-DECORATION: underline
+}
+.ul A {
+	TEXT-DECORATION: underline
+}
+.ul A:hover {
+	TEXT-DECORATION: underline
+}
+A.ul {
+	TEXT-DECORATION: underline
+}
+A.ul:hover {
+	TEXT-DECORATION: underline
+}
+#digi_box1 {
+	MARGIN: 0px auto; WIDTH: 960px
+}
+#digi_box1 .left {
+	WIDTH: 365px
+}
+#digi_box1 .center {
+	MARGIN-LEFT: 10px; WIDTH: 610px
+}
+#digi_box1 .right {
+	WIDTH: 250px
+}
+#digi_box1 .left .mart18_15 {
+	MARGIN: 10px 0px 11px
+}
+#digi_box1 .left .martb108 {
+	MARGIN: 10px auto 8px
+}
+#focus {
+	WIDTH: 610px; POSITION: relative; HEIGHT: 265px
+}
+#au {
+	FILTER: progid:DXImagetransform.Microsoft.Fade (duration=0.5,overlap=1.0); WIDTH: 610px; HEIGHT: 265px
+}
+#no {
+	BORDER-TOP: #725f4a 1px solid;
+	MARGIN-TOP: 0px;
+	BACKGROUND: #000;
+	FILTER: alpha(Opacity=40);
+	LEFT: -2px;
+	WIDTH: 610px;
+	LINE-HEIGHT: 24px;
+	POSITION: absolute;
+	TOP: 192px;
+	HEIGHT: 66px;
+	TEXT-ALIGN: center;
+	-moz-opacity: 0.4;
+	opacity: 0.4;
+}
+#conau {
+	MARGIN-TOP: 0px;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 18px;
+	LEFT: 7px;
+	WIDTH: 528px;
+	COLOR: #fff;
+	FONT-FAMILY: Georgia, "Times New Roman", Times, serif;
+	POSITION: absolute;
+	TOP: 199px;
+	HEIGHT: 47px;
+	TEXT-ALIGN: left
+}
+#conau A {
+	COLOR: #fff
+}
+#conau A:hover {
+	COLOR: #fff
+}
+.lunbo {
+	RIGHT: 3px;
+	WIDTH: 138px;
+	POSITION: absolute;
+	TOP: 236px;
+	HEIGHT: 21px
+}
+.lunbo TABLE {
+	HEIGHT: 21px
+}
+.lunbo TD {
+	FONT-WEIGHT: bold; COLOR: #000; LINE-HEIGHT: 12px
+}
+.lunbo .bg { padding:0px; BACKGROUND-IMAGE: url(/page_load_test/tp5/xinhuanet.com/imgs.xinhuanet.com/icon/2010sy/pic_2.gif);  WIDTH: 18px; LINE-HEIGHT: 21px; HEIGHT: 21px; TEXT-ALIGN: center; COLOR: #030100; }
+
+.lunbo .active { padding:0px; BACKGROUND-IMAGE: url(/page_load_test/tp5/xinhuanet.com/imgs.xinhuanet.com/icon/2010sy/pic_1.gif);  WIDTH: 18px; LINE-HEIGHT: 21px; HEIGHT: 21px; TEXT-ALIGN: center; COLOR: #a8471c; }

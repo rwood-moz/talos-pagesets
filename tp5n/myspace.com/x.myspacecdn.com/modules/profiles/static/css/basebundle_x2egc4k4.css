@@ -1,0 +1,326 @@
+div.moduleMid,div.moduleMid1,h3.moduleHead,div.basicInfoModule,ul.moduleList{zoom:1}
+.ie6 div.basicInfoDetails{display:inline-block}
+.ie6 object,.ie6 embed{width:100%}
+.ie6 div.profileDemographics{float:left}
+.ie7 div.profileDemographics{padding-top:5px}
+div.commentsModule ul.moduleList li{line-height:0}
+div.commentsModule ul.moduleList li div{line-height:1.5em}
+div#user{display:none!important}
+div#basicInfo_edit,div#content,div.module{zoom:1}
+.ie6 ul.profileUserAlbum a{display:inline-block}
+div#popup{z-index:1000201;left:0;width:100%;visibility:visible;position:absolute;top:10%}
+div#popup_overlay{z-index:1000200;width:100%;opacity:.6;visibility:visible;position:absolute;left:0;top:0;height:2000px;background-color:#333}
+.ie6 div#popup{left:auto}
+.ie6 div#popup_overlay{left:auto}
+.ie div#popup_overlay{filter:alpha(opacity=60)}
+div#popup .popup_box{width:700px}
+ul.squarePhotos img,ol.squarePhotos img,ul.squarePhotos div.user img{background-position:center top;background-repeat:no-repeat;height:90px;width:90px}
+ol.abbreviated a span,ul.abbreviated a span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:80%;margin:0 auto}
+img.ImgOnlineNow,img.OnlineNow{height:auto;width:auto}
+.module{padding:5px;margin-bottom:1em}
+.moduleHead{padding:.4em}
+.contentMid2{padding:10px;overflow:hidden}
+.module .moduleBody{line-height:1.5em}
+.toolbar .links{float:right}
+.toolbarEnd{clear:both}
+div#privateProfile p{margin:0 auto;text-align:center;font-size:115%}
+.gripper{display:none}
+.layout_0_2_0 .column0{width:35%;float:left;display:block}
+.layout_0_2_0 .column1{width:64.9%;float:left;display:block}
+.layout_0_2_0 .column2,.layout_0_2_0 .column3,.layout_0_2_0 .row0,.layout_0_2_0 .row2,.layout_0_2_0 .column1 .yui-resize-handle,.layout_0_2_0 .column2 .yui-resize-handle{display:none}
+.layout_0_3_0 .column0{width:33.3%;float:left;display:block}
+.layout_0_3_0 .column1{width:33.3%;float:left;display:block}
+.layout_0_3_0 .column2{width:33.3%;float:left;display:block}
+.layout_0_3_0 .column3,.layout_0_3_0 .row0,.layout_0_3_0 .row2,.layout_0_3_0 .column2 .yui-resize-handle{display:none}
+.layout_0_4_0 .column0{width:25%;float:left;display:block}
+.layout_0_4_0 .column1{width:25%;float:left;display:block}
+.layout_0_4_0 .column2{width:25%;float:left;display:block}
+.layout_0_4_0 .column3{width:24.9%;float:left;display:block}
+.layout_0_4_0 .row0,.layout_0_4_0 .row2{display:none}
+.layout_1_2_0 .row0{width:100%;display:block;margin-bottom:10px}
+.layout_1_2_0 .row1 .column0{width:35%;float:left;display:block}
+.layout_1_2_0 .row1 .column1{width:64.9%;float:left;display:block}
+.layout_1_2_0 .column2,.layout_1_2_0 .column3,.layout_1_2_0 .row2,.layout_1_2_0 .column1 .yui-resize-handle,.layout_1_2_0 .column2 .yui-resize-handle{display:none}
+.layout_1_3_0 .row0{width:100%;display:block;margin-bottom:2%}
+.layout_1_3_0 .row1 .column0{width:33.3%;float:left;display:block}
+.layout_1_3_0 .row1 .column1{width:33.3%;float:left;display:block}
+.layout_1_3_0 .row1 .column2{width:33.3%;float:left;display:block}
+.layout_1_3_0 .column3,.layout_1_3_0 .row2,.layout_1_3_0 .column2 .yui-resize-handle{display:none}
+.layout_1_4_0 .row0{width:100%;display:block;margin-bottom:2%}
+.layout_1_4_0 .row1 .column0{width:25%;float:left;display:block}
+.layout_1_4_0 .row1 .column1{width:25%;float:left;display:block}
+.layout_1_4_0 .row1 .column2{width:25%;float:left;display:block}
+.layout_1_4_0 .row1 .column3{width:24.9%;float:left;display:block}
+.layout_1_4_0 .row2{display:none}
+.layout_0_2_1 .row1 .column0{width:35%;float:left;display:block}
+.layout_0_2_1 .row1 .column1{width:64.9%;float:left;display:block}
+.layout_0_2_1 .column2,.layout_0_2_1 .column3,.layout_0_2_1 .row0,.layout_0_2_1 .column1 .yui-resize-handle,.layout_0_2_1 .column2 .yui-resize-handle{display:none}
+.layout_0_2_1 .row2{width:100%;display:block;margin-top:2%}
+.layout_0_3_1 .row1 .column0{width:33.3%;float:left;display:block}
+.layout_0_3_1 .row1 .column1{width:33.3%;float:left;display:block}
+.layout_0_3_1 .row1 .column2{width:33.3%;float:left;display:block}
+.layout_0_3_1 .column3,.layout_0_3_1 .row0,.layout_0_3_1 .column2 .yui-resize-handle{display:none}
+.layout_0_3_1 .row2{width:100%;display:block;margin-top:2%}
+.layout_0_4_1 .row1 .column0{width:25%;float:left;display:block}
+.layout_0_4_1 .row1 .column1{width:25%;float:left;display:block}
+.layout_0_4_1 .row1 .column2{width:25%;float:left;display:block}
+.layout_0_4_1 .row1 .column3{width:24.9%;float:left;display:block}
+.layout_0_4_1 .row0{display:none}
+.layout_0_4_1 .row2{width:100%;display:block;margin-top:2%}
+.layout_1_2_1 .row0{width:100%;display:block;margin-bottom:2%}
+.layout_1_2_1 .row1 .column0{width:35%;float:left;display:block}
+.layout_1_2_1 .row1 .column1{width:64.9%;float:left;display:block}
+.layout_1_2_1 .column2,.layout_1_2_1 .column3,.layout_1_2_1 .column1 .yui-resize-handle,.layout_1_2_1 .column2 .yui-resize-handle{display:none}
+.layout_1_2_1 .row2{width:100%;display:block;margin-top:2%}
+.layout_1_3_1 .row0{width:100%;display:block;margin-bottom:2%}
+.layout_1_3_1 .row1 .column0{width:33.3%;float:left;display:block}
+.layout_1_3_1 .row1 .column1{width:33.3%;float:left;display:block}
+.layout_1_3_1 .row1 .column2{width:33.3%;float:left;display:block}
+.layout_1_3_1 .column3,.layout_1_3_1 .column2 .yui-resize-handle{display:none}
+.layout_1_3_1 .row2{width:100%;display:block;margin-top:2%}
+.layout_1_4_1 .row0{width:100%;display:block;margin-bottom:2%}
+.layout_1_4_1 .row1 .column0{width:25%;float:left;display:block}
+.layout_1_4_1 .row1 .column1{width:25%;float:left;display:block}
+.layout_1_4_1 .row1 .column2{width:25%;float:left;display:block}
+.layout_1_4_1 .row1 .column3{width:24.9%;float:left;display:block}
+.layout_1_4_1 .row2{width:100%;display:block;margin-top:2%}
+.layout_0_1_0 .column0{display:block;margin-bottom:2%;padding-bottom:0;width:100%}
+.layout_0_1_0 .column1,.layout_0_1_0 .column2,.layout_0_1_0 .column3,.layout_0_1_0 .row0,.layout_0_1_0 .row2,.layout_0_1_0 .column0 .yui-resize-handle,.layout_0_1_0 .column1 .yui-resize-handle,.layout_0_1_0 .column2 .yui-resize-handle{display:none}
+div#msSubnav{margin-bottom:0}
+div#msSubnav a:hover>small{visibility:hidden}
+.interestsModule li{margin:.2em 0;padding:5px}
+.interestsModule .last{margin-bottom:0}
+.interestsModule li h4{margin-bottom:.5em}
+.interestsModule{overflow:hidden}
+.detailsModule li{padding:5px}
+.detailsModule span{overflow:hidden}
+.schoolInfo{width:80%;float:left}
+.courseInfo{margin-left:10px;margin-top:15px}
+.schoolYears{width:20%;float:right;text-align:center}
+.schoolsModule .moduleItem{padding:5px}
+.schoolsModule .moduleItem ul li{padding:3px 0}
+.blogsModule .moduleList{margin-top:.5em;clear:both}
+.blogsModule .moduleList li{padding:.5em 0;clear:both}
+.blogsModule .moduleList li .date{display:block;float:left;width:25%}
+.blogsModule .moduleList li .title{display:block;overflow:hidden}
+.blogsModule .toolbar .links{overflow:hidden;max-width:100%}
+.layout font[face="Arial"]{font-family:Arial}
+.layout font[face="Comic Sans MS"]{font-family:Comic Sans MS}
+.layout font[face="Courier"]{font-family:Courier}
+.layout font[face="Georgia"]{font-family:Georgia}
+.layout font[face="Impact"]{font-family:Impact}
+.layout font[face="Times"]{font-family:Times}
+.layout font[face="Trebuchet MS"]{font-family:Trebuchet MS}
+.layout font[face="Verdana"]{font-family:Verdana}
+.layout font[size="1"]{font-size:8px;line-height:10px}
+.layout font[size="2"]{font-size:10px;line-height:12px}
+.layout font[size="3"],.layout font[size="undefined"]{font-size:12px;line-height:14px}
+.layout font[size="4"]{font-size:14px;line-height:16px}
+.layout font[size="5"]{font-size:18px;line-height:20px}
+.layout font[size="6"]{font-size:24px;line-height:26px}
+.layout font[size="7"]{font-size:36px;line-height:40px}
+.minilogsModule .moduleList{margin-top:.5em;clear:both}
+.minilogsModule .moduleList li{padding:.5em 0;clear:both}
+.minilogsModule .moduleList li .title{display:block;overflow:hidden}
+.minilogsModule .toolbar .links{overflow:hidden;max-width:100%}
+.minilogsModule .moduleList{border-top:dotted #3d3d3d 1px}
+.minilogsModule .moduleList li{border-bottom:dotted 1px #3d3d3d}
+.minilogsModule .moduleList .minilogIcon{background:transparent url(../img/icon4minilog.gif) no-repeat 0 7px;padding-left:15px}
+.blurbsModule h4{margin:10px 0 0 0}
+.blurbsModule .moduleBody{overflow:hidden}
+.calendarModule .moduleItem{clear:both}
+.calendarModule .moduleItem li{float:left;line-height:15px;padding:.5em .5% .5em 0}
+.calendarModule .dtstart{width:23%}
+.calendarModule .description{width:50%}
+.calendarModule .location{width:20%}
+.calendarModule .moduleItem .addEvent{float:right;text-align:right;padding-right:0}
+.calendarModule .addEvent a{display:block;height:15px;width:17px;line-height:15px;background:url(../img/V3/profile-icons-003.png) left -90px no-repeat}
+.friendSpaceModule .toolbarCount{float:left}
+.friendSpaceModule .count{font-weight:bold}
+.friendSpaceModule .toolbar ul{float:right}
+.friendSpaceModule .toolbar ul li{float:left;margin-left:5px}
+.friendSpaceModule .toolbarEnd{clear:both}
+.friendSpaceModule .moduleList li{float:left;margin:15px 15px 0 0;width:70px}
+.friendSpaceModule .msProfileLink{background-color:#f6f6f6;margin-bottom:3px}
+.friendSpaceModule .msProfileTextLink{clear:both;display:block;width:100%;text-align:left;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.friendSpaceModule .moduleList.sizeComment li{margin:10px 6px 0 0;width:50px;height:50px}
+.followingModule .moduleList li{float:left;margin:15px 15px 0 0;width:70px}
+.followingModule .title{clear:both;display:block;width:100%;text-align:left;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.followingModule .moduleList.sizeComment li{margin:10px 6px 0 0;width:50px;height:50px}
+.followingModule .moduleList.sizeComment li img{width:50px;height:50px}
+.groupsModule .moduleList li{float:left;height:170px;margin-top:1em;overflow:hidden;text-align:center;width:111px}
+.groupsModule .squarePhotos li{height:125px}
+.groupsModule .moduleList li span{display:block}
+.groupsModule .moduleList li img{max-width:90px}
+.htmlBoxModule .moduleBody{overflow:hidden}
+.marqueeModule{clear:both;margin:37px 0 10px 0;position:relative}
+.pageEditor .marqueeModule{min-height:60px}
+.marqueeModule .marqueeContent{overflow:hidden}
+.marqueeModule .expandBar{text-align:center;background-color:#333;color:#fff;cursor:pointer;height:25px;line-height:25px;vertical-align:middle}
+.marqueeModule .expandBar:hover{background-color:#333}
+.marqueeModule .expandBar small{padding-left:5px}
+.marqueeModule .collapse{display:none}
+.marqueeModule .expanded .collapse{display:block}
+.marqueeModule .expanded .expand{display:none}
+.networkingModule .moduleItem{margin:.2em 0}
+.networkingModule .last{margin-bottom:0}
+.networkingModule .moduleItem ul{margin:0;line-height:1.7em;display:inline}
+.networkingModule .moduleItem ul li{float:left;padding:0 .5em;font-weight:bold}
+.networkingModule .moduleItem .role{background-image:none}
+.networkingModule .moduleItem p{clear:both;line-height:1.7em;padding:0 .5em;width:auto}
+.companiesModule .companyInfo{float:left;width:80%}
+.companiesModule .companyYears{float:right;text-align:center;width:20%}
+.companiesModule .moduleItem{padding:5px}
+.companiesModule .moduleItem ul li{padding:3px 0}
+.videoPlayerModule .moduleHead{display:none}
+.videoPlayerModule span{width:100%}
+.videoSliderModule .moduleHead{display:none}
+.musicPlayerModule #musicPlayer{overflow:hidden;width:100%}
+.musicPlayerModule .moduleMid{margin-top:10px}
+.sites .mainStream .listModule>aside{display:none}
+.sites .mainStream .listModule>section{display:block}
+.sites .mainStream .listModule>section,.sites .mainStream .listModule>.peopleStrip,.sites .mainStream .listModule>.mediaAction,.sites .mainStream .listModule>.streamComments{margin-left:0;width:100%}
+.sites .mainStream .listModule section.follow.noimg{padding-left:0}
+.sites .column1 .streamSorting{margin:0}
+.sites .column1 .mainStream .listModule>section>p{width:100%}
+.sites .column1 .mainStream .listModule>section img{max-height:100px;max-width:100px}
+.sites .column1 .mainStream .listModule>section aside+section{width:180px}
+.horizontalMenu{margin:5px 0}
+.horizontalMenu li{margin:0 10px 0 0}
+.horizontalMenu li a,.horizontalMenu li.dropdown{padding:0 4px}
+.horizontalMenu li a{font-weight:bold}
+.horizontalMenu li a:hover,.horizontalMenu li.selected a{background-color:#ccc;text-decoration:none;color:#000}
+.horizontalMenu li.dropdown{font-weight:bold}
+.horizontalMenu li.dropdown:hover{cursor:pointer;background-color:#fff}
+.horizontalMenu li.dropdown ol li a{border:0}
+.horizontalMenu li.dropdown ol{width:96px;background-color:#fff;position:absolute;left:0;border:1px solid #ccc;margin:-1px 0 0 -1px}
+.horizontalMenu li.dropdown ol li a{text-align:left}
+.horizontalMenu li.dropdown ol li.selected a,.horizontalMenu li.dropdown ol li.selected a:hover{background-color:#ccc;text-align:left;color:#000}
+.horizontalMenu li.dropdown small{padding-left:3px}
+.horizontalMenu li.selectedDropdown{background-color:#ccc;text-decoration:none;color:#000}
+.horizontalMenu li.selectedDropdown:hover{background-color:#fff;color:#06c}
+.horizontalMenu li.selectedDropdown ol li a:hover{background-color:#eee}
+.grid>li{float:left;margin-bottom:20px;width:20%}
+.ie .grid .clear{clear:both;float:none;height:0;padding:0;margin:0;background:transparent none;font-size:0}
+.ie6 .grid li{float:left;margin-bottom:20px;width:20%}
+.ie6 .grid li li{margin-bottom:0;width:auto}
+.ie6 .grid li li,.ie6 .grid .clear{float:none}
+.forumsModule table{border-collapse:collapse;width:100%}
+.forumsModule table thead tr th{background-color:#EFF3FF;color:#666}
+.forumsModule table thead tr th,.forumsModule table tr td{border:1px solid #8AB4DB;padding:.5em;vertical-align:top}
+.forumsModule td.forumTopic img{float:left}
+.forumsModule th.forumNumberOfPost,.forumsModule td.forumNumberOfPost{text-align:center}
+.forumsModule .forumAvatar img{margin:.3em}
+.bandUpcomingShowsModule .moduleItem{clear:both}
+.bandUpcomingShowsModule .moduleItem li{float:left;line-height:15px;padding:.5em .5% .5em 0}
+.bandUpcomingShowsModule .dtstart{width:23%}
+.bandUpcomingShowsModule .venue{width:50%}
+.bandUpcomingShowsModule .location{width:20%}
+.bandUpcomingShowsModule .moduleItem .addEvent{float:right;text-align:right;padding-right:0}
+.bandUpcomingShowsModule .addEvent a{display:block;height:15px;width:17px;line-height:15px;background:url(../img/V3/profile-icons-003.png) left -90px no-repeat}
+.BandHeaderModule{width:100%;height:32px;background:#E2E2E2 url(../../../music/static/img/musicprofilenav_bg.gif)}
+.BandHeaderModule .logo{height:32px;width:104px;margin-left:5px;float:left;background:#E2E2E2 url(../../../music/static/img/musicJV_logo003.gif) no-repeat}
+.BandHeaderModule .headerLinks{float:right;margin:9px 5px 0 0}
+.BandHeaderModule .headerLinks li{float:left;border-right:solid 1px #999}
+.BandHeaderModule .headerLinks .last{border:none 0}
+.BandHeaderModule .headerLinks a{color:#103795;font:normal 11px Verdana,Geneva,Arial,Helvetica,sans-serif;padding:0 10px}
+.BandHeaderModule .headerLinks a:hover{text-decoration:underline}
+.bandGeneralInfoModule li{margin:.2em 0;padding:5px}
+.bandGeneralInfoModule .last{margin-bottom:0}
+.bandGeneralInfoModule li h4{margin-bottom:.5em}
+.recentBadgesModule .nobadges{display:none}
+.recentBadgesModule .badgesAchieved{font-size:.8em}
+.recentBadgesModule .info{border-bottom:1px solid;margin-bottom:10px;padding-bottom:10px}
+.recentBadgesModule .badgeList .badge{width:114px}
+.badgeTooltip>div{width:200px}
+.badgeList{margin-top:10px}
+.badgeList .badge{float:left;width:128px;height:150px;cursor:pointer;text-align:center;font-size:10px;line-height:13px}
+.badgeList .name{font-size:11px;font-weight:bold;padding:5px 0;margin:1px;display:block;-moz-border-radius:4px;-webkit-border-radius:4px;-khtml-border-radius:4px;border-radius:4px}
+.badgeList .selected .name,.badgeList .badge:hover .name{background-color:#CCC}
+.badgeList .limited{color:#999;font-size:10px}
+.badgeTooltip>div{width:200px}
+#vidcontainer li{list-style:none;padding:0 0 0 12px;margin:0;text-align:left}
+.videoWrapper{position:relative;height:0}
+* html .videoWrapper{margin-bottom:45px;margin-bot\tom:20px}
+.videoWrapper div,.videoWrapper embed,.videoWrapper object{position:absolute;width:100%;height:100%;left:0;top:0}
+.wideScreen{padding-bottom:56.25%}
+.fourBYthree{padding-bottom:75%}
+.chrome_40{padding-top:40px}
+.chrome_25{padding-top:25px}
+.chrome_20{padding-top:20px}
+div.sharePopup{height:auto;background:transparent;overflow:hidden;display:none;margin-bottom:10px}
+div.sharePopup .accordion{overflow:visible}
+div.sharePopup .accordion li{height:320px}
+div.sharePopup div{font-size:11px}
+div.sharePopup textarea.comment{color:#000;height:35px;margin:20px 0 5px;overflow:hidden;padding:5px 5px 1px 5px;width:410px;resize:none}
+div.sharePopup ul.accordion li .content{padding:0 20px;float:left}
+div.sharePopup ul.accordion li .shareForm{padding-right:50px}
+div.sharePopup ul.accordion li .shareForm p{padding:3px 0 3px 60px;text-align:right}
+div.sharePopup ul.accordion li .shareForm p label{padding-right:10px}
+div.sharePopup ul.accordion li .shareForm .shareCaptcha p{padding:0;text-align:left}
+div.sharePopup .shareCaptcha .container{margin-left:100px;width:275px}
+div.sharePopup .shareCaptcha .container div img{border:0 none;height:50px;width:200px}
+div.sharePopup .shareCaptcha .container .sysMessage{display:none}
+div.sharePopup ul.accordion li .content .postToForm h5{color:#FB0000;font-weight:bold;display:none}
+div.sharePopup ul.accordion li .shareBold,div.sharePopup .loginFormMessage{padding:60px 0 10px 0;font-size:12px;display:block}
+div.sharePopup ul.accordion li .loginForm input,div.sharePopup ul.accordion li .shareForm input,div.sharePopup ul.accordion li .shareForm textarea{width:265px;resize:none}
+div.sharePopup ul.accordion li .shareForm textarea{height:50px;resize:none}
+div.sharePopup ul.accordion li .loginForm input.rememberMe{width:20px;border:0;padding:0}
+div.sharePopup div.hiddenNode{display:none}
+div.sharePopup span.loaddisableding{margin:0 46%}
+div.sharePopup #captcha_text{width:265px;margin:5px 0}
+div.sharePopup ul.accordion li .shareMessage{border:1px solid #CCC;color:#414141;font-size:12px;height:30px;margin:0 0 10px 0;padding:10px 0 0 10px;width:335px}
+div.sharePopup .accordion li .postToBtn{float:right;margin-top:15px}
+div.sharePopup .accordion li .shareEmailBtn{float:right}
+div.sharePopup .accordion li .postToForm .smallLoader{float:right;margin-top:15px}
+div.sharePopup .accordion li .shareForm .smallLoader{float:right}
+div.sharePopup .postToForm .warning{display:none}
+div.sharePopup .shareForm .errorNote{margin:5px 0 5px 100px;visibility:hidden}
+div.sharePopup .successNode,div.sharePopup .emailSuccessNode,div.sharePopup .errorNode,div.sharePopup .emailErrorNode{width:430px;text-align:center;font-size:14px;font-weight:bold;line-height:2.2em;padding-top:120px;text-align:center}
+div.sharePopup .successNode a,div.sharePopup .errorNode a,div.sharePopup .emailErrorNode a{font-size:12px;color:#00BFFF}
+div.sharePopup .networks{text-align:left;padding:15px 20px 5px;border-top:5px solid #ccc}
+div.sharePopup .networks .note{margin-bottom:15px;display:none}
+div.sharePopup .networks .otherNetworks{margin:0;padding:0 5px 5px 15px;font-size:14px;font-weight:bold;float:left;color:#000}
+div.sharePopup .smallLoader{padding:2px;border:0}
+div.sharePopup .blob{margin:0 0 5px 0;min-height:180px;display:none}
+div.sharePopup .blob a.Person,div.sharePopup .blob a.activityFooter{display:none}
+div.sharePopup .blob .activityDetailList{float:left;padding-top:20px}
+div.sharePopup .blob li.activityDetailItem.hasThumbnail a.thumbnailLink{float:left;margin-right:7px}
+div.sharePopup .blob p.portraitDetailItem{float:left;padding:5px;width:260px}
+div.sharePopup .loginBox{padding:75px 0 0 75px;display:none}
+div.sharePopup .loginBox h3{border-top:0;background:0}
+div.sharePopup .cancelBtn{float:right;margin:20px 15px 0 0;display:none}
+div.sharePopup .shareForm .cancelBtn{float:none;margin:20px 15px 0 0}
+div.sharePopup .shareNet{cursor:pointer}
+ul.shareButtons{list-style:none;margin:0}
+ul.shareButtons li a{display:block}
+ul.shareButtons em{text-align:center;font-style:normal;display:block;height:18px;float:left;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px}
+a.numRight em,ul.shareButtons li a.countButton em{position:relative;padding:2px 15px 0 3px;left:5px}
+ul.shareButtons li a.numBoxButton em{position:relative;padding:0 15px 0 17px;left:-2px;border:1px solid #ccc;border-left:none}
+a.shareButton em{font-style:normal;display:inline-block;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px}
+ul.shareButtons li{position:relative;float:left;padding-right:5px}
+ul.shareButtons li .MSIcon{float:left}
+a.shareButton{display:inline-block;float:left;height:8px;padding:3px 6px 7px;position:relative}
+a.shareButton.shareIconWhiteLarge{height:20px;width:20px}
+a.shareButton.shareIconWhite{height:14px;width:14px;padding:3px 2px 1px 3px}
+a.shareButton.numRight .shareIconDark,ul.shareButtons li .numRight .shareIconDark{height:14px;width:14px;padding:3px 0 1px 0}
+.notclickable{cursor:default}
+div.sharePopup .msLinkPreviewer{padding:0}
+div.sharePopup ul.accordion>li:last-child>h3{-moz-border-radius:0;-webkit-border-radius:0;border-radius:0;border-bottom:1px solid #000}
+div.sharePopup ul.accordion>li:first-child>h3{border-top:1px solid #999;-moz-border-radius:5px 5px 0 0;-webkit-border-radius:5px 5px 0 0;border-radius:5px 5px 0 0}
+.msLinkPreviewerLoader img{max-width:100px}
+ul.accordion{overflow:hidden;width:100%;list-style-type:none;text-align:left}
+.ms-accordion-container{background:transparent;border:5px solid #CCC;border-radius:8px;-moz-border-radius:8px}
+.ms-accordion-container .accordion-title{position:relative;width:100%;background-color:#000;height:30px;-moz-border-radius:3px 3px 0 0;-webkit-border-radius:3px 3px 0 0;border-radius:3px 3px 0 0}
+.ms-accordion-container .accordion-title h3{color:#FFF;font-size:12px;font-weight:bold;padding:7px 35px 7px 10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ms-accordion-container .accordion-title .minusCircleIconDarkWhite{position:absolute;right:25px;top:7px;cursor:pointer}
+.ms-accordion-container .accordion-title .xCircleIconDarkWhite{position:absolute;right:5px;top:7px;cursor:pointer}
+ul.accordion>li{vertical-align:bottom;background:transparent}
+ul.accordion>li>h3{background:#999;border-bottom:1px solid #000;color:#3A3A3A;font-size:14px;font-weight:bold;line-height:2.1em;padding:0 0 0 20px;cursor:pointer}
+ul.accordion>li:first-child>h3{color:#3A3A3A;border-bottom:1px solid #000;-moz-border-radius:3px 3px 0 0;-webkit-border-radius:3px 3px 0 0;border-radius:3px 3px 0 0}
+.ms-accordion-container .accordion-title+ul.accordion>li:first-child>h3{border-radius:0;-moz-border-radius:0;-webkit-border-radius:0}
+ul.accordion>li>h3.active{background:#3A3A3A;color:#FFF}
+ul.accordion>li .pointer{float:right;padding-right:20px}
+ul.accordion>li:last-child>h3{border-bottom:1px solid #999;-moz-border-radius:0 0 3px 3px;-webkit-border-radius:0 0 3px 3px;border-radius:0 0 3px 3px}
+ul.accordion>li:last-child>h3.active{-moz-border-radius:0;-webkit-border-radius:0;border-radius:0;border-bottom:1px solid #000}
+ul.accordion>li>div{padding:20px;font-size:12px}

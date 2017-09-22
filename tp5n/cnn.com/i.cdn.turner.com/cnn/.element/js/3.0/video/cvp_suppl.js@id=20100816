@@ -1,0 +1,1253 @@
+//load the cvp
+	// -----------------------------------------------------------------------------
+	// Globals
+	// Major version of Flash required
+	var requiredMajorVersion = 10;
+	// Minor version of Flash required
+	var requiredMinorVersion = 1;
+	// Minor version of Flash required
+	var requiredRevision = 51;
+	// -----------------------------------------------------------------------------
+	var logOutput;
+	var cnnLoadIt;
+	var cnnPlayerID = 0;
+	var cnnVideoLocation = '';
+	var T1 = 'T1';
+	var hasRelatedPlaylistVidBeenClicked = false;
+	var cnnErroredVideos = new Array();
+	var cnnClearTimeoutAfterError;
+	var cnnNextVideoToPlay;
+	var cnnCVPErrorId = 'cnnCVPError';
+	var cnnCVPPlayer;
+	var hasAPlayListVidBeenClicked = false;
+	var cnnStoredVideoVolume, cnnStoredVideoMute;
+	var cnnClass4UnMounted = 'cnnClass4UnMounted'; // So we can find it if needed for html5
+	var cnnVID4UnMounted = '_cnnVideoID';
+	var videoPlayCount = 0; // Some pages will have multiple CVP instances -- count videos as global and not within cvp  CNN-13707
+	var cnnTheExpressInstallSwf = 'http://i.cdn.turner.com/cnn/.element/apps/cvp/3.0/swf/expressInstall.swf';
+	if(typeof(CNN_getCookies) == 'function'){
+		// onContentVolume is called before onPlayerReady with default values so cnnCookiesAvailable
+		// can't be set and used in onPlayerReady.  Instead, it is declared here but
+		// this requires main.js to be declared before (CNN_getCookies()) this js file, cvp_suppl.js .
+		var cnnCookiesAvailable = CNN_getCookies();
+		cnnStoredVideoVolume = parseFloat(cnnCookiesAvailable['VideoVolume']);
+		cnnStoredVideoMute = cnnCookiesAvailable['VideoMute'];
+	}
+	var cnnIsUnMounted = (location.hostname.indexOf('blogs.cnn.com') > -1 || location.hostname.indexOf('live.cnn.com') > -1 || location.hostname.indexOf('cnntest.wordpress.com') > -1);
+	var cnnIsUnMountedLoaded = false;
+	//location substring matches those in this config in order to send the 'params'.
+	//See CNN-13707
+	var cvpAdConfig = {
+		'home_page':
+		{
+			pageSelectionRules: [
+				{
+					ruleName: 'useWhenFrom',
+					rule: {
+						substringMatchArr: ['www.cnn.com', 'us.cnn.com', 'edition.cnn.com']
+					}
+				},
+				{
+					ruleName: 'skipWhenFrom',
+					rule: {
+						substringMatchArr: []
+					}
+				},
+				{
+					ruleName: 'skipWhenOn',
+					rule: {
+						substringMatchArr: ['newspulse.cnn.com/','blogs.cnn.com/']
+					}
+				}
+			],
+			paramRules: [
+				{
+					ruleName: 'setWhenRegExp',
+					ruleType: 'videoCount',
+					rule: {
+						ruleReg: new RegExp(/^0/)
+					},
+					params: {
+						from_homepage: 'yes'
+					}
+				},
+				{
+					ruleName: 'setWhenRegExp',
+					ruleType: 'videoCount',
+					rule: {
+						ruleReg: new RegExp(/^[^0]/)
+					},
+					params: {
+						from_homepage: 'no'
+					}
+				}
+			]
+		}
+	};
+
+	var cvpHistoryConfig = {
+		'/':'home_page'
+	};
+
+function log(s)
+{
+}
+
+function cnnLoadPLayer(videoID, domIdStr, context, playerOverRide, cvpAdSection, adCountdownDomId, aPlaylistPLayer){
+	var domChildIdStr = domIdStr + '_child';
+	var parentObject=document.getElementById(domIdStr);
+	var extraParam = '';
+	if(isBVPPage) {
+		 extraParam = 'style="position: relative;"';
+	} else if (cnnIsUnMounted) { // Relevant in html5 and locating cvp so can drop a i-frame from www
+		 extraParam = 'class="' + cnnClass4UnMounted + '" ' + cnnVID4UnMounted + '="' + videoID + '"' ;
+	}
+	parentObject.innerHTML = '<span id="'+domChildIdStr+'"'+ extraParam +'></span>'; // CVP replaces target node
+	var editionizedContext = getEditionizedContext(context);
+	var player = cnnGetPlayer(videoID, editionizedContext, playerOverRide, '', cvpAdSection, adCountdownDomId, aPlaylistPLayer);
+	if(typeof player === 'object' && player.options){
+		player.g_domIdStr = domIdStr;
+		player.g_context = context;
+		player.canSetVolume = false;
+		player.canSetMute = false;
+		player.adVolumeEvents = [];
+		player.isAdPlaying = false;
+		player.embedSWF(domChildIdStr);
+	} else if ( typeof CVP.swfobject === 'object' && !(CVP.swfobject.hasFlashPlayerVersion( "6.0.65" )) ) {
+		cnnGetNoFlash(context, domChildIdStr, videoID);
+	}
+	return player;
+}
+
+var cnnT1VideoId = '';
+function cnnLoadStoryPlayer(videoID, domIdStr, context, playerOverRide, loc){
+	if(loc == T1 && typeof cnnCVPAdSectionT1 == "string" && cnnCVPAdSectionT1.length > 1){
+		cnnT1VideoId = videoID;
+		cnnCVPAdSection = cnnCVPAdSectionT1;
+	} else if (typeof cnnCVPAdSectionInPage == "string" && cnnCVPAdSectionInPage.length > 1){
+		cnnCVPAdSection = cnnCVPAdSectionInPage;
+	}
+	cnnLoadPLayer(videoID, domIdStr, context, playerOverRide);
+}
+
+function cnnCVPErroredOut(g_domIdStr, g_context) {
+	if(!$(cnnCVPErrorId)){
+		var cvpDomChildren = $(g_domIdStr).childElements();
+		// Moving this onLoad causes a second onPlayerReady callback
+		for(var i=0;i<cvpDomChildren.length;i++)
+		{
+			cvpDomChildren[i]._styleLeft = cvpDomChildren[i].offsetLeft;
+			cvpDomChildren[i].style.left = '-10000px';
+		}
+		var playerWidth = 416;
+		var playerHeight = 250;
+		var re = new RegExp(/(\d+)x(\d+)/);
+		var dimensions = re.exec(g_context);
+		if(dimensions && typeof dimensions == 'object' && dimensions.length > 2){
+			playerWidth = dimensions[1];
+			playerHeight = dimensions[2];
+		}
+		var bvpID = '';
+		if(isBVPPage) {
+			bvpID = ' id="' + cnnCVPErrorId + '"';
+		}
+		var errorHTML = '<div class="cnn_viderrbx cnn_viderrbx640"' + bvpID + '><div>The video timed out attempting to play. Please ensure that you do not have any Flash or JavaScript blocking plugins active. </div></div>';
+		switch (playerWidth) {
+			case "640":
+				errorHTML = '<div class="cnn_viderrbx cnn_viderrbx640"' + bvpID + '><div>The video timed out attempting to play. Please ensure that you do not have any Flash or JavaScript blocking plugins active. </div></div>';
+				break;
+			case "416":
+				errorHTML = '<div class="cnn_viderrbx cnn_viderrbx416"' + bvpID + '><div>The video timed out attempting to play. Please ensure that you do not have any Flash or JavaScript blocking plugins active. </div></div>';
+				break;
+			case "320":
+				errorHTML = '<div class="cnn_viderrbx cnn_viderrbx320"' + bvpID + '><div>The video timed out attempting to play. Please ensure that you do not have any Flash or JavaScript blocking plugins active. </div></div>';
+		}
+		if(isBVPPage) {
+			$(g_domIdStr).insert({top: errorHTML} );
+		} else {
+			$(g_domIdStr).update( errorHTML );
+		}
+	}
+}
+
+var CNN_VideoTracker = function (video, data) {
+	this.video = video;
+	this.video.addEventListener('playing', this, false);
+	this.video.addEventListener('ended', this, false);
+	this.videoId = data.querySelector('video:root').getAttribute('id');
+	this.videoHeadline = data.querySelector('video:root > headline').firstChild.nodeValue;
+};
+CNN_VideoTracker.prototype.edition = (
+	window.location.host.search( '^edition|:94$' ) !== -1
+	? 'international'
+	: 'domestic'
+);
+CNN_VideoTracker.prototype.nielsenBug = function () {
+	this.nielsenBug = function () {};
+	var bug = new Image();
+	bug.src = (
+		this.edition === 'international'
+		? 'http://secure-us.imrworldwide.com/cgi-bin/m?cc=1&ci=us-100120&c6=vc,b01&tl=dav0-HTML5&cg=HTML5&rnd='
+		: 'http://secure-us.imrworldwide.com/cgi-bin/m?cc=1&ci=us-100120&c6=vc,b01&tl=dav0-HTML5&cg=HTML5&rnd='
+	) + Date.now().toString().slice( 0, -3 );
+};
+CNN_VideoTracker.prototype.comscoreBug = function () {
+	this.comscoreBug = function () {};
+	var bug = new Image();
+	bug.src = (
+		this.edition === 'international'
+		? 'http://beacon.securestudies.com/scripts/beacon.dll?CXNID=3005117&CDID=3005117&CPID=3005117&CGID=020100&CBID=html5&rnd='
+		: 'http://beacon.securestudies.com/scripts/beacon.dll?CXNID=3005117&CDID=3005117&CPID=3005117&CGID=010000&CBID=html5&rnd='
+	) + Date.now().toString().slice( 0, -3 );
+};
+CNN_VideoTracker.prototype.omniStart = function () {
+	this.omniStart = function () {};
+	var s = s_gi((
+		this.edition === 'international'
+		? 'cnnintloffsite'
+		: 'cnn2globaloffsite'
+	));
+	s.linkTrackVars = 'prop1,prop2,eVar1,eVar2,channel,events';
+	s.linkTrackEvents = 'event1';
+	s.trackingServer="metrics.cnn.com";
+	s.events = 'event1';
+	s.channel = (
+		this.edition === 'international'
+		? 'HTML5 Onsite International'
+		: 'HTML5 Onsite Domestic'
+	);
+	s.prop1 = window.location.pathname;
+	s.prop2 = 'video';
+	s.eVar1 = 'video/' + this.videoId;  // video/politics/2010/03/18/sot.henry.gibbs.healthcare.cnn
+	s.eVar2 = (
+		this.edition === 'international'
+		? 'HTML5 Onsite International'
+		: 'HTML5 Onsite Domestic'
+	);
+	s.tl( this, 'o', this.videoHeadline );
+};
+CNN_VideoTracker.prototype.omniEnd = function () {
+	this.omniEnd = function () {};
+	var s = s_gi((
+		this.edition === 'international'
+		? 'cnnintloffsite'
+		: 'cnn2globaloffsite'
+	));
+	s.linkTrackVars = 'eVar1,eVar2,channel,events';
+	s.linkTrackEvents = 'event2';
+	s.trackingServer="metrics.cnn.com";
+	s.events = 'event2';
+	s.channel = (
+		this.edition === 'international'
+		? 'HTML5 Onsite International'
+		: 'HTML5 Onsite Domestic'
+	);
+	s.eVar1 = 'video/' + this.videoId;  // video/politics/2010/03/18/sot.henry.gibbs.healthcare.cnn
+	s.eVar2 = (
+		this.edition === 'international'
+		? 'HTML5 Onsite International'
+		: 'HTML5 Onsite Domestic'
+	);
+	s.tl( this, 'o', this.videoHeadline );
+};
+CNN_VideoTracker.prototype.handleEvent = function (event) {
+	switch (event.type) {
+		// the media has started playing
+		case 'playing':
+			this.video.removeEventListener( 'playing', this, false );
+			this.omniStart();
+			this.nielsenBug();
+			this.comscoreBug();
+			break;
+		// the media has ended playing
+		case 'ended':
+			this.video.removeEventListener( 'ended', this, false );
+			this.omniEnd();
+			break;
+	}
+};
+
+// Facebook Like/Recommend
+function cnnUpdateFBWidget(data) {
+	var videoId = data.videoId,
+		rightCol = $('cnnVPInfoRightCol');
+	if ( rightCol ) {
+		rightCol.update('<fb:like action="recommend" width="310" show_faces="true" layout="standard" href="http://www.cnn.com/video/data/2.0/video/' + videoId + '.html"></fb:like>');
+		FB.XFBML.parse(rightCol);
+	}
+}
+
+function cnnCVPPause(){
+	if(typeof(cnnCVPPlayer) == "object" && typeof(cnnCVPPlayer.pause) == "function"){
+		cnnCVPPlayer.pause();
+	}
+}
+
+function cnnCVPPlay(cvpVideoId, domId, context, adCountdownDomId) {
+	if ( typeof cnnCVPPlayer === 'object' ) {
+		if(typeof cnnCVPAdSection == 'string' && cnnCVPAdSection.length > 1){
+			cnnCVPPlayer.play(cvpVideoId, {adSection: cnnCVPAdSection});
+		} else {
+			cnnCVPPlayer.play(cvpVideoId);
+		}
+	} else {
+		cnnCVPPlayer = cnnLoadPLayer(cvpVideoId, domId, context, {}, '', adCountdownDomId, true );
+	}
+}
+
+function cnnCVPQueue(cvpVideoId, domId, context, adCountdownDomId) {
+	if ( typeof cnnCVPPlayer === 'object' ) {
+		cnnCVPPlayer.queue(cvpVideoId);
+	} else {
+		cnnCVPPlayer = cnnLoadPLayer(cvpVideoId,  domId, context, {}, '', adCountdownDomId, true );
+	}
+}
+
+function cnnGetNoFlash(context, domIdStr, videoId) {
+	var playerWidth = 416;
+	var playerHeight = 250;
+	var re = new RegExp(/(\d+)x(\d+)/);
+	var dimensions = re.exec(context);
+	if(dimensions && typeof dimensions == 'object' && dimensions.length > 2){
+		playerWidth = dimensions[1];
+		playerHeight = dimensions[2];
+	}
+	var minFlashVer = '';
+	if(context.indexOf('_tve') > -1){
+		minFlashVer = '10.1';
+	}
+	var noFlashImage = 'http://i.cdn.turner.com/cnn/.element/img/3.0/global/misc/640x360_no_flash' + minFlashVer + '.gif';
+	switch (playerWidth) {
+		case "640":
+			noFlashImage = 'http://i.cdn.turner.com/cnn/.element/img/3.0/global/misc/640x360_no_flash' + minFlashVer + '.gif';
+			break;
+		case "416":
+			noFlashImage = 'http://i.cdn.turner.com/cnn/.element/img/3.0/global/misc/416x234_no_flash' + minFlashVer + '.gif';
+			break;
+		case "320":
+			noFlashImage = 'http://i.cdn.turner.com/cnn/.element/img/3.0/global/misc/320x180_no_flash' + minFlashVer + '.gif';
+	}
+	if ( html5Check )
+	{
+		// observe playerOverRide, use image size instead of player context
+		try {
+			playerWidth = playerOverRide.images[0].image.width || playerWidth;
+			playerHeight = playerOverRide.images[0].image.height || playerHeight;
+		} catch (e) {}
+		if(cnnIsUnMounted){
+			if(!cnnIsUnMountedLoaded){
+				Event.observe( window, 'dom:loaded', function () {
+						CNN.Html5Video.init();
+				});
+			}
+			cnnIsUnMountedLoaded = true;
+		} else {
+			if(isBVPPage) {
+				if(document.getElementById('cnn_bvphdrlnfo')) {
+					$('cnn_bvphdrlnfo').update('<div><a href="/services/podcasting/index.html">Podcasts</a></div>');
+				}
+
+				if(document.getElementById('cnnVPSections')) { $('cnnVPSections').removeClassName('cnn_bvpsctnwdw'); }
+
+				new Ajax.Updater('cnnVPRightCol','/.element/ssi/misc/3.0/bvp_rightcol.ajax.html', { method:'get' } );
+
+			}
+
+			var playerDomId = isBVPPage ? 'html5videoplayer' : domIdStr + '_html5videoplayer';
+			var videoXmlUrl = '/video/data/3.0/video/'+videoId+'/index.xml';
+			new Ajax.Request( videoXmlUrl, {
+				onSuccess: function(response)
+				{
+					var xmldoc = response.responseXML,
+						headline = '',
+						posterurl = '',
+						isLiveXmlNode = xmldoc.querySelector( 'video:root > isLive' ),
+						isLive = isLiveXmlNode !== null && isLiveXmlNode.firstChild.nodeValue === 'true',
+						liveStreamNum = isLive ? xmldoc.querySelector( 'video:root > streamIndex' ).firstChild.nodeValue || -1 : -1,
+						fileXmlNode = xmldoc.querySelector( 'video:root > files > file[bitrate^="'+playerWidth+'x"]' ),
+						flvurl = (
+							fileXmlNode !== null
+							? ( 'http://cnnios-f.akamaihd.net/i/cnn/big/'
+								+ fileXmlNode.firstChild.nodeValue
+								).replace(
+									/_[0-9]+x[0-9]+_dl\.flv/,
+									'_ios_,audio,150,440,650,840,1240,.mp4.csmil/master.m3u8?__b__=650'
+								)
+							: ''
+						),
+							// before: http://cnnios-f.akamaihd.net/i/cnn/big/showbiz/2010/03/07/sot.oscars.backstage.monique.cnn_640x360_dl.flv
+							//  after: http://cnnios-f.akamaihd.net/i/cnn/big/showbiz/2010/03/07/sot.oscars.backstage.monique.cnn_ios_,150,440,650,1240,.mp4.csmil/master.m3u8?__b__=650
+						candidatePoster = (
+							xmldoc.querySelector( 'video:root > images > image[width="'+playerWidth+'"][height="'+playerHeight+'"]' )
+							|| xmldoc.querySelector( 'video:root > images > image[height="'+playerHeight+'"]' )
+							|| xmldoc.querySelector( 'video:root > images > image[width="'+playerWidth+'"]' )
+						),
+						htmlvidnode = document.getElementById(playerDomId),
+						tracker = null;
+
+					if ( isLive && liveStreamNum !== -1 ) {
+						flvurl = 'http://iphone-cnn.cdn.turner.com/cnn/iphone2/cnn_live/cnn_live_' + liveStreamNum + '_ipad-cell.m3u8';
+					}
+
+					if ( !isLive ) {
+						// use old streams if video is before 2010-11-20 (1290229200000)
+						var dateCreated = parseInt( xmldoc.querySelector( 'video:root > dateCreated' ).getAttribute('uts'), 10 );
+						if ( dateCreated < 1290229200000 ) {
+							flvurl = (
+								fileXmlNode !== null
+								? ( 'http://ht.cdn.turner.com/cnn/big/'
+									+ fileXmlNode.firstChild.nodeValue
+									).replace(
+										/_[0-9]+x[0-9]+_dl\.flv/,
+										'.qtref.mov'
+									)
+								: ''
+							);
+							// before: http://ht.cdn.turner.com/cnn/big/showbiz/2010/03/07/sot.oscars.backstage.monique.cnn_640x360_dl.flv
+							//  after: http://ht.cdn.turner.com/cnn/big/showbiz/2010/03/07/sot.oscars.backstage.monique.cnn.qtref.mov
+						}
+					}
+
+					// observe playerOverRide
+					if ( typeof playerOverRide !== 'undefined' ) {
+						headline = playerOverRide.headline || '';
+						if ( typeof playerOverRide.images !== 'undefined' && typeof playerOverRide.images.length !== 'undefined' && playerOverRide.images.length > 0 && typeof playerOverRide.images[0].image !== 'undefined' && typeof playerOverRide.images[0].image.text !== 'undefined' ) {
+							posterurl = playerOverRide.images[0].image.text || '';
+						}
+					}
+
+					// fallback if playerOverRide fails
+					if ( headline === '' ) {
+						headline = xmldoc.querySelector( 'video:root > headline' ).firstChild.nodeValue || '';
+					}
+					if ( posterurl === '' ) {
+						posterurl = candidatePoster ? candidatePoster.firstChild.nodeValue : '';
+					}
+
+					if ( posterurl && flvurl )
+					{
+						if ( htmlvidnode !== null )
+						{
+							htmlvidnode.setAttribute('poster',posterurl);
+							htmlvidnode.setAttribute('src',flvurl);
+						}
+						else
+						{
+							var headlineId = '' + domIdStr + 'H5hdln',
+								videohtmlstring = ''
+								+ '<div class="html5player">'
+								+ 	'<video width="'+playerWidth+'"'
+								+ 	' height="'+playerHeight+'"'
+								+ 	' id="'+playerDomId+'"'
+								+ 	' poster="'+posterurl+'"'
+								+ 	' controls="controls"'
+								+ 	' src="'+flvurl+'"'
+								+ 	'></video>'
+								+ 	'<div class="cnn_cvphtml5hdln" id="' + headlineId + '">'
+								+ 		'<span>'+headline+'</span>'
+								+ 	'</div>'
+								+ '</div>'
+							;
+							document.getElementById(domIdStr).innerHTML= videohtmlstring;
+							var headlineEl = document.getElementById( headlineId );
+							htmlvidnode = document.getElementById(playerDomId);
+							htmlvidnode.addEventListener(
+								'play',
+								function(e) {
+									if ( window.getComputedStyle( document.getElementById(headlineId) ).getPropertyValue('position') === "absolute" ) {
+										// headline overlays video
+										// remove headline
+										headlineEl.style.display = 'none';
+									}
+								},
+								false
+							);
+							htmlvidnode.addEventListener(
+								'ended',
+								function(e) {
+									document.getElementById(domIdStr).innerHTML= videohtmlstring;
+								},
+								false
+							);
+						}
+
+						tracker = new CNN_VideoTracker( htmlvidnode, xmldoc );
+					}
+					else  // xml didn't parse?
+					{
+						$(domIdStr).update('<img src="http://i.cdn.turner.com/cnn/.element/img/3.0/global/misc/640x360_ns_ipad.gif" width="' + playerWidth + '" height="' + playerHeight + '" alt="" border="0">');
+					}
+
+					// render metadata
+					if ( isBVPPage )
+					{
+						// headline
+						headline = xmldoc.querySelector( 'video:root > headline' ).firstChild.nodeValue || '';
+						var headlineContainer = document.getElementById('html5vidHeadline');
+						if ( headlineContainer )
+						{
+							headlineContainer.firstChild.nodeValue = headline;
+						}
+						else
+						{
+							// create all the nodes
+							headlineContainer = document.createElement('div');
+							headlineContainer.setAttribute('class', 'cnn_mtt1imghtitle');
+
+							var headlineHeader = document.createElement('h1');
+							var headlineSpan = document.createElement('span');
+							headlineSpan.setAttribute('id', 'html5vidHeadline');
+							var headlineText = document.createTextNode( headline );
+
+							headlineSpan.appendChild( headlineText );
+							headlineHeader.appendChild( headlineSpan );
+							headlineContainer.appendChild( headlineHeader );
+
+							document.getElementById('cnnVPInfoL').insertBefore( headlineContainer, document.getElementById('cnnVPInfoLeftCol') );
+						}
+
+						// last modified
+						var lastModified = xmldoc.querySelector( 'video:root > lastModified' ).firstChild.nodeValue || '';
+						var commentsPadding = document.getElementById('commentsPadding');
+						var lastModifiedSplit = lastModified.split('/');
+						var addedOn = '';
+						if ( lastModifiedSplit && typeof lastModifiedSplit.length !== 'undefined' && lastModifiedSplit.length >= 2 )
+						{
+							addedOn = ' ' + [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ][ lastModifiedSplit[1] - 1 ]
+								+ ' ' + lastModifiedSplit[2]
+								+ ', ' + lastModifiedSplit[0];
+
+							if ( commentsPadding )
+							{
+								document.getElementById('addedOnL').childNodes[1].nodeValue = addedOn;
+							}
+							else
+							{
+								commentsPadding = document.createElement('div');
+								commentsPadding.setAttribute('id', 'commentsPadding');
+
+								var addedOnDate = document.createElement('div');
+								addedOnDate.setAttribute('id', 'addedOnL');
+
+								var addedOnDateBold = document.createElement('b');
+								var addedOnDateBoldText = document.createTextNode('Added On');
+								addedOnDateBold.appendChild( addedOnDateBoldText );
+
+								var addedOnDateText = document.createTextNode(addedOn);
+
+								addedOnDate.appendChild( addedOnDateBold );
+								addedOnDate.appendChild( addedOnDateText );
+
+								commentsPadding.appendChild( addedOnDate );
+
+								document.getElementById('cnnVPInfoLeftCol').appendChild( commentsPadding );
+							}
+						}
+						else
+						{
+							document.getElementById('cnnVPInfoLeftCol').removeChild( commentsPadding );
+						}
+
+						// description
+						var description = xmldoc.querySelector( 'video:root > description' ).firstChild.nodeValue || '';
+						var descContentDiv = document.getElementById('contentL');
+						if ( descContentDiv )
+						{
+							descContentDiv.firstChild.firstChild.nodeValue = description;
+						}
+						else
+						{
+							descContentDiv = document.createElement('div');
+							descContentDiv.setAttribute('id', 'contentL');
+							var descTextContainer = document.createElement('div');
+							descTextContainer.setAttribute('class', 'bvp_desctext');
+							var descriptionText = document.createTextNode( description );
+							descTextContainer.appendChild( descriptionText );
+							descContentDiv.appendChild( descTextContainer );
+
+							document.getElementById('cnnVPInfoLeftCol').appendChild( descContentDiv );
+						}
+
+						// insert/update fb:like/fb:recommendations node here
+						cnnUpdateFBWidget({ videoId: videoId });
+
+					}
+
+				}
+			});
+		}
+	}
+	else
+	{
+		$(domIdStr).update( '<a href="http://get.adobe.com/flashplayer/" target="_blank"><img src="'+noFlashImage+'" width="'+playerWidth+'" height="'+playerHeight+'" alt="" border="0"><\/a>');
+	}
+}
+
+if ( html5Check )
+{
+	Event.observe( window, 'dom:loaded', function () {
+		if ( $('cnnCVP2') )
+		{
+			$('cnnCVP2').onclick();
+		}
+		if ( $('cnnCVP2Bottom') )
+		{
+			$('cnnCVP2Bottom').onclick();
+		}
+	});
+}
+
+function getEditionizedContext(context){
+	var isIntlUser = (location.hostname.indexOf('edition.') > -1 || location.port === '94');
+	editionizedContext = (isIntlUser) ? context + '_edition' : context;
+	var returnContext = context;
+	switch (editionizedContext) {
+		case "hp_edition":
+		case "hp_autostartOff_edition":
+		case "640x406_start_sw_edition":
+		case "640x406_start_bvp_edition":
+		case "640x384_edition":
+		case "640x384_start_art_edition":
+		case "640x384_start_art_inpage_edition":
+		case "416x280_start_sw_edition":
+		case "416x280_live_edition":
+		case "416x250_start_edition":
+		case "416x250_live_edition":
+		case "320x216_edition":
+		case "320x180_start_ns_edition":
+		case "embed_edition":
+			returnContext = editionizedContext;
+			break;
+		default:
+			returnContext = context;
+	}
+	return returnContext;
+}
+
+var isBVPPage = false;
+var currentPlayListId = false;
+var playListLength = 12;
+function loadPlayList(playlistVidId, resetPlayList, calledOnError)
+{
+	if(calledOnError){
+		cnnGoClearTimeoutIfAfterError();
+	}
+	var section = playlistVidId.substring(0,playlistVidId.indexOf('/'));
+	var sectionId = '/video/'+section;
+	var bvpManagerChannelID = bvpManager.findChannelBySection(sectionId);
+	var bvpManagerChannel = bvpManager.getChannel(bvpManagerChannelID);
+	var playListXML = 'by_section_'+section+'.xml';
+	if(bvpManagerChannel.xml_url && bvpManagerChannel.xml_url.length > 0){
+		playListXML = bvpManagerChannel.xml_url;
+	}
+	if(!section){ // Could load in a playlistVidId that is not based off a vid
+		var isIntlUser = (location.hostname.indexOf('edition.') > -1 || location.port === '94');
+		var dfltTab = (isIntlUser) ? 'by_section_international' : 'top_stories';
+		playListXML = dfltTab+'.xml';
+	}
+
+	if(!resetPlayList && bvpManager.currentVideoPlayingChannelXML && bvpManager.currentVideoPlayingChannelXML!='')
+	{
+		playListXML = bvpManager.currentVideoPlayingChannelXML;
+	}
+
+
+	currentPlayListId = playlistVidId;
+	AjaxManager.sendCommand('/.element/ssi/www/auto/2.0/video/xml/'+ playListXML, loadInPlayList );
+}
+
+function cnnIsGoodVideo(videoId){
+	for(var j=0;j<cnnErroredVideos.length;j++){
+		if(cnnErroredVideos[j] == videoId){
+			return false;
+		}
+	}
+	return true;
+}
+
+function cnnGoClearTimeoutIfAfterError(){
+	if(typeof cnnClearTimeoutAfterError == "number") {
+		clearTimeout(cnnClearTimeoutAfterError);
+		cnnClearTimeoutAfterError = '';
+	}
+}
+
+function cnnRemoveFromPlaylist(errorVidId){
+	var newCurrentPlayListListing = new Array();
+	for(var i=0;i<currentPlayListListing.length;i++)
+	{
+		if(currentPlayListListing[i] != errorVidId){
+			newCurrentPlayListListing.push(currentPlayListListing[i]);
+		}
+	}
+	currentPlayListListing = newCurrentPlayListListing.slice(0);
+}
+
+var lastPlaying='';
+
+function getRelatedsURL(context, vidRelatedVideosUrl){
+	var playerWidth = 416;
+	var playerHeight = 250;
+	var re = new RegExp(/(\d+)x(\d+)/);
+	var dimensions = re.exec(context);
+	if(dimensions && typeof dimensions == 'object' && dimensions.length > 2){
+		playerWidth = dimensions[1];
+		playerHeight = dimensions[2];
+	}
+	var numOfRelateds = '';
+	switch (playerWidth) {
+		case "640":
+			numOfRelateds = 12;
+			break;
+		case "416":
+			numOfRelateds = 9;
+			break;
+		case "320":
+			numOfRelateds = 6;
+	}
+	if(vidRelatedVideosUrl && vidRelatedVideosUrl.indexOf('relateds.xml') > 0 && numOfRelateds){
+		vidRelatedVideosUrl = vidRelatedVideosUrl.substring(0, vidRelatedVideosUrl.indexOf('relateds.xml')) + 'relateds_'+ numOfRelateds + '.xml';
+	}
+	return vidRelatedVideosUrl;
+}
+
+function getReferrerPathname()
+{
+	var r = document.referrer.replace(/^http:\/\/[^\/]*\//,'/');
+	r = r.replace(/index\.html?.*/,'');
+	return r;
+}
+
+function cnnGetAdKeyValuePairs(){
+	// CNN-13707 Set ad key on pages loaded from home page
+	var adReferrerId = cvpHistoryConfig[ getReferrerPathname() ];
+	var docReferrer = document.referrer+'';
+	var thisLocation = window.location+'';
+	var adConfig = (adReferrerId)?cvpAdConfig[ adReferrerId ]:false;
+	var isValidPageToSetAdKeyValue = false;
+	var adKeyValuePairs = [];
+	if(adConfig && adConfig.pageSelectionRules && Object.isArray(adConfig.pageSelectionRules)) {
+		for(var k=0;k<adConfig.pageSelectionRules.length;k++){
+			var pageSelectionRule = adConfig.pageSelectionRules[k];
+			if(pageSelectionRule.ruleName =='useWhenFrom' || pageSelectionRule.ruleName =='skipWhenFrom' || pageSelectionRule.ruleName =='skipWhenOn'){
+				if(Object.isArray(pageSelectionRule.rule.substringMatchArr)){
+					for(var i=0;i<pageSelectionRule.rule.substringMatchArr.length;i++){
+						var testForStr = pageSelectionRule.rule.substringMatchArr[i];
+						if(pageSelectionRule.ruleName =='useWhenFrom'){
+							if(docReferrer.indexOf(testForStr) > -1){
+								isValidPageToSetAdKeyValue = true;
+							}
+						} else if(pageSelectionRule.ruleName =='skipWhenFrom'){
+							if(docReferrer.indexOf(testForStr) > -1){
+								isValidPageToSetAdKeyValue = false;
+							}
+						} else if(pageSelectionRule.ruleName =='skipWhenOn'){
+							if(thisLocation.indexOf(testForStr) > -1){
+								isValidPageToSetAdKeyValue = false;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	if(isValidPageToSetAdKeyValue && adConfig && adConfig.paramRules && Object.isArray(adConfig.paramRules)) {
+		for(var j=0;j<adConfig.paramRules.length;j++){
+			if(adConfig.paramRules[j].ruleName && adConfig.paramRules[j].ruleName == 'setWhenRegExp' && adConfig.paramRules[j].ruleType == 'videoCount'){
+				var testStringForRegExp = videoPlayCount + '';
+				if(adConfig.paramRules[j].rule && adConfig.paramRules[j].rule.ruleReg && (typeof(adConfig.paramRules[j].rule.ruleReg) == 'object' || typeof(adConfig.paramRules[j].rule.ruleReg) == 'function') && adConfig.paramRules[j].rule.ruleReg.test(testStringForRegExp)){
+					var paramHash = new Hash(adConfig.paramRules[j].params);
+					var paramKeys = paramHash.keys();
+					for(var i=0;i<paramKeys.length;i++){
+						adKeyValuePairs.push([paramKeys[i], paramHash.get(paramKeys[i])]);
+					}
+				}
+			}
+		}
+	}
+	return adKeyValuePairs;
+}
+
+function cnnGuessOmniturePageType(cvpContext){
+	var pageTypeGuess = 'section';
+	var pathname = window.location.pathname;
+	var hostname = window.location.hostname;
+	var storyRegEx = new RegExp("^/20\\d\\d/");
+	var storyMatch = storyRegEx.match(pathname);
+	var sectionRegEx = new RegExp("^/[A-Z]+/");
+	var sectionMatch = sectionRegEx.match(pathname);
+
+	if(pathname.startsWith('/video/')){
+		pageTypeGuess = 'bvp';
+	} else if(storyMatch) {
+		pageTypeGuess = 'story';
+	} else if(cvpContext.indexOf('embed') >= 0) {
+		if(hostname.indexOf('.cnn.com') >= 0) {
+			pageTypeGuess = 'embed_onsite';
+		} else {
+			pageTypeGuess = 'embed';
+		}
+	} else if(hostname.indexOf('newspulse') >= 0) {
+		pageTypeGuess = 'newspulse';
+	} else if(pathname.indexOf('/SPECIAL') === 0 || pathname.indexOf('/SpecialCoverage') === 0 || pathname.indexOf('/CNN') === 0) {
+		pageTypeGuess = 'special';
+	} else if(pathname.length < 2 || pathname.startsWith('/index.htm')) {
+		pageTypeGuess = 'homepage';
+	} else if(sectionMatch) {
+		pageTypeGuess = 'section';
+	}
+	return pageTypeGuess;
+}
+
+function cnnFindTrackingContext(videoId, cvpContext, pageType) {
+	// This function will call itself with a best guess for the pageType
+	var isIntlUser = (location.hostname.indexOf('edition.') > -1 || location.port === '94');
+	var trackingContext = 'section';
+	var editionSubstring = (isIntlUser)?'_edition':'';
+	var liveRegEx = new RegExp("_live");
+	var liveMatch = liveRegEx.match(cvpContext);
+	var liveSubstring = '';
+	if(liveMatch){
+		liveSubstring = '_live';
+	}
+	if(isBVPPage || pageType == 'bvp') {
+		var qs = ''+ window.location.hash + window.location.search;
+		trackingContext = 'bvp' + editionSubstring;
+		if(hasAPlayListVidBeenClicked || hasAChannelVidBeenClicked || hasRelatedPlaylistVidBeenClicked ){
+			// Not a autostart for tracking purposes when video clicked on the page
+			trackingContext += '_PageViewOn_AutoStartOff';
+		} else if (!cnnCVPPlayer.options.hasVideoPlayed && qs.indexOf('/video/') >= 0){
+			// Not a autostart for tracking purposes when deep linked. Page view from container.
+			trackingContext += '_PageViewOff_AutoStartOff';
+		} else {
+			// When a video rolls over without user input or
+			// The user goes to video/index.html and video starts with no deeplink.
+			trackingContext += '_PageViewOff_AutoStartOn';
+		}
+	} else if (pageType == 'homepage' || (typeof cnnIsHomePage != "undefined" && cnnIsHomePage)) {
+		trackingContext = 'homepage' + liveSubstring + editionSubstring;
+	} else if (pageType == 'special' || (typeof cnnIsSpecialPage != "undefined" && cnnIsSpecialPage)) {
+		trackingContext = 'special' + editionSubstring;
+	} else if (pageType == 'story' || (typeof cnnIsStoryPage != "undefined" && cnnIsStoryPage)) {
+		trackingContext = 'story' + editionSubstring;
+		var cnnWindowParams = window.location.toString().toQueryParams();
+		if(typeof cnnWindowParams.video != "undefined" && videoId == cnnT1VideoId ) { //InPageVideos don't autostart
+			//Autostart only on story pages currently
+			trackingContext += '_AutoStartOn';
+		} else {
+			trackingContext += '_AutoStartOff';
+		}
+	} else if (pageType == 'section' || (typeof cnnIsSectionPage != "undefined" && cnnIsSectionPage)) {
+		trackingContext = 'section' + liveSubstring + editionSubstring;
+	} else if (typeof pageType == "string" && pageType.indexOf('embed') >= 0) {
+		trackingContext = pageType + editionSubstring;
+	} else if (pageType == 'newspulse') {
+		trackingContext = pageType + editionSubstring;
+	} else if(cvpContext.indexOf('tve') >= 0){
+		trackingContext = 'tve';
+	} else {
+		var guessPageType = cnnGuessOmniturePageType(cvpContext);
+		return cnnFindTrackingContext(videoId, cvpContext, guessPageType);
+	}
+	return trackingContext;
+}
+
+function cnnGetPlayer(videoID, context, playerOverRide, cvpDomId, cvpAdSection, adCountdownDomId, aPlaylistPLayer ){
+	var player;
+	var theID = '';
+	if(typeof(cvpDomId) == "string" && cvpDomId.length > 1){
+		theID = cvpDomId;
+	} else {
+		cnnPlayerID++;
+		theID = 'cvp_'+cnnPlayerID;
+	}
+	var playerWidth = 640;
+	var playerHeight = 360;
+	var re = new RegExp(/(\d+)x(\d+)/);
+	var dimensions = re.exec(context);
+	if(dimensions && typeof dimensions == 'object' && dimensions.length > 2){
+		playerWidth = dimensions[1];
+		playerHeight = dimensions[2];
+	}
+	var flashVars = {
+		contentId : videoID,
+		context : context
+	};
+	var isAdTest = false;
+	var isQATest = false;
+	if ( typeof CVP.swfobject == 'object'){
+		isAdTest = CVP.swfobject.getQueryParamValue('adTest');
+		isQATest = CVP.swfobject.getQueryParamValue('qaTest');
+	}
+	var containerSwf = 'http://i.cdn.turner.com/cnn/.element/apps/cvp/3.0/swf/cnn_video.swf';
+	if(context.indexOf('embed') >= 0){
+		containerSwf = 'http://i.cdn.turner.com/cnn/.element/apps/cvp/3.0/swf/cnn_embed.swf';
+	} else if(context.indexOf('tve') >= 0){
+		containerSwf = 'http://i.cdn.turner.com/cnn/.element/apps/cvp/3.0/swf/cnn_tve_video.swf';
+	}
+	if(context.indexOf('416x374_start_embed_onsite') >= 0){ // Support older embed player
+		containerSwf = 'http://i.cdn.turner.com/cnn/.element/apps/cvp/3.0/swf/cnn_416x234_embed.swf';
+	}
+	if(isAdTest){
+		containerSwf = 'http://i.cdn.turner.com/cnn/.element/apps/cvp/3.0/testing/confidential/swf/cnn_staging.swf';
+		if(context.indexOf('embed') >= 0){
+			containerSwf = 'http://i.cdn.turner.com/cnn/.element/apps/cvp/3.0/swf/cnn_embed_staging.swf';
+		}
+		flashVars.configUrl = 'http://i.cdn.turner.com/cnn/.element/apps/cvp/3.0/testing/confidential/cfg/config.xml';
+	} else if(isQATest){
+		containerSwf = 'http://i.cdn.turner.com/cnn/.element/apps/cvp/3.0/testing/confidential/swf/cnn_staging.swf';
+		if(context.indexOf('embed') >= 0){
+			containerSwf = 'http://i.cdn.turner.com/cnn/.element/apps/cvp/3.0/swf/cnn_embed_staging.swf';
+		}
+		flashVars.configUrl = '/.element/apps/cvp/3.0/testing/confidential/cfg/config.qaTest.xml';
+		flashVars.containerUrl = '/.element/apps/cvp/3.0/testing/confidential/cfg/container.qaTest.xml';
+	}
+	if ( typeof CVP.swfobject == 'object' && CVP.swfobject.hasFlashPlayerVersion( "6.0.65" ) ) {
+		player = new CVP({
+			id : theID,
+			width : playerWidth,
+			height : playerHeight,
+			flashVars : flashVars,
+			hasVideoPlayed : false,
+			lastVideoErrored : false,
+			cvpAdSection: cvpAdSection,
+			adCountdownDomId: adCountdownDomId,
+			lastAdCountdownNumber: 0,
+			aPlaylistPLayer: (aPlaylistPLayer)?true:false,
+			embed : {
+				containerSwf : containerSwf,
+				expressInstallSwf : cnnTheExpressInstallSwf,
+				options : {
+					quality : 'high',
+					bgcolor : '#000000',
+					allowFullScreen : 'true',
+					allowScriptAccess : 'always',
+					wmode : 'transparent'
+				}
+			},
+			onPlayerReady : function() {
+				if(this.options && typeof this.options.cvpAdSection == "string" && this.options.cvpAdSection.length > 1){
+					this.setAdSection(this.options.cvpAdSection);
+				} else if(typeof cnnCVPAdSection == "string" && cnnCVPAdSection.length > 1){
+					this.setAdSection(cnnCVPAdSection);
+				}
+				try{
+					// The volume is being set by the cvp without user input just before onAdFinished and onPlayerReady.
+					// When the volume is being set by the cvp, muted is set to false in onContentVolume callback even though we may want it to be true. 
+					// There can be many players on the page and each cvp will set the volume without user interaction before playerReady.  Each instance
+					// Will initially turn of the ability to set the volume and mute until this point.
+					this.canSetVolume = true;
+					if(typeof cnnStoredVideoVolume != 'undefined' && cnnStoredVideoVolume >= 0 && cnnStoredVideoVolume <= 1){
+						this.setVolume(cnnStoredVideoVolume);
+					}
+					this.canSetMute = true;
+					if(typeof cnnStoredVideoMute != 'undefined' && cnnStoredVideoMute == 'true'){
+						this.mute();
+					}
+				} catch(e){}
+				if(isBVPPage)
+				{
+					var thisVidId = this.getContentId();
+					loadPlayList( thisVidId);
+					renderVideoMetaData( thisVidId);
+					// insert/update fb:like/fb:recommendations node here
+					cnnUpdateFBWidget({ videoId: thisVidId });
+				} else if(typeof(isTVEPage) != 'undefined' && isTVEPage && typeof(playTVEStream) == 'function'){
+					playTVEStream();
+				} else if(typeof(loadInPlayList) == 'function' && typeof(cnnPlaylistJSON) == 'object' && this.options.aPlaylistPLayer){
+					loadInPlayList(cnnPlaylistJSON, adCountdownDomId, true);
+				}
+			},
+			onAdPostrollUrl : function(videoId, adUrl) {
+			},
+
+			onAdStarted : function(token)
+			{
+				this.adVolumeEvents = [[cnnStoredVideoVolume, cnnStoredVideoMute]];
+				this.isAdPlaying = true;
+				if(this.options && typeof this.options.adCountdownDomId == "string" && this.options.adCountdownDomId.length > 1 && $(adCountdownDomId)){
+					if(adCountdownDomId.indexOf('Visibility') > -1){
+						$(adCountdownDomId).style.visibility="visible";
+					} else {
+						$(adCountdownDomId).style.display = '';
+					}
+				}
+			},
+
+			onAdFinished : function(token)
+			{
+				if(this.options && typeof this.options.adCountdownDomId == "string" && this.options.adCountdownDomId.length > 1 && $(adCountdownDomId)){
+					if(adCountdownDomId.indexOf('Visibility') > -1){
+						$(adCountdownDomId).style.visibility="hidden";
+					} else {
+						$(adCountdownDomId).style.display = 'none';
+					}
+				}
+				// The volume is being set by the cvp without user input just before onAdFinished and onPlayerReady.
+				// When the volume is being set by the cvp, muted is set to false in onContentVolume callback even though we may want it to be true.  
+				// The trick is the knowing the difference between when the user mutes/unmutes the volume during an advertisement or 
+				// if the CVP is doing it.  During the Ad, keep track of volume and mute callbacks and ignore the last one when inside onAdFinished 
+				// and store the mute/volume setting to the second to last setting if available
+				// In other words, fixing cookie set in inSetVolume for when we get a rougue set volume event before ad finishes
+				try{
+					this.isAdPlaying = false;
+					if(typeof(this.adVolumeEvents)!== 'undefined' && this.adVolumeEvents.length && this.adVolumeEvents.length > 1){
+						var cnnFixTheVol = this.adVolumeEvents[(this.adVolumeEvents.length - 2)][0];
+						var cnnFixTheMuted = '' + this.adVolumeEvents[(this.adVolumeEvents.length - 2)][1];
+						if(typeof(CNN_setCookie) == 'function'){
+							CNN_setCookie('VideoVolume', cnnFixTheVol, 854400, '/', document.domain);
+						}
+						cnnStoredVideoVolume = cnnFixTheVol;
+						if(typeof(CNN_setCookie) == 'function'){
+							CNN_setCookie('VideoMute', cnnFixTheMuted, 854400, '/', document.domain);
+						}
+						cnnStoredVideoMute = cnnFixTheMuted;
+					}
+				} catch(e) {
+					var ss = 1;	
+				}
+			},
+                                       
+			onContentBegin : function(videoId, json)
+			{
+				// Set tracking context
+				var trackingContext = cnnFindTrackingContext(videoId, this.g_context);
+				this.setTrackingContext(trackingContext);
+
+				var adKeyValues = cnnGetAdKeyValuePairs();
+				for(var i=0;i<adKeyValues.length;i++){
+					this.setAdKeyValue(adKeyValues[i][0], adKeyValues[i][1]);
+				}
+
+				videoPlayCount++;
+				this.options.hasVideoPlayed = true;
+				this.options.lastVideoErrored = false;
+				currentPlayListId = videoId;
+				if(isBVPPage)
+				{
+					cnnGoClearTimeoutIfAfterError();
+					if (hasAChannelVidBeenClicked || hasRelatedPlaylistVidBeenClicked) {
+						var resetPlayList = (hasRelatedPlaylistVidBeenClicked)?true:false;
+						hasAChannelVidBeenClicked = false;
+						hasRelatedPlaylistVidBeenClicked = false;
+						loadPlayList(videoId, resetPlayList);
+					} else {
+						renderPlayList();
+					}
+					hasAPlayListVidBeenClicked = false;
+					renderVideoMetaData( videoId);
+					// insert/update fb:like/fb:recommendations node here
+					cnnUpdateFBWidget({ videoId: videoId });
+					if($(cnnCVPErrorId)){
+						$(cnnCVPErrorId).remove();
+						var cvpDomChildren = $(this.g_domIdStr).childElements();
+						for(var i=0;i<cvpDomChildren.length;i++)
+						{
+							cvpDomChildren[i].style.left = (cvpDomChildren[i]._styleLeft)?cvpDomChildren[i]._styleLeft+'px':'';
+							cvpDomChildren[i].style.position = 'static';
+						}
+					}
+				} else if(this.options.aPlaylistPLayer && typeof(renderPlayList) == 'function' && typeof(renderVideoMetaData) == 'function'){
+					renderPlayList();
+					renderVideoMetaData(videoId);
+				}
+			},
+
+			onContentBuffering : function() {
+			},
+
+			/* Note - this is fired before the click action is taken, so the page can take appropriate action
+			 * i.e., if clickMode is set to play, onRelatedClick will be fired before onContentBegin
+			 * @contentId The id of the video just clicked on
+			 * @clickMode Specifies whether the action will be to play the video directly, or navigate to the app. url
+			 *		- possible values are "clickModePlay", "clickModeOpen"
+			 */
+			onRelatedPlaylistClick : function(contentId, clickMode) {
+				hasRelatedPlaylistVidBeenClicked = true;
+				cnnNextVideoToPlay = contentId;
+			},
+
+			onPopoutClick : function(videoId) {
+				var re = new RegExp(/cvplive\/cvpstream(\d)$/);
+				var streamNum = re.exec(videoId);
+				if(streamNum != null && typeof streamNum == 'object' && streamNum.length == 2){
+					this.pause();
+					cnnLiveVideo(streamNum[1]);
+				}
+			},
+
+			onContentDataLoaded : function(videoId) {
+				if(isBVPPage)
+				{
+					renderPlayList();
+				}
+				var playerOverRideReturn = playerOverRide;
+				// This can be done better if we were adding playlists in a better way
+				if(typeof(cnnPlaylistJSON) == 'object' && cnnPlaylistJSON.video && cnnPlaylistJSON.video.length){
+					for(var i=0;i<cnnPlaylistJSON.video.length;i++)
+					{
+						//See /POLITICS
+						var loopVidId = typeof(cnnPlaylistJSON.video[i].video_id) != 'undefined'?cnnPlaylistJSON.video[i].video_id.substring(7):false;
+						if(loopVidId && videoId == loopVidId ){
+							playerOverRideReturn = typeof(cnnPlaylistJSON.video[i].playerOverRide) != 'undefined'?cnnPlaylistJSON.video[i].playerOverRide:playerOverRide;
+						}
+					}
+				}
+				playerOverRide = {};
+				var currVideojson = this.getContentEntry( videoId );
+				var currVideoObj = false;
+				if(currVideojson && currVideojson!='{}' && currVideojson!='')
+				{
+					currVideoObj = eval( '('+currVideojson+')');
+					if(currVideoObj)
+					{
+						var vidRelatedVideosUrl = currVideoObj.relatedVideosUrl;
+						if(vidRelatedVideosUrl){
+							playerOverRideReturn.relatedVideosUrl = getRelatedsURL(this.g_context, vidRelatedVideosUrl);
+						}
+					}
+				}
+				return playerOverRideReturn;
+			},
+
+			onContentPlay : function(videoId) {
+				if(isBVPPage)
+				{
+					window.setTimeout("renderPlayList();",500);
+				}
+			},
+
+			onContentPlayHead : function() {
+			},
+
+			onContentStop : function(videoId)
+			{
+			},
+
+			onContentPause : function(videoId, paused)
+			{
+				// If there are multiple players on a page (POLITICS) and one is paused to play the other, stop playlist additions
+				// on pause s
+				//canLoadPlayList = false;
+			},
+
+			onContentCompleted : function() {
+				cnnNextVideoToPlay = '';
+			},
+
+			onContentError : function(errorVidId, errorMessage)
+			{
+				var currentVidId = this.getContentId();
+				cnnErroredVideos.push('/video/'+errorVidId);
+				if(isBVPPage) {
+					//Remove queued video from playlist since we are not attempting to play this video
+					//Relevant when videos are being queue'd and not currently played.
+					cnnRemoveFromPlaylist(errorVidId);
+				}
+				//Don't show the error when get a error when loading the playlist
+				if(isBVPPage && (errorVidId == currentVidId || errorVidId == cnnNextVideoToPlay)){
+					var qs = ''+ window.location.hash + window.location.search;
+					var loadPlayListTime = 1;
+					// Don't diplay error slate when the 1st default video from /video/ errors
+					if( this.options.hasVideoPlayed || (!this.options.hasVideoPlayed && !this.options.lastVideoErrored && qs.indexOf('/video/') >= 0)){
+						loadPlayListTime = 7000;
+						cnnCVPErroredOut(this.g_domIdStr, this.g_context);
+					}
+					this.options.lastVideoErrored = true;
+					cnnClearTimeoutAfterError = setTimeout('loadPlayList(\'' + currentVidId + '\', false, true)', loadPlayListTime);
+				} else if (!isBVPPage){
+					cnnCVPErroredOut(this.g_domIdStr, this.g_context);
+				}
+				cnnNextVideoToPlay = '';
+			},
+
+			onAdError : function(message)
+			{
+			},
+
+			onContentVolume : function(muted, volume)
+			{
+				if(this.isAdPlaying){
+					this.adVolumeEvents.push( [volume, '' + muted] );
+				}
+				// This is called once before onPlayerReady and cookie's mute value is not passed in when setting value.
+				// There can be many players on the page and each cvp will set the volume without user interaction before playerReady.  Each instance
+				// will initially turn of the ability to set the volume and mute until this point.
+				if(this.canSetVolume){
+					if(typeof(CNN_setCookie) == 'function'){
+						CNN_setCookie('VideoVolume', volume, 854400, '/', document.domain);
+					}
+					cnnStoredVideoVolume = volume;
+				}
+				if(this.canSetMute){
+					if(typeof(CNN_setCookie) == 'function'){
+						CNN_setCookie('VideoMute', muted, 854400, '/', document.domain);
+					}
+					cnnStoredVideoMute = '' + muted;
+				}
+			},
+
+			/************************
+				Tracking callbacks
+			 ************************/
+			onVideoTrackingAdClick : function(videoId, url)
+			{
+			},
+
+			onVideoTrackingProgress : function(videoId, percent)
+			{
+			},
+
+			onVideoTrackingLifetime : function(seconds)
+			{
+			},
+
+			onVideoTrackingFullscreen : function(videoId, fullscreen)
+			{
+			},
+
+			onVideoTrackingMuted : function(videoId, muted)
+			{
+			},
+
+			onVideoTrackingPaused : function(videoId, paused)
+			{
+			},
+
+			onVideoTrackingCompleted : function(videoId)
+			{
+			},
+
+			onVideoTrackingReplay : function(videoId)
+			{
+			},
+
+			onVideoTrackingPlay : function(videoId)
+			{
+			},
+			
+			onContentTrackingLifetime : function(seconds)
+			{
+			},
+
+			onContentTrackingAdCountdown : function(secs) {
+				
+				if(this.options.lastAdCountdownNumber != secs){
+					this.options.lastAdCountdownNumber = secs;
+					if(typeof this.options.adCountdownDomId == "string" && this.options.adCountdownDomId.length > 1 && $(this.options.adCountdownDomId)){
+						var adCountDownNodes = $(this.options.adCountdownDomId).select('span');
+						if(adCountDownNodes && adCountDownNodes.length && adCountDownNodes.length > -1){
+							secs = secs > 9? secs : '0' + secs;
+							if(adCountDownNodes[0].innerText){ // For IE
+								adCountDownNodes[0].innerText = secs;
+							} else {
+								adCountDownNodes[0].update(secs);
+							}
+						}
+					}
+				}
+			}
+		});
+	}
+	return player;
+}

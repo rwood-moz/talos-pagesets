@@ -1,0 +1,23 @@
+#searchtop { width:340px;}
+
+#suggest { font-family: monospace; margin:0; border:solid 1px #999; padding:0 0 4px; position:absolute; z-index:101; background-color:#fff; line-height:1.1; text-align:left;font:13px/1.231 Osaka ,Arial, Helvetica, sans-serif;letter-spacing:0;}
+#suggest {font-size:small; *font:x-small;}
+html:not(:target) #suggest {font-size: 13px;}
+#suggest ul { margin:0px; padding:0px;}
+#suggest li {margin:0; padding:3px 6px 3px;  height:1.2em; list-style:none; vertical-align:middle; clear:both;}
+#suggest li.selected { background:#efefef; cursor:pointer; color:#c30;}
+#suggest li.normal { /*background-color:#fff;*/}
+#suggest div { float:left;}
+#suggest div.recommend { font-size: 80%; float:right; text-align:right; /*color:#888888;*/ color:#ff8888;}
+
+#suggest ul.nallow_ul { position:absolute; border:solid 1px #999; background:#fff; width:16em; z-index:105; padding:4px 8px; margin:-8px 0 0 14px; -moz-border-radius:8px; -webkit-border-radius:8px; border-radius:8px; zoom:1;}
+
+#suggest ul.nallow_ul li { background:none; color:#000; *display:inline; *width:100%; *zoom:1; padding:0 0 4px;}
+#suggest ul.nallow_ul li.balloon {width:10px; height:9px; background:url("../../img/sgt/suggest_balloon.gif") no-repeat; font-size:1px; line-height:1px; position:absolute; margin-top:8px; left:-10px;}
+#suggest ul.nallow_ul ul { background-color:none;}
+#suggest ul.nallow_ul li.nl_li_selected {background:#fff; color:#c30; text-decoration:underline;}
+#suggest ul.nallow_ul li.nl_li_selected span{ }
+
+#suggest li#info_box { text-align: right; padding:6px;}
+
+/* 検 */

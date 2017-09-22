@@ -1,0 +1,18 @@
+/* jqModal base Styling courtesy of;
+Brice Burgess <bhb@iceburg.net> */
+
+/* The Window's CSS z-index value is respected (takes priority). If none is supplied, the Window's z-index value will be set to 3000 by default (via jqModal.js). */
+.jqmPlacement { display:none; left:50%; top:0px; margin-left:-450px; position:absolute; overflow:hidden; width:760px; height:400px; background-color:#fff; color:#333; border:3px solid #ff9900; padding:0 5px 5px 5px; z-index:2003; }
+.jqmOverlay { position:fixed; background-color:#FFF; left:auto; top:0; width:1149px; height:100%; z-index:2000; }
+a.jqmClose  { color:#BDB7AF; font-family:arial,verdana,helvetica,sans-serif; font-size:11px; font-weight:bold; padding-right:13px; text-decoration:none; width:200px; }
+a.jqmClose:hover { text-decoration:none; color:#FF9900; }
+#jqmTitle { background:transparent none repeat scroll 0 0; float:right; height:13px; margin-right:0; position:relative; top:18px; width:65px; }
+#jqmContent { width:100%; height:97%; display:block; clear:both; margin:0; margin-top:0px; background:#fff; border:0px solid #fff; }
+
+/* Background iframe styling for IE6. Prevents ActiveX bleed-through (<select> form elements, etc.) */
+* iframe.jqm {position:absolute;top:0;left:0;z-index:-1; width:expression(this.parentNode.offsetWidth+'px'); height:expression(this.parentNode.offsetHeight+'px'); }
+
+/* Fixed posistioning emulation for IE6
+Star selector used to hide definition from browsers other than IE6
+For valid CSS, use a conditional include instead */
+* html .jqmWindow { position:absolute; top:expression((document.documentElement.scrollTop || document.body.scrollTop) + Math.round(17 * (document.documentElement.offsetHeight || document.body.clientHeight) / 100) + 'px'); }

@@ -1,0 +1,145 @@
+/**customize the share dropdown for ipad (bigger)**/
+
+.globalModal li input{
+	width:280px;
+    height:26px;
+    margin:0 6px 9px 0;
+	padding:0;
+	background-color:#F7F7F7;
+	border:1px solid #bbb;
+	display: block;
+    font-size:120%;
+}
+.globalModal .notify input {
+	position:relative;
+	float: left;
+	height:15px;
+	width:15px;
+}
+.globalModal li.flexButton input{
+	width: auto;
+	margin:0 0 0 3px;
+	background-position:100% 50%;
+	background-color:transparent;
+	font:92% arial,helvetica,sans-serif;
+	padding:0 11px 3px 9px;
+	display:inline;
+	float:left;
+	border:0;
+    height:20px;
+}
+
+#shareDropDown{
+    font:normal 98% Arial, Helvetica, san-serif;
+    width:350px;
+    z-index:5100;
+    padding-bottom:5px;
+    _background:none;
+}
+
+#shareDropDown .shareContent{
+    width:350px;
+    _width:350px;
+    padding:0px 3px;
+    _padding:0px;
+    _border:#9d9d9d solid 1px;
+    _border-top:none;
+    _background:#fff;
+    margin-top:-1px;
+    clear:both !important;
+    position:relative;
+    z-index:90;
+}
+
+#shareDropDown .shareHead{
+    display:block;
+    height:17px;
+    padding:5px 8px;
+    _padding:4px 7px;
+    position:relative;
+    z-index:100;
+    border:#9d9d9d solid 1px;
+    border-bottom:none;
+    background:#fff;
+    float:right;
+    margin-right:3px;
+    _margin-right:0px;
+    margin-bottom:-1px;
+    *margin-bottom:0px;
+}
+
+#shareDropDown.anchorLeft .shareHead{
+    float:left;
+    margin-right:0px;
+    margin-left:3px;
+    _margin-left:0px;
+}
+
+#shareDropDown a.linkIcon.share{
+    cursor:default;
+    font-size:93.5%;
+    background-color:#fff;
+}
+
+#shareDropDown a.linkIcon.share:hover{
+    color:#1e5b7e;
+    text-decoration:none;
+}
+
+#shareDropDown ul.left{
+    border-top:1px solid #9D9D9D;
+    border-left:1px solid #9D9D9D;
+    border-bottom:1px solid #9D9D9D;
+    float:left;
+    padding:6px 0 8px 15px;
+    width:140px;
+    height:160px;
+    background:#fff;
+}
+
+#shareDropDown ul.right{
+    border-top:1px solid #9D9D9D;
+    border-bottom:1px solid #9D9D9D;
+    border-right:1px solid #9D9D9D;
+    float:left;
+    padding:6px 5px 8px 2px;
+    width:140px;
+    height:160px;
+    background:#fff;
+
+}
+
+#shareDropDown ul li{
+    padding:3px 0;
+}
+
+#shareDropDown ul li a.linkIcon.google,
+#shareDropDown ul li a.linkIcon.ybookmarks{
+    line-height:100%;
+    height:30px;
+}
+
+a.socialIco.shareIco {
+    background-position: 0px 0px;
+    height: 15px;
+    width: 64px;
+}
+a.socialIco {
+    background: url("../../../i/tron/icon/share.gif") no-repeat scroll 0 50% transparent;
+    float: left;
+    height: 12px;
+    overflow: hidden;
+    text-indent: 20px;
+    font-weight:bold;
+    font-size:120%;
+}
+
+#cnetRiver a.assetSocial li {
+    background: url("../../../i/tron/icon/share.gif") no-repeat scroll 0 50% transparent;
+    left: 0px;
+    padding: 0 0px;
+}
+
+a.readMore {
+    font-size: 120%;
+}

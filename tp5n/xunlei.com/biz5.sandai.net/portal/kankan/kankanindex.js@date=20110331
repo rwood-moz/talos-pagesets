@@ -1,0 +1,785 @@
+
+
+
+
+if (typeof(peerID) == "undefined" || peerID == null) {
+	peerID = null;
+	try {
+		peeridobj = new ActiveXObject("DapCtrl.DapCtrl");
+		if (peeridobj != null)
+			peerID = "xlpeeruuid=" + peeridobj.Get("sPeerID");
+	} catch(e) {
+	 	peerID = null;
+	}
+}
+
+if (typeof(window.getUrlWithPID) == "undefined") {
+	eval(
+		  "function getUrlWithPID(fullurl, split) {"
+		+ "	if(peerID == null || fullurl == null) "
+		+ "		return fullurl;"
+		+ "	var index = fullurl.indexOf('?'); "
+		+ "	if(index < 0) return fullurl;"
+		+ "	if (index == fullurl.length - 1) "
+		+ "		return  fullurl + peerID;"
+		+ "	if (split == null) {"
+		+ "		split = '&';"
+		+ "	}"
+		+ "	return fullurl.substring(0, index + 1) + peerID + split + fullurl.substring(index + 1);"
+		+ "}"
+	);
+}
+
+var ROLLINGTIME_645 = (15*1000);
+var heights_645 = new Array();
+var randomDiv_645 = new Array(); 
+var adcount_645 = new Array(); 
+var client_645 = new Array(); 
+var str_645 = ""; 
+
+
+heights_645[0] = 80;
+randomDiv_645[0] = "randomDiv_645_0";
+adcount_645[0] = 0;
+client_645[0] = 0;
+
+str_645 +=" <div style='position:relative;width:267px;height:80px;display:none' id='randomDiv_645_0'> ";
+if( false ){ 
+	str_645 +="<objectdisabled id=obj_top1_randomDiv_1 codeBase=http://downloaddisabled.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0 width=267 height=80 classid=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000>";
+	str_645 +="<param name='movie' value='http://20110420.biz5.sandai.net/portal/image/61/n1297823750361.jpg'>";
+	str_645 +="<param name='salign' value='TL'>";
+	str_645 +="<param name='wmode' value='Transparent'>";
+	str_645 +="<param name='wmode' value='opaque'>";
+	str_645 +="<param name='quality' value='High'>";
+	str_645 +="<embeddisabled src='http://20110420.biz5.sandai.net/portal/image/61/n1297823750361.jpg' quality='high' allowscriptaccess='always' wmode='transparent' type='application/x-shockwave-flash' ";
+	str_645 +="pluginspage='http://www.macromedia.com/go/getflashplayer' height='80' width='267'> ";
+	str_645 +="</object>";
+	if(true){
+		str_645 +="<a href='" + getUrlWithPID('http://click.cm.sandai.net/UClick?gs=cmuclick&ad=1303231989632&position=645&location=http%3A%2F%2Fmovie.xunlei.com%2Ftopic%2Fqrj2011%2F') + "' target='_blank' style='position:absolute;left:0px;top:0px;width:267px;height:80px;'><img src='../spacer.gif' style='display:block;overflow:hidden;width:267px;height:80px;border:0 none;' /></a>";
+	}
+}else{
+	str_645 +=" <a href='" + getUrlWithPID('http://click.cm.sandai.net/UClick?gs=cmuclick&ad=1303231989632&position=645&location=http%3A%2F%2Fmovie.xunlei.com%2Ftopic%2Fqrj2011%2F') + "' target=_blank><img src='../spacer.gif' style='position:absolute;left:0px;top:0px;width:267px;height:80px;border:none;' />";
+	str_645 += "<img src=http://20110420.biz5.sandai.net/portal/image/61/n1297823750361.jpg  width=267 height=80 border=0 ></img></a>";
+}
+str_645 += "</div>"; 
+
+
+var targetDiv = document.getElementById("bt1");
+if(targetDiv != null && targetDiv != undefined) {
+	targetDiv.style.display = "block";
+	targetDiv.innerHTML = str_645;
+}
+
+var flag_interval_645 = false;
+function getNextAd_645(divs,heights){ 
+	var canGetFocus = true;
+	var focusEle = null
+	try{
+		focusEle = document.activeElement;
+	}catch(e){
+	}
+	if(focusEle != null){
+ 		var focusObj = document.activeElement.nodeName; 
+ 		if(focusObj != "INPUT" && focusObj != "TEXTAREA" && focusObj != "SELECT" ){
+ 			canGetFocus = false;
+ 		}
+ 	}
+	if( !canGetFocus || !flag_interval_645){
+		var length = divs.length; 
+		var randomNumber = -1;
+		for(var i = 0 ; i < length; i ++){ 
+			var childDiv = document.getElementById(divs[i]);
+			if(childDiv != null && childDiv != "undefined"){
+				if(childDiv.style.display == "block"){
+					randomNumber = i+1;
+				}  
+				childDiv.style.display = "none";
+			}
+		} 
+		if(randomNumber  == -1){
+			randomNumber =  Math.floor(Math.random() * length);
+		}else{
+			if(randomNumber >= length) randomNumber = 0; 
+		}
+		var targetDivName = divs[randomNumber];
+		var nextDiv = document.getElementById(targetDivName); 
+		if(nextDiv !=null && nextDiv != "undefined"){  
+			nextDiv.style.display = "block";
+		}
+	}
+	flag_interval_645 = true;
+}
+getNextAd_645(randomDiv_645,heights_645);
+var searchbox = document.getElementById("searchbox");
+if(searchbox != null){
+	searchbox.focus();
+}
+var interval_645 = setInterval('getNextAd_645(randomDiv_645,heights_645)', ROLLINGTIME_645);   
+
+function bt1_insertAdvertHTML(){
+	clearInterval(interval_645);
+	var targetDiv = document.getElementById("bt1"); 
+	if(targetDiv != null && targetDiv != undefined) { 
+		targetDiv.style.display = "block"; 
+		targetDiv.innerHTML = str_645;
+	}
+	flag_interval_645 = false;
+	getNextAd_645(randomDiv_645,heights_645);
+	interval_645 = setInterval('getNextAd_645(randomDiv_645,heights_645)',ROLLINGTIME_645);
+}
+
+try{
+	var r_645 = Math.floor(Math.random() * 1000);
+	if(r_645 < 100){
+		var i_645=new Image(1,1);
+		i_645.src="httpdisabled://pv.cm.sandai.net/UPV?gs=cmupv&pvkey=645";
+		i_645.onloaddisabled=function() {return;}
+	}
+}catch(e){}
+
+if (typeof(peerID) == "undefined" || peerID == null) {
+	peerID = null;
+	try {
+		peeridobj = new ActiveXObject("DapCtrl.DapCtrl");
+		if (peeridobj != null)
+			peerID = "xlpeeruuid=" + peeridobj.Get("sPeerID");
+	} catch(e) {
+	 	peerID = null;
+	}
+}
+
+if (typeof(window.getUrlWithPID) == "undefined") {
+	eval(
+		  "function getUrlWithPID(fullurl, split) {"
+		+ "	if(peerID == null || fullurl == null) "
+		+ "		return fullurl;"
+		+ "	var index = fullurl.indexOf('?'); "
+		+ "	if(index < 0) return fullurl;"
+		+ "	if (index == fullurl.length - 1) "
+		+ "		return  fullurl + peerID;"
+		+ "	if (split == null) {"
+		+ "		split = '&';"
+		+ "	}"
+		+ "	return fullurl.substring(0, index + 1) + peerID + split + fullurl.substring(index + 1);"
+		+ "}"
+	);
+}
+
+var ROLLINGTIME_646 = (15*1000);
+var heights_646 = new Array();
+var randomDiv_646 = new Array(); 
+var adcount_646 = new Array(); 
+var client_646 = new Array(); 
+var str_646 = ""; 
+
+
+heights_646[0] = 80;
+randomDiv_646[0] = "randomDiv_646_0";
+adcount_646[0] = 0;
+client_646[0] = 0;
+
+str_646 +=" <div style='position:relative;width:267px;height:80px;display:none' id='randomDiv_646_0'> ";
+if( false ){ 
+	str_646 +="<objectdisabled id=obj_top1_randomDiv_1 codeBase=http://downloaddisabled.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0 width=267 height=80 classid=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000>";
+	str_646 +="<param name='movie' value='http://20110420.biz5.sandai.net/portal/image/92/n1295685694392.jpg'>";
+	str_646 +="<param name='salign' value='TL'>";
+	str_646 +="<param name='wmode' value='Transparent'>";
+	str_646 +="<param name='wmode' value='opaque'>";
+	str_646 +="<param name='quality' value='High'>";
+	str_646 +="<embeddisabled src='http://20110420.biz5.sandai.net/portal/image/92/n1295685694392.jpg' quality='high' allowscriptaccess='always' wmode='transparent' type='application/x-shockwave-flash' ";
+	str_646 +="pluginspage='http://www.macromedia.com/go/getflashplayer' height='80' width='267'> ";
+	str_646 +="</object>";
+	if(true){
+		str_646 +="<a href='" + getUrlWithPID('http://click.cm.sandai.net/UClick?gs=cmuclick&ad=1303231989633&position=646&location=http%3A%2F%2Fact.vip.xunlei.com%2F47.html') + "' target='_blank' style='position:absolute;left:0px;top:0px;width:267px;height:80px;'><img src='../spacer.gif' style='display:block;overflow:hidden;width:267px;height:80px;border:0 none;' /></a>";
+	}
+}else{
+	str_646 +=" <a href='" + getUrlWithPID('http://click.cm.sandai.net/UClick?gs=cmuclick&ad=1303231989633&position=646&location=http%3A%2F%2Fact.vip.xunlei.com%2F47.html') + "' target=_blank><img src='../spacer.gif' style='position:absolute;left:0px;top:0px;width:267px;height:80px;border:none;' />";
+	str_646 += "<img src=http://20110420.biz5.sandai.net/portal/image/92/n1295685694392.jpg  width=267 height=80 border=0 ></img></a>";
+}
+str_646 += "</div>"; 
+
+
+var targetDiv = document.getElementById("bt2");
+if(targetDiv != null && targetDiv != undefined) {
+	targetDiv.style.display = "block";
+	targetDiv.innerHTML = str_646;
+}
+
+var flag_interval_646 = false;
+function getNextAd_646(divs,heights){ 
+	var canGetFocus = true;
+	var focusEle = null
+	try{
+		focusEle = document.activeElement;
+	}catch(e){
+	}
+	if(focusEle != null){
+ 		var focusObj = document.activeElement.nodeName; 
+ 		if(focusObj != "INPUT" && focusObj != "TEXTAREA" && focusObj != "SELECT" ){
+ 			canGetFocus = false;
+ 		}
+ 	}
+	if( !canGetFocus || !flag_interval_646){
+		var length = divs.length; 
+		var randomNumber = -1;
+		for(var i = 0 ; i < length; i ++){ 
+			var childDiv = document.getElementById(divs[i]);
+			if(childDiv != null && childDiv != "undefined"){
+				if(childDiv.style.display == "block"){
+					randomNumber = i+1;
+				}  
+				childDiv.style.display = "none";
+			}
+		} 
+		if(randomNumber  == -1){
+			randomNumber =  Math.floor(Math.random() * length);
+		}else{
+			if(randomNumber >= length) randomNumber = 0; 
+		}
+		var targetDivName = divs[randomNumber];
+		var nextDiv = document.getElementById(targetDivName); 
+		if(nextDiv !=null && nextDiv != "undefined"){  
+			nextDiv.style.display = "block";
+		}
+	}
+	flag_interval_646 = true;
+}
+getNextAd_646(randomDiv_646,heights_646);
+var searchbox = document.getElementById("searchbox");
+if(searchbox != null){
+	searchbox.focus();
+}
+var interval_646 = setInterval('getNextAd_646(randomDiv_646,heights_646)', ROLLINGTIME_646);   
+
+function bt2_insertAdvertHTML(){
+	clearInterval(interval_646);
+	var targetDiv = document.getElementById("bt2"); 
+	if(targetDiv != null && targetDiv != undefined) { 
+		targetDiv.style.display = "block"; 
+		targetDiv.innerHTML = str_646;
+	}
+	flag_interval_646 = false;
+	getNextAd_646(randomDiv_646,heights_646);
+	interval_646 = setInterval('getNextAd_646(randomDiv_646,heights_646)',ROLLINGTIME_646);
+}
+
+try{
+	var r_646 = Math.floor(Math.random() * 1000);
+	if(r_646 < 100){
+		var i_646=new Image(1,1);
+		i_646.src="httpdisabled://pv.cm.sandai.net/UPV?gs=cmupv&pvkey=646";
+		i_646.onloaddisabled=function() {return;}
+	}
+}catch(e){}
+
+
+
+
+
+var str_648 = ""; 
+
+str_648 += "<iframe id='i_648_0' src='http://biz5.sandai.net/portal/movie/60077/index.html' style='position:relative; display:none; border:0px; width:267px; height:80px; text-align:center; margin:0 auto; float:left;' frameBorder='no' scrolling='no'></iframe>";
+
+var targetDiv = document.getElementById("bt3");
+if(targetDiv != null && targetDiv != undefined) {
+	targetDiv.style.display = "block";
+	targetDiv.innerHTML = str_648;
+}
+
+function getNextAd_648(){
+        var length = 1;
+        var randomNumber = -1;
+        try{
+                for(var n=0; n<length; n++){
+                        var iframe = document.getElementById("i_648_" + n);
+                        if(iframe.style.display == "block"){
+                                randomNumber = n + 1;
+                        }
+                        iframe.style.display = "none";
+                }
+                if(randomNumber < 0){
+                        randomNumber = Math.floor(Math.random() * length);
+                }else{
+                        if(randomNumber >= length) randomNumber = 0;
+                }
+                var nextiframe = document.getElementById("i_648_" + randomNumber);
+                nextiframe.style.display = "block";
+        }catch(e){}
+}
+getNextAd_648();
+var interval_648 = setInterval('getNextAd_648()', 15*1000);
+
+var r_648 = Math.floor(Math.random() * 1000);
+if(r_648 < 100){
+        var i_648 = new Image(1,1);
+        i_648.src = "httpdisabled://pv.cm.sandai.net/UPV?gs=cmupv&pvkey=648";
+        i_648.onloaddisabled = function() {return;}
+}
+
+
+if (typeof(peerID) == "undefined" || peerID == null) {
+	peerID = null;
+	try {
+		peeridobj = new ActiveXObject("DapCtrl.DapCtrl");
+		if (peeridobj != null)
+			peerID = "xlpeeruuid=" + peeridobj.Get("sPeerID");
+	} catch(e) {
+	 	peerID = null;
+	}
+}
+
+if (typeof(window.getUrlWithPID) == "undefined") {
+	eval(
+		  "function getUrlWithPID(fullurl, split) {"
+		+ "	if(peerID == null || fullurl == null) "
+		+ "		return fullurl;"
+		+ "	var index = fullurl.indexOf('?'); "
+		+ "	if(index < 0) return fullurl;"
+		+ "	if (index == fullurl.length - 1) "
+		+ "		return  fullurl + peerID;"
+		+ "	if (split == null) {"
+		+ "		split = '&';"
+		+ "	}"
+		+ "	return fullurl.substring(0, index + 1) + peerID + split + fullurl.substring(index + 1);"
+		+ "}"
+	);
+}
+
+var ROLLINGTIME_649 = (15*1000);
+var heights_649 = new Array();
+var randomDiv_649 = new Array(); 
+var adcount_649 = new Array(); 
+var client_649 = new Array(); 
+var str_649 = ""; 
+
+
+heights_649[0] = 80;
+randomDiv_649[0] = "randomDiv_649_0";
+adcount_649[0] = 0;
+client_649[0] = 0;
+
+str_649 +=" <div style='position:relative;width:267px;height:80px;display:none' id='randomDiv_649_0'> ";
+if( false ){ 
+	str_649 +="<objectdisabled id=obj_top1_randomDiv_1 codeBase=http://downloaddisabled.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0 width=267 height=80 classid=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000>";
+	str_649 +="<param name='movie' value='http://20110420.biz5.sandai.net/portal/image/21/n1297764623721.jpg'>";
+	str_649 +="<param name='salign' value='TL'>";
+	str_649 +="<param name='wmode' value='Transparent'>";
+	str_649 +="<param name='wmode' value='opaque'>";
+	str_649 +="<param name='quality' value='High'>";
+	str_649 +="<embeddisabled src='http://20110420.biz5.sandai.net/portal/image/21/n1297764623721.jpg' quality='high' allowscriptaccess='always' wmode='transparent' type='application/x-shockwave-flash' ";
+	str_649 +="pluginspage='http://www.macromedia.com/go/getflashplayer' height='80' width='267'> ";
+	str_649 +="</object>";
+	if(true){
+		str_649 +="<a href='" + getUrlWithPID('http://click.cm.sandai.net/UClick?gs=cmuclick&ad=1303231989635&position=649&location=http%3A%2F%2Fkankan.xunlei.com%2Fvod%2Fteleplay%2F60%2F60179.shtml') + "' target='_blank' style='position:absolute;left:0px;top:0px;width:267px;height:80px;'><img src='../spacer.gif' style='display:block;overflow:hidden;width:267px;height:80px;border:0 none;' /></a>";
+	}
+}else{
+	str_649 +=" <a href='" + getUrlWithPID('http://click.cm.sandai.net/UClick?gs=cmuclick&ad=1303231989635&position=649&location=http%3A%2F%2Fkankan.xunlei.com%2Fvod%2Fteleplay%2F60%2F60179.shtml') + "' target=_blank><img src='../spacer.gif' style='position:absolute;left:0px;top:0px;width:267px;height:80px;border:none;' />";
+	str_649 += "<img src=http://20110420.biz5.sandai.net/portal/image/21/n1297764623721.jpg  width=267 height=80 border=0 ></img></a>";
+}
+str_649 += "</div>"; 
+
+
+var targetDiv = document.getElementById("bt4");
+if(targetDiv != null && targetDiv != undefined) {
+	targetDiv.style.display = "block";
+	targetDiv.innerHTML = str_649;
+}
+
+var flag_interval_649 = false;
+function getNextAd_649(divs,heights){ 
+	var canGetFocus = true;
+	var focusEle = null
+	try{
+		focusEle = document.activeElement;
+	}catch(e){
+	}
+	if(focusEle != null){
+ 		var focusObj = document.activeElement.nodeName; 
+ 		if(focusObj != "INPUT" && focusObj != "TEXTAREA" && focusObj != "SELECT" ){
+ 			canGetFocus = false;
+ 		}
+ 	}
+	if( !canGetFocus || !flag_interval_649){
+		var length = divs.length; 
+		var randomNumber = -1;
+		for(var i = 0 ; i < length; i ++){ 
+			var childDiv = document.getElementById(divs[i]);
+			if(childDiv != null && childDiv != "undefined"){
+				if(childDiv.style.display == "block"){
+					randomNumber = i+1;
+				}  
+				childDiv.style.display = "none";
+			}
+		} 
+		if(randomNumber  == -1){
+			randomNumber =  Math.floor(Math.random() * length);
+		}else{
+			if(randomNumber >= length) randomNumber = 0; 
+		}
+		var targetDivName = divs[randomNumber];
+		var nextDiv = document.getElementById(targetDivName); 
+		if(nextDiv !=null && nextDiv != "undefined"){  
+			nextDiv.style.display = "block";
+		}
+	}
+	flag_interval_649 = true;
+}
+getNextAd_649(randomDiv_649,heights_649);
+var searchbox = document.getElementById("searchbox");
+if(searchbox != null){
+	searchbox.focus();
+}
+var interval_649 = setInterval('getNextAd_649(randomDiv_649,heights_649)', ROLLINGTIME_649);   
+
+function bt4_insertAdvertHTML(){
+	clearInterval(interval_649);
+	var targetDiv = document.getElementById("bt4"); 
+	if(targetDiv != null && targetDiv != undefined) { 
+		targetDiv.style.display = "block"; 
+		targetDiv.innerHTML = str_649;
+	}
+	flag_interval_649 = false;
+	getNextAd_649(randomDiv_649,heights_649);
+	interval_649 = setInterval('getNextAd_649(randomDiv_649,heights_649)',ROLLINGTIME_649);
+}
+
+try{
+	var r_649 = Math.floor(Math.random() * 1000);
+	if(r_649 < 100){
+		var i_649=new Image(1,1);
+		i_649.src="httpdisabled://pv.cm.sandai.net/UPV?gs=cmupv&pvkey=649";
+		i_649.onloaddisabled=function() {return;}
+	}
+}catch(e){}
+
+var str_81 = ""; 
+
+str_81 += "<iframe id='i_81_0' src='../970x80-03.html' style='position:relative; display:none; border:0px; width:970px; height:90px; text-align:center; margin:0 auto; float:left;' frameBorder='no' scrolling='no'></iframe>";
+str_81 += "<iframe id='i_81_1' src='../970x80-03.html' style='position:relative; display:none; border:0px; width:970px; height:90px; text-align:center; margin:0 auto; float:left;' frameBorder='no' scrolling='no'></iframe>";
+
+var targetDiv = document.getElementById("top4");
+if(targetDiv != null && targetDiv != undefined) {
+	targetDiv.style.display = "block";
+	targetDiv.innerHTML = str_81;
+}
+
+function getNextAd_81(){
+        var length = 2;
+        var randomNumber = -1;
+        try{
+                for(var n=0; n<length; n++){
+                        var iframe = document.getElementById("i_81_" + n);
+                        if(iframe.style.display == "block"){
+                                randomNumber = n + 1;
+                        }
+                        iframe.style.display = "none";
+                }
+                if(randomNumber < 0){
+                        randomNumber = Math.floor(Math.random() * length);
+                }else{
+                        if(randomNumber >= length) randomNumber = 0;
+                }
+                var nextiframe = document.getElementById("i_81_" + randomNumber);
+                nextiframe.style.display = "block";
+        }catch(e){}
+}
+getNextAd_81();
+var interval_81 = setInterval('getNextAd_81()', 15*1000);
+
+var r_81 = Math.floor(Math.random() * 1000);
+if(r_81 < 100){
+        var i_81 = new Image(1,1);
+        i_81.src = "httpdisabled://pv.cm.sandai.net/UPV?gs=cmupv&pvkey=81";
+        i_81.onloaddisabled = function() {return;}
+}
+
+
+var str_1042 = ""; 
+
+str_1042 += "<iframe id='i_1042_0' src='../970x80-03.html' style='position:relative; display:none; border:0px; width:970px; height:80px; text-align:center; margin:0 auto; float:left;' frameBorder='no' scrolling='no'></iframe>";
+str_1042 += "<iframe id='i_1042_1' src='../970x80-03.html' style='position:relative; display:none; border:0px; width:970px; height:80px; text-align:center; margin:0 auto; float:left;' frameBorder='no' scrolling='no'></iframe>";
+
+var targetDiv = document.getElementById("cm1042");
+if(targetDiv != null && targetDiv != undefined) {
+	targetDiv.style.display = "block";
+	targetDiv.innerHTML = str_1042;
+}
+
+function getNextAd_1042(){
+        var length = 2;
+        var randomNumber = -1;
+        try{
+                for(var n=0; n<length; n++){
+                        var iframe = document.getElementById("i_1042_" + n);
+                        if(iframe.style.display == "block"){
+                                randomNumber = n + 1;
+                        }
+                        iframe.style.display = "none";
+                }
+                if(randomNumber < 0){
+                        randomNumber = Math.floor(Math.random() * length);
+                }else{
+                        if(randomNumber >= length) randomNumber = 0;
+                }
+                var nextiframe = document.getElementById("i_1042_" + randomNumber);
+                nextiframe.style.display = "block";
+        }catch(e){}
+}
+getNextAd_1042();
+var interval_1042 = setInterval('getNextAd_1042()', 15*1000);
+
+var r_1042 = Math.floor(Math.random() * 1000);
+if(r_1042 < 100){
+        var i_1042 = new Image(1,1);
+        i_1042.src = "httpdisabled://pv.cm.sandai.net/UPV?gs=cmupv&pvkey=1042";
+        i_1042.onloaddisabled = function() {return;}
+}
+
+
+var str_1041 = ""; 
+
+str_1041 += "<iframe id='i_1041_0' src='../tempupload.html' style='position:relative; display:none; border:0px; width:970px; height:80px; text-align:center; margin:0 auto; float:left;' frameBorder='no' scrolling='no'></iframe>";
+str_1041 += "<iframe id='i_1041_1' src='../970-80.html' style='position:relative; display:none; border:0px; width:970px; height:80px; text-align:center; margin:0 auto; float:left;' frameBorder='no' scrolling='no'></iframe>";
+
+var targetDiv = document.getElementById("cm1041");
+if(targetDiv != null && targetDiv != undefined) {
+	targetDiv.style.display = "block";
+	targetDiv.innerHTML = str_1041;
+}
+
+function getNextAd_1041(){
+        var length = 2;
+        var randomNumber = -1;
+        try{
+                for(var n=0; n<length; n++){
+                        var iframe = document.getElementById("i_1041_" + n);
+                        if(iframe.style.display == "block"){
+                                randomNumber = n + 1;
+                        }
+                        iframe.style.display = "none";
+                }
+                if(randomNumber < 0){
+                        randomNumber = Math.floor(Math.random() * length);
+                }else{
+                        if(randomNumber >= length) randomNumber = 0;
+                }
+                var nextiframe = document.getElementById("i_1041_" + randomNumber);
+                nextiframe.style.display = "block";
+        }catch(e){}
+}
+getNextAd_1041();
+var interval_1041 = setInterval('getNextAd_1041()', 15*1000);
+
+var r_1041 = Math.floor(Math.random() * 1000);
+if(r_1041 < 100){
+        var i_1041 = new Image(1,1);
+        i_1041.src = "httpdisabled://pv.cm.sandai.net/UPV?gs=cmupv&pvkey=1041";
+        i_1041.onloaddisabled = function() {return;}
+}
+
+
+var str_1040 = ""; 
+
+str_1040 += "<iframe id='i_1040_0' src='../970x80-03.html' style='position:relative; display:none; border:0px; width:970px; height:80px; text-align:center; margin:0 auto; float:left;' frameBorder='no' scrolling='no'></iframe>";
+str_1040 += "<iframe id='i_1040_1' src='../970x80-03.html' style='position:relative; display:none; border:0px; width:970px; height:80px; text-align:center; margin:0 auto; float:left;' frameBorder='no' scrolling='no'></iframe>";
+
+var targetDiv = document.getElementById("cm1040");
+if(targetDiv != null && targetDiv != undefined) {
+	targetDiv.style.display = "block";
+	targetDiv.innerHTML = str_1040;
+}
+
+function getNextAd_1040(){
+        var length = 2;
+        var randomNumber = -1;
+        try{
+                for(var n=0; n<length; n++){
+                        var iframe = document.getElementById("i_1040_" + n);
+                        if(iframe.style.display == "block"){
+                                randomNumber = n + 1;
+                        }
+                        iframe.style.display = "none";
+                }
+                if(randomNumber < 0){
+                        randomNumber = Math.floor(Math.random() * length);
+                }else{
+                        if(randomNumber >= length) randomNumber = 0;
+                }
+                var nextiframe = document.getElementById("i_1040_" + randomNumber);
+                nextiframe.style.display = "block";
+        }catch(e){}
+}
+getNextAd_1040();
+var interval_1040 = setInterval('getNextAd_1040()', 15*1000);
+
+var r_1040 = Math.floor(Math.random() * 1000);
+if(r_1040 < 100){
+        var i_1040 = new Image(1,1);
+        i_1040.src = "httpdisabled://pv.cm.sandai.net/UPV?gs=cmupv&pvkey=1040";
+        i_1040.onloaddisabled = function() {return;}
+}
+
+
+if (typeof(peerID) == "undefined" || peerID == null) {
+	peerID = null;
+	try {
+		peeridobj = new ActiveXObject("DapCtrl.DapCtrl");
+		if (peeridobj != null)
+			peerID = "xlpeeruuid=" + peeridobj.Get("sPeerID");
+	} catch(e) {
+	 	peerID = null;
+	}
+}
+
+if (typeof(window.getUrlWithPID) == "undefined") {
+	eval(
+		  "function getUrlWithPID(fullurl, split) {"
+		+ "	if(peerID == null || fullurl == null) "
+		+ "		return fullurl;"
+		+ "	var index = fullurl.indexOf('?'); "
+		+ "	if(index < 0) return fullurl;"
+		+ "	if (index == fullurl.length - 1) "
+		+ "		return  fullurl + peerID;"
+		+ "	if (split == null) {"
+		+ "		split = '&';"
+		+ "	}"
+		+ "	return fullurl.substring(0, index + 1) + peerID + split + fullurl.substring(index + 1);"
+		+ "}"
+	);
+}
+
+var ROLLINGTIME_1039 = (15*1000);
+var heights_1039 = new Array();
+var randomDiv_1039 = new Array(); 
+var adcount_1039 = new Array(); 
+var client_1039 = new Array(); 
+var str_1039 = ""; 
+
+
+heights_1039[0] = 80;
+randomDiv_1039[0] = "randomDiv_1039_0";
+adcount_1039[0] = 1;
+client_1039[0] = 2533;
+
+str_1039 +=" <div style='position:relative;width:970px;height:80px;display:none' id='randomDiv_1039_0'> ";
+if( false ){ 
+	str_1039 +="<objectdisabled id=obj_top1_randomDiv_1 codeBase=http://downloaddisabled.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0 width=970 height=80 classid=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000>";
+	str_1039 +="<param name='movie' value='../n1303188166090.jpg'>";
+	str_1039 +="<param name='salign' value='TL'>";
+	str_1039 +="<param name='wmode' value='Transparent'>";
+	str_1039 +="<param name='wmode' value='opaque'>";
+	str_1039 +="<param name='quality' value='High'>";
+	str_1039 +="<embeddisabled src='../n1303188166090.jpg' quality='high' allowscriptaccess='always' wmode='transparent' type='application/x-shockwave-flash' ";
+	str_1039 +="pluginspage='http://www.macromedia.com/go/getflashplayer' height='80' width='970'> ";
+	str_1039 +="</object>";
+	if(true){
+		str_1039 +="<a href='" + getUrlWithPID('http://click.cm.sandai.net/UClick?gs=cmuclick&ad=1303114868760&position=1039&location=http%3A%2F%2Fact.shop.xunlei.com%2Fvipup%2Findex.html%3Ffref%3Dact_012_306') + "' target='_blank' style='position:absolute;left:0px;top:0px;width:970px;height:80px;'><img src='../spacer.gif' style='display:block;overflow:hidden;width:970px;height:80px;border:0 none;' /></a>";
+	}
+}else{
+	str_1039 +=" <a href='" + getUrlWithPID('http://click.cm.sandai.net/UClick?gs=cmuclick&ad=1303114868760&position=1039&location=http%3A%2F%2Fact.shop.xunlei.com%2Fvipup%2Findex.html%3Ffref%3Dact_012_306') + "' target=_blank><img src='../spacer.gif' style='position:absolute;left:0px;top:0px;width:970px;height:80px;border:none;' />";
+	str_1039 += "<img src=../n1303188166090.jpg  width=970 height=80 border=0 ></img></a>";
+}
+str_1039 += "</div>"; 
+
+
+heights_1039[1] = 80;
+randomDiv_1039[1] = "randomDiv_1039_1";
+adcount_1039[1] = 2;
+client_1039[1] = 1626;
+
+str_1039 +=" <div style='position:relative;width:970px;height:80px;display:none' id='randomDiv_1039_1'> ";
+if( true ){ 
+	str_1039 +="<objectdisabled id=obj_top1_randomDiv_1 codeBase=http://downloaddisabled.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0 width=970 height=80 classid=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000>";
+	str_1039 +="<param name='movie' value='http://20110420.biz5.sandai.net/portal/image/22/n1303204817022.swf'>";
+	str_1039 +="<param name='salign' value='TL'>";
+	str_1039 +="<param name='wmode' value='Transparent'>";
+	str_1039 +="<param name='wmode' value='opaque'>";
+	str_1039 +="<param name='quality' value='High'>";
+	str_1039 +="<embeddisabled src='http://20110420.biz5.sandai.net/portal/image/22/n1303204817022.swf' quality='high' allowscriptaccess='always' wmode='transparent' type='application/x-shockwave-flash' ";
+	str_1039 +="pluginspage='http://www.macromedia.com/go/getflashplayer' height='80' width='970'> ";
+	str_1039 +="</object>";
+	if(true){
+		str_1039 +="<a href='" + getUrlWithPID('http://click.cm.sandai.net/UClick?gs=cmuclick&ad=1301306604650&position=1039&location=http%3A%2F%2Fa814.oadz.com%2Flink%2FC%2F814%2F88662%2FlYHBTptNxSkGjj2Y5Iq.XHsdg5c_%2Fa%2F3%2Fhttp%3A%2F%2Fwww.m18.com%2Fmarket%2Ffront.aspx%3Fpno%3Dxl-kkhp-1tl%26url%3D%2Fim%2F') + "' target='_blank' style='position:absolute;left:0px;top:0px;width:970px;height:80px;'><img src='../spacer.gif' style='display:block;overflow:hidden;width:970px;height:80px;border:0 none;' /></a>";
+	}
+}else{
+	str_1039 +=" <a href='" + getUrlWithPID('http://click.cm.sandai.net/UClick?gs=cmuclick&ad=1301306604650&position=1039&location=http%3A%2F%2Fa814.oadz.com%2Flink%2FC%2F814%2F88662%2FlYHBTptNxSkGjj2Y5Iq.XHsdg5c_%2Fa%2F3%2Fhttp%3A%2F%2Fwww.m18.com%2Fmarket%2Ffront.aspx%3Fpno%3Dxl-kkhp-1tl%26url%3D%2Fim%2F') + "' target=_blank><img src='../spacer.gif' style='position:absolute;left:0px;top:0px;width:970px;height:80px;border:none;' />";
+	str_1039 += "<img src=http://20110420.biz5.sandai.net/portal/image/22/n1303204817022.swf  width=970 height=80 border=0 ></img></a>";
+}
+str_1039 += "</div>"; 
+
+
+var targetDiv = document.getElementById("cm1039");
+if(targetDiv != null && targetDiv != undefined) {
+	targetDiv.style.display = "block";
+	targetDiv.innerHTML = str_1039;
+}
+
+var flag_interval_1039 = false;
+function getNextAd_1039(divs,heights){ 
+	var canGetFocus = true;
+	var focusEle = null
+	try{
+		focusEle = document.activeElement;
+	}catch(e){
+	}
+	if(focusEle != null){
+ 		var focusObj = document.activeElement.nodeName; 
+ 		if(focusObj != "INPUT" && focusObj != "TEXTAREA" && focusObj != "SELECT" ){
+ 			canGetFocus = false;
+ 		}
+ 	}
+	if( !canGetFocus || !flag_interval_1039){
+		var length = divs.length; 
+		var randomNumber = -1;
+		for(var i = 0 ; i < length; i ++){ 
+			var childDiv = document.getElementById(divs[i]);
+			if(childDiv != null && childDiv != "undefined"){
+				if(childDiv.style.display == "block"){
+					randomNumber = i+1;
+				}  
+				childDiv.style.display = "none";
+			}
+		} 
+		if(randomNumber  == -1){
+			randomNumber =  Math.floor(Math.random() * length);
+		}else{
+			if(randomNumber >= length) randomNumber = 0; 
+		}
+		var targetDivName = divs[randomNumber];
+		var nextDiv = document.getElementById(targetDivName); 
+		if(nextDiv !=null && nextDiv != "undefined"){  
+			nextDiv.style.display = "block";
+		}
+	}
+	flag_interval_1039 = true;
+}
+getNextAd_1039(randomDiv_1039,heights_1039);
+var searchbox = document.getElementById("searchbox");
+if(searchbox != null){
+	searchbox.focus();
+}
+var interval_1039 = setInterval('getNextAd_1039(randomDiv_1039,heights_1039)', ROLLINGTIME_1039);   
+
+function cm1039_insertAdvertHTML(){
+	clearInterval(interval_1039);
+	var targetDiv = document.getElementById("cm1039"); 
+	if(targetDiv != null && targetDiv != undefined) { 
+		targetDiv.style.display = "block"; 
+		targetDiv.innerHTML = str_1039;
+	}
+	flag_interval_1039 = false;
+	getNextAd_1039(randomDiv_1039,heights_1039);
+	interval_1039 = setInterval('getNextAd_1039(randomDiv_1039,heights_1039)',ROLLINGTIME_1039);
+}
+
+try{
+	var r_1039 = Math.floor(Math.random() * 1000);
+	if(r_1039 < 100){
+		var i_1039=new Image(1,1);
+		i_1039.src="httpdisabled://pv.cm.sandai.net/UPV?gs=cmupv&pvkey=1039";
+		i_1039.onloaddisabled=function() {return;}
+	}
+}catch(e){}
+
+
+

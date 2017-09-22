@@ -1,0 +1,39 @@
+ function StringBuffer(){
+			this._strings_ = new Array;
+		}
+		StringBuffer.prototype.append = function(str){
+			this._strings_.push(str);
+		}
+		StringBuffer.prototype.toString = function(){
+			return this._strings_.join("");
+		}
+ function sip_search(obj)
+    {
+       if(obj!=null){
+	 		var u = "http://baodian.women.sohu.com/search.sip";
+	 		if(obj.tagName.toUpperCase() == "INPUT"){
+	 			var value = obj.value;     	
+	 			var form = obj.form;
+	 			form.action = u;
+	 			form["itemText"].value = value;
+       			form["totalText"].value = value;
+	 			form.submit();
+	 		}else{
+		       	 var input = obj.parentNode.parentNode.getElementsByTagName("INPUT")[0];
+		       	 if(input && input.value){
+		       	 	    var value = input.value;
+		       	 	    var buffer = new StringBuffer();
+						buffer.append("http://baodian.women.sohu.com/search.sip?item=");
+						buffer.append(value);
+						buffer.append("&pageNo=1&type=suggest&onePageNum=12&flag=common&totalText="+value);
+						buffer.append("&itemText="+value+"&appFlag=true&showView=bigView");
+						obj.target = "_blank"
+						obj.href = buffer.toString();
+		       	 }else{
+		       	 		obj.target = "_self"
+						obj.href = "javascript:void(0);";
+		       	 }
+		   }
+       }
+	   return true;
+    }

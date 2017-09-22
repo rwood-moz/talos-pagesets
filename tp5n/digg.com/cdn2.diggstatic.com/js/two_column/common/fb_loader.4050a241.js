@@ -1,0 +1,1 @@
+window.fbAsyncInit=function(){FB.init({appId:DUI.fb_app_id,status:false,cookie:true,xfbml:false})};(function(){var a=document.createElement("script");a.src="../../../all.js";a.async=true;document.getElementById("fb-root").appendChild(a)})();

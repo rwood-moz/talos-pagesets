@@ -1,0 +1,22 @@
+@charset "EUC-JP";
+ 
+/*=========================================================================
+
+種別 ： setcss
+適用 ： サイト全体
+
+=========================================================================*/
+
+#onScript{
+	display:none;
+}
+
+.bp7{
+	padding: 4px 20px 0 5px!important;
+	color:#1d54a6!important;
+	background: #ffffff!important;
+	background-image: none!important;
+}
+#machiraku{
+	display:none;
+}

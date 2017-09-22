@@ -1,0 +1,763 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "httpdisabled://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="httpdisabled://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<link rel="start" href="index.html" title="はてな">
+<link rel="search" type="voidsearchdescription+xml" href="httpdisabled://search.hatena.ne.voidsearch/all.xml" title="はてな検索">
+<link rel="search" type="voidsearchdescription+xml" href="httpdisabled://q.hatena.ne.voidsearch/question.xml" title="人力検索はてな">
+<link rel="stylesheet" href="css/simple-header.css" type="text/css" media="all">
+
+<title>はてな</title>
+<meta name="description" content="はてなが運営するポータルサイト。ブログもウェブアルバムもニュースも、はてながあればネットがさらに便利になります。ニンテンドーDSiのソフト「うごくメモ帳」で作った作品も楽しめます。">
+<meta name="keywords" content="うごメモ,はてな,hatena,ブログ,ウェブアルバム,ブックマーク">
+<meta name="verify-v1" content="dMI6HLQAvGFS/A1q/gvLdBpOa37cDdjfrBLWc9c0b8Q=" />
+<meta name="y_key" content="a3fb177b9c8a9e0a" />
+<link rel="alternate" media="handheld" type="text/html" href="httpdisabled://mobile.hatena.ne.jp/">
+<link rel="stylesheet" href="css/portal-top.css@20100907.css" type="text/css" media="all">
+<link rel="stylesheet" href="css/simple-header.css@20081229.css" type="text/css" media="all">
+<script type="text/javascript" src="js/Ten/Ten.js"></script>
+<script type="text/javascript" src="js/tab_select.js@20081229"></script>
+<script type="text/javascript" src="js/service_icon.js@20081229"></script>
+<script type="text/javascript" src="js/userinfo.js@20081229"></script>
+<script type="text/javascript">
+Ten.DOM.addEventListener('DOMContentLoaded', function () {
+    var thumbnails = Ten.Selector.getElementsBySelector('img.thumb-small');
+    for (var i = 0; i < thumbnails.length; i++) {
+        with ({ thumbnail: thumbnails[i] }) {
+            new Ten.Observer(
+                thumbnail,
+                'onmouseover',
+                function () { thumbnail.src = thumbnail.src.replace(/_s.gif$/, '_as.gif') }
+            );
+            new Ten.Observer(
+                thumbnail,
+                'onmouseout',
+                function () { thumbnail.src = thumbnail.src.replace(/_as.gif$/, '_s.gif') }
+            );
+        }
+    }
+    var large_thumbnails = Ten.Selector.getElementsBySelector('img.thumb-large');
+    for (var i = 0; i < large_thumbnails.length; i++) {
+        with ({ large_thumbnail: large_thumbnails[i] }) {
+            new Ten.Observer(
+                large_thumbnail,
+                'onmouseover',
+                function () { large_thumbnail.src = large_thumbnail.src.replace(/_m.gif$/, '_as.gif') }
+            );
+            new Ten.Observer(
+                large_thumbnail,
+                'onmouseout',
+                function () { large_thumbnail.src = large_thumbnail.src.replace(/_as.gif$/, '_m.gif') }
+            );
+        }
+    }
+});
+</script>
+<script type="text/javascript" src="js/CSSChanger.js"></script>
+<script type="text/javascript" src="js/DropDownSelector.js"></script>
+<script type="text/javascript">
+  if (typeof Hatena == 'undefined')
+      var Hatena = { };
+
+  Hatena.CSSData =  [
+          { key: ''  , name: 'Default'  , src: ''},
+          { key: 'gr', name: 'Green'  , src: '/css/portal-top-gr.css'},
+          { key: 'pk', name: 'Pink'  , src: '/css/portal-top-pk.css'},
+          { key: 'lb', name: 'LightBlue'  , src: '/css/portal-top-lb.css'},
+          { key: 'mt', name: 'Monotone'  , src: '/css/portal-top-mt.css'}
+      ]
+  Hatena.CSSChanger.registerFiles(Hatena.CSSData);
+  Hatena.CSSChanger.init();
+  Ten.DOM.addEventListener('DOMContentLoaded', function() {
+    new Hatena.DropDownSelector({
+        button  : document.getElementById('testbutton'),
+        onclick : function(i){Hatena.CSSChanger.change(i)},
+        data    : Hatena.CSSData,
+        selectedKey: new Ten.Cookie().get('_hatena_csschanger_name')
+    });
+  });
+</script>
+<style type="text/css">
+div.s-bookmarknews-ugomemo{
+  overflow: hidden;
+}
+
+div.s-bookmarknews {
+  width:295px;
+  float:left;
+  overflow:hidden;
+  margin-bottom: 2px;
+}
+div.s-bookmarknews ul#hatena-rss-info {
+  padding: 9px 0 0 2px;
+  list-style:none;
+  margin: 0;
+}
+
+div.s-bookmarknews ul#hatena-rss-info li {
+  color:#666;
+  font-size:80%;
+  padding-bottom:9px;
+  padding-bottom:1px\9;
+  letter-spacing:-1px\9;
+}
+
+div.s-bookmarknews ul#hatena-rss-info li a.hatena-rss-info-item {
+  /* padding-left:14px; */
+  /* background:url(http://b.hatena.ne.jp/images/page.gif) 0 50% no-repeat; */
+  margin-left:2px;
+  letter-spacing: -0.5px;
+  zoom:1;
+}
+
+div.s-bookmarknews ul#hatena-rss-info li a img {
+  display:none;
+}
+
+div.s-bookmarknews ul#hatena-rss-info li a.users img {
+  display:inline;
+  vertical-align:middle;
+  margin-left:5px;
+}
+
+div.s-bookmarknews ul#hatena-rss-info li void {
+  display:none;
+}
+/*/////////うごメモ用CSS/////////*/
+
+
+div.s-ugomemo {
+  width:295px;
+  float:right;
+  overflow: visible;
+  margin-bottom: 10px;
+}
+
+div.s-ugomemo h2{
+  width:295px;
+}
+
+.ugomemo-catch{
+color:#416B29;
+font-size:10px;
+line-height:1.2em;
+padding:5px;
+}
+
+div.ugomemo-ranking{
+background:transparent url(images/ugomemo_ranking_bg.gif) no-repeat scroll 0 0;
+}
+
+
+div.ugomemo-ranking h3{
+display:none;
+margin:0;
+padding:0;
+}
+
+div.s-ugomemo ul.inline-list li img.thumb{
+border:1px solid #CCCCCC;
+height:48px;
+margin-bottom:2px;
+margin-right:0;
+margin-top:8px;
+vertical-align:middle;
+width:64px;
+}
+
+div.s-ugomemo ul.inline-list li.ranking-count1 img.thumb{
+height:96px;
+width:128px;
+border:2px #CDB54C solid;
+margin-top:-3px;
+}
+
+div.s-ugomemo ul.inline-list li.ranking-count2 img.thumb,
+div.s-ugomemo ul.inline-list li.ranking-count3 img.thumb{
+border:2px solid #9E9E9E;
+height:48px;
+margin-left:2px;
+margin-top:44px;
+width:64px;
+}
+
+div.s-ugomemo ul.inline-list li.ranking-count3{
+  margin-right:0;
+}
+
+div.s-ugomemo ul.inline-list{
+list-style-type:none;
+margin:0 0 0 5px;
+padding:2px;
+}
+
+div.s-ugomemo ul.inline-list li {
+display:inline;
+margin-right:5px;
+_margin-right:4px;
+position:relative;
+top:0;
+left:0;
+}
+
+div.s-ugomemo ul.inline-list li span{
+left:-3px;
+position:absolute;
+top:25px;
+*top:40px;
+_top:40px;
+}
+
+div.s-ugomemo ul.inline-list li.ranking-count1 span{
+left:-3px;
+position:absolute;
+top:25px;
+*top:65px;
+_top:65px;
+}
+
+div.s-ugomemo ul.inline-list li span img{
+border:none;
+}
+
+div.s-ugomemo ul.inline-list li.ranking-count2 span,
+div.s-ugomemo ul.inline-list li.ranking-count3 span {
+left:-3px;
+position:absolute;
+top:38px;
+*top:78px;
+_top:78px;
+}
+
+div.s-ugomemo ul.inline-list li.ranking-count3 img.thumb{
+border:2px solid #D3A36F;
+}
+
+div.ugomemo-topics{
+  background: url("images/ugomemo_topic.gif") no-repeat scroll 5px center transparent;
+  font-size: 75%;
+  letter-spacing: -0.5px;
+  line-height: 1.2em;
+  padding: 3px 0 0 45px;
+  text-align: left;
+}
+
+div.ugomemo-topics img{
+margin-right:5px;
+}
+
+div.ugomemo-topics a{
+color:#558100;
+}
+
+
+div.star-container {
+  font-size:80%;
+  padding-left:10px;
+}
+
+div.star-container img{
+  margin-right:2px;
+}
+
+div.star-container span {
+  font-weight:bold;
+}
+
+
+div.star-container:after {
+  clear:both;
+  display:block;
+  content:"";
+}
+
+</style>
+</head><body>
+
+<div id="simple-header">
+      <div id="simple-header-body">
+        <div id="logo">
+
+          <a href="index.html"><img src="images/logo_portal_hatena.gif" title="はてな" alt="はてな" class="logo csschanger"></a>
+
+        </div>
+        <ul class="menu">
+          <li class="welcome">ようこそゲストさん</li>
+          <li><a href="httpdisabledsdisabled://www.hatena.ne.jp/register">ユーザー登録</a></li>
+          <li><a href="httpdisabledsdisabled://www.hatena.ne.jp/login">ログイン</a></li>
+          <li><a href="httpdisabled://www.hatena.ne.jp/help/link">ヘルプ</a></li>
+          <li><img src="../d.hatena.ne.jp/images/shim.gif" id="testbutton" /></li>
+        </ul>
+      </div>
+    </div>
+
+<div id="container">
+  <div id="services">
+    <div id="services-container">
+      <h1 id="catch"><a href="httpdisabled://www.hatena.ne.jp/what"><img src="images/catch_btn_what.gif" class="catch-btn csschanger" alt="はてなってなに？" /></a><img src="images/catch.gif" alt="ブログもウェブアルバムもニュースもはてなでネットを楽しもう" title="" class="csschanger" /></h1>
+      <span class="menu-header"><span></span></span>
+      <ul class="menu service_icon">
+        <li class="badge-b"><a href="httpdisabled://b.hatena.ne.jp/"><img src="images/badge-b.gif" alt="ネット上にお気に入りを保存できるサービス。ネット上の旬の話題がすぐにわかる" title="はてなブックマーク" class="service" /></a></li>
+        <li class="badge-d"><a href="httpdisabled://d.hatena.ne.jp/"><img src="images/badge-d.gif" alt="広告が勝手に出ない、容量無制限の無料ブログ。デコメでも投稿可能" title="はてなダイアリー" class="service" /></a></li>
+        <li class="badge-u"><a href="httpdisabled://ugomemo.hatena.ne.jp/"><img src="images/badge-u.gif" alt="みんなが「うごくメモ帳」で描いた作品を見て楽しめるコミュニケーションサイト" title="うごメモはてな" class="service" /></a></li>
+        <li class="badge-q"><a href="httpdisabled://q.hatena.ne.jp/"><img src="images/badge-q.gif" alt="調べたいことを誰かが自分の代わりになって調べてくれる人力検索サービス" title="人力検索はてな" class="service" /></a></li>
+        <li class="badge-f"><a href="httpdisabled://f.hatena.ne.jp/"><img src="images/badge-f.gif" alt="写真や動画をアップロードできる、総容量が無制限のウェブアルバムサービス" title="はてなフォトライフ" class="service" /></a></li>
+        <li class="badge-coco"><a href="httpdisabled://c.hatena.ne.jp/"><img src="images/badge-c.gif" alt="友達や知り合いが、今どこにいるか簡単にわかるモバイル向けサービス。近くのおすすめスポットも検索できる" title="はてなココ" class="service" /></a></li>
+        <li class="badge-mono"><a href="httpdisabled://h.hatena.ne.jp/"><img src="images/badge-h.gif" alt="気軽に書き込みができるミニブログサービス。写真やお絵かきも投稿可能" title="はてなハイク" class="service" /><img src="images/icon_status_versionup.gif" class="icon-status" /></a></li>
+        <li class="badge-a"><a href="httpdisabled://a.hatena.ne.jp/"><img src="images/badge-a.gif" alt="お気に入りのサイトやよく見るページの更新を自動でチェックしてくれるサービス" title="はてなアンテナ" class="service" /></a></li>
+        <li class="badge-g"><a href="httpdisabled://g.hatena.ne.jp/"><img src="images/badge-g.gif" alt="ブログ・掲示板・キーワードを仲間で共有できるグループウェア" title="はてなグループ" class="service" /></a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="body">
+    <div class="pr">
+      <script type="text/javascript" src="../red.st-hatena.com/ad@cid=293&amp;encode=utf8" charset="utf-8"></script>
+    </div>
+    <div id="main">
+      <div class="service" id="s-serch">
+        <div id="p1" class="hatena-search">
+          <h2 class="title"><img src="images/h2_s_search.gif" alt="検索" class="csschanger" /></h2>
+          <div class="tab-menu">
+            <ul class="inline-list">              <li><a href="httpdisabled://search.hatena.ne.jp/" class="hatena-search"><img src="images/tab_search_w_on.gif" alt="ウェブ" title="ウェブ" class="csschanger" /></a></li>              <li><a href="httpdisabled://b.hatena.ne.jp/" class="bookmark"><img src="images/tab_search_b_off.gif" alt="ブックマーク" title="ブックマーク" class="csschanger" /></a></li>              <li><a href="httpdisabled://d.hatena.ne.jp/keyword/" class="keyword"><img src="images/tab_search_k_off.gif" alt="キーワード" title="キーワード" class="csschanger" /></a></li>              <li><a href="httpdisabled://q.hatena.ne.jp/" class="quest"><img src="images/tab_search_q_off.gif" alt="人力検索" title="人力検索" class="csschanger" /></a></li>              <li><a href="httpdisabled://search.hatena.ne.jp/asin" class="asin"><img src="images/tab_search_asin_off.gif" alt="商品" title="商品" class="csschanger" /></a></li>            </ul>
+          </div>
+          <div id="box0">
+            <form action="httpdisabled://search.hatena.ne.jp/search" name="search" class="searchform">
+              <input type="hidden" name="ie" value="utf8" />
+              <a href="httpdisabled://search.hatena.ne.jp/"><img src="images/label_search_w.gif" alt="ウェブ検索" title="ウェブ検索" /></a>
+              <input size="25" type="text" name="word" id="word-keyword" class="txt" />
+              <input type="image" src="images/search_btn.gif" class="btn csschanger" value="検索" />
+            </form>
+            <ul class="inline-list hotkeyword">
+              <li class="label"><a href="httpdisabled://d.hatena.ne.jp/hotkeyword"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fk.hatena.ne.jp%252F" title="はてな検索" alt="" /></a> <a href="httpdisabled://d.hatena.ne.jp/hotkeyword"><img src="images/label_hotkeyword.gif" alt="注目キーワード" title="注目キーワード" /></a></li>
+                            <li><a href="httpdisabled://d.hatena.ne.jp/hotkeyword#keyword1"><img src="images/top/burst1.gif" alt="注目キーワード：1" title="注目キーワード：1" width="19" height="19"></a><a href="httpdisabled://d.hatena.ne.jp/hotkeyword#keyword1" class="hotkeyword-word">出崎統</a></li>              <li><a href="httpdisabled://d.hatena.ne.jp/hotkeyword#keyword2"><img src="images/top/burst2.gif" alt="注目キーワード：2" title="注目キーワード：2" width="19" height="19"></a><a href="httpdisabled://d.hatena.ne.jp/hotkeyword#keyword2" class="hotkeyword-word">三菱東京UFJ銀行</a></li>              <li><a href="httpdisabled://d.hatena.ne.jp/hotkeyword#keyword3"><img src="images/top/burst3.gif" alt="注目キーワード：3" title="注目キーワード：3" width="19" height="19"></a><a href="httpdisabled://d.hatena.ne.jp/hotkeyword#keyword3" class="hotkeyword-word">大和証券</a></li>              <li><a href="httpdisabled://d.hatena.ne.jp/hotkeyword#keyword4"><img src="images/top/burst4.gif" alt="注目キーワード：4" title="注目キーワード：4" width="19" height="19"></a><a href="httpdisabled://d.hatena.ne.jp/hotkeyword#keyword4" class="hotkeyword-word">野村證券</a></li>              <li><a href="httpdisabled://d.hatena.ne.jp/hotkeyword#keyword5"><img src="images/top/burst5.gif" alt="注目キーワード：5" title="注目キーワード：5" width="19" height="19"></a><a href="httpdisabled://d.hatena.ne.jp/hotkeyword#keyword5" class="hotkeyword-word">明星大学</a></li>
+            </ul>
+          </div>
+          <div id="box1">
+            <form action="httpdisabled://b.hatena.ne.jp/search" name="search" class="searchform">
+              <input type="hidden" name="ie" value="utf8" />
+              <a href="httpdisabled://b.hatena.ne.jp/search"><img src="images/label_search_b.gif" alt="ブックマーク検索" title="ブックマーク検索" /></a>
+              <input size="25" type="text" name="q" id="word-bookmark" class="txt" />
+              <input type="image" src="images/search_btn.gif" class="btn csschanger" value="検索" />
+            </form>
+            <ul class="inline-list hotkeyword">
+              <li class="label"><a href="httpdisabled://b.hatena.ne.jp/search"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fb.hatena.ne.jp%252F" title="はてなブックマーク" alt="" /></a> <a href="httpdisabled://d.hatena.ne.jp/hotkeyword"><img src="images/label_hotkeyword.gif" alt="注目キーワード" title="注目キーワード" /></a></li>
+                            <li><a href="httpdisabled://b.hatena.ne.jp/search?q=%E5%87%BA%E5%B4%8E%E7%B5%B1"><img src="images/top/burst1.gif" alt="注目キーワード：1" title="注目キーワード：1" width="19" height="18">出崎統</a></li>              <li><a href="httpdisabled://b.hatena.ne.jp/search?q=%E4%B8%89%E8%8F%B1%E6%9D%B1%E4%BA%ACUFJ%E9%8A%80%E8%A1%8C"><img src="images/top/burst2.gif" alt="注目キーワード：2" title="注目キーワード：2" width="19" height="18">三菱東京UFJ銀行</a></li>              <li><a href="httpdisabled://b.hatena.ne.jp/search?q=%E5%A4%A7%E5%92%8C%E8%A8%BC%E5%88%B8"><img src="images/top/burst3.gif" alt="注目キーワード：3" title="注目キーワード：3" width="19" height="18">大和証券</a></li>              <li><a href="httpdisabled://b.hatena.ne.jp/search?q=%E9%87%8E%E6%9D%91%E8%AD%89%E5%88%B8"><img src="images/top/burst4.gif" alt="注目キーワード：4" title="注目キーワード：4" width="19" height="18">野村證券</a></li>              <li><a href="httpdisabled://b.hatena.ne.jp/search?q=%E6%98%8E%E6%98%9F%E5%A4%A7%E5%AD%A6"><img src="images/top/burst5.gif" alt="注目キーワード：5" title="注目キーワード：5" width="19" height="18">明星大学</a></li>
+            </ul>
+          </div>
+          <div id="box2">
+            <form action="httpdisabled://search.hatena.ne.jp/keyword" name="search" class="searchform">
+              <input type="hidden" name="ie" value="utf8" />
+              <a href="httpdisabled://k.hatena.ne.jp/"><img src="images/label_search_k.gif" alt="キーワード検索" title="キーワード検索" /></a>
+              <input size="25" type="text" name="word" id="word-keyword" class="txt" />
+              <input type="image" src="images/search_btn.gif" class="btn csschanger" value="検索" />
+            </form>
+            <ul class="inline-list hotkeyword">
+              <li class="label"><a href="httpdisabled://d.hatena.ne.jp/hotkeyword"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fk.hatena.ne.jp%252F" title="はてなキーワード" alt="" /></a> <a href="httpdisabled://d.hatena.ne.jp/hotkeyword"><img src="images/label_hotkeyword.gif" alt="注目キーワード" title="注目キーワード" /></a></li>
+                            <li><a href="httpdisabled://d.hatena.ne.jp/hotkeyword#keyword1"><img src="images/top/burst1.gif" alt="注目キーワード：1" title="注目キーワード：1" width="19" height="18">出崎統</a></li>              <li><a href="httpdisabled://d.hatena.ne.jp/hotkeyword#keyword2"><img src="images/top/burst2.gif" alt="注目キーワード：2" title="注目キーワード：2" width="19" height="18">三菱東京UFJ銀行</a></li>              <li><a href="httpdisabled://d.hatena.ne.jp/hotkeyword#keyword3"><img src="images/top/burst3.gif" alt="注目キーワード：3" title="注目キーワード：3" width="19" height="18">大和証券</a></li>              <li><a href="httpdisabled://d.hatena.ne.jp/hotkeyword#keyword4"><img src="images/top/burst4.gif" alt="注目キーワード：4" title="注目キーワード：4" width="19" height="18">野村證券</a></li>              <li><a href="httpdisabled://d.hatena.ne.jp/hotkeyword#keyword5"><img src="images/top/burst5.gif" alt="注目キーワード：5" title="注目キーワード：5" width="19" height="18">明星大学</a></li>
+            </ul>
+          </div>
+          <div id="box3">
+            <form action="httpdisabled://search.hatena.ne.jp/questsearch" name="search" class="searchform">
+              <input type="hidden" name="ie" value="utf8" />
+              <a href="httpdisabled://q.hatena.ne.jp/"><img src="images/label_search_q.gif" alt="過去の質問から検索" title="過去の質問から検索" /></a>
+              <input size="25" type="text" name="word" id="word-quest" class="txt" value="出崎統" />
+              <input type="image" src="images/search_btn.gif" class="btn csschanger" value="検索" />
+            </form>
+            <ul class="inline-list hotkeyword">
+              <li class="label"><a href="httpdisabled://search.hatena.ne.jp/quest"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fq.hatena.ne.jp%252F" title="人力検索はてな" alt="" /></a> <a href="httpdisabled://d.hatena.ne.jp/hotkeyword"><img src="images/label_hotkeyword.gif" alt="注目キーワード" title="注目キーワード" /></a></li>
+                            <li><a href="httpdisabled://search.hatena.ne.jp/questsearch?ie=utf8&word=%E5%87%BA%E5%B4%8E%E7%B5%B1"><img src="images/top/burst1.gif" alt="注目キーワード：1" title="注目キーワード：1" width="19" height="18">出崎統</a></li>              <li><a href="httpdisabled://search.hatena.ne.jp/questsearch?ie=utf8&word=%E4%B8%89%E8%8F%B1%E6%9D%B1%E4%BA%ACUFJ%E9%8A%80%E8%A1%8C"><img src="images/top/burst2.gif" alt="注目キーワード：2" title="注目キーワード：2" width="19" height="18">三菱東京UFJ銀行</a></li>              <li><a href="httpdisabled://search.hatena.ne.jp/questsearch?ie=utf8&word=%E5%A4%A7%E5%92%8C%E8%A8%BC%E5%88%B8"><img src="images/top/burst3.gif" alt="注目キーワード：3" title="注目キーワード：3" width="19" height="18">大和証券</a></li>              <li><a href="httpdisabled://search.hatena.ne.jp/questsearch?ie=utf8&word=%E9%87%8E%E6%9D%91%E8%AD%89%E5%88%B8"><img src="images/top/burst4.gif" alt="注目キーワード：4" title="注目キーワード：4" width="19" height="18">野村證券</a></li>              <li><a href="httpdisabled://search.hatena.ne.jp/questsearch?ie=utf8&word=%E6%98%8E%E6%98%9F%E5%A4%A7%E5%AD%A6"><img src="images/top/burst5.gif" alt="注目キーワード：5" title="注目キーワード：5" width="19" height="18">明星大学</a></li>
+            </ul>
+          </div>
+          <div id="box4">
+            <form action="httpdisabled://search.hatena.ne.jp/asinsearch" name="search" class="searchform">
+              <input type="hidden" name="ie" value="utf8" />
+              <a href="httpdisabled://search.hatena.ne.jp/asin"><img src="images/label_search_asin.gif" alt="Amzon商品検索" title="Amazon商品検索" /></a>
+              <input size="25" type="text" name="word" id="word-asin" class="txt" value="出崎統"  />
+              <input type="image" src="images/search_btn.gif" class="btn csschanger" value="検索" />
+            </form>
+            <ul class="inline-list hotkeyword">
+              <li class="label"><a href="httpdisabled://search.hatena.ne.jp/asin"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fd.hatena.ne.jp%252F" title="はてなダイアリー" alt="" /></a> <a href="httpdisabled://d.hatena.ne.jp/hotkeyword"><img src="images/label_hotkeyword.gif" alt="注目キーワード" title="注目キーワード" /></a></li>
+                            <li><a href="httpdisabled://search.hatena.ne.jp/asinsearch?ie=utf8&word=%E5%87%BA%E5%B4%8E%E7%B5%B1"><img src="images/top/burst1.gif" alt="注目キーワード：1" title="注目キーワード：1" width="19" height="18">出崎統</a></li>              <li><a href="httpdisabled://search.hatena.ne.jp/asinsearch?ie=utf8&word=%E4%B8%89%E8%8F%B1%E6%9D%B1%E4%BA%ACUFJ%E9%8A%80%E8%A1%8C"><img src="images/top/burst2.gif" alt="注目キーワード：2" title="注目キーワード：2" width="19" height="18">三菱東京UFJ銀行</a></li>              <li><a href="httpdisabled://search.hatena.ne.jp/asinsearch?ie=utf8&word=%E5%A4%A7%E5%92%8C%E8%A8%BC%E5%88%B8"><img src="images/top/burst3.gif" alt="注目キーワード：3" title="注目キーワード：3" width="19" height="18">大和証券</a></li>              <li><a href="httpdisabled://search.hatena.ne.jp/asinsearch?ie=utf8&word=%E9%87%8E%E6%9D%91%E8%AD%89%E5%88%B8"><img src="images/top/burst4.gif" alt="注目キーワード：4" title="注目キーワード：4" width="19" height="18">野村證券</a></li>              <li><a href="httpdisabled://search.hatena.ne.jp/asinsearch?ie=utf8&word=%E6%98%8E%E6%98%9F%E5%A4%A7%E5%AD%A6"><img src="images/top/burst5.gif" alt="注目キーワード：5" title="注目キーワード：5" width="19" height="18">明星大学</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="topic-word">
+        
+        <h2 class="title"><img src="images/h2_s_topic.gif" alt="いま話題" /></h2>
+        <h3><span class="title-word"><a href="httpdisabled://d.hatena.ne.jp/keyword/%C5%EC%C6%FC%CB%DC%C2%E7%BF%CC%BA%D2?kid=320248">東日本大震災</a></span><span class="service-name">出典: <a href="httpdisabled://k.hatena.ne.jp/"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fd.hatena.ne.jp%252Fkeyword%252F" title="はてなキーワード" alt="" />&nbsp;はてなキーワード</a></span></h3>
+        <div class="content">
+        
+        <p class="description">  2011年3月11日14時46分頃に発生した日本の三陸沖を震源とするマグニチュード9.0の大地震（東北地方太平洋沖地震）とそれに伴う津波による大震災のこと。 地震の詳細については東北地方太平洋沖地震の記事を参照。   概要  2011年3月11日14時46分頃、三陸沖を震..  <a href="httpdisabled://d.hatena.ne.jp/keyword/%C5%EC%C6%FC%CB%DC%C2%E7%BF%CC%BA%D2?kid=320248">続きを読む</a></p>
+        </div>
+        <div style="clear:both;">
+        <ul class="list">
+        
+          
+          <li><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fb.hatena.ne.jp%252Fentry%252Fd.hatena.ne.jp%252FChikirin%252F20110419" height="12" /><a href="httpdisabled://b.hatena.ne.jp/entry/d.hatena.ne.jp/Chikirin/20110419">はてなブックマーク - 福島市の方からのメール - Chikirinの日..</a> 13時14分 <a href="httpdisabled://b.hatena.ne.jp/entry/b.hatena.ne.jp/entry/d.hatena.ne.jp/Chikirin/20110419"> 6users</a></li>
+        
+          
+          <li><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fwww.astroarts.co.jp%252Fnews%252F2011%252F04%252F19summer_time%252Findex-j.shtml" height="12" /><a href="httpdisabled://www.astroarts.co.jp/news/2011/04/19summer_time/index-j.shtml">日本公開天文台協会がサマータイム制に関する声明を発表</a> 15時53分 <a href="httpdisabled://b.hatena.ne.jp/entry/www.astroarts.co.jp/news/2011/04/19summer_time/index-j.shtml"> 62users</a></li>
+        
+          
+          <li><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fslashdot.jp%252Fscience%252Farticle.pl%253Fsid=11%252F04%252F19%252F0810201" height="12" /><a href="httpdisabled://slashdot.jp/science/article.pl?sid=11/04/19/0810201">西湖で「津波」のような共振現象が発生 - スラッシュドッ..</a> 18時50分 <a href="httpdisabled://b.hatena.ne.jp/entry/slashdot.jp/science/article.pl?sid=11/04/19/0810201"> 8users</a></li>
+        
+          
+          <li><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252F2r.ldblog.jp%252Farchives%252F4529807.html" height="12" /><a href="httpdisabled://2r.ldblog.jp/archives/4529807.html">東電、発電実績データを密かにHPから削除 : ２のまとめＲ</a> 21時29分 <a href="httpdisabled://b.hatena.ne.jp/entry/2r.ldblog.jp/archives/4529807.html"> 34users</a></li>
+        
+          
+          <li><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fblog.livedoor.jp%252Fsoccerkusoyarou%252Farchives%252F1570883.html" height="12" /><a href="httpdisabled://blog.livedoor.jp/soccerkusoyarou/archives/1570883.html">サッカーミックスジュース : キングカズ（44歳）、女子中学..</a> 21時47分 <a href="httpdisabled://b.hatena.ne.jp/entry/blog.livedoor.jp/soccerkusoyarou/archives/1570883.html"> 11users</a></li>
+        
+        </ul>
+        <p class="more"><a href="httpdisabled://b.hatena.ne.jp/keyword/東日本大震災" class="icon-arrow">もっと見る</a></p>
+        <div class="inline-list topic">
+            <a href="httpdisabled://d.hatena.ne.jp/"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fd.hatena.ne.jp%252F" title="はてなダイアリー" alt="" /></a><img src="images/label_topicblog.gif" alt="ブログ" title="ブログ" />
+        <ul>
+          <li>
+        
+          
+<a href="httpdisabled://d.hatena.ne.jp/markdadao/20110419/1303220839"><img src="users/ma/markdadao/profile_s.gif" alt="markdadao" title="markdadao" width="12" height="12" class="user-icon" />東日本大震災救援ボラ..</a> / 
+        
+          
+<a href="httpdisabled://d.hatena.ne.jp/tsun226/20110419/1303220595"><img src="users/ts/tsun226/profile_s.gif" alt="tsun226" title="tsun226" width="12" height="12" class="user-icon" /> @touden_graph botの蓄積デ..</a> / 
+        
+          
+<a href="httpdisabled://d.hatena.ne.jp/yuhka-uno/20110419/1303220402"><img src="users/yu/yuhka-uno/profile_s.gif" alt="yuhka-uno" title="yuhka-uno" width="12" height="12" class="user-icon" />「まとも」な人間が育..</a> / 
+        
+          
+<a href="httpdisabled://d.hatena.ne.jp/tokyufubai/20110419#1303220324"><img src="users/to/tokyufubai/profile_s.gif" alt="tokyufubai" title="tokyufubai" width="12" height="12" class="user-icon" />江東区議会議員選挙が..</a> / 
+        
+          
+<a href="httpdisabled://d.hatena.ne.jp/souxouquit/20110419/p1"><img src="users/so/souxouquit/profile_s.gif" alt="souxouquit" title="souxouquit" width="12" height="12" class="user-icon" /> Caution Radiation Area</a> / 
+        
+          
+<a href="httpdisabled://d.hatena.ne.jp/haberdashery/20110419"><img src="users/ha/haberdashery/profile_s.gif" alt="haberdashery" title="haberdashery" width="12" height="12" class="user-icon" />「サヨナラ！マメちゃ..</a> / 
+        
+          
+<a href="httpdisabled://d.hatena.ne.jp/scanner/20110419/1303219889"><img src="users/sc/scanner/profile_s.gif" alt="scanner" title="scanner" width="12" height="12" class="user-icon" />東日本大震災に係るイ..</a>
+        
+          
+          </li>
+        </ul>
+        <p class="more"><a href="httpdisabled://k.hatena.ne.jp/keywordblog/東日本大震災" class="icon-arrow">もっと見る</a></p>
+        </div>
+        </div>
+        <style type="text/css">
+
+.earthquake-spacial p {
+  line-height:1.7;
+  padding-top:1px !important;
+  padding-bottom:5px !important;
+}
+
+.earthquake-spacial ul {
+  list-style:none;
+  margin:0;
+  zoom:1;
+  padding:0;
+}
+.earthquake-spacial ul li{
+  float:left;
+}
+
+.earthquake-spacial ul li img{
+  border:1px solid #ddd;
+  width:75px;
+  margin:0 5px 0 0 ;
+}
+
+.earthquake-spacial ul:after {
+  clear:both;
+  content:"";
+  display:block;
+}
+
+.earthquake-spacial .hatena-moduletitle {
+  display:none;
+}
+
+.earthquake-spacial p.more {
+  padding-top:3px !important;
+  clear:both;
+  margin-top:0 !important;
+}
+
+
+        </style>
+        <div class="earthquake-spacial">
+          <h2><a href="httpdisabled://www.hatena.ne.jp/campaign/smileforjapan"><img src="images/smaliforjapan-portal-title.gif" /></a></h2>
+          <p>はてなは、被災された皆さまを少しでも応援できればと考え、うごメモはてなの作品、はてなハイクへの投稿などを集めています。また、はてなブックマークに集まった、被災された皆さまを応援するエントリーをご紹介しています。</p>
+        </div>
+        <div id="top-ad">
+          <ul class="list ad">
+            <li><a href="httpdisabled://rikunabi-next.yahoo.co.jp/">転職・求人の情報サイトといえばリクナビＮＥＸＴ</a></li>
+            <li><a href="httpdisabled://froma.yahoo.co.jp/">アルバイト・バイトのフロム・エーナビ</a></li>
+            <li><a href="httpdisabled://shoukaiyotei.com/">紹介予定派遣・人材派遣のお仕事を探すなら、リクナビ派遣</a></li>
+            <li><a href="httpdisabled://entre.yahoo.co.jp/">独立・開業・起業なら【アントレnet】</a></li>
+          </ul>
+          <span class="ad-list-footer"></span>
+        </div>
+      </div>
+
+      <div class="service" id="s-bookmark">        
+        <div id="p2" class="hotentry">
+          <h2 class="title"><a href="httpdisabled://b.hatena.ne.jp/hotentry"><img src="images/h2_s_bookmark.gif" alt="最近の人気記事" class="csschanger" /></a><span class="service-name"><a href="httpdisabled://b.hatena.ne.jp/">はてなブックマーク</a></span></h2>
+          <div class="tab-menu">
+            <ul class="inline-list"><li><a href="httpdisabled://b.hatena.ne.jp/hotentry?mode=general" class="hotentry"><img src="images/tab_bookmark_on.gif" alt="一般" title="一般" class="csschanger" /></a></li><li><a href="httpdisabled://b.hatena.ne.jp/hotentry/social" class="social"><img src="images/tab_bookmark_social_off.gif" alt="社会" title="社会" class="csschanger" /></a></li><li><a href="httpdisabled://b.hatena.ne.jp/hotentry/economics" class="economics"><img src="images/tab_bookmark_economics_off.gif" alt="政治・経済" title="政治・経済" class="csschanger" /></a></li><li><a href="httpdisabled://b.hatena.ne.jp/hotentry/life" class="life"><img src="images/tab_bookmark_life_off.gif" alt="生活・人生" title="生活・人生" class="csschanger" /></a></li><li><a href="httpdisabled://b.hatena.ne.jp/hotentry/entertainment" class="entertainment"><img src="images/tab_bookmark_entertain_off.gif" alt="スポーツ・芸能" title="スポーツ・芸能" class="csschanger" /></a></li><li><a href="httpdisabled://b.hatena.ne.jp/hotentry/knowledge" class="knowledge"><img src="images/tab_bookmark_knowledge_off.gif" alt="科学・学問" title="科学・学問" class="csschanger" /></a></li></ul>
+          </div>
+          <div id="box4">
+            
+            <ul class="list">
+              <li><a href="httpdisabled://umashika-news.jp/archives/51806460.html" title="407 名前：ぱくぱく名無しさん[sage] 投稿日：2011/03/03(木) 08:42:52.42 ID:98NppJFsONo.1 ふんわり幸せ ＨＢで豆腐の食パン びっくりするくらい、皮までふわふわぁな、豆腐の食パン &gt;&gt;407 豆腐の代わりに豆乳で作った。 なんだかスゴイこれ。表面の食感なども含めて。 食パンのイメージじゃないね。 ちょっとあまりにお菓子っぽいので次回は油脂と砂糖を 減..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fumashika-news.jp%252Farchives%252F51806460.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://umashika-news.jp/archives/51806460.html" title="407 名前：ぱくぱく名無しさん[sage] 投稿日：2011/03/03(木) 08:42:52.42 ID:98NppJFsONo.1 ふんわり幸せ ＨＢで豆腐の食パン びっくりするくらい、皮までふわふわぁな、豆腐の食パン &gt;&gt;407 豆腐の代わりに豆乳で作った。 なんだかスゴイこれ。表面の食感なども含めて。 食パンのイメージじゃないね。 ちょっとあまりにお菓子っぽいので次回は油脂と砂糖を 減..." target="_blank">COOKPADの美味し過ぎて実は教えたくないウマーなレシピ..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://umashika-news.jp/archives/51806460.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/01025.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://www.wakatta-blog.com/post_597.html" title="「人気ブログをつくる方法」を研究するブログです ビジネス書を読んで得た知識や、日々の経験や気付きをもとに、ブログの魅力向上に役立つヒントをお届けします。プログラミング、マーケティング、ライフハックの話題も！ 私は技術畑をずっと歩いてきたので、営業と聞くと拒否反応がでます。しかし、本書を読んで、営業には、セールストークのテクニックを磨くとかよりも、もっと大切なことがあることを知りました。以前よりも営..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fwww.wakatta-blog.com%252Fpost_597.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://www.wakatta-blog.com/post_597.html" title="「人気ブログをつくる方法」を研究するブログです ビジネス書を読んで得た知識や、日々の経験や気付きをもとに、ブログの魅力向上に役立つヒントをお届けします。プログラミング、マーケティング、ライフハックの話題も！ 私は技術畑をずっと歩いてきたので、営業と聞くと拒否反応がでます。しかし、本書を読んで、営業には、セールストークのテクニックを磨くとかよりも、もっと大切なことがあることを知りました。以前よりも営..." target="_blank">世界最高位のトップセールスマンが教える、営業で一番..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://www.wakatta-blog.com/post_597.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00636.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://www.lizard-tail.com/isana/archives/text/thought_about_radiation.html" title="水を飲んでも大丈夫？誰かにこう問われ、僕は一瞬迷い、大丈夫だよと答える。これぐらいなら大したことないよ。一瞬の躊躇を見抜いたのか、相手は怪訝そうな顔をする。 理由を一生懸命説明する。今伝えられているような放射線の量では滅多な事じゃガンにはならない。はっきり影響が出るような数字には全然足りない。不安そうな表情は消えない。彼らや彼女たちが聞きたいのは解説なんかじゃない。ただ安心したいだけだ。言葉は空し..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fwww.lizard-tail.com%252Fisana%252Farchives%252Ftext%252Fthought_about_radiation.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://www.lizard-tail.com/isana/archives/text/thought_about_radiation.html" title="水を飲んでも大丈夫？誰かにこう問われ、僕は一瞬迷い、大丈夫だよと答える。これぐらいなら大したことないよ。一瞬の躊躇を見抜いたのか、相手は怪訝そうな顔をする。 理由を一生懸命説明する。今伝えられているような放射線の量では滅多な事じゃガンにはならない。はっきり影響が出るような数字には全然足りない。不安そうな表情は消えない。彼らや彼女たちが聞きたいのは解説なんかじゃない。ただ安心したいだけだ。言葉は空し..." target="_blank">0.02%の嘘 - lizard-tail studio</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://www.lizard-tail.com/isana/archives/text/thought_about_radiation.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00289.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://www.geocities.co.jp/WallStreet/1356/kuru/YAKUZA.html" title="やくざの仕方 やくざの人が来た。 いい機会なので、そこで見ておきなさいということになって、小１時間ぐらい見物していた（直接応対しなくても、聞く振りしないとやくざの人は気を悪くするのである）。 わりにやくざの人は来る。が、大抵は遠くの方で怒鳴っているか、面と向かって怒鳴っているかなので、今日のように観察できる機会はそう多くない。というわけで、よい機会であって、ゆっくり見物していた。 １．やくざは無理..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fwww.geocities.co.jp%252FWallStreet%252F1356%252Fkuru%252FYAKUZA.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://www.geocities.co.jp/WallStreet/1356/kuru/YAKUZA.html" title="やくざの仕方 やくざの人が来た。 いい機会なので、そこで見ておきなさいということになって、小１時間ぐらい見物していた（直接応対しなくても、聞く振りしないとやくざの人は気を悪くするのである）。 わりにやくざの人は来る。が、大抵は遠くの方で怒鳴っているか、面と向かって怒鳴っているかなので、今日のように観察できる機会はそう多くない。というわけで、よい機会であって、ゆっくり見物していた。 １．やくざは無理..." target="_blank">やくざの仕方</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://www.geocities.co.jp/WallStreet/1356/kuru/YAKUZA.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00328.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://d.hatena.ne.jp/Chikirin/20110419" title="先日の「原発の名前は変えたらどうだろ？」というエントリへの感想として、福島市にお住まいの20代の方からメールを頂きました。とても誠実ないい文章だなあと思ったことと、「現状を知って頂けたら幸いです。」と書かれていたので、私だけでなく多くの方に読んでいただければと思い、ご本人の許可を得て下記に転載させて頂くこととなりました。文中にでてくるお名前は本名のままではありませんが、それも含め転載許可を頂いてい..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fd.hatena.ne.jp%252FChikirin%252F20110419" alt="" title="" class="favicon" /></a><a href="httpdisabled://d.hatena.ne.jp/Chikirin/20110419" title="先日の「原発の名前は変えたらどうだろ？」というエントリへの感想として、福島市にお住まいの20代の方からメールを頂きました。とても誠実ないい文章だなあと思ったことと、「現状を知って頂けたら幸いです。」と書かれていたので、私だけでなく多くの方に読んでいただければと思い、ご本人の許可を得て下記に転載させて頂くこととなりました。文中にでてくるお名前は本名のままではありませんが、それも含め転載許可を頂いてい..." target="_blank">福島市の方からのメール - Chikirinの日記</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://d.hatena.ne.jp/Chikirin/20110419" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00319.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://mainichi.jp/select/today/news/20110419k0000e040095000c.html" title="東日本大震災に伴う津波で大きな被害を受けた仙台平野で、浸水域の先端が、江戸時代の街道と宿場町の手前に沿って止まっていることが、東北大の平川新教授（江戸時代史）の調査で確認された。仙台平野は４００～５００年おきに大津波に見舞われており、街道は過去の浸水域を避けて整備された可能性が高いという。平川教授は「先人は災害の歴史に極めて謙虚だった」と話し、今後の復旧計画にも教訓を生かすべきだと提言する。 国土..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fmainichi.jp%252Fselect%252Ftoday%252Fnews%252F20110419k0000e040095000c.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://mainichi.jp/select/today/news/20110419k0000e040095000c.html" title="東日本大震災に伴う津波で大きな被害を受けた仙台平野で、浸水域の先端が、江戸時代の街道と宿場町の手前に沿って止まっていることが、東北大の平川新教授（江戸時代史）の調査で確認された。仙台平野は４００～５００年おきに大津波に見舞われており、街道は過去の浸水域を避けて整備された可能性が高いという。平川教授は「先人は災害の歴史に極めて謙虚だった」と話し、今後の復旧計画にも教訓を生かすべきだと提言する。 国土..." target="_blank">東日本大震災：先人は知っていた　「歴史街道」浸水せ..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://mainichi.jp/select/today/news/20110419k0000e040095000c.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00175.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://blog.ecstudio.jp/ec_studio_blog/110418success-step-for-startup-company.html" title="4月14日にEC studio のグループ会社となるEC studio アカデミーを設立しました。 創業して10年のEC studio がこれまで蓄積してきた情報やノウハウをフル活用して グループ会社を設立したステップを公開したいと思います。 ここで紹介するサービスはEC studio で精査された間違いのないもののみ 紹介していますので、これから起業する方が周りにいらっしゃったら ぜひこの記事を..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fblog.ecstudio.jp%252Fec_studio_blog%252F110418success-step-for-startup-company.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://blog.ecstudio.jp/ec_studio_blog/110418success-step-for-startup-company.html" title="4月14日にEC studio のグループ会社となるEC studio アカデミーを設立しました。 創業して10年のEC studio がこれまで蓄積してきた情報やノウハウをフル活用して グループ会社を設立したステップを公開したいと思います。 ここで紹介するサービスはEC studio で精査された間違いのないもののみ 紹介していますので、これから起業する方が周りにいらっしゃったら ぜひこの記事を..." target="_blank">起業したい方必見！　-　起業して成功するための会社..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://blog.ecstudio.jp/ec_studio_blog/110418success-step-for-startup-company.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/01820.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://www.yomiuri.co.jp/national/news/20110418-OYT1T00858.htm" title="茨城県つくば市が、東京電力福島第一原発の事故で福島県から避難して転入する人たちに、放射能汚染の有無を確認する検査を受けた証明書の提示を求めていたことが１８日、わかった。 市側は「市民に無用な不安を与えない目的だった」としているが、転入者からの抗議を受け、検査を求めないことにした。 つくば市によると、市民課長名で３月１７日、福島からの転入者にスクリーニング検査を求めることに決め、担当する窓口へ通知し..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fwww.yomiuri.co.jp%252Fnational%252Fnews%252F20110418-OYT1T00858.htm" alt="" title="" class="favicon" /></a><a href="httpdisabled://www.yomiuri.co.jp/national/news/20110418-OYT1T00858.htm" title="茨城県つくば市が、東京電力福島第一原発の事故で福島県から避難して転入する人たちに、放射能汚染の有無を確認する検査を受けた証明書の提示を求めていたことが１８日、わかった。 市側は「市民に無用な不安を与えない目的だった」としているが、転入者からの抗議を受け、検査を求めないことにした。 つくば市によると、市民課長名で３月１７日、福島からの転入者にスクリーニング検査を求めることに決め、担当する窓口へ通知し..." target="_blank">つくば市、福島からの転入者に放射能検査要求 : 社会 : ..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://www.yomiuri.co.jp/national/news/20110418-OYT1T00858.htm" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00332.gif" alt="" class="users"></a></li>
+            </ul>
+            <p class="more" id="hotentry_list_link"><a href="httpdisabled://b.hatena.ne.jp/hotentry?mode=general" class="icon-arrow">もっと見る</a></p>
+          </div>
+          <div id="box5">
+            
+            <ul class="list">
+              <li><a href="httpdisabled://www.geocities.co.jp/WallStreet/1356/kuru/YAKUZA.html" title="やくざの仕方 やくざの人が来た。 いい機会なので、そこで見ておきなさいということになって、小１時間ぐらい見物していた（直接応対しなくても、聞く振りしないとやくざの人は気を悪くするのである）。 わりにやくざの人は来る。が、大抵は遠くの方で怒鳴っているか、面と向かって怒鳴っているかなので、今日のように観察できる機会はそう多くない。というわけで、よい機会であって、ゆっくり見物していた。 １．やくざは無理..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fwww.geocities.co.jp%252FWallStreet%252F1356%252Fkuru%252FYAKUZA.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://www.geocities.co.jp/WallStreet/1356/kuru/YAKUZA.html" title="やくざの仕方 やくざの人が来た。 いい機会なので、そこで見ておきなさいということになって、小１時間ぐらい見物していた（直接応対しなくても、聞く振りしないとやくざの人は気を悪くするのである）。 わりにやくざの人は来る。が、大抵は遠くの方で怒鳴っているか、面と向かって怒鳴っているかなので、今日のように観察できる機会はそう多くない。というわけで、よい機会であって、ゆっくり見物していた。 １．やくざは無理..." target="_blank">やくざの仕方</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://www.geocities.co.jp/WallStreet/1356/kuru/YAKUZA.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00328.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://d.hatena.ne.jp/Chikirin/20110419" title="先日の「原発の名前は変えたらどうだろ？」というエントリへの感想として、福島市にお住まいの20代の方からメールを頂きました。とても誠実ないい文章だなあと思ったことと、「現状を知って頂けたら幸いです。」と書かれていたので、私だけでなく多くの方に読んでいただければと思い、ご本人の許可を得て下記に転載させて頂くこととなりました。文中にでてくるお名前は本名のままではありませんが、それも含め転載許可を頂いてい..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fd.hatena.ne.jp%252FChikirin%252F20110419" alt="" title="" class="favicon" /></a><a href="httpdisabled://d.hatena.ne.jp/Chikirin/20110419" title="先日の「原発の名前は変えたらどうだろ？」というエントリへの感想として、福島市にお住まいの20代の方からメールを頂きました。とても誠実ないい文章だなあと思ったことと、「現状を知って頂けたら幸いです。」と書かれていたので、私だけでなく多くの方に読んでいただければと思い、ご本人の許可を得て下記に転載させて頂くこととなりました。文中にでてくるお名前は本名のままではありませんが、それも含め転載許可を頂いてい..." target="_blank">福島市の方からのメール - Chikirinの日記</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://d.hatena.ne.jp/Chikirin/20110419" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00319.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://mainichi.jp/select/today/news/20110419k0000e040095000c.html" title="東日本大震災に伴う津波で大きな被害を受けた仙台平野で、浸水域の先端が、江戸時代の街道と宿場町の手前に沿って止まっていることが、東北大の平川新教授（江戸時代史）の調査で確認された。仙台平野は４００～５００年おきに大津波に見舞われており、街道は過去の浸水域を避けて整備された可能性が高いという。平川教授は「先人は災害の歴史に極めて謙虚だった」と話し、今後の復旧計画にも教訓を生かすべきだと提言する。 国土..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fmainichi.jp%252Fselect%252Ftoday%252Fnews%252F20110419k0000e040095000c.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://mainichi.jp/select/today/news/20110419k0000e040095000c.html" title="東日本大震災に伴う津波で大きな被害を受けた仙台平野で、浸水域の先端が、江戸時代の街道と宿場町の手前に沿って止まっていることが、東北大の平川新教授（江戸時代史）の調査で確認された。仙台平野は４００～５００年おきに大津波に見舞われており、街道は過去の浸水域を避けて整備された可能性が高いという。平川教授は「先人は災害の歴史に極めて謙虚だった」と話し、今後の復旧計画にも教訓を生かすべきだと提言する。 国土..." target="_blank">東日本大震災：先人は知っていた　「歴史街道」浸水せ..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://mainichi.jp/select/today/news/20110419k0000e040095000c.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00175.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://www.yomiuri.co.jp/national/news/20110418-OYT1T00858.htm" title="茨城県つくば市が、東京電力福島第一原発の事故で福島県から避難して転入する人たちに、放射能汚染の有無を確認する検査を受けた証明書の提示を求めていたことが１８日、わかった。 市側は「市民に無用な不安を与えない目的だった」としているが、転入者からの抗議を受け、検査を求めないことにした。 つくば市によると、市民課長名で３月１７日、福島からの転入者にスクリーニング検査を求めることに決め、担当する窓口へ通知し..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fwww.yomiuri.co.jp%252Fnational%252Fnews%252F20110418-OYT1T00858.htm" alt="" title="" class="favicon" /></a><a href="httpdisabled://www.yomiuri.co.jp/national/news/20110418-OYT1T00858.htm" title="茨城県つくば市が、東京電力福島第一原発の事故で福島県から避難して転入する人たちに、放射能汚染の有無を確認する検査を受けた証明書の提示を求めていたことが１８日、わかった。 市側は「市民に無用な不安を与えない目的だった」としているが、転入者からの抗議を受け、検査を求めないことにした。 つくば市によると、市民課長名で３月１７日、福島からの転入者にスクリーニング検査を求めることに決め、担当する窓口へ通知し..." target="_blank">つくば市、福島からの転入者に放射能検査要求 : 社会 : ..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://www.yomiuri.co.jp/national/news/20110418-OYT1T00858.htm" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00332.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://www.asahi.com/national/update/0419/TKY201104190251.html" title="福島第一原発事故の災害派遣先からトラックを盗んで逃げたとして、陸上自衛隊練馬駐屯地（東京）は１９日、第１特殊武器防護隊の前床（まえとこ）祥一郎３等陸曹（３２）を懲戒免職にし、発表した。前床３等陸曹は「原発事故への恐怖心でパニックになって逃げた」と話しているという。 　同駐屯地広報班によると、前床３等陸曹は３月１３日から、原発事故に伴い福島県の郡山駐屯地に派遣され、放射性物質の除染作業に必要な通信手..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fwww.asahi.com%252Fnational%252Fupdate%252F0419%252FTKY201104190251.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://www.asahi.com/national/update/0419/TKY201104190251.html" title="福島第一原発事故の災害派遣先からトラックを盗んで逃げたとして、陸上自衛隊練馬駐屯地（東京）は１９日、第１特殊武器防護隊の前床（まえとこ）祥一郎３等陸曹（３２）を懲戒免職にし、発表した。前床３等陸曹は「原発事故への恐怖心でパニックになって逃げた」と話しているという。 　同駐屯地広報班によると、前床３等陸曹は３月１３日から、原発事故に伴い福島県の郡山駐屯地に派遣され、放射性物質の除染作業に必要な通信手..." target="_blank">asahi.com（朝日新聞社）：「原発怖く逃げた」トラック窃..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://www.asahi.com/national/update/0419/TKY201104190251.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00162.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://blog.livedoor.jp/insidears/archives/52452576.html" title="2011年04月19日 「フルアーマー枝野」が２ちゃんねるで大人気！！ スレタイ 枝野　「過剰反応やめ福島県民に温かく…」 1 ：名無しさん＠涙目です。(神奈川県)：2011/04/19(火) 12:47:33.97 ID:9Qtd+Bak0● ?2BP(3000) 枝野長官会見「過剰反応やめ福島県民に温かく…」 （産経新聞） - Yahoo!ニュース http://headlines.yahoo..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fblog.livedoor.jp%252Finsidears%252Farchives%252F52452576.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://blog.livedoor.jp/insidears/archives/52452576.html" title="2011年04月19日 「フルアーマー枝野」が２ちゃんねるで大人気！！ スレタイ 枝野　「過剰反応やめ福島県民に温かく…」 1 ：名無しさん＠涙目です。(神奈川県)：2011/04/19(火) 12:47:33.97 ID:9Qtd+Bak0● ?2BP(3000) 枝野長官会見「過剰反応やめ福島県民に温かく…」 （産経新聞） - Yahoo!ニュース http://headlines.yahoo..." target="_blank">「フルアーマー枝野」が２ちゃんねるで大人気！！:【2c..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://blog.livedoor.jp/insidears/archives/52452576.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00137.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://kirik.tea-nifty.com/diary/2011/04/post-4428.html" title="会合がひとつ飛んだんだが、来客までの30分でどこまで書けるかなテスト。 嘘をつく子供 http://ja.wikipedia.org/wiki/%E5%98%98%E3%82%92%E3%81%A4%E3%81%8F%E5%AD%90%E4%BE%9B 寓話の中でのお話は、結構な内容でもある。嘘をつく子供（反原発知識人）が「狼が来るぞ」（原発は危険だ）という。それなりの騒ぎ（安保、反核運動）になっ..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fkirik.tea-nifty.com%252Fdiary%252F2011%252F04%252Fpost-4428.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://kirik.tea-nifty.com/diary/2011/04/post-4428.html" title="会合がひとつ飛んだんだが、来客までの30分でどこまで書けるかなテスト。 嘘をつく子供 http://ja.wikipedia.org/wiki/%E5%98%98%E3%82%92%E3%81%A4%E3%81%8F%E5%AD%90%E4%BE%9B 寓話の中でのお話は、結構な内容でもある。嘘をつく子供（反原発知識人）が「狼が来るぞ」（原発は危険だ）という。それなりの騒ぎ（安保、反核運動）になっ..." target="_blank">「狼と安心料」…原発関連の安全神話とメディアコント..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://kirik.tea-nifty.com/diary/2011/04/post-4428.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00180.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://news4vip.livedoor.biz/archives/51778633.html" title="1 名無しさん＠涙目です。(catv?) 2011/04/19(火) 14:31:25.03 ID:aZuz72AHP ?PLT(18000) ポイント特典 ■３号機、原子炉建屋の二重扉開く「放出防止にはＮＧ」 東京電力は１９日、福島第１原発３号機の原子炉建屋内を遠隔操作のロボットで調べた結果、大型機器を出し入れする二重扉が２枚とも開いていると明らかにした。 ３号機の原子炉建屋は激しい水素爆発で全..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fnews4vip.livedoor.biz%252Farchives%252F51778633.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://news4vip.livedoor.biz/archives/51778633.html" title="1 名無しさん＠涙目です。(catv?) 2011/04/19(火) 14:31:25.03 ID:aZuz72AHP ?PLT(18000) ポイント特典 ■３号機、原子炉建屋の二重扉開く「放出防止にはＮＧ」 東京電力は１９日、福島第１原発３号機の原子炉建屋内を遠隔操作のロボットで調べた結果、大型機器を出し入れする二重扉が２枚とも開いていると明らかにした。 ３号機の原子炉建屋は激しい水素爆発で全..." target="_blank">【2ch】ニュー速クオリティ:東電 「これはけっして同時..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://news4vip.livedoor.biz/archives/51778633.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00082.gif" alt="" class="users"></a></li>
+            </ul>
+            <p class="more" id="hotentry_list_link"><a href="httpdisabled://b.hatena.ne.jp/hotentry/social" class="icon-arrow">もっと見る</a></p>
+          </div>
+          <div id="box6">
+            
+            <ul class="list">
+              <li><a href="httpdisabled://blog.ecstudio.jp/ec_studio_blog/110418success-step-for-startup-company.html" title="4月14日にEC studio のグループ会社となるEC studio アカデミーを設立しました。 創業して10年のEC studio がこれまで蓄積してきた情報やノウハウをフル活用して グループ会社を設立したステップを公開したいと思います。 ここで紹介するサービスはEC studio で精査された間違いのないもののみ 紹介していますので、これから起業する方が周りにいらっしゃったら ぜひこの記事を..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fblog.ecstudio.jp%252Fec_studio_blog%252F110418success-step-for-startup-company.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://blog.ecstudio.jp/ec_studio_blog/110418success-step-for-startup-company.html" title="4月14日にEC studio のグループ会社となるEC studio アカデミーを設立しました。 創業して10年のEC studio がこれまで蓄積してきた情報やノウハウをフル活用して グループ会社を設立したステップを公開したいと思います。 ここで紹介するサービスはEC studio で精査された間違いのないもののみ 紹介していますので、これから起業する方が周りにいらっしゃったら ぜひこの記事を..." target="_blank">起業したい方必見！　-　起業して成功するための会社..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://blog.ecstudio.jp/ec_studio_blog/110418success-step-for-startup-company.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/01820.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://mainichi.jp/select/weathernews/20110311/news/20110419k0000e040095000c.html" title="東日本大震災に伴う津波で大きな被害を受けた仙台平野で、浸水域の先端が、江戸時代の街道と宿場町の手前に沿って止まっていることが、東北大の平川新教授（江戸時代史）の調査で確認された。仙台平野は４００～５００年おきに大津波に見舞われており、街道は過去の浸水域を避けて整備された可能性が高いという。平川教授は「先人は災害の歴史に極めて謙虚だった」と話し、今後の復旧計画にも教訓を生かすべきだと提言する。 国土..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fmainichi.jp%252Fselect%252Fweathernews%252F20110311%252Fnews%252F20110419k0000e040095000c.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://mainichi.jp/select/weathernews/20110311/news/20110419k0000e040095000c.html" title="東日本大震災に伴う津波で大きな被害を受けた仙台平野で、浸水域の先端が、江戸時代の街道と宿場町の手前に沿って止まっていることが、東北大の平川新教授（江戸時代史）の調査で確認された。仙台平野は４００～５００年おきに大津波に見舞われており、街道は過去の浸水域を避けて整備された可能性が高いという。平川教授は「先人は災害の歴史に極めて謙虚だった」と話し、今後の復旧計画にも教訓を生かすべきだと提言する。 国土..." target="_blank">東日本大震災：先人は知っていた　「歴史街道」浸水せ..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://mainichi.jp/select/weathernews/20110311/news/20110419k0000e040095000c.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00072.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://sankei.jp.msn.com/economy/news/110418/its11041812300000-n1.htm" title="夏場に予想される電力不足が、企業活動に欠かせない情報インフラを預かるデータセンター事業者を苦境に立たせている。政府が掲げる節電目標を達成しようとすれば、稼働を一部ストップせざるを得なくなる事態もあり得るからだ。金融や小売りなどあらゆる分野のサービスを下支えしているセンターの稼働が止まれば、日本経済全体に深刻な打撃を与えかねない。（フジサンケイビジネスアイ）「対象外にしてくれ」　「（電力使用抑制の）..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fsankei.jp.msn.com%252Feconomy%252Fnews%252F110418%252Fits11041812300000-n1.htm" alt="" title="" class="favicon" /></a><a href="httpdisabled://sankei.jp.msn.com/economy/news/110418/its11041812300000-n1.htm" title="夏場に予想される電力不足が、企業活動に欠かせない情報インフラを預かるデータセンター事業者を苦境に立たせている。政府が掲げる節電目標を達成しようとすれば、稼働を一部ストップせざるを得なくなる事態もあり得るからだ。金融や小売りなどあらゆる分野のサービスを下支えしているセンターの稼働が止まれば、日本経済全体に深刻な打撃を与えかねない。（フジサンケイビジネスアイ）「対象外にしてくれ」　「（電力使用抑制の）..." target="_blank">情報インフラ、停止危機　データセンター「２５％節電..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://sankei.jp.msn.com/economy/news/110418/its11041812300000-n1.htm" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00270.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://mainichi.jp/photo/archive/news/2011/04/19/20110419k0000e040095000c.html" title="東日本大震災に伴う津波で大きな被害を受けた仙台平野で、浸水域の先端が、江戸時代の街道と宿場町の手前に沿って止まっていることが、東北大の平川新教授（江戸時代史）の調査で確認された。仙台平野は４００～５００年おきに大津波に見舞われており、街道は過去の浸水域を避けて整備された可能性が高いという。平川教授は「先人は災害の歴史に極めて謙虚だった」と話し、今後の復旧計画にも教訓を生かすべきだと提言する。 国土..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fmainichi.jp%252Fphoto%252Farchive%252Fnews%252F2011%252F04%252F19%252F20110419k0000e040095000c.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://mainichi.jp/photo/archive/news/2011/04/19/20110419k0000e040095000c.html" title="東日本大震災に伴う津波で大きな被害を受けた仙台平野で、浸水域の先端が、江戸時代の街道と宿場町の手前に沿って止まっていることが、東北大の平川新教授（江戸時代史）の調査で確認された。仙台平野は４００～５００年おきに大津波に見舞われており、街道は過去の浸水域を避けて整備された可能性が高いという。平川教授は「先人は災害の歴史に極めて謙虚だった」と話し、今後の復旧計画にも教訓を生かすべきだと提言する。 国土..." target="_blank">東日本大震災：先人は知っていた　「歴史街道」浸水せ..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://mainichi.jp/photo/archive/news/2011/04/19/20110419k0000e040095000c.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00044.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://www.yomiuri.co.jp/atmoney/news/20110419-OYT1T00226.htm" title="経済産業省と東京電力は１８日、今夏の電力供給力の見通しを、現時点の５２００万キロ・ワットから５６００万〜５７００万キロ・ワット程度に引き上げる方向で調整に入った。 東電は夜間電力を使ってダムに水をくみ上げ、電力需要が高まる昼間に水を落としてタービンを回して発電する揚水発電の稼働を増やせるか慎重に検討している。政府と東電は、今夏のピーク時の電力消費は５５００万キロ・ワットを想定し、大規模工場など大口..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fwww.yomiuri.co.jp%252Fatmoney%252Fnews%252F20110419-OYT1T00226.htm" alt="" title="" class="favicon" /></a><a href="httpdisabled://www.yomiuri.co.jp/atmoney/news/20110419-OYT1T00226.htm" title="経済産業省と東京電力は１８日、今夏の電力供給力の見通しを、現時点の５２００万キロ・ワットから５６００万〜５７００万キロ・ワット程度に引き上げる方向で調整に入った。 東電は夜間電力を使ってダムに水をくみ上げ、電力需要が高まる昼間に水を落としてタービンを回して発電する揚水発電の稼働を増やせるか慎重に検討している。政府と東電は、今夏のピーク時の電力消費は５５００万キロ・ワットを想定し、大規模工場など大口..." target="_blank">東電、最大５７００万ｋＷ供給へ…節電緩和か : 経済ニ..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://www.yomiuri.co.jp/atmoney/news/20110419-OYT1T00226.htm" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00053.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://alfalfalfa.com/archives/3026675.html" title="■編集元：ニュース速報板より「サラリーマン家庭の専業主婦も年金保険料徴収へ」 1 名無しさん＠涙目です。(埼玉県) :2011/04/19(火) 12:36:49.69 ID:Y98Gx2Gi0● ?2BP 主婦も年金保険料負担を検討　 政府、民主党は、現行は徴収対象外のサラリーマン家庭の専業主婦から保険料を徴収の方向で検討に。 2011/04/19 12:15 【共同通信】 http://www..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Falfalfalfa.com%252Farchives%252F3026675.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://alfalfalfa.com/archives/3026675.html" title="■編集元：ニュース速報板より「サラリーマン家庭の専業主婦も年金保険料徴収へ」 1 名無しさん＠涙目です。(埼玉県) :2011/04/19(火) 12:36:49.69 ID:Y98Gx2Gi0● ?2BP 主婦も年金保険料負担を検討　 政府、民主党は、現行は徴収対象外のサラリーマン家庭の専業主婦から保険料を徴収の方向で検討に。 2011/04/19 12:15 【共同通信】 http://www..." target="_blank">サラリーマン家庭の専業主婦も年金保険料徴収へ</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://alfalfalfa.com/archives/3026675.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00026.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://togetter.com/li/125580" title="hamachan氏の記事（http://bit.ly/eyHsG6）に対するはてブコメント（http://bit.ly/fWjsbQ）をきっかけに、リフレ派の政治戦略に対して常日頃から抱いてた違和感をまとめてみました。 途中、id:biconcave/@SEXhsKF7さんとのやりとりも。" target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Ftogetter.com%252Fli%252F125580" alt="" title="" class="favicon" /></a><a href="httpdisabled://togetter.com/li/125580" title="hamachan氏の記事（http://bit.ly/eyHsG6）に対するはてブコメント（http://bit.ly/fWjsbQ）をきっかけに、リフレ派の政治戦略に対して常日頃から抱いてた違和感をまとめてみました。 途中、id:biconcave/@SEXhsKF7さんとのやりとりも。" target="_blank">Togetter - 「リフレ派の政治戦略の拙さに関する雑感」</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://togetter.com/li/125580" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00024.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://randomwalker.blog19.fc2.com/blog-entry-1706.html" title="梅屋敷商店街のランダム・ウォーカー（インデックス投資実践記） 低コストのインデックスファンド・ETFをバイ＆ホールド、下町個人投資家のインデックス投資実践記を見てやってください。 よく「正解はない」と言われることが多いアセットアロケーションですが、楽天証券のレポートで、山崎元氏がアセットアロケーション方法論を書いています。 楽天証券　レポート＆コメント　山崎元「ホンネの投資教室」 第146回　投資..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Frandomwalker.blog19.fc2.com%252Fblog-entry-1706.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://randomwalker.blog19.fc2.com/blog-entry-1706.html" title="梅屋敷商店街のランダム・ウォーカー（インデックス投資実践記） 低コストのインデックスファンド・ETFをバイ＆ホールド、下町個人投資家のインデックス投資実践記を見てやってください。 よく「正解はない」と言われることが多いアセットアロケーションですが、楽天証券のレポートで、山崎元氏がアセットアロケーション方法論を書いています。 楽天証券　レポート＆コメント　山崎元「ホンネの投資教室」 第146回　投資..." target="_blank">山崎元氏のアセットアロケーション方法論と、勝手に補..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://randomwalker.blog19.fc2.com/blog-entry-1706.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00016.gif" alt="" class="users"></a></li>
+            </ul>
+            <p class="more" id="hotentry_list_link"><a href="httpdisabled://b.hatena.ne.jp/hotentry/economics" class="icon-arrow">もっと見る</a></p>
+          </div>
+          <div id="box7">
+            
+            <ul class="list">
+              <li><a href="httpdisabled://umashika-news.jp/archives/51806460.html" title="407 名前：ぱくぱく名無しさん[sage] 投稿日：2011/03/03(木) 08:42:52.42 ID:98NppJFsONo.1 ふんわり幸せ ＨＢで豆腐の食パン びっくりするくらい、皮までふわふわぁな、豆腐の食パン &gt;&gt;407 豆腐の代わりに豆乳で作った。 なんだかスゴイこれ。表面の食感なども含めて。 食パンのイメージじゃないね。 ちょっとあまりにお菓子っぽいので次回は油脂と砂糖を 減..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fumashika-news.jp%252Farchives%252F51806460.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://umashika-news.jp/archives/51806460.html" title="407 名前：ぱくぱく名無しさん[sage] 投稿日：2011/03/03(木) 08:42:52.42 ID:98NppJFsONo.1 ふんわり幸せ ＨＢで豆腐の食パン びっくりするくらい、皮までふわふわぁな、豆腐の食パン &gt;&gt;407 豆腐の代わりに豆乳で作った。 なんだかスゴイこれ。表面の食感なども含めて。 食パンのイメージじゃないね。 ちょっとあまりにお菓子っぽいので次回は油脂と砂糖を 減..." target="_blank">COOKPADの美味し過ぎて実は教えたくないウマーなレシピ..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://umashika-news.jp/archives/51806460.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/01025.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://www.wakatta-blog.com/post_597.html" title="「人気ブログをつくる方法」を研究するブログです ビジネス書を読んで得た知識や、日々の経験や気付きをもとに、ブログの魅力向上に役立つヒントをお届けします。プログラミング、マーケティング、ライフハックの話題も！ 私は技術畑をずっと歩いてきたので、営業と聞くと拒否反応がでます。しかし、本書を読んで、営業には、セールストークのテクニックを磨くとかよりも、もっと大切なことがあることを知りました。以前よりも営..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fwww.wakatta-blog.com%252Fpost_597.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://www.wakatta-blog.com/post_597.html" title="「人気ブログをつくる方法」を研究するブログです ビジネス書を読んで得た知識や、日々の経験や気付きをもとに、ブログの魅力向上に役立つヒントをお届けします。プログラミング、マーケティング、ライフハックの話題も！ 私は技術畑をずっと歩いてきたので、営業と聞くと拒否反応がでます。しかし、本書を読んで、営業には、セールストークのテクニックを磨くとかよりも、もっと大切なことがあることを知りました。以前よりも営..." target="_blank">世界最高位のトップセールスマンが教える、営業で一番..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://www.wakatta-blog.com/post_597.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00636.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://b.hatena.ne.jp/articles/201104/2094" title="焼肉やステーキなど肉料理は男女年齢問わず人気のメニューですが、とろけるような高級な肉を毎回の食事で使うのはなかなか難しいですよね。スーパーの特売などで手に入る手頃な値段の肉をおいしく食べる裏技をご紹介します。 ■ 肉を柔らかくする“食材”って？ 安い肉は、高級なお肉に比べるとどうしても“硬さ”が気になってしまいます。そんな時は、肉を柔らかくする効果のある食材に助けを借りてみましょう。 ▽ 安い肉は..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fb.hatena.ne.jp%252Farticles%252F201104%252F2094" alt="" title="" class="favicon" /></a><a href="httpdisabled://b.hatena.ne.jp/articles/201104/2094" title="焼肉やステーキなど肉料理は男女年齢問わず人気のメニューですが、とろけるような高級な肉を毎回の食事で使うのはなかなか難しいですよね。スーパーの特売などで手に入る手頃な値段の肉をおいしく食べる裏技をご紹介します。 ■ 肉を柔らかくする“食材”って？ 安い肉は、高級なお肉に比べるとどうしても“硬さ”が気になってしまいます。そんな時は、肉を柔らかくする効果のある食材に助けを借りてみましょう。 ▽ 安い肉は..." target="_blank">台所にあるもので今すぐできる、「安い肉」をおいしく..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://b.hatena.ne.jp/articles/201104/2094" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00198.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://b.hatena.ne.jp/articles/201104/1774" title="あなたが毎日使っている「かばん」、気付くと中身がゴチャゴチャになっていませんか？肝心な時に中身が取り出しにくくなってしまっては、お気に入りのかばんも台無し。そこで、ゴチャゴチャしたかばんの中身をスッキリ整理するアイデアを4つご紹介します。 ■ そのかばんの中身、本当に必要？ 荷物が多くてゴチャゴチャしているという人は、必要ない物までかばんに入れっぱなしになっている可能性が。まずはかばんの中身を一度..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fb.hatena.ne.jp%252Farticles%252F201104%252F1774" alt="" title="" class="favicon" /></a><a href="httpdisabled://b.hatena.ne.jp/articles/201104/1774" title="あなたが毎日使っている「かばん」、気付くと中身がゴチャゴチャになっていませんか？肝心な時に中身が取り出しにくくなってしまっては、お気に入りのかばんも台無し。そこで、ゴチャゴチャしたかばんの中身をスッキリ整理するアイデアを4つご紹介します。 ■ そのかばんの中身、本当に必要？ 荷物が多くてゴチャゴチャしているという人は、必要ない物までかばんに入れっぱなしになっている可能性が。まずはかばんの中身を一度..." target="_blank">ゴチャゴチャした「かばんの中身」をスッキリ整理する..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://b.hatena.ne.jp/articles/201104/1774" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00123.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://anond.hatelabo.jp/20110418205950" title="震災ボランティアに顔を出したが、あまりにも仕事の出来ない人だらけで驚いた。私はその作業内容のプロで、ボランティアリーダーのと共通の知人の紹介で顔を出したのだ、どう考えても異常に効率が悪い。リーダーに直言するが、まったく話を聞かない。そして、直言したことが気に入らなかったようで、一人で出来る仕事の方がいいでしょうと、ゴミの整理というありがたい仕事を割り当てられた。（まあ、ゴミの整理も大事な仕事ではあ..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fanond.hatelabo.jp%252F20110418205950" alt="" title="" class="favicon" /></a><a href="httpdisabled://anond.hatelabo.jp/20110418205950" title="震災ボランティアに顔を出したが、あまりにも仕事の出来ない人だらけで驚いた。私はその作業内容のプロで、ボランティアリーダーのと共通の知人の紹介で顔を出したのだ、どう考えても異常に効率が悪い。リーダーに直言するが、まったく話を聞かない。そして、直言したことが気に入らなかったようで、一人で出来る仕事の方がいいでしょうと、ゴミの整理というありがたい仕事を割り当てられた。（まあ、ゴミの整理も大事な仕事ではあ..." target="_blank">ボランティアなんぞに顔を出した反省文</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://anond.hatelabo.jp/20110418205950" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00173.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://smashmedia.jp/blog/2011/04/003672.html" title="先日依頼されたのが「ウェブマーケティングを学ぶ、新人に向けて読むべき10冊」の選書という仕事だったんだけど、こういう仕事は楽しくていいですね。というかハズレ率を下げてあげるのは前を歩いてるもののつとめだと思うのでどんどんやっていきたい。 その記事が掲載されたのが発売されたようです。見本誌が届いてました。 ぼくが紹介したのはこの10冊。上から順に読むといいですよ。 ウェブマーケティングの基本のキ。 ..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fsmashmedia.jp%252Fblog%252F2011%252F04%252F003672.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://smashmedia.jp/blog/2011/04/003672.html" title="先日依頼されたのが「ウェブマーケティングを学ぶ、新人に向けて読むべき10冊」の選書という仕事だったんだけど、こういう仕事は楽しくていいですね。というかハズレ率を下げてあげるのは前を歩いてるもののつとめだと思うのでどんどんやっていきたい。 その記事が掲載されたのが発売されたようです。見本誌が届いてました。 ぼくが紹介したのはこの10冊。上から順に読むといいですよ。 ウェブマーケティングの基本のキ。 ..." target="_blank">ウェブマーケティングを学ぶ新人が読むべき10冊 | smashme..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://smashmedia.jp/blog/2011/04/003672.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00831.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://yakudatsu.livedoor.biz/archives/51669924.html" title="【食事】卵かけご飯に入れると美味しいモノ【食べ方】 2011年04月19日  19:45 | カテゴリ：食事 | コメント( 0 ) Tweet スポンサードリンク 困った時の名無しさん 2009/06/03(水) 20:25:47 生玉子とご飯、あとはちょいとした調味料があれば食べられる、日本伝統の料理（？） たまごかけご飯を語るスレッドです。 こだわりのレシピや食べ方を紹介しあいましょう。 2..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fyakudatsu.livedoor.biz%252Farchives%252F51669924.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://yakudatsu.livedoor.biz/archives/51669924.html" title="【食事】卵かけご飯に入れると美味しいモノ【食べ方】 2011年04月19日  19:45 | カテゴリ：食事 | コメント( 0 ) Tweet スポンサードリンク 困った時の名無しさん 2009/06/03(水) 20:25:47 生玉子とご飯、あとはちょいとした調味料があれば食べられる、日本伝統の料理（？） たまごかけご飯を語るスレッドです。 こだわりのレシピや食べ方を紹介しあいましょう。 2..." target="_blank">【食事】卵かけご飯に入れると美味しいモノ【食べ方】..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://yakudatsu.livedoor.biz/archives/51669924.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00063.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://smoothfoxxx.livedoor.biz/archives/51922691.html" title="学校で教えてくれない「分かりやすい説明」のルール (光文社新書) 【本の概要】◆今日ご紹介するのは、私自身課題としている「他人に分かりやすく説明する技術」を追求したご本。 文章を書くにせよ、話すにせよ、「分かりやすいか否か」というのは、非常に重要なポイントだと思います。 アマゾンの内容紹介から。「分かりやすい説明」に必要なものは、話術でも文章力でもプレゼンスキルでもない！ 20万部突破『落ちこぼれ..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fsmoothfoxxx.livedoor.biz%252Farchives%252F51922691.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://smoothfoxxx.livedoor.biz/archives/51922691.html" title="学校で教えてくれない「分かりやすい説明」のルール (光文社新書) 【本の概要】◆今日ご紹介するのは、私自身課題としている「他人に分かりやすく説明する技術」を追求したご本。 文章を書くにせよ、話すにせよ、「分かりやすいか否か」というのは、非常に重要なポイントだと思います。 アマゾンの内容紹介から。「分かりやすい説明」に必要なものは、話術でも文章力でもプレゼンスキルでもない！ 20万部突破『落ちこぼれ..." target="_blank">【説明スキル】『学校で教えてくれない「分かりやすい..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://smoothfoxxx.livedoor.biz/archives/51922691.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00107.gif" alt="" class="users"></a></li>
+            </ul>
+            <p class="more" id="hotentry_list_link"><a href="httpdisabled://b.hatena.ne.jp/hotentry/life" class="icon-arrow">もっと見る</a></p>
+          </div>
+          <div id="box8">
+            
+            <ul class="list">
+              <li><a href="httpdisabled://togetter.com/li/125610" title="「現代の小学校においてイジメはどのような形で行われているのか？」「何がいじめの原因になるのか？」などについての、はるかぜちゃんの率直なツイート。 「毎日学校に行かなきゃいけない子はほんとうに息できないくらいこわいと思う」というのは怖い話だけど、それが現実。 「大人たちの世界と同じ」ということがわかりますね。大人は、彼女のようにハッキリと言わないだけです。" target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Ftogetter.com%252Fli%252F125610" alt="" title="" class="favicon" /></a><a href="httpdisabled://togetter.com/li/125610" title="「現代の小学校においてイジメはどのような形で行われているのか？」「何がいじめの原因になるのか？」などについての、はるかぜちゃんの率直なツイート。 「毎日学校に行かなきゃいけない子はほんとうに息できないくらいこわいと思う」というのは怖い話だけど、それが現実。 「大人たちの世界と同じ」ということがわかりますね。大人は、彼女のようにハッキリと言わないだけです。" target="_blank">Togetter - 「はるかぜちゃん @harukazechan が語る小学校での..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://togetter.com/li/125610" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00108.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://gigazine.net/news/20110419_beauitiful_and_aesthetically_challenged_royals/" title="美男美女しか入会を認めないという外見至上主義の出会い系サイト「BeautifulPeople.com」の会員たち12万7000人以上により、入会審査の投票時と同じように世界の王族たちの外見だけを基準に「この人はBeautifulPeople.comに入会するにふさわしいか？」と判断する投票が行われ、「美男美女が選ぶ世界の美しい王族ベスト10」が発表されました。 最近話題のウィリアム王子の婚約者ケイ..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fgigazine.net%252Fnews%252F20110419_beauitiful_and_aesthetically_challenged_royals%252F" alt="" title="" class="favicon" /></a><a href="httpdisabled://gigazine.net/news/20110419_beauitiful_and_aesthetically_challenged_royals/" title="美男美女しか入会を認めないという外見至上主義の出会い系サイト「BeautifulPeople.com」の会員たち12万7000人以上により、入会審査の投票時と同じように世界の王族たちの外見だけを基準に「この人はBeautifulPeople.comに入会するにふさわしいか？」と判断する投票が行われ、「美男美女が選ぶ世界の美しい王族ベスト10」が発表されました。 最近話題のウィリアム王子の婚約者ケイ..." target="_blank">世界の王族の美男美女ランキングが公開、同時に「容姿..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://gigazine.net/news/20110419_beauitiful_and_aesthetically_challenged_royals/" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00031.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://alfalfalfa.com/archives/3029606.html" title="■編集元：ニュース速報板より「鬼束ちひろが一つ上の次元に」 1 名無しさん＠涙目です。(千葉県) :2011/04/19(火) 19:38:06.68 ID:Vygzi/Me0● ?2BP 名無しさん＠涙目です。(チベット自治区) :2011/04/19(火) 19:40:57.40 ID:8Q5o8tjU0 思いっきり殴りたくなる雰囲気ワロタ 25 名無しさん＠涙目です。(岡山県) :2011/..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Falfalfalfa.com%252Farchives%252F3029606.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://alfalfalfa.com/archives/3029606.html" title="■編集元：ニュース速報板より「鬼束ちひろが一つ上の次元に」 1 名無しさん＠涙目です。(千葉県) :2011/04/19(火) 19:38:06.68 ID:Vygzi/Me0● ?2BP 名無しさん＠涙目です。(チベット自治区) :2011/04/19(火) 19:40:57.40 ID:8Q5o8tjU0 思いっきり殴りたくなる雰囲気ワロタ 25 名無しさん＠涙目です。(岡山県) :2011/..." target="_blank">鬼束ちひろが一つ上の次元に</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://alfalfalfa.com/archives/3029606.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00031.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://news020.blog13.fc2.com/blog-entry-1457.html" title="1：名無しさん＠涙目です。(千葉県)：2011/04/19(火) 19:38:06.68 ID:Vygzi/Me0" target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fnews020.blog13.fc2.com%252Fblog-entry-1457.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://news020.blog13.fc2.com/blog-entry-1457.html" title="1：名無しさん＠涙目です。(千葉県)：2011/04/19(火) 19:38:06.68 ID:Vygzi/Me0" target="_blank">【画像あり】 鬼束ちひろがまた一つ上の次元に | ニュ..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://news020.blog13.fc2.com/blog-entry-1457.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00029.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://alfalfalfa.com/archives/2518861.html" title="■編集元：ニュース速報板より 35 名無しさん＠涙目です。(埼玉県) :2011/03/10(木) 01:15:03.22 ID:Pv3gZ8Rw0 鈴木ランランがうあﾞぁあ ･ﾟ･(´Д⊂ヽ･ﾟ･ あﾞぁあぁﾞああぁぁうあﾞぁあﾞぁぁ http://livedoor.blogimg.jp/amosaic/imgs/9/6/96c5cbef.jpg 48 名無しさん＠涙目です。(西日本) :201..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Falfalfalfa.com%252Farchives%252F2518861.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://alfalfalfa.com/archives/2518861.html" title="■編集元：ニュース速報板より 35 名無しさん＠涙目です。(埼玉県) :2011/03/10(木) 01:15:03.22 ID:Pv3gZ8Rw0 鈴木ランランがうあﾞぁあ ･ﾟ･(´Д⊂ヽ･ﾟ･ あﾞぁあぁﾞああぁぁうあﾞぁあﾞぁぁ http://livedoor.blogimg.jp/amosaic/imgs/9/6/96c5cbef.jpg 48 名無しさん＠涙目です。(西日本) :201..." target="_blank">鈴木ランランがうあﾞぁあ ･ﾟ･(´Д⊂ヽ･ﾟ･ あﾞ..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://alfalfalfa.com/archives/2518861.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00031.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://netafull.net/music/037536.html" title="BOΦWYのベーシストだった松井常松が、同じくボーカルだった氷室京介が、初の全曲BOΦWYライブを開催することについて「少し寂しい」複雑な心境を明かしています。「無題」として、オフィシャルサイトで心情が綴られています。僕一人の力なんて、 決して大きなものではないけれど、 でも、バンド時代の曲を演奏するというならば、 微力ながらも協力したかった。バンド時代の曲を演奏するのに「どうして、声を掛けてくれ..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fnetafull.net%252Fmusic%252F037536.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://netafull.net/music/037536.html" title="BOΦWYのベーシストだった松井常松が、同じくボーカルだった氷室京介が、初の全曲BOΦWYライブを開催することについて「少し寂しい」複雑な心境を明かしています。「無題」として、オフィシャルサイトで心情が綴られています。僕一人の力なんて、 決して大きなものではないけれど、 でも、バンド時代の曲を演奏するというならば、 微力ながらも協力したかった。バンド時代の曲を演奏するのに「どうして、声を掛けてくれ..." target="_blank">[N] BOΦWYベーシスト・松井常松「一緒に活動を共にして..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://netafull.net/music/037536.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00032.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://japan.digitaldj-network.com/archives/51880337.html" title="DDN は音楽・映像に関する デジタルアートを中心に情報ミックスを配信中 DDN - DIGITAL DJ Network DDN JAPANとは 広告・お問い合わせ Twitterで購読 Googleで購読 映像 画像 音楽 アート ガジェット ゲーム 文章 情報 トピックス アプリ ウェブ イベント 最新記事 フリー音源 64ジャンル 2万6千ファイル以上が公開「SampleRadar」　Mu..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fjapan.digitaldj-network.com%252Farchives%252F51880337.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://japan.digitaldj-network.com/archives/51880337.html" title="DDN は音楽・映像に関する デジタルアートを中心に情報ミックスを配信中 DDN - DIGITAL DJ Network DDN JAPANとは 広告・お問い合わせ Twitterで購読 Googleで購読 映像 画像 音楽 アート ガジェット ゲーム 文章 情報 トピックス アプリ ウェブ イベント 最新記事 フリー音源 64ジャンル 2万6千ファイル以上が公開「SampleRadar」　Mu..." target="_blank">フリー音源 64ジャンル 2万6千ファイル以上が公開「Sample..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://japan.digitaldj-network.com/archives/51880337.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/02112.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://d.hatena.ne.jp/Sugars/20110418/p1" title="TV, オリラジタカさんの持ち込み企画。コンビでお互い面と向かって言えないことを交換日記で相手に伝える。記念すべき初回はオリエンタルラジオでした。見逃した方、放送地域外の方向けに書きおこし芸人交換日記 ?イエローハーツの物語?作者: 鈴木おさむ出版社/メーカー: 太田出版発売日: 2011/03/10メディア: 単行本この商品を含むブログ (2件) を見る１日目のテーマ「ムカつくこと」スタッフから..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fd.hatena.ne.jp%252FSugars%252F20110418%252Fp1" alt="" title="" class="favicon" /></a><a href="httpdisabled://d.hatena.ne.jp/Sugars/20110418/p1" title="TV, オリラジタカさんの持ち込み企画。コンビでお互い面と向かって言えないことを交換日記で相手に伝える。記念すべき初回はオリエンタルラジオでした。見逃した方、放送地域外の方向けに書きおこし芸人交換日記 ?イエローハーツの物語?作者: 鈴木おさむ出版社/メーカー: 太田出版発売日: 2011/03/10メディア: 単行本この商品を含むブログ (2件) を見る１日目のテーマ「ムカつくこと」スタッフから..." target="_blank">お願いランキング「オリラジ芸人交換日記」(4/18) - Sugars..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://d.hatena.ne.jp/Sugars/20110418/p1" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00055.gif" alt="" class="users"></a></li>
+            </ul>
+            <p class="more" id="hotentry_list_link"><a href="httpdisabled://b.hatena.ne.jp/hotentry/entertainment" class="icon-arrow">もっと見る</a></p>
+          </div>
+          <div id="box9">
+            
+            <ul class="list">
+              <li><a href="httpdisabled://www.lizard-tail.com/isana/archives/text/thought_about_radiation.html" title="水を飲んでも大丈夫？誰かにこう問われ、僕は一瞬迷い、大丈夫だよと答える。これぐらいなら大したことないよ。一瞬の躊躇を見抜いたのか、相手は怪訝そうな顔をする。 理由を一生懸命説明する。今伝えられているような放射線の量では滅多な事じゃガンにはならない。はっきり影響が出るような数字には全然足りない。不安そうな表情は消えない。彼らや彼女たちが聞きたいのは解説なんかじゃない。ただ安心したいだけだ。言葉は空し..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fwww.lizard-tail.com%252Fisana%252Farchives%252Ftext%252Fthought_about_radiation.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://www.lizard-tail.com/isana/archives/text/thought_about_radiation.html" title="水を飲んでも大丈夫？誰かにこう問われ、僕は一瞬迷い、大丈夫だよと答える。これぐらいなら大したことないよ。一瞬の躊躇を見抜いたのか、相手は怪訝そうな顔をする。 理由を一生懸命説明する。今伝えられているような放射線の量では滅多な事じゃガンにはならない。はっきり影響が出るような数字には全然足りない。不安そうな表情は消えない。彼らや彼女たちが聞きたいのは解説なんかじゃない。ただ安心したいだけだ。言葉は空し..." target="_blank">0.02%の嘘 - lizard-tail studio</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://www.lizard-tail.com/isana/archives/text/thought_about_radiation.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00289.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://hamusoku.com/archives/4518342.html" title="何年経ってもデザインが変わらない製品、洗練された機能美の製品 Tweet カテゴリ☆☆☆☆ 1：名無しさん＠涙目です。(東京都)：2011/04/17(日) 22:19:32.67ID:J2QVVO1N0● http://journal.mycom.co.jp/news/2011/04/14/095/ &quot;羽根のない扇風機&quot;インタビューも収録 - グッドデザイン賞の公式年鑑発売 2010年度のグッド..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fhamusoku.com%252Farchives%252F4518342.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://hamusoku.com/archives/4518342.html" title="何年経ってもデザインが変わらない製品、洗練された機能美の製品 Tweet カテゴリ☆☆☆☆ 1：名無しさん＠涙目です。(東京都)：2011/04/17(日) 22:19:32.67ID:J2QVVO1N0● http://journal.mycom.co.jp/news/2011/04/14/095/ &quot;羽根のない扇風機&quot;インタビューも収録 - グッドデザイン賞の公式年鑑発売 2010年度のグッド..." target="_blank">何年経ってもデザインが変わらない製品、洗練された機..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://hamusoku.com/archives/4518342.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00511.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://gqjapan.jp/special/wired_univ/" title="2011年6月10日、日本版『WIRED』がいよいよ始動します。 テクノロジー・科学という観点から変わりゆく世界の姿を切り取り、創刊以来18年間、常に時代の先端を走ってきたアメリカの雑誌『WIRED』は、いったいどのような考えに影響を受け、どのような視点から雑誌づくりをつづけてきたのか。 世界が大きく動こうとしている今、『WIRED』を形作ってきた「ものの考え方」を一覧にしてみることには大きな意義..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fgqjapan.jp%252Fspecial%252Fwired_univ%252F" alt="" title="" class="favicon" /></a><a href="httpdisabled://gqjapan.jp/special/wired_univ/" title="2011年6月10日、日本版『WIRED』がいよいよ始動します。 テクノロジー・科学という観点から変わりゆく世界の姿を切り取り、創刊以来18年間、常に時代の先端を走ってきたアメリカの雑誌『WIRED』は、いったいどのような考えに影響を受け、どのような視点から雑誌づくりをつづけてきたのか。 世界が大きく動こうとしている今、『WIRED』を形作ってきた「ものの考え方」を一覧にしてみることには大きな意義..." target="_blank">あなたが選ぶWIRED大学 新・教養学部必読書50</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://gqjapan.jp/special/wired_univ/" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00115.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://www.gizmodo.jp/2011/04/kougousei.html" title="エコロジー , サイエンス , 大学研究モノ , 太陽光発電 ついに光合成の謎が解明される！　エネルギー問題解決策として注目される「人工光合成」実現に向け前進！　大阪市立大 2011.04.19 20:00 [0] [0] Tweet Check 光合成って小学生の時に習いますけど、原子レベルでは意外と謎だったんです。 大阪市立大の研究グループが、植物が光合成で水を分解して酸素を発生させる仕組みを..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fwww.gizmodo.jp%252F2011%252F04%252Fkougousei.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://www.gizmodo.jp/2011/04/kougousei.html" title="エコロジー , サイエンス , 大学研究モノ , 太陽光発電 ついに光合成の謎が解明される！　エネルギー問題解決策として注目される「人工光合成」実現に向け前進！　大阪市立大 2011.04.19 20:00 [0] [0] Tweet Check 光合成って小学生の時に習いますけど、原子レベルでは意外と謎だったんです。 大阪市立大の研究グループが、植物が光合成で水を分解して酸素を発生させる仕組みを..." target="_blank">ついに光合成の謎が解明される！　エネルギー問題解決..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://www.gizmodo.jp/2011/04/kougousei.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00071.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://www.astroarts.co.jp/news/2011/04/19summer_time/index-j.shtml" title="日本公開天文台協会がサマータイム制に関する声明を発表 【2011年4月19日 日本公開天文台協会】 日本公開天文台協会がサマータイム制の導入に関する声明文を発表した。 日本公開天文台協会　副会長　福澄孝博さん 東北地方太平洋沖地震およびそれに伴う災害に被災された皆さまに、お見舞いを申し上げます。また、救助・復旧作業等で、日夜ご尽力されている多くの皆様に、深く敬意を表します。 さて、震災により電力供..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fwww.astroarts.co.jp%252Fnews%252F2011%252F04%252F19summer_time%252Findex-j.shtml" alt="" title="" class="favicon" /></a><a href="httpdisabled://www.astroarts.co.jp/news/2011/04/19summer_time/index-j.shtml" title="日本公開天文台協会がサマータイム制に関する声明を発表 【2011年4月19日 日本公開天文台協会】 日本公開天文台協会がサマータイム制の導入に関する声明文を発表した。 日本公開天文台協会　副会長　福澄孝博さん 東北地方太平洋沖地震およびそれに伴う災害に被災された皆さまに、お見舞いを申し上げます。また、救助・復旧作業等で、日夜ご尽力されている多くの皆様に、深く敬意を表します。 さて、震災により電力供..." target="_blank">日本公開天文台協会がサマータイム制に関する声明を発..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://www.astroarts.co.jp/news/2011/04/19summer_time/index-j.shtml" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00062.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://sankei.jp.msn.com/science/news/110419/scn11041909150001-n1.htm" title="クリックして拡大する金沢大などが開発した、水に溶けた放射性物質を効率良く捕まえて沈殿させることが期待される粉末（太田富久金沢大教授提供） 水に溶けた放射性のヨウ素やセシウム、ストロンチウムなどを、効率良く捕まえて沈殿させる可能性のある粉末を、太田富久金沢大教授（天然物化学）とクマケン工業（秋田県横手市）が１９日までに開発した。福島第１原発でたまっている、放射性物質で汚染された水の処理に応用が期待さ..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fsankei.jp.msn.com%252Fscience%252Fnews%252F110419%252Fscn11041909150001-n1.htm" alt="" title="" class="favicon" /></a><a href="httpdisabled://sankei.jp.msn.com/science/news/110419/scn11041909150001-n1.htm" title="クリックして拡大する金沢大などが開発した、水に溶けた放射性物質を効率良く捕まえて沈殿させることが期待される粉末（太田富久金沢大教授提供） 水に溶けた放射性のヨウ素やセシウム、ストロンチウムなどを、効率良く捕まえて沈殿させる可能性のある粉末を、太田富久金沢大教授（天然物化学）とクマケン工業（秋田県横手市）が１９日までに開発した。福島第１原発でたまっている、放射性物質で汚染された水の処理に応用が期待さ..." target="_blank">【放射能漏れ】放射性物質捕まえる粉開発　汚染水を浄..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://sankei.jp.msn.com/science/news/110419/scn11041909150001-n1.htm" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00089.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://www.yomiuri.co.jp/science/news/20110419-OYT1T00394.htm" title="福島第一原子力発電所の事故で、東京電力が実施した２号機の原子炉建屋内の放射線量の調査で、データが取得できなかったことが１９日分かった。 経済産業省原子力安全・保安院が明らかにした。 ２号機の調査は１８日午後、約５０分間実施された。東電社員らが映像を確認しながら操作、マジックハンドで建屋入り口の扉を開けて進入した。放射線量の表示部をカメラで撮影する手法だったが、建屋内の湿度が高く、レンズがくもったた..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fwww.yomiuri.co.jp%252Fscience%252Fnews%252F20110419-OYT1T00394.htm" alt="" title="" class="favicon" /></a><a href="httpdisabled://www.yomiuri.co.jp/science/news/20110419-OYT1T00394.htm" title="福島第一原子力発電所の事故で、東京電力が実施した２号機の原子炉建屋内の放射線量の調査で、データが取得できなかったことが１９日分かった。 経済産業省原子力安全・保安院が明らかにした。 ２号機の調査は１８日午後、約５０分間実施された。東電社員らが映像を確認しながら操作、マジックハンドで建屋入り口の扉を開けて進入した。放射線量の表示部をカメラで撮影する手法だったが、建屋内の湿度が高く、レンズがくもったた..." target="_blank">レンズがくもって…放射線量データ読み取れず : 科学 : ..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://www.yomiuri.co.jp/science/news/20110419-OYT1T00394.htm" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00047.gif" alt="" class="users"></a></li>
+              <li><a href="httpdisabled://www.gizmodo.jp/2011/04/quantumcat.html" title="サイエンス , 大学研究モノ 東大がシュレーディンガーの猫状態の光を量子テレポーテーションさせることに成功したらしい！　シュレーディンガーの猫とはどんなネコなのか　 2011.04.19 11:30 [0] [0] Tweet Check 量子コンピュータの実現に向け大きく前進!?　 「シュレーディンガーの猫」は量子力学のパラドックスとして非常に有名ですが、なんと東大が「シュレーディンガーの猫状態..." target="_blank"><img src="../favicon.hatena.ne.jp/index.html@url=http%253A%252F%252Fwww.gizmodo.jp%252F2011%252F04%252Fquantumcat.html" alt="" title="" class="favicon" /></a><a href="httpdisabled://www.gizmodo.jp/2011/04/quantumcat.html" title="サイエンス , 大学研究モノ 東大がシュレーディンガーの猫状態の光を量子テレポーテーションさせることに成功したらしい！　シュレーディンガーの猫とはどんなネコなのか　 2011.04.19 11:30 [0] [0] Tweet Check 量子コンピュータの実現に向け大きく前進!?　 「シュレーディンガーの猫」は量子力学のパラドックスとして非常に有名ですが、なんと東大が「シュレーディンガーの猫状態..." target="_blank">東大がシュレーディンガーの猫状態の光を量子テレポー..</a>&nbsp;<a href="httpdisabled://b.hatena.ne.jp/entry/http://www.gizmodo.jp/2011/04/quantumcat.html" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00075.gif" alt="" class="users"></a></li>
+            </ul>
+            <p class="more" id="hotentry_list_link"><a href="httpdisabled://b.hatena.ne.jp/hotentry/knowledge" class="icon-arrow">もっと見る</a></p>
+          </div>
+          <div class="ad ad-banner">
+            <script type="text/javascript" src="../ad-hatena.jp/ad@cid=411&amp;encode=utf8" charset="utf-8"></script><noscript><iframe src="../ad-hatena.jp/adframe@cid=411&amp;encode=utf8.html" height="116" width="600" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" frameborder="0" scrolling="no"></iframe></noscript>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="s-bookmarknews-ugomemo">
+        <div class="s-bookmarknews">
+          <h2 class="title"><a href="httpdisabled://b.hatena.ne.jp/articles"><img src="images/h2_s_bookmark2.gif" alt="" /></a></h2>
+                  <div class="hatena-module">
+                <div class="hatena-modulebody">
+                        <ul class="hatena-rss" id="hatena-rss-info">
+                                <li>04/19 <a href="index.html" class="icon"><img class="icon" alt="はてな" title="はてな" src="tools/hatenasearch.png"></a><a href="httpdisabled://b.hatena.ne.jp/articles/201104/3486" title="これまではてなブックマークニュースでご紹介した、“ちょっとユニークなお出かけプラン”を集めました。家族旅行、デート、ぶらり1人旅などいろいろな場面で使えます。" class="hatena-rss-info-item">いつもと違う“お出かけ”プラン</a><span class="star-container"></span><a href="httpdisabled://b.hatena.ne.jp/entry/http://b.hatena.ne.jp/articles/201104/3486" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00053.gif" alt="" class="users"></a><span class=void"><img src="void.gif" class="more" alt="本文を開く"></span><blockquote class=void" style="display:none;"><p>これまではてなブックマークニュースでご紹介した、“ちょっとユニークなお出かけプラン”を集めました。家族旅行、デート、ぶらり1人旅などいろいろな場面で使えます。</p></blockquote></li>
+                                <li>04/19 <a href="index.html" class="icon"><img class="icon" alt="はてな" title="はてな" src="tools/hatenasearch.png"></a><a href="httpdisabled://b.hatena.ne.jp/articles/201104/3502" title="Twitterの画面を見ていないときでも、どんなツイートが飛び交っているのか気になってしまう、という人は少なくないでしょう。近頃では、ツイートの内容を読み上げたり光で表示したりする、ちょっと変わったおもちゃが話題を集めています。もっとTwitterを楽しみたいという人にぴったりのTwitterガジェットを4つご紹介します。" class="hatena-rss-info-item">Twitter関連のガジェット4つ</a><span class="star-container"></span><a href="httpdisabled://b.hatena.ne.jp/entry/http://b.hatena.ne.jp/articles/201104/3502" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00026.gif" alt="" class="users"></a><span class=void"><img src="void.gif" class="more" alt="本文を開く"></span><blockquote class=void" style="display:none;"><p>Twitterの画面を見ていないときでも、どんなツイートが飛び交っているのか気になってしまう、という人は少なくないでしょう。近頃では、ツイートの内容を読み上げたり光で表示したりする、ちょっと変わったおもちゃが話題を集めています。もっとTwitterを楽しみたいという人にぴったりのTwitterガジェットを4つご紹介します。</p></blockquote></li>
+                                <li>04/19 <a href="index.html" class="icon"><img class="icon" alt="はてな" title="はてな" src="tools/hatenasearch.png"></a><a href="httpdisabled://b.hatena.ne.jp/articles/201104/1774" title="あなたが毎日使っている「かばん」、気付くと中身がゴチャゴチャになっていませんか？肝心な時に中身が取り出しにくくなってしまっては、お気に入りのかばんも台無し。そこで、ゴチャゴチャしたかばんの中身をスッキリ整理するアイデアを4つご紹介します。" class="hatena-rss-info-item">「かばんの中身」を整理する方法</a><span class="star-container"></span><a href="httpdisabled://b.hatena.ne.jp/entry/http://b.hatena.ne.jp/articles/201104/1774" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00123.gif" alt="" class="users"></a><span class=void"><img src="void.gif" class="more" alt="本文を開く"></span><blockquote class=void" style="display:none;"><p>あなたが毎日使っている「かばん」、気付くと中身がゴチャゴチャになっていませんか？肝心な時に中身が取り出しにくくなってしまっては、お気に入りのかばんも台無し。そこで、ゴチャゴチャしたかばんの中身をスッキリ整理するアイデアを4つご紹介します。</p></blockquote></li>
+                                <li>04/19 <a href="index.html" class="icon"><img class="icon" alt="はてな" title="はてな" src="tools/hatenasearch.png"></a><a href="httpdisabled://b.hatena.ne.jp/articles/201104/2094" title="焼肉やステーキなど肉料理は男女年齢問わず人気のメニューですが、とろけるような高級な肉を毎回の食事で使うのはなかなか難しいですよね。スーパーの特売などで手に入る手頃な値段の肉をおいしく食べる裏技をご紹介します。" class="hatena-rss-info-item">「安い肉」をおいしく食べる裏技</a><span class="star-container"></span><a href="httpdisabled://b.hatena.ne.jp/entry/http://b.hatena.ne.jp/articles/201104/2094" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00198.gif" alt="" class="users"></a><span class=void"><img src="void.gif" class="more" alt="本文を開く"></span><blockquote class=void" style="display:none;"><p>焼肉やステーキなど肉料理は男女年齢問わず人気のメニューですが、とろけるような高級な肉を毎回の食事で使うのはなかなか難しいですよね。スーパーの特売などで手に入る手頃な値段の肉をおいしく食べる裏技をご紹介します。</p></blockquote></li>
+                                <li>04/18 <a href="index.html" class="icon"><img class="icon" alt="はてな" title="はてな" src="tools/hatenasearch.png"></a><a href="httpdisabled://b.hatena.ne.jp/articles/201104/3650" title="天体観測のスポットとして有名なスペイン最高峰「テイデ山」で撮影された動画が、「美しすぎる」とはてなブックマークや2ちゃんねるで話題になっています。" class="hatena-rss-info-item">美しき空と雲と星の織りなす動画</a><span class="star-container"></span><a href="httpdisabled://b.hatena.ne.jp/entry/http://b.hatena.ne.jp/articles/201104/3650" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00062.gif" alt="" class="users"></a><span class=void"><img src="void.gif" class="more" alt="本文を開く"></span><blockquote class=void" style="display:none;"><p>天体観測のスポットとして有名なスペイン最高峰「テイデ山」で撮影された動画が、「美しすぎる」とはてなブックマークや2ちゃんねるで話題になっています。</p></blockquote></li>
+                                <li>04/18 <a href="index.html" class="icon"><img class="icon" alt="はてな" title="はてな" src="tools/hatenasearch.png"></a><a href="httpdisabled://b.hatena.ne.jp/articles/201104/3630" title="ボディに本物のヒノキを使用したNTTドコモの携帯電話「TOUCH WOOD SH-08C」のテレビCMが、「すごい」「素敵」とはてなブックマークで話題になっています。CMのタイトルは「森の木琴」。一体どんな内容なのでしょうか？" class="hatena-rss-info-item">ドコモCM「森の木琴」がすごい</a><span class="star-container"></span><a href="httpdisabled://b.hatena.ne.jp/entry/http://b.hatena.ne.jp/articles/201104/3630" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00041.gif" alt="" class="users"></a><span class=void"><img src="void.gif" class="more" alt="本文を開く"></span><blockquote class=void" style="display:none;"><p>ボディに本物のヒノキを使用したNTTドコモの携帯電話「TOUCH WOOD SH-08C」のテレビCMが、「すごい」「素敵」とはてなブックマークで話題になっています。CMのタイトルは「森の木琴」。一体どんな内容なのでしょうか？</p></blockquote></li>
+                                <li>04/18 <a href="index.html" class="icon"><img class="icon" alt="はてな" title="はてな" src="tools/hatenasearch.png"></a><a href="httpdisabled://b.hatena.ne.jp/articles/201104/3654" title="滋賀県湖南市の観光物産協会は、ネット上で猫の代表を決める選挙「こにゃん市長選挙」を行います。立候補できるのは、「湖南市在住の飼い猫」です。届け出の締め切りは4月19日（火）正午まで。投票期間は4月24日（日）0時から4月26日（火）9時までで、最終日に即日開票されます。" class="hatena-rss-info-item">湖南市で猫の「こにゃん市長選挙...</a><span class="star-container"></span><a href="httpdisabled://b.hatena.ne.jp/entry/http://b.hatena.ne.jp/articles/201104/3654" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00029.gif" alt="" class="users"></a><span class=void"><img src="void.gif" class="more" alt="本文を開く"></span><blockquote class=void" style="display:none;"><p>滋賀県湖南市の観光物産協会は、ネット上で猫の代表を決める選挙「こにゃん市長選挙」を行います。立候補できるのは、「湖南市在住の飼い猫」です。届け出の締め切りは4月19日（火）正午まで。投票期間は4月24日（日）0時から4月26日（火）9時までで、最終日に即日開票されます。</p></blockquote></li>
+                                <li>04/18 <a href="index.html" class="icon"><img class="icon" alt="はてな" title="はてな" src="tools/hatenasearch.png"></a><a href="httpdisabled://b.hatena.ne.jp/articles/201104/3638" title="「@nifty」や「ココログ」などのインターネットサービスを展開するニフティは4月15日（金）、同社の創立25周年を記念した特設サイトを公開しました。懐かしのパソコン通信を体験できるコンテンツ「NIFTY-Serve（ニフティサーブ）」が登場し、はてなブックマークでは「懐かしい！」「泣けてくる」といった声が集まっています。" class="hatena-rss-info-item">ニフティ25周年でパソコン通信復...</a><span class="star-container"></span><a href="httpdisabled://b.hatena.ne.jp/entry/http://b.hatena.ne.jp/articles/201104/3638" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00023.gif" alt="" class="users"></a><span class=void"><img src="void.gif" class="more" alt="本文を開く"></span><blockquote class=void" style="display:none;"><p>「@nifty」や「ココログ」などのインターネットサービスを展開するニフティは4月15日（金）、同社の創立25周年を記念した特設サイトを公開しました。懐かしのパソコン通信を体験できるコンテンツ「NIFTY-Serve（ニフティサーブ）」が登場し、はてなブックマークでは「懐かしい！」「泣けてくる」といった声が集まっています。</p></blockquote></li>
+                                <li>04/18 <a href="index.html" class="icon"><img class="icon" alt="はてな" title="はてな" src="tools/hatenasearch.png"></a><a href="httpdisabled://b.hatena.ne.jp/articles/201104/3642" title="先週（2011/4/11-2011/4/17）のはてなブックマークで話題になった人気エントリーのランキングと、ニュース編集部が注目したエントリーをご紹介します。「ぽぽぽぽ?ん」のフレーズでおなじみのあのCMの内容を、実際に“試してみた”というエントリーが話題になっています。" class="hatena-rss-info-item">あいさつで友達に？週間トップ10</a><span class="star-container"></span><a href="httpdisabled://b.hatena.ne.jp/entry/http://b.hatena.ne.jp/articles/201104/3642" class="users"><img src="../cdn.b.st-hatena.com/images/users/gif/normal/00011.gif" alt="" class="users"></a><span class=void"><img src="void.gif" class="more" alt="本文を開く"></span><blockquote class=void" style="display:none;"><p>先週（2011/4/11-2011/4/17）のはてなブックマークで話題になった人気エントリーのランキングと、ニュース編集部が注目したエントリーをご紹介します。「ぽぽぽぽ?ん」のフレーズでおなじみのあのCMの内容を、実際に“試してみた”というエントリーが話題になっています。</p></blockquote></li>
+                        </ul>
+                </div>
+        </div>
+
+        </div>
+        <div class="s-ugomemo">
+          <h2 class="title" style="background:#81c106;"><a href="httpdisabled://ugomemo.hatena.ne.jp/"><img src="images/h2_s_ugomemo2.gif" alt="" /></a></h2>
+	  <div class="ugomemo-ranking">
+            <div class="ugomemo-catch">ニンテンドーDSiで無料ダウンロード！<br />「うごくメモ帳」で始まる新感覚コミュニケーション </div>
+            <h3><img src="images/h3_s_ugomemo.gif" alt="うごメモランキング"></h3>
+            <ul class="inline-list"><li class="ranking-count1"><a href="httpdisabled://ugomemo.hatena.ne.jp/55F802D01E19650A@DSi/movie/19650A_0A987C37981AB_007" title="1位 Scribbl£r™さんの作品"><img src="../d30yeejxd3syp9.cloudfront.net/thumbnail/55F802D01E19650A/19650A_0A987C37981AB_007_m.gif" alt="1位 Scribbl£r™さんの作品" class="thumb thumb-large" /><span><img src="images/ranking_count1.gif" alt="1位"></span></a></li><li class="ranking-count2"><a href="httpdisabled://ugomemo.hatena.ne.jp/5599F43051050CC2@DSi/movie/050CC2_0A91FF987AC2F_024" title="2位 Ⓐnthonyさんの作品"><img src="../d30yeejxd3syp9.cloudfront.net/thumbnail/5599F43051050CC2/050CC2_0A91FF987AC2F_024_s.gif" alt="2位 Ⓐnthonyさんの作品" class="thumb thumb-small" /><span><img src="images/ranking_count2.gif" alt="2位"></span></a></li><li class="ranking-count3"><a href="httpdisabled://ugomemo.hatena.ne.jp/5E2A2A402747B567@DSi/movie/47B567_0A8D5D559539B_088" title="3位 Ep!と™さんの作品"><img src="../d30yeejxd3syp9.cloudfront.net/thumbnail/5E2A2A402747B567/47B567_0A8D5D559539B_088_s.gif" alt="3位 Ep!と™さんの作品" class="thumb thumb-small" /><span><img src="images/ranking_count3.gif" alt="3位"></span></a></li><li class="ranking-count4"><a href="httpdisabled://ugomemo.hatena.ne.jp/5CF01EA0CE37D62C@DSi/movie/37D62C_0A9724A62EC3B_001" title="4位 charzacさんの作品"><img src="../d30yeejxd3syp9.cloudfront.net/thumbnail/5CF01EA0CE37D62C/37D62C_0A9724A62EC3B_001_s.gif" alt="4位 charzacさんの作品" class="thumb thumb-small" /><span><img src="images/ranking_count4.gif" alt="4位"></span></a></li><li class="ranking-count5"><a href="httpdisabled://ugomemo.hatena.ne.jp/54B6AF501E13CA73@DSi/movie/13CA73_0A97BBB100E71_009" title="5位 fredさんの作品"><img src="../d30yeejxd3syp9.cloudfront.net/thumbnail/54B6AF501E13CA73/13CA73_0A97BBB100E71_009_s.gif" alt="5位 fredさんの作品" class="thumb thumb-small" /><span><img src="images/ranking_count5.gif" alt="5位"></span></a></li><li class="ranking-count6"><a href="httpdisabled://ugomemo.hatena.ne.jp/1DF31790CEF95F2C@DSi/movie/F95F2C_0A97C17983867_002" title="6位 レモンぐま(←さんの作品"><img src="../d30yeejxd3syp9.cloudfront.net/thumbnail/1DF31790CEF95F2C/F95F2C_0A97C17983867_002_s.gif" alt="6位 レモンぐま(←さんの作品" class="thumb thumb-small" /><span><img src="images/ranking_count6.gif" alt="6位"></span></a></li><li class="ranking-count7"><a href="httpdisabled://ugomemo.hatena.ne.jp/5072CD10C59CEAA9@DSi/movie/9CEAA9_0A96E2816A61D_018" title="7位 All★Star♥™さんの作品"><img src="../d30yeejxd3syp9.cloudfront.net/thumbnail/5072CD10C59CEAA9/9CEAA9_0A96E2816A61D_018_s.gif" alt="7位 All★Star♥™さんの作品" class="thumb thumb-small" /><span><img src="images/ranking_count7.gif" alt="7位"></span></a></li>
+            </ul>
+          </div>
+          <div class="ugomemo-topics"><script type="text/javascript" src="../ad-hatena.jp/ad@cid=281&amp;encode=utf8" charset="utf-8"></script></div>
+        </div>
+      </div>
+      <div class="service" id="s-diary" style="clear:both;">
+        <h2 class="title"><img src="images/h2_s_diary.gif" alt="おすすめ日記" class="csschanger" /><span class="service-name"><a href="httpdisabled://d.hatena.ne.jp/">はてなダイアリー</a></span></h2>
+        <div class="osusume osusume-l">
+          <h3><a href="httpdisabled://d.hatena.ne.jp/fujinkoron/"><img src="../d.hatena.ne.jp/images/diary/f/fujinkoron/fujinkoron.gif" alt="" title="" class="profileimg" />婦人公論ブログ</a></h3> 
+          <p><a href="httpdisabled://d.hatena.ne.jp/fujinkoron/">90周年を迎えた雑誌『婦人公論』の編集部からお届けします、ここだけの話。</a></p>
+        </div>
+        <div class="osusume osusume-l"> 
+          <h3><a href="httpdisabled://d.hatena.ne.jp/founder/"><img src="../d.hatena.ne.jp/images/diary/f/founder/founder_p.gif" alt="" title="" class="profileimg" />成毛眞ブログ</a></h3>
+          <p><a href="httpdisabled://d.hatena.ne.jp/founder/">成毛眞がおすすめの本を紹介するブログ</a></p>
+        </div>
+        <div class="osusume osusume-l">
+          <h3><a href="httpdisabled://d.hatena.ne.jp/oracletechnologynetwork/"><img src="users/or/oracletechnologynetwork/profile.gif" alt="" title="" class="profileimg" />OTN Japan TechBlog</a></h3> 
+          <p><a href="httpdisabled://d.hatena.ne.jp/oracletechnologynetwork/">日本オラクルの公式技術サイトOTN-Japan事務局が提供するブログ</a></p>
+        </div>
+        <div class="osusume osusume-r">
+          <h3><a href="httpdisabled://d.hatena.ne.jp/Tomio/"><img src="../d.hatena.ne.jp/images/diary/T/Tomio/Tomio.jpg" alt="" title="" class="profileimg" />この門をくぐる者は一切の高望みを捨てよ</a></h3> 
+          <p><a href="httpdisabled://d.hatena.ne.jp/Tomio/">『太陽の塔』『夜は短し歩けよ乙女』を執筆、森見登美彦氏の近況</a></p>
+        </div>
+      </div>
+      <div style="text-align:center;padding:1em 1em 2em 1em;" class="minwidth">
+        <script type="text/javascript" src="../red.hatena.ne.jp/ad@cid=190&amp;encode=utf8" charset="utf-8"></script>
+        <noscript>
+        <iframe src="../red.hatena.ne.jp/adframe@cid=190&amp;encode=utf8.html" height="60" width="468" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+        </noscript>
+      </div>
+    </div>
+    <div id="sidebar">
+       <a href="httpdisabledsdisabled://www.hatena.ne.jp/register" class="side_register"><img src="images/btn-register-orange.gif" alt="ユーザー登録（無料）" title="ユーザー登録（無料）" class="btn" /></a>
+     <!-- div style="padding-bottom:5px;" class="side_campaign">
+       <script type="text/javascript" src="httpdisabled://red.hatena.ne.jp/ad?cid=262&encode=utf8" charset="utf-8"></script>
+       <noscript><iframe src="httpdisabled://red.hatena.ne.jp/adframe?cid=262&encode=utf8" height="106" width="241" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" frameborder="0" scrolling="no"></iframe></noscript>
+      </div -->
+     <!-- rectangle guest -->
+      <div class="ad" id="ad-red-417">
+        <noscript>
+        <iframe src="../red.hatena.ne.jp/adframe@cid=417&amp;encode=utf8.html" height="250" width="300" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+        </noscript>
+      </div>
+
+
+      <div class="box">
+        <div class="box-title"><a href="httpdisabled://www.hatena.ne.jp/lineup">サービス紹介</a></div>
+        <div class="box-body">
+          <ul class="servicelist">
+            <li><a href="httpdisabled://c.hatena.ne.jp/"><img src="images/sidebar_service_c.gif" alt="はてなココ" title="はてなココ" /></a></li>
+            <li><a href="httpdisabled://mono.hatena.ne.jp/"><img src="images/sidebar_service_mono.gif" alt="はてなモノリス" title="はてなモノリス" /></a></li>
+            <li><a href="httpdisabled://ugomemo.hatena.ne.jp/"><img src="images/sidebar_service_u.gif" alt="うごメモはてな" title="うごメモはてな" /></a></li>
+            <li><a href="httpdisabled://d.hatena.ne.jp/"><img src="images/sidebar_service_d.gif" alt="はてなダイアリー" title="はてなダイアリー" /></a></li>
+            <li><a href="httpdisabled://b.hatena.ne.jp/"><img src="images/sidebar_service_b.gif" alt="はてなブックマーク" title="はてなブックマーク" /></a></li>
+            <li><a href="httpdisabled://f.hatena.ne.jp/"><img src="images/sidebar_service_f.gif" alt="はてなフォトライフ" title="はてなフォトライフ" /></a></li>
+            <li><a href="httpdisabled://h.hatena.ne.jp/"><img src="images/sidebar_service_h.gif" alt="はてなハイク" title="はてなハイク" /></a></li>
+            <li><a href="httpdisabled://k.hatena.ne.jp/"><img src="images/sidebar_service_k.gif" alt="はてなキーワード" title="はてなキーワード" /></a></li>
+          </ul>
+        </div>
+      </div>
+       </div>
+  </div>
+  <!-- body -->
+</div>
+<!-- container -->
+<div id="footer">
+  <div id="footer-container">
+    <div class="footer-box">
+      <h2><a href="httpdisabled://www.hatena.ne.jp/info/" title="お知らせ・新着情報"><img src="images/footer_title_info.gif" alt="お知らせ・新着情報" /></a></h2>
+            <ul class="menu list">
+        <li>04/18 <a href="httpdisabled://hatena.g.hatena.ne.jp/hatenabookmark/" class="icon"><img class="icon" alt="はてなブックマーク日記" title="はてなブックマーク日記" src="images/top/side_b.gif"></a><a href="httpdisabled://hatena.g.hatena.ne.jp/hatenabookmark/20110418/1303096163" title="APCの無停電電源装置の紹介記事で開催していたキャンペーンを終了いたしました。 はてなサーバーエンジニアのid:halfrackが無停電電源装置を体験したはてなブックマークニュースの記事は、以下から" class="hatena-rss-info-item">「APCの無停電電源装置をはてな...</a></li>
+        <li>04/15 <a href="httpdisabled://d.hatena.ne.jp/ugomemonews/" class="icon"><img class="icon" alt="週刊うごメモはてなニュース" title="週刊うごメモはてなニュース" src="images/top/side_u.gif"></a><a href="httpdisabled://d.hatena.ne.jp/ugomemonews/20110415/1302877894" title="こんにちは！はてなのれいこんです。 およそ1ヶ月ぶりのうごメモはてなニュースです。楽しみに待っていてくれたみなさん、どうもありがとう！ うごメモはてなスタッフのいる京都は桜が満開です。今日からまた、" class="hatena-rss-info-item">うごメモで春を楽しもう！みん...</a></li>
+        <li>04/14 <a href="httpdisabled://hatena.g.hatena.ne.jp/hatenamagazine/" class="icon"><img class="icon" alt="はてなメールマガジン『週刊はてな』" title="はてなメールマガジン『週刊はてな』" src="tools/hatenasearch.png"></a><a href="httpdisabled://hatena.g.hatena.ne.jp/hatenamagazine/20110414/1302776460" title="?--------?-------?-------?-------?-------?-------?-------?--------? はてなメールマガジン 『週刊はてな』 http://www.h" class="hatena-rss-info-item">キーワードでブログのクチコミ...</a></li>
+        <li>04/14 <a href="httpdisabled://d.hatena.ne.jp/hatenadiary/" class="icon"><img class="icon" alt="はてなダイアリー日記" title="はてなダイアリー日記" src="images/top/side_d.gif"></a><a href="httpdisabled://d.hatena.ne.jp/hatenadiary/20110414/1302764816" title="毎週更新されるお題に答える、はてなダイアリーの恒例企画「今週のお題」。今週は、「心に残った本」です！ 「全国書店員が選んだ いちばん！売りたい本 2011年本屋大賞」が発表されました。書店員さんたち" class="hatena-rss-info-item">今週のお題は「心に残った本」...</a></li>
+        <li>04/12 <a href="httpdisabled://d.hatena.ne.jp/hatenadiary/" class="icon"><img class="icon" alt="はてなダイアリー日記" title="はてなダイアリー日記" src="images/top/side_d.gif"></a><a href="httpdisabled://d.hatena.ne.jp/hatenadiary/20110412/1302593095" title="本日、はてなダイアリー本文中のキーワード抽出方法を変更しました。これにより、キーワード抽出精度が向上しました。 はてなダイアリーはこれまで、ある正規表現で本文内のキーワードを抽出し、はてなキーワード" class="hatena-rss-info-item">本文中のキーワード抽出精度が...</a></li>
+        <li>04/12 <a href="httpdisabled://hatena.g.hatena.ne.jp/hatenaquestion/" class="icon"><img class="icon" alt="人力検索はてなの日記" title="人力検索はてなの日記" src="images/top/side_q.gif"></a><a href="httpdisabled://hatena.g.hatena.ne.jp/hatenaquestion/20110412/1302581475" title="2011年4月12日11時20分頃から12時00分まで、人力検索はてなにて、質問が投稿できない不具合と、サイトにつながりにくい不具合がありました。これらの不具合は現在復旧済みです。不具合の原因はデー" class="hatena-rss-info-item">（復旧済み）人力検索はてなで...</a></li>
+      </ul>
+
+      <p class="more"><a href="httpdisabled://www.hatena.ne.jp/info/" title="お知らせ・新着情報" class="icon-arrow">もっと見る</a></p>
+    </div>
+    <div class="footer-box">
+      <h2><a href="httpdisabled://www.hatena.ne.jp/company/" title="会社情報"><img src="images/footer_title_company.gif" alt="会社概要" /></a></h2>
+      <ul class="menu list">
+        <li><a href="httpdisabled://www.hatena.ne.jp/company/">会社情報</a></li>
+        <li><a href="httpdisabled://www.hatena.ne.jp/company/staff">求人情報</a></li>
+        <li><a href="httpdisabled://d.hatena.ne.jp/hatenapr/">広報ブログ</a></li>
+        <li><a href="httpdisabled://d.hatena.ne.jp/hatenatech/">技術ブログ</a></li>
+        <li><a href="httpdisabled://www.hatena.ne.jp/company/staff/intern">インターン</a></li>
+        <li><a href="httpdisabled://hatenasales.g.hatena.ne.jp/">広告掲載について</a></li>
+        <li><a href="httpdisabled://www.hatena.ne.jp/rule/rule">利用規約</a></li>
+        <li><a href="httpdisabled://www.hatena.ne.jp/rule/privacypolicy">プライバシーポリシー</a></li>
+        <li><a href="httpdisabled://www.hatena.ne.jp/help/link">ヘルプ・お問い合わせ</a></li>
+        <li><a href="httpdisabled://www.hatena.ne.jp/company/tokutei">特定商取引法に基づく表示</a></li>
+      </ul>
+    </div>
+    <div class="footer-box" style="margin-right:0;">
+      <h2><img src="images/footer-title-more.gif" alt="もっとはてな" /></h2>
+      <ul class="menu list">
+        <li><a href="httpdisabled://www.hatena.ne.jp/company/service">サービス概要</a></li>
+        <li><a href="httpdisabled://hatelabo.jp/">はてラボ</a></li>
+        <li><a href="httpdisabled://www.hatena.ne.jp/tool/">便利なツール</a></li>
+        <li><a href="httpdisabled://www.hatena.ne.jp/info/hatenatshirts">はてなグッズ・アイテム紹介</a></li>
+        <li><a href="httpdisabledsdisabled://www.hatena.ne.jp/shop/star?via=100004">カラースターショップ</a>
+        <li><a href="httpdisabled://developer.hatena.ne.jp/">技術者向け情報</a></li>
+        <li><a href="httpdisabled://www.hatena.ne.jp/maintenance">障害情報</a></li>
+        <li><a href="httpdisabled://hatena.g.hatena.ne.jp/hatenamagazine/">メルマガ</a></li>
+        <li><a href="httpdisabled://d.hatena.ne.jp/diarylist?mode=staff">スタッフ日記</a></li>
+      </ul>
+    </div>
+    <div class="footer-box"><a href="httpdisabled://www.hatena.ne.jp/company/recruit2012/"><img src="images/recruit2012/recruit-portal-banner.jpg" alt="はてな 2012年度 新卒採用サイト" /></a><!--<script type="text/javascript" src="httpdisabled://red.st-hatena.com/ad?cid=330&encode=utf8" charset="utf-8"></script>--></div>
+    <div class="footer-box" ><script type="text/javascript" src="../red.st-hatena.com/ad@cid=299&amp;encode=utf8" charset="utf-8"></script></div>
+    <div class="footer-box" style="margin-right:0;"> <script type="text/javascript" src="../red.st-hatena.com/ad@cid=320&amp;encode=utf8" charset="utf-8"></script> </div>
+        <div id="copyright">Copyright (C) 2001-2011 Hatena. All Rights Reserved.</div>
+  </div>
+</div>
+
+<!-- rectangle lazy loaddisabled -->
+<script type="text/javascript" src="../red.hatena.ne.jp/ad@cid=417&amp;element_id=ad-red-417&amp;encode=utf8" charset="utf-8"></script>
+<script type="text/javascript">
+var gaJsHost = (("httpdisabledsdisabled:" == document.location.protocol) ? "httpdisabledsdisabled://ssl." : "httpdisabled://www.");
+void(unescape("%3Cscript src='../ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var firstTracker = _gat._getTracker("UA-441387-1");
+firstTracker._initData();
+firstTracker._trackPageview();
+var secondTracker = _gat._getTracker("UA-7855606-1");
+secondTracker._setDomainName(".hatena.ne.jp");
+secondTracker._initData();
+secondTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+</html>

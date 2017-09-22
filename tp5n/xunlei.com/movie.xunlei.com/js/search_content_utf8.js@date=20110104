@@ -1,0 +1,31 @@
+var searchTextArr=new Array();
+searchTextArr[0]='观音山';
+searchTextArr[1]='画皮';
+searchTextArr[2]='美人心计';
+searchTextArr[3]='关云长';
+searchTextArr[4]='小姨多鹤';
+searchTextArr[5]='将爱情进行到底';
+searchTextArr[6]='盘龙卧虎高山顶';
+searchTextArr[7]='狙击生死线';
+searchTextArr[8]='天使的诱惑';
+searchTextArr[9]='女娲传说之灵珠';
+
+var searchTextTimer = null;
+
+function setSearchInputContent(obj){
+        var searchTextTime = 0;
+        if(obj&&!searchTextTimer){
+                obj.value = searchTextArr[0];
+                searchTextTimer = setInterval(function(){
+                        obj.value = searchTextArr[searchTextTime%searchTextArr.length];
+                        setTimeout(function(){obj.blur()},500);
+                        //obj.blur();
+                        searchTextTime++;
+                },10000)
+        }
+}
+
+function stopSearchTextTimer(){
+        clearInterval(searchTextTimer);
+        searchTextTimer = null;
+}

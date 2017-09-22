@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title></title>
+	</head>
+	<body style="margin:0;padding:0;border:0;" onload="resizeIframe();">
+		<script type="text/javascript">
+			var _href = document.location.href;
+			var _parameters = _href.split('#')[1];
+			if(_parameters != undefined)
+				document.write('<sc'+'ript type="text/javascript" src="http://ad.doubleclick.net/adj/'+_parameters+'"><\/script>');
+			function resizeIframe() {
+				if(top !== self) {
+					var iframes = parent.document.getElementsByTagName('iframe');
+					for(i = 0; i < iframes.length; i++) {
+						if(iframes[i].src == document.location.href) {
+							iframes[i].height = document.body.scrollHeight;
+							iframes[i].width = document.body.scrollWidth;
+							iframes[i].hspace = 0;
+							iframes[i].vspace = 0;
+							break;
+						}
+					}
+				}
+			}			
+		</script>
+	</body>
+</html>

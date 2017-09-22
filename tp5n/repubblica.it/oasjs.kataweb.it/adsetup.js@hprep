@@ -1,0 +1,22 @@
+
+OAS_sitepage = 'repubblica.it/nz/home';
+OAS_listpos = 'Right1,Position3,Position2,Top3,Middle1,Top2,Top1,TopLeft,Middle2,Left,Left1,Left2,Top,x61,x62,x63,x41,x42,x43,x44,x45,x46,Position1';
+OAS_query = '';
+OAS_pos_speciale = '';
+OAS_listmediapos = '';
+
+OAS_url ='http://oas.repubblica.it/RealMedia/ads/';
+OAS_rn = '001234567890'; OAS_rns = '1234567890';
+OAS_rn = new String (Math.random()); OAS_rns = OAS_rn.substring (2, 11);
+OAS_req = OAS_sitepage+'/1'+OAS_rns+'@'+OAS_listpos;
+
+function OAS_RICH(pos) {
+  void('<A HREF="'+OAS_url+'click_nx.ads/'+OAS_req+'!'+pos+OAS_query+'" TARGET="_blank" >');
+  void('<IMG SRC="'+OAS_url+'adstream_nx.ads/'+OAS_req+'!'+pos+OAS_query+'" BORDER=0></A>');
+}
+
+// The following lines will override the  OAS_RICH function using the Open AdStream MJX call.
+if (navigator.userAgent.indexOf('Mozilla/3') == -1) {
+  void('<SC'+'RIPT LANGUAGE=JavaScript SRC="'+OAS_url+'adstream_mjx.ads/'+OAS_req+OAS_query+'"></SCRIPT>');
+};
+

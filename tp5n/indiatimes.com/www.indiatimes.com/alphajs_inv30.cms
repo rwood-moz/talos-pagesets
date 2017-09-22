@@ -1,0 +1,2329 @@
+
+var allimg = document.getElementsByTagName("img");
+function posTop() {return typeof window.pageYOffset != 'undefined' ? window.pageYOffset : document.documentElement && document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ? document.body.scrollTop : 0;}
+window.onscroll = lazyloaddisabled
+var lz = false;
+function lazyloaddisabled(){
+if(posTop() > 100 && lz==false){
+for(ai=0;ai<allimg.length;ai++){
+if(!(allimg[ai].getAttribute("_src")==null || allimg[ai].getAttribute("_src")=='')){
+allimg[ai].src = allimg[ai].getAttribute("_src");
+allimg[ai].removeAttribute("_src",0);
+}}lz=true;}}
+function CloseHide(){
+document.getElementById('newsbrk').innerHTML =" ";
+document.getElementById('newsbrk').style.display = "none";
+}
+function submitmyformp(f,w,h){
+var ch=0;
+for(i=0;i<document.pollform.PRadio.length;i++){
+if(document.pollform.PRadio[i].checked==1){
+	ch=1;
+	document.pollform.action="httpdisabled://www.indiatimes.com/vote.cms";
+	break;
+}
+}
+if(ch==0){
+	alert("Please select an Option to participate in the poll");
+	return false;
+}
+f.target = 'foo';
+var x = (screen.width - w) / 2; 
+var y = ((screen.height - h) / 2)-100; 
+void('',f.target,'menubar=no,scrollbars=0, width='+w+',height='+h+',top='+y+',left='+x);
+document.pollform.submit();
+return false;
+}
+function b() {		
+if (document.getElementById('searchquery').value == '') {
+document.getElementById('searchquery').style.background = '#FFFFFF url(/photo/5240172.cms) no-repeat right center';
+}
+}
+function f() {
+document.getElementById('searchquery').style.background = '#ffffff';
+}
+var _browser = navigator.appName=="Microsoft Internet Explorer"?"I":"NI";
+var is_chrome=/chrome/.test(navigator.userAgent.toLowerCase());
+
+
+
+
+
+/***********breakingnews**********/
+function hide(){
+getObj('newsbrk').innerHTML = ""
+getObj('newsbrk').style.display = "none";}
+var _stpos = 0;												
+var _imgwt = 0;
+var moving = false;
+var stop = false;	
+function CloseHide(){
+getObj('newsbrk').innerHTML =" ";
+getObj('newsbrk').style.display = "none";}										
+function movebrk(){
+if(stop){
+_stpos = 0;}
+getObj('bnewstickerplaceholder').style.left=(_stpos - 2)+'px';	
+if(getObj('bnewstickerplaceholder').style.left == (_imgwt*-1)+"px"){
+_stpos = 348;}
+_stpos = _stpos - 1;
+if(!stop){
+if(is_chrome){
+setTimeout('movebrk()',10);
+}else {
+setTimeout('movebrk()',15);
+}}}
+function bnews(refreshtime){
+try{
+var breakhttp=false;
+breakhttp = window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP");
+if (breakhttp){
+breakhttp.onreadystatechange=function(){
+if (breakhttp.readyState==4){
+if (breakhttp.status==200){
+var bstr = breakhttp.responseText;
+if(bstr == ""){
+if(getObj("newsbrk").style.display == "inline-block"){
+getObj("newsbrk").style.display = "none";
+}
+}else{
+getObj('bnewstickerplaceholder').innerHTML=bstr;
+getObj("newsbrk").style.display="inline-block";
+_imgwt = getObj("bnewstickerplaceholder").offsetWidth;
+if(_imgwt >= 345 && moving == false){
+moving = true;
+stop = false;
+movebrk();
+}else if(_imgwt < 345 && moving == true){
+stop = true;
+moving = false;
+}}}}}
+void("GET",'http://www.indiatimes.com/inbetabreakingnews/bnews.htm',true);
+breakhttp.send(null);
+}
+}catch (e){breakhttp = false;}	
+setTimeout("bnews("+refreshtime+")",refreshtime);
+}
+function submitmyforma(f){
+		f.target = 'foo';
+		void('',f.target,'menubar=no,scrollbars=no, width=521,height=550');
+		f.submit();
+		return false;
+}
+
+/******* Explore Layer***********/
+
+function SlideDownMsg(divId){
+		this._div=document.getElementById(divId);
+		this._div.style.display="block";
+		this._divHeight = this._div.offsetHeight;
+		this._div.style.top=parseInt(this._div.style.top.substring(0,this._div.style.top.length-2))-this._divHeight+"px";
+		RepositionShosh();
+		this.Down = function(){
+		RepositionShosh();
+		if(parseInt(this._div.style.top.substring(0,this._div.style.top.length-2))<=-3){
+		this._div.style.top=parseInt(this._div.style.top.substring(0,this._div.style.top.length-2))+5+"px";
+        this._div.style.position='relative';
+		setTimeout(divId+".Down()",1);
+		}
+		}
+		this.Up = function(){
+		RepositionShosh();
+		if(parseInt(this._div.style.top.substring(0,this._div.style.top.length-2))>(this._divHeight*-1)){
+		this._div.style.top=parseInt(this._div.style.top.substring(0,this._div.style.top.length-2))-5+"px";
+		this._div.style.position='absolute';
+		this._div.style.display="none";
+		setTimeout(divId+".Up()",1);
+		}
+		}
+		this.Close=function(){
+	this.Up();
+	}
+setTimeout(divId+".Down()",800);
+setTimeout(divId+".Up()",25000);
+}
+
+
+
+/******Set home page***************/
+function setHomepage(what, url){
+if (navigator.appName == 'Microsoft Internet Explorer' && getObj)
+setHomepageExplorer(what, url);
+else if (document.layers || getObj) setHomepageNetscape(what, url);
+return false;}
+function setHomepageNetscape(what, url){
+var warn = 'Due to Netscapes security handling, making Indiatimes ' + 'your homepage, will show you a dialog with a warning.' + 'If you do not wish to grant this site the access to ' + 'your browser settings, you can manually copy ' + 'http://www.indiatimes.com and paste it in the location field in ' + 'Edit|Preferences|Navigator.';
+if (confirm(warn)){
+netscape.security.PrivilegeManager.enablePrivilege("UniversalPreferencesWrite");
+navigator.preference('browser.startup.homepage', url);netscape.security.PrivilegeManager.disablePrivilege("UniversalPreferencesWrite");
+}}
+function setHomepageExplorer(what, url){
+what.style.behavior = 'url(#default#homepage)';
+what.setHomePage(url);
+}
+function evtCap(ee){
+	try{		
+		if (window.event && window.event.srcElement){
+			if(window.event.srcElement.getAttribute("pg")!=null){				
+				pgtrack(window.event.srcElement.getAttribute("pg"));
+			}
+		}
+		else if (ee && ee.stopPropagation && !window.opera){
+				if(ee.target.getAttribute("pg")!=null){
+					pgtrack(ee.target.getAttribute("pg"));
+				}
+				
+
+		}chkDiv(ee);
+	}
+	catch(ex){}
+}
+//try{
+document.onclick = evtCap;
+//document.addEventListener("click", evtCap, true);
+//}
+//catch(ee){}
+
+function chkDiv(e){
+
+var targ;
+if (!e) var e = window.event;
+if (e.target) targ = e.target;
+else if (e.srcElement) targ = e.srcElement;
+var objDiv=document.getElementById("srchcmb2");
+var arrimg=document.getElementById("mnuarr");
+if (targ.nodeName != "HTML")
+{
+while (targ.nodeName != "BODY")
+{
+if (targ.id && targ.id == 'srchcmb2')
+{
+if(objDiv.style.display=="none")
+{objDiv.style.display="block";
+
+}
+else
+{
+objDiv.style.display="none";}
+return;
+}
+else
+{
+if ((targ.id && targ.id == 'srchsel2') || targ.id=='secdiv')
+{
+if(objDiv.style.display=="none")
+{
+objDiv.style.display="block";
+
+arrimg.className='rotimg2';
+
+}
+else
+{
+objDiv.style.display="none";
+arrimg.className='rotimg1';
+}
+return;
+}
+
+else
+targ = targ.parentNode;
+}
+}
+}
+objDiv.style.display="none";arrimg.className='rotimg1';
+closeSel(e)
+}
+
+
+/******************tracking***************************/
+
+var pgid = new Array();
+pgid['beTimesLine1']='beHeadLines';
+pgid['beTimesLine2']='beHeadLines';
+pgid['beTimesLine3']='beHeadLines';
+pgid['beTimesLine4']='beHeadLines';
+pgid['beTimesLine5']='beHeadLines';
+pgid['beTimesLine6']='beHeadLines';
+pgid['beTimesOCLine1']='beHeadLines';
+pgid['beTimesOCLine2']='beHeadLines';
+pgid['beTimesOCLine3']='beHeadLines';
+pgid['beTimesOCLine4']='beHeadLines';
+pgid['beTimesOCLine5']='beHeadLines';
+
+pgid['beNewsLine1']='beHeadLines';
+pgid['beNewsLine2']='beHeadLines';
+pgid['beNewsLine3']='beHeadLines';
+pgid['beNewsLine4']='beHeadLines';
+pgid['beNewsLine5']='beHeadLines';
+pgid['beNewsLine6']='beHeadLines';
+pgid['beNewsOCLine1']='beHeadLines';
+pgid['beNewsOCLine2']='beHeadLines';
+pgid['beNewsOCLine3']='beHeadLines';
+pgid['beNewsOCLine4']='beHeadLines';
+pgid['beNewsOCLine5']='beHeadLines';
+
+pgid['beSensexLine1']='beHeadLines';
+pgid['beSensexLine2']='beHeadLines';
+pgid['beSensexLine3']='beHeadLines';
+pgid['beSensexLine4']='beHeadLines';
+pgid['beSensexLine5']='beHeadLines';
+pgid['beSensexLine6']='beHeadLines';
+pgid['beSensexsOCLine1']='beHeadLines';
+pgid['beSensexOCLine2']='beHeadLines';
+pgid['beSensexOCLine3']='beHeadLines';
+pgid['beSensexOCLine4']='beHeadLines';
+pgid['beSensexOCLine5']='beHeadLines';
+
+pgid['beSportsLine1']='beHeadLines';
+pgid['beSportsLine2']='beHeadLines';
+pgid['beSportsLine3']='beHeadLines';
+pgid['beSportsLine4']='beHeadLines';
+pgid['beSportsLine5']='beHeadLines';
+pgid['beSportsLine6']='beHeadLines';
+pgid['beSportsOCLine1']='beHeadLines';
+pgid['beSportsOCLine2']='beHeadLines';
+pgid['beSportsOCLine3']='beHeadLines';
+pgid['beSportsOCLine4']='beHeadLines';
+pgid['beSportsOCLine5']='beHeadLines';
+
+pgid['beBusinessLine1']='beHeadLines';
+pgid['beBusinessLine2']='beHeadLines';
+pgid['beBusinesssLine3']='beHeadLines';
+pgid['beBusinessLine4']='beHeadLines';
+pgid['beBusinessLine5']='beHeadLines';
+pgid['beBusinessLine6']='beHeadLines';
+pgid['beBusinessOCLine1']='beHeadLines';
+pgid['beBusinessOCLine2']='beHeadLines';
+pgid['beBusinessOCLine3']='beHeadLines';
+pgid['beBusinessOCLine4']='beHeadLines';
+pgid['beBusinessOCLine5']='beHeadLines';
+
+pgid['beAutoLine1']='beHeadLines';
+pgid['beAutoLine2']='beHeadLines';
+pgid['beAutoLine3']='beHeadLines';
+pgid['beAutoLine4']='beHeadLines';
+pgid['beAutoLine5']='beHeadLines';
+pgid['beAutoLine6']='beHeadLines';
+pgid['beAutoOCLine1']='beHeadLines';
+pgid['beAutoOCLine2']='beHeadLines';
+pgid['beAutoOCLine3']='beHeadLines';
+pgid['beAutoOCLine4']='beHeadLines';
+pgid['beAutoOCLine5']='beHeadLines';
+
+pgid['beMarketLine1']='beHeadLines';
+pgid['beMarketLine2']='beHeadLines';
+pgid['beMarketLine3']='beHeadLines';
+pgid['beMarketLine4']='beHeadLines';
+pgid['beMarketLine5']='beHeadLines';
+pgid['beMarketLine6']='beHeadLines';
+pgid['beMarketOCLine1']='beHeadLines';
+pgid['beMarketOCLine2']='beHeadLines';
+pgid['beMarketOCLine3']='beHeadLines';
+pgid['beMarketOCLine4']='beHeadLines';
+pgid['beMarketOCLine5']='beHeadLines';
+
+
+pgid['beTimeshr1']='beHeadLines';
+pgid['beTimeshr2']='beHeadLines';
+pgid['beTimeshr3']='beHeadLines';
+pgid['beTimeshr4']='beHeadLines';
+pgid['beTimeshr5']='beHeadLines';
+pgid['beTimeshr6']='beHeadLines';
+pgid['beTimeshr7']='beHeadLines';
+pgid['beTimeshr8']='beHeadLines';
+pgid['beTimeshr9']='beHeadLines';
+pgid['beTimeshr10']='beHeadLines';
+pgid['beTimeshr11']='beHeadLines';
+pgid['beTimeshr12']='beHeadLines';
+pgid['beTimeshr13']='beHeadLines';
+pgid['beTimeshr14']='beHeadLines';
+pgid['beTimeshr15']='beHeadLines';
+pgid['beTimeshr16']='beHeadLines';
+pgid['beTimeshr17']='beHeadLines';
+pgid['beTimeshr18']='beHeadLines';
+pgid['beTimeshr19']='beHeadLines';
+pgid['beTimeshr20']='beHeadLines';
+pgid['beTimeshr21']='beHeadLines';
+pgid['beTimeshr22']='beHeadLines';
+pgid['beTimeshr23']='beHeadLines';
+pgid['beTimeshr24']='beHeadLines';
+pgid['beTimeshrLFT']='beHeadLines';
+pgid['beTimeshrRHT']='beHeadLines';
+
+pgid['beTimes@']='beHeadLines';
+pgid['beNews']='beHeadLines';
+pgid['beMovies']='beHeadLines';
+pgid['beSports']='beHeadLines';
+pgid['beBuzz']='beHeadLines';
+pgid['beAuto']='beHeadLines';
+pgid['beMarkets']='beHeadLines';
+pgid['beOlderVersion']='beHeaderBlock';
+
+
+pgid['beHBSearch']='beHeaderBlock';
+pgid['beAdvSearch']='beHeaderBlock';
+pgid['beWeekender']='beHeaderBlock';
+pgid['beFeedback']='beHeaderBlock';
+/******************no need***************************/
+pgid['beHLNews']='beHeadLines';
+pgid['beHLNewsLine']='beHeadLines';
+pgid['beHLNewsOCLine']='beHeadLines';
+pgid['beHLMovies']= 'beHeadLines';
+pgid['beHLMoviesLine']= 'beHeadLines';
+pgid['beHLMoviesOCLine']='beHeadLines';
+pgid['beHLSports']='beHeadLines';
+pgid['beHLSportsLine']='beHeadLines';
+pgid['beHLSportsOCLine']='beHeadLines';
+pgid['beHLBuzz']='beHeadLines';
+pgid['beHLBuzzLine']='beHeadLines';
+pgid['beHLTimes@']='beHeadLines';
+pgid['beHLTimeshr']='beHeadLines';
+pgid['beHLTimesOCLine']='beHeadLines';
+pgid['beETpfolio']='beHeadLines';
+
+/******************end no need***************************/
+pgid['beHLMarket']='beHeadLines';
+pgid['beHLETLink']='beHeadLines';
+pgid['beHLMktGo']='beHeadLines';
+pgid['beHLMktPfolio']='beHeadLines';
+pgid['beHLMktGainers']='beHeadLines';
+pgid['beHLMkt52wHigh']='beHeadLines';
+pgid['beHLMktOnlyBuyers']='beHeadLines';
+pgid['beHLMktMovers']='beHeadLines';
+pgid['beHLMktLosers']='beHeadLines';
+pgid['beHLMkt52wLow']='beHeadLines';
+pgid['beHLMktOnlySellers']='beHeadLines';
+pgid['beHLMktFIIs']='beHeadLines';
+pgid['beHLAutoOCLine']='beHeadLines';
+pgid['beHLAuto']='beHeadLines';
+pgid['beHLAutoLine']='beHeadLines';
+pgid['beHLAutoOCLine']='beHeadLines';
+pgid['beLNavITimes']= 'beLeftNav';
+pgid['beLNavDating']= 'beLeftNav';
+pgid['beLNavChat']= 'beLeftNav';
+pgid['beLNavTimesCity']= 'beLeftNav';
+pgid['beLNavMissIndia']= 'beLeftNav';
+pgid['beLNavIDiva']= 'beLeftNav';
+pgid['beLNavBlogs']= 'beLeftNav';
+pgid['beLNavQnA']= 'beLeftNav';
+pgid['beLNavHotklix']= 'beLeftNav';
+pgid['beLNavPhotogallery']= 'beLeftNav';
+pgid['beLNavMovies']= 'beLeftNav';
+pgid['beLNavAstrology']= 'beLeftNav';
+pgid['beLNavGames']= 'beLeftNav';
+pgid['beLNavAbsoluteRadio']= 'beLeftNav';
+pgid['beLNavWinemore']= 'beLeftNav';
+pgid['beLNavClassicRock']= 'beLeftNav';
+pgid['beLNavVideos']= 'beLeftNav';
+pgid['beLNavPictureStories']= 'beLeftNav';
+pgid['beLNavElectronics']= 'beLeftNav';
+pgid['beLNavBooks']= 'beLeftNav';
+pgid['beLNavShopping']= 'beLeftNav';
+pgid['beLNavAirTickets']= 'beLeftNav';
+pgid['beLNavAuto']= 'beLeftNav';
+pgid['beLNavTOI']= 'beLeftNav';
+pgid['beLNavET']= 'beLeftNav';
+pgid['beLNavETHindi']= 'beLeftNav';
+pgid['beLNavETGujarati']= 'beLeftNav';
+pgid['beLNavOnlineTVNews']= 'beLeftNav';
+pgid['beLNavNBT']= 'beLeftNav';
+pgid['beLNavMT']= 'beLeftNav';
+pgid['beLNavInfotech']= 'beLeftNav';
+pgid['beLNavInfotechHindi']= 'beLeftNav';
+pgid['beLNavCarNews']= 'beLeftNav';
+pgid['beLNavReviews']= 'beLeftNav';
+pgid['beLNavCricket']= 'beLeftNav';
+pgid['beLNavSMS58888']= 'beLeftNav';
+pgid['beLNavRingtones']= 'beLeftNav';
+pgid['beLNav58888Voice']= 'beLeftNav';
+pgid['beLNavMocolife']= 'beLeftNav';
+pgid['beLNavMobileConnect']= 'beLeftNav';
+pgid['beLNavTimesContent']= 'beLeftNav';
+pgid['beLNavJobs']= 'beLeftNav';
+pgid['beLNavMarry']= 'beLeftNav';
+pgid['beLNavProperty']= 'beLeftNav';
+pgid['beLNavBizSolutions']= 'beLeftNav';
+pgid['beLNavWebinaSec']= 'beLeftNav';
+pgid['beLNaveTesting']= 'beLeftNav';
+pgid['beLNavNRISolutions']= 'beLeftNav';
+pgid['beLNavMoreatIndiatimes']= 'beLeftNav';
+
+pgid['beLoRegMail']='beLoReg';
+pgid['beLoRegITimes']='beLoReg';
+pgid['beLoRegMocolife']='beLoReg';
+pgid['beLoRegITimes']='beLoReg'; 
+pgid['beLoRegITimesForgotPassword']='beLoReg'; 
+pgid['beLoRegITimesPos1']='beLoReg'; 
+pgid['beLoRegITimesPos2']='beLoReg'; 
+pgid['beLoRegITimesPos3']='beLoReg'; 
+pgid['beLoRegITimesPos4']='beLoReg'; 
+pgid['beLoRegITimesPos5']='beLoReg'; 
+pgid['beLoRegITimesRegister']='beLoReg'; 
+pgid['beLoRegITimesSignin']='beLoReg'; 
+pgid['beLoRegChat ']='LoReg'; 
+pgid['beLoRegChatChatNow']='beLoReg'; 
+pgid['beLoRegChatPos1']='beLoReg'; 
+pgid['beLoRegChatPos2']='beLoReg'; 
+pgid['beLoRegChatPos3']='beLoReg'; 
+pgid['beLoRegChatPos4']='beLoReg'; 
+pgid['beLoRegChatMoreRooms']='beLoReg'; 
+pgid['beLoRegDating']='LoReg'; 
+pgid['beLoRegDatingPos1']='beLoReg'; 
+pgid['beLoRegDatingPos2']='beLoReg'; 
+pgid['beLoRegDatingPos3']='beLoReg'; 
+pgid['beLoRegDatingPos4']='beLoReg'; 
+pgid['beLoRegDatingPos5']='beLoReg'; 
+pgid['beLoRegMail']='LoReg';  
+pgid['beLoRegMailForgotPassword']='beLoReg'; 
+pgid['beLoRegMailRegister']='beLoReg'; 
+pgid['beLoRegMailSignIn']='beLoReg'; 
+pgid['beLoRegMocolife']='beLoReg';  
+pgid['beLoRegMocolifePos1']='beLoReg'; 
+pgid['beLoRegMocolifePos2']='beLoReg'; 
+pgid['beLoRegMocolifeRegister']='beLoReg'; 
+pgid['beLoRegMocolifeSignin']='beLoReg'; 
+pgid['beLoRegMocolifeForgotPassword']='beLoReg'; 
+pgid['beLoRegIDiva']='beLoReg'; 
+pgid['beLoRegIDivaPos1']='beLoReg'; 
+pgid['beLoRegIDivaPos2']='beLoReg'; 
+pgid['beLoRegIDivaPos3']='beLoReg'; 
+pgid['beLoRegIDivaPos4']='beLoReg'; 
+pgid['beLoRegIDivaRegister']='beLoReg';
+pgid['beWomenPos']='beWomen'; 
+pgid['beShopPos']='beShopping';
+pgid['beShopPic']='beShopping';  
+pgid['beShopMore']='beShopping';
+pgid['beShopPrev']='beShopping';
+pgid['beShopNext']='beShopping';
+pgid['beAutoPos']='beAuto'; 
+pgid['beAdLinksPos']='beAdLinks';
+
+pgid['beSCHeading']='beShowCase';
+ 
+pgid['beSCHeadingLine1']='beShowCase'; 
+pgid['beSCHeadingLine2']='beShowCase'; 
+pgid['beSCHeadingLine3']='beShowCase'; 
+pgid['beSCHeadingLine4']='beShowCase'; 
+
+
+
+pgid['ShopPrice1']='beShopping';
+pgid['ShopPrice2']='beShopping';
+pgid['ShopPrice3']='beShopping';
+pgid['ShopPrice4']='beShopping';
+pgid['ShopPrice5']='beShopping';
+pgid['ShopPrice6']='beShopping';
+pgid['ShopPrice7']='beShopping';
+pgid['ShopPrice8']='beShopping';
+pgid['ShopbuyB1']='beShopping';
+pgid['ShopbuyB2']='beShopping';
+pgid['ShopbuyB3']='beShopping';
+pgid['ShopbuyB4']='beShopping';
+pgid['ShopbuyB5']='beShopping';
+pgid['ShopbuyB6']='beShopping';
+pgid['ShopbuyB7']='beShopping';
+pgid['ShopbuyB8']='beShopping';
+pgid['beShoppingMore']='beShopping';
+
+
+pgid['beScrollLeft']='beShowCase'; 
+pgid['beScrollLink1']='beShowCase'; 
+pgid['beScrollLink2']='beShowCase'; 
+pgid['beScrollLink3']='beShowCase'; 
+pgid['beScrollLink4']='beShowCase'; 
+pgid['beScrollLink5']='beShowCase'; 
+pgid['beScrollLink6']='beShowCase'; 
+pgid['beScrollLink7']='beShowCase'; 
+pgid['beScrollLink8']='beShowCase'; 
+pgid['beScrollLink9']='beShowCase'; 
+pgid['beScrollLink10']='beShowCase'; 
+pgid['beScrollLink11']='beShowCase'; 
+pgid['beScrollLink11']='beShowCase'; 
+pgid['beScrollLink12']='beShowCase'; 
+pgid['beScrollLink13']='beShowCase'; 
+pgid['beScrollRight']='beShowCase';
+pgid['bePhotogalleryMore']='bePhotogallery'; 
+pgid['beVideoPos']='beVideos';
+pgid['bePhotogalleryPos']='bePhotogallery'
+pgid['bePhotogalleryPic']='bePhotogallery'  
+pgid['PhotogalleryMore']='bePhotogallery' 
+
+pgid['bePage3Pos']='bePage3';
+pgid['Page3Del']='bePage3';
+pgid['Page3Mum']='bePage3';
+pgid['Page3Bng']='bePage3';
+pgid['Page3Kol']='bePage3';
+pgid['Page3Hyd']='bePage3';
+pgid['Page3Che']='bePage3';
+pgid['Page3Goa']='bePage3';
+pgid['Page3Pic']='bePage3';
+
+pgid['ICBMainPic']='beITimesCelebBlogs';
+pgid['ICBLink1']='beITimesCelebBlogs';
+pgid['ICBLink2']='beITimesCelebBlogs';
+pgid['ICBLink3']='beITimesCelebBlogs';
+pgid['ICBLink4']='beITimesCelebBlogs';
+pgid['ICBLink5']='beITimesCelebBlogs';
+pgid['ICBLink6']='beITimesCelebBlogs';
+
+pgid['QnAPos1']='beQnA';
+pgid['QnAPos2']='beQnA';
+pgid['QnAPos3']='beQnA';
+pgid['QnAPos4']='beQnA';
+pgid['QnAans']='beQnA';
+
+pgid['AstroTab']='beAstro';
+pgid['AstroT']='beAstro';
+pgid['AstroW']='beAstro';
+pgid['AstroM']='beAstro';
+pgid['AstroMore']='beAstro';
+pgid['NumeroTab']='beAstro';
+pgid['NumeroT']='beAstro';
+pgid['NumeroW']='beAstro';
+pgid['NumeroM']='beAstro';
+pgid['NumeroMore']='beAstro';
+pgid['TarotTab']='beAstro';
+pgid['TarotT']='beAstro';
+pgid['TarotW']='beAstro';
+pgid['TarotM']='beAstro';
+pgid['TarotMore']='beAstro';
+
+pgid['beMirrorPos']='beMirror';
+
+pgid['beGamesPos']='beGames';
+pgid['beGamesPic']='beGames';
+pgid['beGamesPrev']='beGames';
+pgid['beGamesNext']='beGames';
+
+pgid['beMobileTab']='beMobile'; 
+pgid['beMobilePic']='beMobile';
+pgid['beMobilePic1']='beMobile'; 
+pgid['beMobilePic2']='beMobile'; 
+pgid['beMobilePic3']='beMobile'; 
+pgid['beMobilePic4']='beMobile'; 
+pgid['beMobilePic5']='beMobile'; 
+pgid['beMobileRing']='beMobile';
+pgid['beMobileRing1']='beMobile';
+pgid['beMobileRing2']='beMobile';
+pgid['beMobileRing3']='beMobile';
+pgid['beMobileRing4']='beMobile';
+pgid['beMobileGames']='beMobile';
+pgid['beMobileGames1']='beMobile';
+pgid['beMobileGames2']='beMobile';
+pgid['beMobileGames3']='beMobile';
+pgid['beMobileGames4']='beMobile';
+
+pgid['beMobilePos']='Mobile'; 
+pgid['beMobilePic']='beGames';
+pgid['beMobilePrev']='Mobile'; 
+pgid['beMobileNext']='Mobile';
+ 
+pgid['beGamesTab']='beGames';
+pgid['beGamesPic1']='beGames';
+pgid['beGamesPic2']='beGames';
+pgid['beGamesPic3']='beGames';
+pgid['beGamesPic4']='beGames';
+pgid['beGames']='beGames';
+pgid['beGamesA']='beGames';
+pgid['beGamesB']='beGames';
+pgid['beGamesA1']='beGames';
+pgid['beGamesA2']='beGames';
+pgid['beGamesA3']='beGames';
+pgid['beGamesA4']='beGames';
+pgid['beGamesB1']='beGames';
+pgid['beGamesB2']='beGames';
+pgid['beGamesB3']='beGames';
+pgid['beGamesB4']='beGames';
+pgid['beGames1']='beGames';
+pgid['beGames2']='beGames';
+pgid['beGames3']='beGames';
+pgid['beGames4']='beGames';
+pgid['beGames5']='beGames';
+pgid['beGames6']='beGames';
+pgid['beGames7']='beGames';
+pgid['beGames8']='beGames';
+
+
+pgid['beGamesPos']='beGames';
+ 
+
+pgid['beICBPos']='beITimesCelebBlogs';
+pgid['beICBMore']='beITimesCelebBlogs';
+
+pgid['beLoRegEmailRegister']='beLoReg';
+
+pgid['beICBPosa']='beITimesCelebBlogs';
+
+pgid['beHotWPos']='beHotW';
+
+pgid['beTravel']='beAffSites';
+pgid['beJobs']='beAffSites';
+pgid['beMatrimony']='beAffSites';
+pgid['beProperty']='beAffSites';
+
+pgid['bePollVote']='bePoll';
+pgid['beGoonlinePos']='beGoonline';
+
+
+pgid['beOTGPos1']='beOTG';
+pgid['beOTGPos2']='beInOTG';
+pgid['beOTGPos3']='beInOTG';
+pgid['beOTGPos4']='beInOTG';
+pgid['beOTGPos5']='beInOTG';
+pgid['beOTGPos6']='beInOTG';
+pgid['beOTGPos7']='beInOTG';
+pgid['beOTGPos8']='beInOTG';
+
+pgid['beL&EPos1']='beInL&E';
+pgid['beL&EPos2']='beInL&E';
+pgid['beL&EPos3']='beInL&E';
+
+pgid['beNetWPos1']='beInNetworking';
+pgid['beNetWPos2']='beInNetworking';
+pgid['beNetWPos3']='beInNetworking';
+
+pgid['beHotWBot1']='beHotWBot';
+
+
+pgid['beServPos1']='beInServ';
+pgid['beServPos2']='beInServ';
+pgid['beServPos3']='beInServ';
+pgid['beServPos4']='beInServ';
+pgid['beServPos5']='beInServ';
+pgid['beServPos6']='beInServ';
+pgid['beServPos7']='beInServ';
+pgid['beServPos8']='beInServ';
+pgid['beServPos9']='beInServ';
+pgid['beServPos10']='beInServ';
+pgid['beServPos11']='beInServ';
+pgid['beServPos12']='beInServ';
+pgid['beServPos13']='beInServ';
+pgid['beServPos14']='beInServ';
+pgid['beServPos15']='beInServ';
+pgid['beServPos16']='beInServ';
+pgid['beServPos17']='beInServ';
+pgid['beServPos18']='beInServ';
+pgid['beServPos19']='beInServ';
+pgid['beServPos20']='beInServ';
+
+
+pgid['becpPos1']='beInCopyright';
+pgid['becpPos2']='beInCopyright';
+pgid['becpPos3']='beInCopyright';
+pgid['becpPos4']='beInCopyright';
+pgid['becpPos5']='beInCopyright';
+pgid['becpPos6']='beInCopyright';
+pgid['becpPos7']='beInCopyright';
+
+
+pgid['beArttab']='beHotontheweb';
+pgid['beArtPos']='beHotontheweb';
+pgid['beArtPic']='beHotontheweb';
+pgid['beVideostab']='beHotontheweb';
+pgid['beVideosPos']='beHotontheweb';
+pgid['beVideosPic']='beHotontheweb';
+pgid['bePhotostab']='beHotontheweb';
+pgid['PhotosPos']='beHotontheweb';
+pgid['PhotosPic']='beHotontheweb';
+
+
+pgid['beTravelPos1']='beAffSites';
+pgid['beTravelPos2']='beAffSites';
+pgid['beTravelPos3']='beAffSites';
+pgid['beTravelPos4']='beAffSites';
+pgid['beTravelMore']='beAffSites';
+
+
+pgid['beBookadsPos1']='beAffSites';
+pgid['beBookadsPos2']='beAffSites';
+pgid['beBookadsPos3']='beAffSites';
+pgid['beBookadsPos4']='beAffSites';
+pgid['beBookadsMore']='beAffSites';
+
+pgid['beOClink']='beOneClick';
+
+pgid['beLTVlink1']='beLiveTV';
+pgid['beLTVlink2']='beLiveTV';
+pgid['beLTVlink3']='beLiveTV';
+pgid['beLTVlink4']='beLiveTV';
+pgid['beLTVlink5']='beLiveTV';
+pgid['beLTVlink6']='beLiveTV';
+pgid['beLTVlink7']='beLiveTV';
+pgid['beLTVlink8']='beLiveTV';
+pgid['beLTVlink9']='beLiveTV';
+pgid['beLTVlink10']='beLiveTV';
+pgid['beLTVlink11']='beLiveTV';
+pgid['beLTVlink12']='beLiveTV';
+pgid['beLTVlink13']='beLiveTV';
+pgid['beLTVlink14']='beLiveTV';
+pgid['beLTVlink15']='beLiveTV';
+pgid['beLTVlink16']='beLiveTV';
+
+pgid['beSplink1']='beSpLinks';
+pgid['beSplink2']='beSpLinks';
+pgid['beSplink3']='beSpLinks';
+pgid['beSplink4']='beSpLinks';
+pgid['beSplink5']='beSpLinks';
+
+pgid['beLTVlink1']='beLiveTV';
+
+pgid['bePos1']='beHeaderBlock';
+pgid['bePos2']='beHeaderBlock';
+pgid['bePos3']='beHeaderBlock';
+pgid['bePos4']='beHeaderBlock';
+pgid['bePos5']='beHeaderBlock';
+pgid['bePos6']='beHeaderBlock';
+pgid['bePos7']='beHeaderBlock';
+pgid['bePos8']='beHeaderBlock';
+
+pgid['bemore1']='beHeaderBlock';
+pgid['bemore2']='beHeaderBlock';
+pgid['bemore3']='beHeaderBlock';
+pgid['bemore4']='beHeaderBlock';
+pgid['bemore5']='beHeaderBlock';
+pgid['bemore6']='beHeaderBlock';
+pgid['bemore7']='beHeaderBlock';
+
+
+function pgtrack(pgatt){
+	if(pgatt != null){
+		var pgat = pgatt.split('#');		
+		var trcode = null;		
+		if(pgat.length==1){
+			trcode = "pageTracker._trackEvent('"+pgid[pgat[0]]+"','select','"+pgat[0]+"')";
+			
+			}
+		else {
+			trcode = "pageTracker._trackEvent('"+pgid[pgat[0]]+"','select','"+pgat[0]+pgat[1]+"')";
+				
+		}		
+		eval(trcode);
+	}
+}
+/*********************trackingend***************************/
+
+function make_blank(){document.marketform.ticker1.value=""}
+function mailtrim(mvalue){
+var temp1 = mvalue;
+var obj = /^(\s*)([\W\w]*)(\b\s*$)/;
+if (obj.test(temp1)) { temp1 = temp1.replace(obj, '$2'); }
+var obj = /  /g;
+while (temp1.match(obj)) { temp1 = temp1.replace(obj, " "); }
+return temp1;
+}
+function checkMail(inmail){
+var x = inmail;
+var y = 0;
+var filter  = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+if (x.indexOf(',') != -1){
+var seperatevalues = x.split(',');
+var xx=0;
+for ( xx=0; xx<seperatevalues.length ; xx=xx+1){
+if (filter.test(seperatevalues[xx])) y = y + 1;}
+if (xx == y) return true;
+else return false;}
+else {
+if (filter.test(x)) return true;
+else return false;
+}}
+function submitmyformp(f,w,h){
+	var ch=0;
+	for(i=0;i<document.pollform.PRadio.length;i++){
+		if(document.pollform.PRadio[i].checked==1){
+			ch=1;
+			document.pollform.action="httpdisabled://www.indiatimes.com/vote.cms";
+			break;
+		}
+	}
+	if(ch==0){
+    	alert("Please select an Option to participate in the poll");
+		return false;
+	}
+	f.target = 'foo';
+	var x = (screen.width - w) / 2; 
+    var y = ((screen.height - h) / 2)-100; 
+	void('',f.target,'menubar=no,scrollbars=0, width='+w+',height='+h+',top='+y+',left='+x);
+	document.pollform.submit();
+	return false;
+}
+//loginbox
+function showhidemsg(showdiv,hidediv){
+getObj(showdiv).style.display ='inline-block';		
+getObj(hidediv).style.display ='none';		
+}
+function checkVal(theForm){
+
+var errormsg;
+	if (theForm.login.value==" " || theForm.login.value==""){
+		errormsg="Please enter a value for the \"Indiatimes or Itimes ID\" field.";
+		
+		var temp=getObj('divinderrordata').innerHTML =errormsg;	
+		
+			showhidemsg('divinderror','divind');	
+		return (false);
+	}
+	var checkOK = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_.@";
+	var checkOK1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_.@";
+	var checkStr = theForm.login.value;
+	if (checkStr.length > 50){
+		errormsg="Please enter upto 50 characters in the \"Indiatimes ID or Itimes ID\" field.";		
+		getObj('divinderrordata').innerHTML =errormsg;	
+			showhidemsg('divinderror','divind');	
+		return (false);
+	}
+	var allValid = true;
+	for (i = 0;  i < checkStr.length;  i++){
+		ch = checkStr.charAt(i);
+		ch1 = checkStr.charAt(0);
+		for (k=0; k < checkOK1.length; k++)
+			if (ch1 == checkOK1.charAt(k))
+		    	break;
+		  		if (k == checkOK.length){
+					allValid = false;
+					break;
+				}
+				for (j = 0;  j < checkOK.length;  j++)
+				   	if (ch == checkOK.charAt(j))
+				  		break;
+				   	if (j == checkOK.length){
+					    allValid = false;
+					    break;
+					}
+	}
+	if (!allValid){
+		errormsg="Please enter a valid Indiatimes ID or Itimes ID only letters (a-z), numbers (0-9), underscore (_) and dot(.) without any space in between. Indiatimes ID must start with a letter. ";
+		getObj('divinderrordata').innerHTML =errormsg;	
+			showhidemsg('divinderror','divind');	
+		return (false);
+	}
+	if (theForm.passwd.value == ""){
+		errormsg="Please enter a value for the \"Password\" field.";
+		getObj('divinderrordata').innerHTML =errormsg;	
+			showhidemsg('divinderror','divind');	
+		return (false);
+	}
+	theForm.submit();
+	return(true);
+}
+
+function checkValitimes(theForm){
+var errormsg;
+	if (theForm.login.value=="" || theForm.login.value==" "){
+		errormsg="Please enter a value for the \"Itimes ID\" field.";
+		getObj('divitimeserrordata').innerHTML =errormsg;	
+			showhidemsg('divitimeserror','divitimes');	
+		return (false);
+	}
+	var checkOK = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_.@";
+	var checkOK1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_.@";
+	var checkStr = theForm.login.value;
+	if (checkStr.length > 50){
+		errormsg="Please enter upto 50 characters in the \"Itimes ID\" field.";
+		getObj('divitimeserrordata').innerHTML =errormsg;	
+			showhidemsg('divitimeserror','divitimes');	
+		return (false);
+	}
+	var allValid = true;
+	for (i = 0;  i < checkStr.length;  i++){
+		ch = checkStr.charAt(i);
+		ch1 = checkStr.charAt(0);
+		for (k=0; k < checkOK1.length; k++)
+			if (ch1 == checkOK1.charAt(k))
+		    	break;
+		  		if (k == checkOK.length){
+					allValid = false;
+					break;
+				}
+				for (j = 0;  j < checkOK.length;  j++)
+				   	if (ch == checkOK.charAt(j))
+				  		break;
+				   	if (j == checkOK.length){
+					    allValid = false;
+					    break;
+					}
+	}
+	if (!allValid){
+		errormsg="Please enter your full email id. For e.g abc\@indiatimes.com or abc\@gmail.com";
+		getObj('divitimeserrordata').innerHTML =errormsg;	
+			showhidemsg('divitimeserror','divitimes');	
+		return (false);
+	}
+	if (theForm.passwd.value == ""){
+		errormsg="Please enter your password.";
+		getObj('divitimeserrordata').innerHTML =errormsg;	
+			showhidemsg('divitimeserror','divitimes');	
+		return (false);
+	}
+	theForm.submit();
+	return(true);
+}
+function Set_Ckie(name,value,expires,path,domain,secure){
+	var today=new Date()
+	today.setTime(today.getTime())
+	if(expires){expires=expires*1000*60*60*24}
+	var expires_date=new Date(today.getTime()+(expires))
+	document.cookie=name+"="+escape(value)+((expires)? ";expires="+expires_date.toGMTString(): "")+((path)? ";path="+path : "")+((domain)? ";domain="+domain : "")+((secure)? ";secure" : "")
+	
+	
+	
+}
+function Get_Ckie(name){
+	var start=document.cookie.indexOf(name+"=")
+	var len=start+name.length+1
+	if((!start)&&(name !=document.cookie.substring(0,name.length))){
+		return null
+	}
+	if(start==-1)return null;
+	var end=document.cookie.indexOf(";",len)
+	if(end==-1)end=document.cookie.length
+	return unescape(document.cookie.substring(len,end))
+}
+function Delete_Ckie(name,path,domain){
+	if(Get_Ckie(name))document.cookie=name+"="+((path)? ";path="+path : "")+((domain)? ";domain="+domain : "")+";expires=Thu, 01-Jan-1970 00:00:01 GMT";
+}
+function remIDPASS(){
+	if(getObj("rememberpassword").checked){
+		var userid=getObj("login").value
+		var pass=getObj("passwd").value
+		Set_Ckie("commlogu",userid,100,"/",".indiatimes.com","")
+		Set_Ckie("commlogp",pass,100,"/",".indiatimes.com","")
+		document.loginfrm.submit()
+	}else{
+		Delete_Ckie("commlogu","/",".indiatimes.com")
+		Delete_Ckie("commlogp","/",".indiatimes.com")
+	}
+}
+function strtrim(str){
+	if(!str || typeof str !='string')
+	return null;
+	return str.replace(/^[\s]+/,'').replace(/[\s]+$/,'').replace(/[\s]{2,}/,' ');
+}
+function loaddisabledIDPass(){
+	var pass=Get_Ckie("commlogp");
+	var userid=Get_Ckie("commlogu");
+	pass=strtrim(pass);
+	userid=strtrim(userid);
+	if(pass=="" || pass==null){}
+	else{
+		getObj("passwd").value=pass
+		getObj("rememberpassword").checked=true;
+	}
+	if(userid=="" || userid==null){}
+	else{
+		getObj("login").value=userid;
+	}
+}
+//Itimes login
+function valid_Itimes(ffrm,msg){
+var rjlt = true;
+if((ffrm.name.value=="") || (ffrm.name.value=='Full Name')){						
+getObj("UserId"+msg).innerHTML="<span>Enter a valid name</span>";						
+rjlt = false;}
+else{getObj("UserId"+msg).innerHTML="";}
+if(msg == 1){
+if((ffrm.email.value == 'Any Email ID') || (ffrm.email.value == '') || (checkMail(ffrm.email.value) == false)){
+getObj("eMail"+msg).innerHTML="<span>Enter a valid Email id</span>";
+rjlt = false;
+}
+else{getObj("eMail"+msg).innerHTML="";}
+}else{
+if((ffrm.login.value=="") || (ffrm.login.value=='Any Email ID')){
+getObj("UserId"+msg).innerHTML="<span>Enter a valid Email Id</span>";						
+rjlt = false;}
+else{getObj("UserId"+msg).innerHTML="";}
+if((ffrm.passwd.value == 'Password') || (ffrm.passwd.value == '')){						
+getObj("eMail"+msg).innerHTML="<span>Enter a valid password</span>";
+rjlt = false;}
+else{getObj("eMail"+msg).innerHTML="";}}						
+return rjlt;
+}
+
+function clearInputobj(){
+document.sign.passwd.value="";	
+}
+function clearInput(e,v){
+	if(e.value==v)e.value="";
+	getObj("passwd").value="";
+}
+function displayInput(e,v){
+	if(v=='Password'){
+		if(getObj("login").value=='Email ID'){
+			e.value=v;
+		}
+		else{
+			return;
+		}
+	}
+	if(e.value=="")e.value=v;
+}
+/**************************videoplayer*************************************/
+var currentPlayed=0;
+var dtd=new Date();var mint=dtd.getMinutes();var randomnumber=mint - (mint % 5);
+function showvideo(vid,Stname,videonumber){
+if(videonumber == currentPlayed)return;
+if(currentPlayed == 0){
+currentPlayed = videonumber;	
+for(iii=1;iii<5;iii++){
+getObj("vdthimg"+iii).className="itvideo";
+getObj("vdthimg1"+iii).style.cursor="pointer";
+}							
+getObj("vdthimg"+videonumber).className="itvideocurrent";
+getObj("vdthimg1"+videonumber).style.cursor="default";
+}else{								
+getObj("vdthimg"+videonumber).className="itvideocurrent";
+getObj("vdthimg1"+videonumber).style.cursor="default";								
+getObj("vdthimg"+currentPlayed).className="itvideo";
+getObj("vdthimg1"+currentPlayed).style.cursor="pointer";
+currentPlayed = videonumber;
+}		
+//5050692 		
+if (hasReqestedVersion)
+{
+populatediv('/new_rlvideo/'+vid+'.cms','videoplayer');
+}
+else
+{
+var alternateContent = '<table cellspacing="0" cellpadding="0" bgcolor="#000000" border="1" align="center" height="180" width="240">';
+alternateContent = alternateContent + '<tr><td valign="middle" align="center"><span style="font-family:arial;font-size:12px;color:#ffffff;">Please install the latest version of the free Adobe Flash Player.</span><a target="_blank" style="font-family:arial;font-size:12px;color:#ffffff;" href=http://www.adobe.com/shockwave/downloaddisabled/downloaddisabled.cgi?P1_Prod_Version=ShockwaveFlash&CM=not_auto_flash> Downloaddisabled now.</a><br/><span style="font-family:arial;font-size:12px;color:#ffffff;">For help with Flash, see Adobe\'s <a style="font-family:arial;font-size:12px;color:#ffffff;" href="httpdisabled://kb.adobe.com/selfservice/viewContent.do?externalId=tn_15511&sliceId=2">Flash Player Support page.</a></span>';
+alternateContent = alternateContent + '<a target="_blank" href="httpdisabled://www.adobe.com/shockwave/downloaddisabled/downloaddisabled.cgi?P1_Prod_Version=ShockwaveFlash&CM=not_auto_flash" ><br/><br/><img src="/photo.cms?msid=2739902" border="0"/></a></td></tr></table>';
+document.getElementById('videoplayer').innerHTML=alternateContent;
+}					
+	
+getObj('VDeoHead').innerHTML="<b>Now Playing : </b> "+Stname; 
+														    						
+}
+function slideExample3(elementId, headerElement,code,Stna,videono)
+{
+var element = getObj(elementId);
+if(element.up == false || element.down == true)
+{
+animate(elementId, 0, 0, 0, 0, 250, null);
+element.up = true;
+element.down = false;
+}
+else
+{
+
+animate(elementId, 0, -40, 494, 360, 250, null);
+element.up = false;
+element.down = true;
+getObj("Video1").style.visibility ="hidden";
+showvideo(code,Stna,videono);
+}
+//videoadd();
+}			
+function animate(elementID, newLeft, newTop, newWidth, newHeight, time, callback)
+{
+var el = getObj(elementID);
+if(el == null)
+return;
+var cLeft = parseInt(el.style.left);
+var cTop = parseInt(el.style.top);
+var cWidth = parseInt(el.style.width);
+var cHeight = parseInt(el.style.height);
+var totalFrames = 1;
+if(time> 0)
+totalFrames = time/40;
+var fLeft = newLeft - cLeft;
+if(fLeft != 0)
+fLeft /= totalFrames;
+var fTop = newTop - cTop;
+if(fTop != 0)
+fTop /= totalFrames;
+var fWidth = newWidth - cWidth;
+if(fWidth != 0)
+fWidth /= totalFrames;
+var fHeight = newHeight - cHeight;
+if(fHeight != 0)
+fHeight /= totalFrames;
+doFrame(elementID, cLeft, newLeft, fLeft,
+cTop, newTop, fTop, cWidth, newWidth, fWidth,
+cHeight, newHeight, fHeight, callback);
+}
+function doFrame(eID, cLeft, nLeft, fLeft,
+cTop, nTop, fTop, cWidth, nWidth, fWidth,
+cHeight, nHeight, fHeight, callback)
+{
+var el = getObj(eID);
+if(el == null)
+return;
+cLeft = moveSingleVal(cLeft, nLeft, fLeft);
+cTop = moveSingleVal(cTop, nTop, fTop);
+cWidth = moveSingleVal(cWidth, nWidth, fWidth);
+cHeight = moveSingleVal(cHeight, nHeight, fHeight);
+el.style.left = Math.round(cLeft) + 'px';
+el.style.top = Math.round(cTop) + 'px';
+el.style.width = Math.round(cWidth) + 'px';
+el.style.height = Math.round(cHeight) + 'px';
+if(cLeft == nLeft && cTop == nTop && cHeight == nHeight
+
+&& cWidth == nWidth)
+{
+if(callback != null)
+callback();
+return;
+}
+setTimeout( 'doFrame("'+eID+'",'+cLeft+','+nLeft+','+fLeft+','
++cTop+','+nTop+','+fTop+','+cWidth+','+nWidth+','+fWidth+','
++cHeight+','+nHeight+','+fHeight+','+callback+')', 40);
+}
+function moveSingleVal(currentVal, finalVal, frameAmt)
+{
+if(frameAmt == 0 || currentVal == finalVal)
+return finalVal;
+currentVal += frameAmt;
+if((frameAmt> 0 && currentVal>= finalVal)
+|| (frameAmt <0 && currentVal <= finalVal))
+{
+return finalVal;
+}
+return currentVal;
+}
+function close1(elementId, headerElement)
+{
+var element = getObj(elementId);
+if(element.up == null || element.down)
+{
+animate(elementId, 0, 0, 0, 0, 250, null);
+element.up = true;
+element.down = false;
+currentPlayed=0;
+getObj("Video1").style.visibility = "visible";
+getObj("videoplayer").innerHTML = "";
+}
+}
+function videoadd()
+{
+var obj='<div align="center" name="ad35355" id="ad35355"></div>';
+obj+='<iframe name="fr35355" id="fr35355" src="" width="299" height="100" MARGINWIDTH="0" MARGINHEIGHT="0" HSPACE="0" VSPACE="0" FRAMEBORDER="0" SCROLLING="no" align="center"  title="Advertisement" ALLOWTRANSPARENCY="true">';
+obj+='<a href="httpdisabled://netspiderads2.indiatimes.com/ads.dll/clickthrough?slotid=35355" target="_blank">';
+obj+='<img src="httpdisabled://netspiderads2.indiatimes.com/ads.dll/photoserv?slotid=35355" border="0" width="299" height="100" alt="Advertisement"/></a>';
+getObj('VideoAdd').innerHTML=obj;
+Iframesrc();
+}					
+
+function Iframesrc(){				
+	getObj("fr35355").src="httpdisabled://netspiderads2.indiatimes.com/ads.dll/getad?slotid=35355";
+	}
+		/********************************tabs show hide *****************************/
+		function getObj(id){return document.getElementById(""+id);}
+		function showTab(tabsid,cls,ths){	
+		/* tabsid will contain all tabids with # seperation and class contain on off calss with # seperation*/
+		var allTabsid = tabsid.split("#");
+		var classname = cls.split("#");
+
+		for(tid = 0; tid < allTabsid.length; tid++){
+			if(ths.id == allTabsid[tid]){				
+				if(_browser == "NI" && is_chrome && ths.getAttribute("crm")=="true"){
+				getObj(allTabsid[tid]).className=''+classname[0]+"crm";
+		
+					getObj(allTabsid[tid] + 'content').style.display='inline-block'
+					if(allTabsid[tid] + 'content'=='travelcontent'){
+					getObj('tw').src='/alphatbslform_new1.cms?type=travel';}
+					if(allTabsid[tid] + 'content'=='jobscontent'){
+					getObj('tj').src='/alphatbslform_new1.cms?type=timesjobs';}
+					if(allTabsid[tid] + 'content'=='matrimonycontent'){
+					getObj('sm').src='/alphatbslform_new1.cms?type=simplymarry';}
+					if(allTabsid[tid] + 'content'=='propertycontent'){
+					getObj('pr').src='/alphatbslform_new1.cms?type=properties';}	
+					if(allTabsid[tid] + 'content'=='bookadscontent'){
+					getObj('bk').src='/alphatbslform_new1.cms?type=bookads';}			
+					if(allTabsid[tid] + 'content'=='marketcontent'){
+					getObj('mkt').src='/alphaniftysensexframe.cms';}						
+				}else if(_browser == "NI" && ths.getAttribute("moz")=="true"){			
+					getObj(allTabsid[tid]).className=''+classname[0]+"moz";				
+					getObj(allTabsid[tid] + 'content').style.display='inline-block'
+					if(allTabsid[tid] + 'content'=='travelcontent'){
+					getObj('tw').src='/alphatbslform_new1.cms?type=travel';}
+					if(allTabsid[tid] + 'content'=='jobscontent'){
+					getObj('tj').src='/alphatbslform_new1.cms?type=timesjobs';}
+					if(allTabsid[tid] + 'content'=='matrimonycontent'){
+					getObj('sm').src='/alphatbslform_new1.cms?type=simplymarry';}
+					if(allTabsid[tid] + 'content'=='propertycontent'){
+					getObj('pr').src='/alphatbslform_new1.cms?type=properties';}
+					if(allTabsid[tid] + 'content'=='bookadscontent'){
+					getObj('bk').src='/alphatbslform_new1.cms?type=bookads';}
+					if(allTabsid[tid] + 'content'=='marketcontent'){
+					getObj('mkt').src='/alphaniftysensexframe.cms';}
+				}else{		
+					getObj(allTabsid[tid]).className=''+classname[0];				
+					getObj(allTabsid[tid] + 'content').style.display='inline-block'
+					if(allTabsid[tid] + 'content'=='travelcontent'){
+					getObj('tw').src='/alphatbslform_new1.cms?type=travel';}
+					if(allTabsid[tid] + 'content'=='jobscontent'){
+					getObj('tj').src='/alphatbslform_new1.cms?type=timesjobs';}
+					if(allTabsid[tid] + 'content'=='matrimonycontent'){
+					getObj('sm').src='/alphatbslform_new1.cms?type=simplymarry';}
+					if(allTabsid[tid] + 'content'=='propertycontent'){
+					getObj('pr').src='/alphatbslform_new1.cms?type=properties';}
+					if(allTabsid[tid] + 'content'=='bookadscontent'){
+					getObj('bk').src='/alphatbslform_new1.cms?type=bookads';}
+					if(allTabsid[tid] + 'content'=='marketcontent'){
+					getObj('mkt').src='/alphaniftysensexframe.cms';}
+				}		
+			}else{
+				getObj(allTabsid[tid]).className=''+classname[1];
+				getObj(allTabsid[tid] + 'content').style.display='none'}
+		}
+		return false;
+		}	
+		function showTab2(tabsid,cls,ths){	
+		/* tabsid will contain all tabids with # seperation and class contain on off calss with # seperation*/
+		var allTabsid = tabsid.split("#");
+		var classname = cls.split("#");
+
+		for(tid = 0; tid < allTabsid.length; tid++){
+			if(ths.id == allTabsid[tid]){				
+				if(_browser == "NI" && is_chrome && ths.getAttribute("crm")=="true"){
+				getObj(allTabsid[tid]).className=''+classname[0]+"crm";
+		
+					
+									
+				}else if(_browser == "NI" && ths.getAttribute("moz")=="true"){			
+					getObj(allTabsid[tid]).className=''+classname[0]+"moz";				
+					
+				}else{		
+					getObj(allTabsid[tid]).className=''+classname[0];				
+					
+				}		
+			}else{
+				getObj(allTabsid[tid]).className=''+classname[1];
+				}
+		}
+		return false;
+		}	
+
+		function oneclickdata(div,showorhide){
+if(showorhide=='show'){getObj(div).style.display ='inline-block';		}
+else{
+getObj(div).style.display ='none';		}
+}
+		var totalSlideShowIds='';
+		for(var i=1;i<=cntTotalSlideShow;i++){
+			totalSlideShowIds += 'em_dll' + i + '#'; //em_dll1#em_dll2#em_dll3#em_dll4#em_dll5#em_dll6#em_dll7#em_dll8#em_dll9#em_dll10#em_dll11
+			if(i==cntTotalSlideShow){
+				totalSlideShowIds += 'em_dll' + i;
+			}
+		}		
+		for(var i=1;i<=cntTotalSlideShow;i++){
+		getObj("em_dll"+i).onmouseover=function(){showTab(totalSlideShowIds,"current#notcurrent",this);cs1.as=false;};
+		}				
+		getObj("astro").onclick=getObj("numero").onclick=getObj("tarot").onclick=function(){showTab2("astro#numero#tarot","CurrentTab#Normaltabs",this)};
+		getObj("articlehot").onclick=getObj("videoshot").onclick=getObj("photoshot").onclick=function(){showTab("articlehot#videoshot#photoshot","CurrentTab#Normaltabs",this)};       
+		getObj("mail").onclick=getObj("itimes").onclick=getObj("moco").onclick=function(){showTab("mail#itimes#moco","CurrentTab#Normaltabs",this)};
+		getObj("mobiles").onclick=getObj("games").onclick=function(){showTab("mobiles#games","CurrentTab#Normaltabs",this)};
+		getObj("poll").onclick=getObj("qna").onclick=function(){showTab("poll#qna","CurrentTab#Normaltabs",this)};
+		
+		getObj("travel").onclick=getObj("jobs").onclick=getObj("matrimony").onclick=getObj("property").onclick=getObj("bookads").onclick=function(){showTab("travel#jobs#matrimony#property#bookads","CurrentTab#Normaltabs",this)};		
+		getObj("timesat").onclick=function(){oneclickdata('oneclicktabn','hide');showTab("timesat#news#movies#sports#business#hotklix","CurrentTab#Normaltabs",this);};  
+		getObj("news").onclick=getObj("movies").onclick=getObj("sports").onclick=getObj("business").onclick=getObj("hotklix").onclick=function(){showTab("timesat#news#movies#sports#business#hotklix","CurrentTab#Normaltabs",this);oneclickdata('oneclicktabn','show')};
+		
+	 
+       
+
+	/******************Login Box**********************/
+		//getObj("mtb1").onmouseover=getObj("mtb2").onmouseover=getObj("mtb3").onmouseover=function(){showTab("mtb1#mtb2#mtb3","current#normal",this)};
+
+
+	/***************************************/
+	function switchtabcomm(act,type){
+	var arrayofTab = act.split('#');
+	var arrlen = arrayofTab.length-1;
+	for(i=arrlen;i>=0;i--){
+	if(i == 0){
+	if(type==1){
+	getObj(arrayofTab[i]+"Data").style.visibility='visible';
+	getObj(arrayofTab[i]+"Data").style.display='inline';}
+	getObj(arrayofTab[i]).className="current";
+	}else {
+	if(type==1){getObj(arrayofTab[i]+"Data").style.visibility='hidden';
+	getObj(arrayofTab[i]+"Data").style.display='none';}
+	getObj(arrayofTab[i]).className="";
+	}}}
+	function populatediv11(urlval,divval,astroid){
+	try 
+	{
+	var xmlhttp=false;
+	var status=0;
+	
+	var dn = document.form1.hdn.value; 
+	var dd = document.form1.ttype.value;
+	var sn = document.form1.sunsign.value;							
+	document.form1.hdn.value=dn;
+	document.form1.ttype.value = dd;
+	
+	xmlhttp = window.XMLHttpRequest?new XMLHttpRequest():
+	new ActiveXObject("Microsoft.XMLHTTP");					
+	if (xmlhttp)
+	{						
+	xmlhttp.onreadystatechange=function() 
+	{
+	if (xmlhttp.readyState==4)
+	{
+	if (xmlhttp.status==200)
+	{ 
+	getObj(divval).innerHTML=xmlhttp.responseText;
+	if(astroid!=3){document.form1.sunsign.value=sn;}
+	}
+	else if (xmlhttp.status==404) status=0
+	else status=0
+	}}
+	void("GET",urlval,true);
+	xmlhttp.send(null);
+	}}
+	catch (e) 
+	{
+	xmlhttp = false; 
+	}}
+function populatediv11alter(urlval,divval,astroid,comboval){
+	try 
+	{
+	var xmlhttp=false;
+	var status=0;
+	
+	var dn = document.form1.hdn.value; 
+	var dd = document.form1.ttype.value;
+	var sn = document.form1.sunsign.value;							
+	document.form1.hdn.value=dn;
+	document.form1.ttype.value = dd;
+	
+	xmlhttp = window.XMLHttpRequest?new XMLHttpRequest():
+	new ActiveXObject("Microsoft.XMLHTTP");					
+	if (xmlhttp)
+	{						
+	xmlhttp.onreadystatechange=function() 
+	{
+	if (xmlhttp.readyState==4)
+	{
+	if (xmlhttp.status==200)
+	{ 
+	getObj(divval).innerHTML=xmlhttp.responseText;
+	if(astroid==3){document.form1.sunsign.selectedIndex=comboval;}
+	else{document.form1.sunsign.value=sn;}
+	}
+	else if (xmlhttp.status==404) status=0
+	else status=0
+	}}
+	void("GET",urlval,true);
+	xmlhttp.send(null);
+	}}
+	catch (e) 
+	{
+	xmlhttp = false; 
+	}}
+
+	function comment11(astro){ 
+	var comboval;
+	//comboval=document.form1.sunsign[document.form1.sunsign.selectedIndex].text;
+	comboval=document.form1.sunsign.selectedIndex;
+	
+	var astroid;
+	astroid=astro;	
+	
+	if(window.XMLHttpRequest){ 			
+	xmlHttpObj = new XMLHttpRequest();
+	}
+	else if(window.ActiveXObject) { 			
+	xmlHttpObj = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	
+	var dd = document.form1.ttype.value; 
+	var sn = document.form1.sunsign.value;
+	var tt= document.form1.ttype.value;
+	var tt1= document.form1.timetype.value;	
+	setColorCookie("Sunsign",sn,100);
+	setColorCookie("Timetype",tt1,100);
+	setColorCookie("Astroid",astroid,100);
+	document.form1.ttype.value = dd;
+	var SunSign = Get_Ckie("Sunsign");
+	var Timetype = Get_Ckie("Timetype");
+	
+	if(SunSign!=null && Timetype!=null){
+	postUrl = '/webarticleshow_beta_new.cms'+'?msid=121233212&contenttype=1&popup=1&arc=1&sunsign='+SunSign+'&timetype='+Timetype+'&astroid='+astroid+'&B1=Go';
+	}
+	else 
+	{
+	postUrl = '/webarticleshow_beta_new.cms'+'?msid=121233212&contenttype=1&popup=1&arc=1&sunsign='+sn+'&timetype='+tt+'&astroid='+astroid+'&B1=Go';
+	}
+	if(astroid==3){populatediv11alter(postUrl,'astroData',astroid,comboval);}
+	else{
+	populatediv11(postUrl,'astroData',astroid);}
+		
+	if(astroid!=3){document.form1.sunsign.value=sn;}
+	}
+
+//merge
+function GetColorCookie(name){
+				var nameEQ=name+"="
+				
+				var ca=document.cookie.split(';')
+				for(var i=0;i<ca.length;i++){
+					var c=ca[i]
+					while(c.charAt(0)==' ')c=c.substring(1,c.length)
+					if(c.indexOf(nameEQ)==0)return c.substring(nameEQ.length,c.length);
+				}
+				return null
+			}
+			function setColorCookie(name,value,days){
+				if(days){
+					var date=new Date()
+					date.setTime(date.getTime()+(days*24*60*60*1000))
+					var expires="; expires="+date.toGMTString()
+				}else var expires=""
+				document.cookie=name+"="+value+expires+"; path=/"
+			}
+		function ckdivastro(){		
+		var SunSign = GetColorCookie("Sunsign");
+		var Timetype = GetColorCookie("Timetype");
+		var astroid = 1;		
+		var sunsigga=parseInt(SunSign);	
+		if(sunsigga>=13){
+		SunSign=null;
+		}
+		if(SunSign!=null && Timetype!=null){
+		populate_wf('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=' + SunSign + '&timetype=' + Timetype + '&astroid=1&B1=Go','astroData','no','selindex()');	
+	
+		}
+		else{		
+		if(datewisemth=='April')
+					{
+						if(datewisedte>='01' && datewisedte<='21')
+						{populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=1&timetype=1&astroid=1&B1=Go','astroData');}
+						else if(datewisedte>='22' && datewisedte<='31'){populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=2&timetype=1&astroid=1&B1=Go','astroData');}
+					}
+				else if(datewisemth=='March')
+				{
+				if(datewisedte>='01' && datewisedte<='20')
+						{populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=12&timetype=1&astroid=1&B1=Go','astroData');}
+						else if(datewisedte>='23' && datewisedte<='31'){populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=1&timetype=1&astroid=1&B1=Go','astroData');}
+				}
+				else if(datewisemth=='October')
+				{
+				if(datewisedte>='01' && datewisedte<='23')
+						{populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=7&timetype=1&astroid=1&B1=Go','astroData');}
+						else if(datewisedte>='24' && datewisedte<='31'){populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=8&timetype=1&astroid=1&B1=Go','astroData');}
+				}
+				else if(datewisemth=='May')
+				{
+				if(datewisedte>='01' && datewisedte<='21')
+						{populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=2&timetype=1&astroid=2&B1=Go','astroData');}
+						else if(datewisedte>='22' && datewisedte<='31'){populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=3&timetype=1&astroid=1&B1=Go','astroData');}
+				}
+				else if(datewisemth=='June')
+				{
+				if(datewisedte>='01' && datewisedte<='21')
+						{populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=3&timetype=1&astroid=1&B1=Go','astroData');}
+						else if(datewisedte>='22' && datewisedte<='31'){populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=4&timetype=1&astroid=1&B1=Go','astroData');}
+				}
+				else if(datewisemth=='July')
+				{
+				if(datewisedte>='01' && datewisedte<='22')
+						{populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=4&timetype=1&astroid=1&B1=Go','astroData');}
+						else if(datewisedte>='23' && datewisedte<='31'){populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=5&timetype=1&astroid=1&B1=Go','astroData');}
+				}
+				else if(datewisemth=='August')
+				{
+				if(datewisedte>='01' && datewisedte<='21')
+						{populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=5&timetype=1&astroid=1&B1=Go','astroData');}
+						else if(datewisedte>='22' && datewisedte<='31'){populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=6&timetype=1&astroid=1&B1=Go','astroData');}
+				}
+				else if(datewisemth=='September')
+				{
+				if(datewisedte>='01' && datewisedte<='23')
+						{populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=6&timetype=1&astroid=1&B1=Go','astroData');}
+						else if(datewisedte>='24' && datewisedte<='31'){populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=7&timetype=1&astroid=2&B1=Go','astroData');}
+				}
+				else if(datewisemth=='November')
+				{
+				if(datewisedte>='01' && datewisedte<='22')
+						{populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=8&timetype=1&astroid=1&B1=Go','astroData');}
+						else if(datewisedte>='23' && datewisedte<='31'){populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=9&timetype=1&astroid=1&B1=Go','astroData');}
+				}
+				else if(datewisemth=='December')
+				{
+				if(datewisedte>='01' && datewisedte<='22')
+						{populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=9&timetype=1&astroid=1&B1=Go','astroData');}
+						else if(datewisedte>='23' && datewisedte<='31'){populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=10&timetype=1&astroid=1&B1=Go','astroData');}
+				}
+				else if(datewisemth=='January')
+				{
+				if(datewisedte>='01' && datewisedte<='20')
+						{populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=10&timetype=1&astroid=1&B1=Go','astroData');}
+						else if(datewisedte>='21' && datewisedte<='31'){populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=11&timetype=1&astroid=1&B1=Go','astroData');}
+				}
+				else if(datewisemth=='February')
+				{
+				if(datewisedte>='01' && datewisedte<='19')
+						{populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=11&timetype=1&astroid=1&B1=Go','astroData');}
+						else if(datewisedte>='20' && datewisedte<='31'){populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=12&timetype=1&astroid=1&B1=Go','astroData');}
+				}
+
+		}
+		}
+		function populate_wf(urlval,divval,loaddisableding,fncname){
+
+	      try{
+
+			var xmlhttp=false;
+
+			var status=0;
+
+			if(loaddisableding != 'no'){
+
+				var str_temp = '<table cellpadding="0" cellspacing="0" width="100%" height="100">';
+
+				str_temp = str_temp + '<tr><td valign="middle" align="center" style="font-family:Arial;font-size:13px;font-weight:bold;color:#000000;">Loading';
+
+				str_temp = str_temp + '<img border="0" src="/photo/1748421.cms" hspace="5"></td></tr></table>';
+
+				document.getElementById(divval).innerHTML = str_temp;
+
+			}
+
+			xmlhttp = window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP");					
+
+			if (xmlhttp){
+
+				xmlhttp.onreadystatechange=function(){
+
+					if (xmlhttp.readyState==4){
+
+						if (xmlhttp.status==200){	
+
+							document.getElementById(divval).innerHTML=xmlhttp.responseText;
+
+							if(fncname != ''){eval(fncname);}
+
+						}
+
+	    				else if (xmlhttp.status==404) status=0
+
+						else status=0
+
+					}
+
+ 				}
+
+				void("GET",urlval,true);
+
+				xmlhttp.send(null);
+
+			}
+
+		}catch (e){
+
+			xmlhttp = false; 
+
+		}	
+
+	}
+function selindex(){	var SunSign = GetColorCookie("Sunsign");document.form1.sunsign.selectedIndex = SunSign-1;}
+		function ckdiv(){		
+		var SunSign = GetColorCookie("Sunsign");
+		var Timetype = GetColorCookie("Timetype");
+		var astroid = 2;			
+		var sunsigga=parseInt(SunSign);	
+		if(sunsigga>=13){
+		SunSign=null;
+		}
+		if(SunSign!=null && Timetype!=null){	
+		populate_wf('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=' + SunSign + '&timetype=' + Timetype + '&astroid=2&B1=Go','astroData','no','selindex()');		
+		}
+		else
+		{
+if(datewisemth=='April')
+					{
+						if(datewisedte>='01' && datewisedte<='21')
+						{populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=1&timetype=1&astroid=2&B1=Go','astroData');}
+						else if(datewisedte>='22' && datewisedte<='31'){populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=2&timetype=1&astroid=2&B1=Go','astroData');}
+					}
+				else if(datewisemth=='March')
+				{
+				if(datewisedte>='01' && datewisedte<='20')
+						{populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=12&timetype=1&astroid=2&B1=Go','astroData');}
+						else if(datewisedte>='23' && datewisedte<='31'){populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=1&timetype=1&astroid=2&B1=Go','astroData');}
+				}
+				else if(datewisemth=='October')
+				{
+				if(datewisedte>='01' && datewisedte<='23')
+						{populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=7&timetype=1&astroid=2&B1=Go','astroData');}
+						else if(datewisedte>='24' && datewisedte<='31'){populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=8&timetype=1&astroid=2&B1=Go','astroData');}
+				}
+				else if(datewisemth=='May')
+				{
+				if(datewisedte>='01' && datewisedte<='21')
+						{populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=2&timetype=1&astroid=2&B1=Go','astroData');}
+						else if(datewisedte>='22' && datewisedte<='31'){populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=3&timetype=1&astroid=2&B1=Go','astroData');}
+				}
+				else if(datewisemth=='June')
+				{
+				if(datewisedte>='01' && datewisedte<='21')
+						{populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=3&timetype=1&astroid=2&B1=Go','astroData');}
+						else if(datewisedte>='22' && datewisedte<='31'){populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=4&timetype=1&astroid=2&B1=Go','astroData');}
+				}
+				else if(datewisemth=='July')
+				{
+				if(datewisedte>='01' && datewisedte<='22')
+						{populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=4&timetype=1&astroid=2&B1=Go','astroData');}
+						else if(datewisedte>='23' && datewisedte<='31'){populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=5&timetype=1&astroid=2&B1=Go','astroData');}
+				}
+				else if(datewisemth=='August')
+				{
+				if(datewisedte>='01' && datewisedte<='21')
+						{populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=5&timetype=1&astroid=2&B1=Go','astroData');}
+						else if(datewisedte>='22' && datewisedte<='31'){populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=6&timetype=1&astroid=2&B1=Go','astroData');}
+				}
+				else if(datewisemth=='September')
+				{
+				if(datewisedte>='01' && datewisedte<='23')
+						{populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=6&timetype=1&astroid=2&B1=Go','astroData');}
+						else if(datewisedte>='24' && datewisedte<='31'){populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=7&timetype=1&astroid=2&B1=Go','astroData');}
+				}
+				else if(datewisemth=='November')
+				{
+				if(datewisedte>='01' && datewisedte<='22')
+						{populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=8&timetype=1&astroid=2&B1=Go','astroData');}
+						else if(datewisedte>='23' && datewisedte<='31'){populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=9&timetype=1&astroid=2&B1=Go','astroData');}
+				}
+				else if(datewisemth=='December')
+				{
+				if(datewisedte>='01' && datewisedte<='22')
+						{populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=9&timetype=1&astroid=2&B1=Go','astroData');}
+						else if(datewisedte>='23' && datewisedte<='31'){populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=10&timetype=1&astroid=2&B1=Go','astroData');}
+				}
+				else if(datewisemth=='January')
+				{
+				if(datewisedte>='01' && datewisedte<='20')
+						{populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=10&timetype=1&astroid=2&B1=Go','astroData');}
+						else if(datewisedte>='21' && datewisedte<='31'){populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=11&timetype=1&astroid=2&B1=Go','astroData');}
+				}
+				else if(datewisemth=='February')
+				{
+				if(datewisedte>='01' && datewisedte<='19')
+						{populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=11&timetype=1&astroid=2&B1=Go','astroData');}
+						else if(datewisedte>='20' && datewisedte<='31'){populatediv('/webarticleshow_beta_new.cms?msid=121233212&contenttype=1&popup=1&arc=1&sunsign=12&timetype=1&astroid=2&B1=Go','astroData');}
+				}
+		}
+		
+		}
+//end merge
+	function t_type1(i,astrid){
+	var astro="";
+	document.form1.ttype.value=i;
+	astro=document.form1.astroid.value;
+	document.form1.timetype.value = i;
+	//var sn = document.form1.sunsign.value;
+	//Set_Ckie("Sunsign",sn,100,"/",".indiatimes.com","")
+	//Set_Ckie("Timetype",i,100,"/",".indiatimes.com","")
+	comment11(astrid);
+	}
+	function populatediv(urlval,divval){
+	try 
+	{
+	var xmlhttp=false;
+	var status=0;
+	xmlhttp = window.XMLHttpRequest?new XMLHttpRequest():
+	new ActiveXObject("Microsoft.XMLHTTP");					
+	if (xmlhttp)
+	{						
+	xmlhttp.onreadystatechange=function() 
+	{
+	if (xmlhttp.readyState==4)
+	{
+	if (xmlhttp.status==200)
+	{ 
+	getObj(divval).innerHTML=xmlhttp.responseText;
+	}
+	else if (xmlhttp.status==404) status=0 		
+	else status=0
+	}}
+	void("GET",urlval,true);
+	xmlhttp.send(null);
+	}}
+	catch (e) 
+	{
+	xmlhttp = false; 
+	}}
+	
+	
+function getselected(fval){	
+	var numbera=parseInt(fval)-1;
+	var selObj = document.getElementById('s1');		
+	var selIndex=selObj.options[numbera].selected='true';
+	
+	}
+	function getselectedoth(fval){	
+	var numbera=parseInt(fval)-1;
+	var selObj = document.getElementById('s2');		
+	var selIndex=selObj.options[numbera].selected='true';
+	
+	}
+	function populatedivcity(urlval,divval,fval,type){
+	try 
+	{
+	var xmlhttp=false;
+	var status=0;
+	xmlhttp = window.XMLHttpRequest?new XMLHttpRequest():
+	new ActiveXObject("Microsoft.XMLHTTP");					
+	if (xmlhttp)
+	{						
+	xmlhttp.onreadystatechange=function() 
+	{
+	if (xmlhttp.readyState==4)
+	{
+	if (xmlhttp.status==200)
+	{ 
+	getObj(divval).innerHTML=xmlhttp.responseText;
+	
+	if(type==1){eval(getselectedoth(fval));}
+	else{
+	eval(getselected(fval));}
+	}
+	else if (xmlhttp.status==404) status=0 		
+	else status=0
+	}}
+	void("GET",urlval,true);
+	xmlhttp.send(null);
+	}}
+	catch (e) 
+	{
+	xmlhttp = false; 
+	}}
+
+	function citylist(fval){if(fval=='1'){populatedivcity('/betapage3/3890841.cms','page3Data',fval,0)}if(fval=='2'){populatedivcity('/betapage3/3890843.cms','page3Data',fval,0)}if(fval=='3'){populatedivcity('/betapage3/3890845.cms','page3Data',fval,0)}if(fval=='4'){populatedivcity('/betapage3/3946678.cms','page3Data',fval,0)}if(fval=='5'){populatedivcity('/betapage3/3947495.cms','page3Data',fval,0)}if(fval=='6'){populatedivcity('/betapage3/3947525.cms','page3Data',fval,0)}if(fval=='7'){populatedivcity('/betapage3/3947633.cms','page3Data',fval,0)}}
+	function city_mirror_list(fval){if(fval=='1'){populatedivcity('/betamirrorlist/4036370.cms','page3Data',fval,1);}if(fval=='2'){populatedivcity('/betamirrorlist/4036371.cms','page3Data',fval,1);}if(fval=='3'){populatedivcity('/betamirrorlist/4036372.cms','page3Data',fval,1);}}
+    
+	
+	
+
+function decide(id){
+if(id=='1'){
+getObj('divind').style.display='block';
+getObj('divitimes').style.display='none';
+document.loginfrm.idtype[0].checked=true;
+document.loginfrm.login.value=document.loginfrm1.login.value;
+document.loginfrm.passwd.value=document.loginfrm1.passwd.value;
+}
+if(id=='2')
+{getObj('divind').style.display='none';
+getObj('divitimes').style.display='block';}
+document.loginfrm1.idtype[1].checked=true;
+document.loginfrm1.login.value=document.loginfrm.login.value;
+document.loginfrm1.passwd.value=document.loginfrm.passwd.value;
+}
+function Tabsitimes(id){
+if(id=='register'){
+getObj('register').style.display='inline-block';
+getObj('signin').style.display='none';
+getObj('anna2').style.display='block';
+getObj('anna1').style.display='none';
+getObj('UserId2').innerHTML='';
+getObj('eMail2').innerHTML='';
+}
+if(id=='signin'){
+getObj('signin').style.display='inline-block';
+getObj('register').style.display='none';
+getObj('anna2').style.display='none';
+getObj('anna1').style.display='block';
+getObj('UserId1').innerHTML='';
+getObj('eMail1').innerHTML='';
+}}
+
+
+function checkKeyword(){
+	if(getObj("searchquery").value==""){
+		alert("Please enter text in search box")
+		return false
+	}}
+function CSlider(c,t,n){
+		this.c = document.getElementById(c);
+		if(t!="ud")t="lr";
+		this.s = (t=="lr") ? this.c.rows[0].cells[0].offsetWidth:this.c.rows[0].cells[0].offsetHeight;
+		this.p = (t=="lr") ? "left" : "top";
+		this.l = false;this.np = 0;this.n = n;this.intrvl=null;
+		this.as=true;
+		this.stct=0;
+		this.astopl=false;
+		this.astopr=false;
+		this.tmp=1;//use for auto scroll count
+		this.autointrvl=null;
+		this.lnr=false;
+		this.startSlide=function(d,o){if(this.l){return;}
+		
+		if(this.lnr){
+			if(this.stct==0){
+				this.stct=this.c.rows[0].cells[0].innerHTML
+			}
+			if((this.astopr && d=='r') || (this.astopl && d=='l'))return;			
+			if(this.c.rows[0].cells[0].innerHTML=='1AM' && d=='r'){			
+				var tmpvl1= document.getElementById(o+"_rb");				
+				tmpvl1.className=""+tmpvl1.getAttribute("off");
+				var tmpvl2= document.getElementById(o+"_lb");				
+				tmpvl2.className=""+tmpvl2.getAttribute("on");
+				
+				this.astopr = true;
+				this.astopl = false;				
+			}else if(this.c.rows[0].cells[1].innerHTML==this.stct && d=='l'){			
+				var tmpvl1= document.getElementById(o+"_rb");
+				tmpvl1.className=""+tmpvl1.getAttribute("on");				
+				var tmpvl2= document.getElementById(o+"_lb");
+				tmpvl2.className=""+tmpvl2.getAttribute("off");
+				this.astopl = true;
+				this.astopr = false;				
+			}else{			
+				var tmpvl1= document.getElementById(o+"_lb");
+				tmpvl1.className=tmpvl1.getAttribute("on");
+				var tmpvl2= document.getElementById(o+"_rb");
+				tmpvl2.className=tmpvl2.getAttribute("on");
+				this.astopr = false;
+				this.astopl = false;
+			}			
+		}
+		this.l=true;if(d!='l'){this.MCir(d);}this.intrvl=setInterval(""+o+".move('"+d+"')",10);this.np = this.getNP(d);};
+		this.move=function(d){
+			if(this.getMv(d)){
+				
+				eval("this.c.style."+this.p+"=this.np+'px'");
+				
+				clearInterval(this.intrvl);
+				
+				this.l=false;
+				
+				if(d=='l'){
+				
+					this.MCir(d);
+				}
+			}else{
+				
+				eval("this.c.style."+this.p+"=this.getNCP(d)+'px'");
+			}
+		};		
+		this.getNP=function(d){if(d=='l'){return (this.getCP()-(this.s*this.n));}else{return(this.getCP()+(this.s*this.n));}};
+		this.getCP=function(d){return eval("parseInt(this.c.style."+this.p+".substring(0,this.c.style."+this.p+".length-2))");};
+    	this.getMv=function(d){			
+			if(d=='l' && (this.getCP(d)<= this.np))
+				return true;
+			else if(d=='r' && (this.getCP(d)>= this.np))
+				return true;
+			else return false;
+		};
+		this.getNCP=function(d){if(navigator.appName == "Mozilla"){if(d=='l')return this.getCP(d)-15;else return this.getCP(d)+15;}else{if(d=='l')return this.getCP(d)-10;else return this.getCP(d)+10;}};
+		this.MCir = function(d){var robj = this.p=='left'?this.c.rows[0].cells:this.c.rows;for(i=0;i<this.n;i++){if(d=='l'){robj[0].parentNode.appendChild(robj[0]);}else{robj[0].parentNode.insertBefore(robj[robj.length-1],robj[0]);}}if(d=='l'){eval("this.c.style."+this.p+"=(this.getCP(d)+(this.s*this.n))+'px'");}else{eval("this.c.style."+this.p+"=(this.getCP(d)-(this.s*this.n))+'px'");}};	
+		this.autoSlide=function(d,o){
+			this.tmp++;
+			if(this.tmp>10)this.tmp=1;
+			showTab(totalSlideShowIds,"current#notcurrent",getObj("em_dll"+this.tmp));
+			if(this.as){
+				this.startSlide(d,o);				
+			}else{
+				this.as=false;
+				clearTimeout(this.autointrvl);
+			}
+		};
+		
+	}
+
+function populatediva(urlval,divval,timeid){
+			try 
+			{					
+			var xmlhttp=false;
+    		var status=0;
+			xmlhttp = window.XMLHttpRequest?new XMLHttpRequest():
+			new ActiveXObject("Microsoft.XMLHTTP");					
+			if (xmlhttp)
+				{						
+				xmlhttp.onreadystatechange=function() 
+				{
+				if (xmlhttp.readyState==4)
+				{
+	 			if (xmlhttp.status==200)
+		        	{ 
+				getObj(divval).innerHTML=xmlhttp.responseText;
+					eval(testpopu(timeid));
+					}
+					else if (xmlhttp.status==404) status=0 		
+					else status=0
+					}}
+					void("GET",urlval,true);
+					xmlhttp.send(null);
+					}}
+					catch (e) 
+					{
+					xmlhttp = false; 
+					}}
+
+
+function switchtabcommnew(act,type,timeid){
+	var arrayofTab = act.split('#');
+	var arrlen = arrayofTab.length-1;	
+	for(i=arrlen;i>=0;i--){
+	if(i == 0){
+	getObj(arrayofTab[i]).className="current";
+	populatediva("/alphaopttimesat_v2/"+timeid+".cms", 'time2timeData',timeid);
+	}else {
+	if(getObj(i).getAttribute("dis")=='dactive'){
+	getObj(i).className='disable';
+	
+	}
+	else{	
+	getObj(i).className='';
+	}
+	}
+	}
+	}
+	
+
+
+function TimeTab(){	
+try{							   
+ var i='';	   												 
+ for(i=1;i<=24;i++){	
+     var curid=i;										    				  
+	    if(curid==curr_hour){					
+         getObj(curid).className='current';        
+    	 getObj(curid).style.cursor='pointer';
+		 }			 				
+		if(curr_hour  >= curid){								   
+		getObj(i).style.cursor='pointer';			  			
+     	}
+		else{		
+		getObj(i).className='disable';
+		getObj(i).setAttribute("dis","dactive");		
+		}
+       }	
+	  }
+	  catch(ex)
+	  {
+	  
+	  }		               
+    }	
+	
+	function switchimg(act){						
+						var arrayofTab = act.split('#');
+						var arrlen = arrayofTab.length-1;
+						for(i=arrlen;i>=0;i--){
+						if(i == 0){			
+						getObj(arrayofTab[i]).src='/photo/5235615.cms';									
+						}
+						else {
+						getObj(arrayofTab[i]).src='/photo/5235616.cms';						
+						}
+						}}
+					
+		function CSlidernew(c,t,n){
+		this.c = document.getElementById(c);
+		if(t!="ud")t="lr";
+		this.s = (t=="lr") ? this.c.rows[0].cells[0].offsetWidth:this.c.rows[0].cells[0].offsetHeight;
+		this.p = (t=="lr") ? "left" : "top";
+		this.l = false;
+		this.spd=15;
+		this.lazy=false;
+		this.ti= (t=="lr") ? this.c.rows[0].cells.length:this.c.rows[0].length;
+		this.cs=1;this.np = 0;this.n = n;this.tmpn=n;this.intrvl=null;
+		
+		this.startSlide=function(d,o,n){									
+			if(this.l){return;}
+			if(this.lazy){this.lz(n,o);}
+			var tmpval=0;
+			if(n<this.cs){
+				tmpval = this.cs-n;d='r';
+			}else if(this.cs<n){
+				tmpval = n-this.cs;
+			}
+			this.n=this.tmpn*(tmpval);
+			this.cs=n;
+			this.l=true;			
+			this.intrvl=setInterval(""+o+".move('"+d+"','"+o+"')",this.spd);			
+			this.np = this.getNP(d);
+		};
+		this.move=function(d,o){		
+			if(this.getMv(d)){		
+				eval("this.c.style."+this.p+"=this.np+'px'");		
+				clearInterval(this.intrvl);		
+				this.l=false;		
+			}else{		
+				eval("this.c.style."+this.p+"=this.getNCP(d)+'px'");
+			}
+		};		
+		this.getNP=function(d){
+			var o=(d=='l')?"-":"+";
+			return eval("this.getCP()"+ o +"(this.s*this.n)");			
+		};
+		this.getCP=function(d){
+			return eval("parseInt(this.c.style."+this.p+".substring(0,this.c.style."+this.p+".length-2))");
+		};
+		this.getMv=function(d){
+			if(d=='l' && (this.getCP(d)<= this.np))return true;
+			else if(d=='r' && (this.getCP(d)>= this.np))return true;
+			else return false;
+		};
+		this.getNCP=function(d){
+			if(d=='l')return this.getCP(d)-Math.ceil((this.getCP(d)-this.np)/this.spd);
+			else return this.getCP(d)+Math.ceil((this.np-this.getCP(d))/this.spd);
+		};	
+		this.lz=function(x,objid){
+			var upto = this.tmpn*x;
+			for(i=1;i<=upto;i++){
+				if(!(document.getElementById(objid+"_"+i).getAttribute("imgpath")=="" || document.getElementById(objid+"_"+i).getAttribute("imgpath")==null)){
+					document.getElementById(objid+"_"+i).src=document.getElementById(objid+"_"+i).getAttribute("imgpath");
+					document.getElementById(objid+"_"+i).setAttribute("imgpath","");
+				}
+			}
+		};		
+	};
+
+
+
+	voidCloseLife(x){
+	if(x==true){
+		document.getElementById("life2").style.display="block";
+		document.getElementById("life1").style.display="none";
+		setTimeout(voidCloseLife(false)",10000);
+	}else{
+		document.getElementById("life1").style.display="block";
+		document.getElementById("life2").style.display="none";
+	}
+	RepositionShosh();
+}
+function RepositionShosh()
+	{
+		if(window.setPosition)
+		{
+			setPosition();
+		}
+	}
+
+function ovr(act,xobj){
+	if(act==true){
+		xobj.style.cssText="background-color:#F1F1F1";
+	}else{
+		xobj.style.cssText="background-color:none";
+	}
+}
+function nextSlide(obj,objid,y,z){
+
+var tmparr;
+if(obj.cs==4)
+tmparr=z+"1";
+else 
+tmparr=z+""+(obj.cs+1);
+for(i=1;i<=y;i++){
+	if(i!=(obj.cs+1))
+	tmparr+="#"+z+""+i;
+}
+
+
+switchimg(tmparr);
+if(obj.cs==y){
+obj.startSlide('r',objid,1);
+}else{
+obj.startSlide('l',objid,(obj.cs+1));
+}
+}
+function ovr(act,xobj){
+	if(act==true){
+		xobj.style.cssText="background-color:#F1F1F1";
+	}else{
+		xobj.style.cssText="background-color:none";
+	}
+}
+	function getObj(id){
+
+			return document.getElementById(""+id);
+
+		}
+
+		function findPosY(obj){
+
+			obj=document.getElementById(obj);
+
+			var curtop = 0;
+
+			if (obj.offsetParent){
+
+				while (obj.offsetParent){
+
+					curtop += obj.offsetTop
+
+					obj = obj.offsetParent;
+
+				}
+
+			}
+
+			else if (obj.y)
+
+			curtop += obj.y;
+
+			return curtop;
+
+		}
+
+		function findPosX(obj){
+
+			obj=document.getElementById(obj);
+
+			var curleft = 0;
+
+			if (obj.offsetParent){
+
+				while (obj.offsetParent){
+
+					curleft += obj.offsetLeft
+
+					obj = obj.offsetParent;
+
+				}
+
+			}else if (obj.x)
+
+			curleft += obj.x;
+
+			return curleft;
+
+		}	
+
+function tpbar_glblold(){
+var username = getCookievalue1('commlogu');
+if(username == "" || username == null){
+var tmpstr="";
+tmpstr+="<a href=\"javascript:loaddisabledPopup1('1');\" class=newtop pg=bePos4>Sign in</a><span>|</span>";
+tmpstr+="<a href=\"javascript:loaddisabledPopup1('2');\" pg=bePos5>Sign up</a><span>|</span>";
+
+document.getElementById("topbardiv").innerHTML = tmpstr;
+}else{
+populate('/new_topbar_sso.cms','topbardiv','no');
+}
+}
+
+
+var cookiestring= document.cookie;
+cookiestring = cookiestring.toLowerCase();
+function getCVal(strcookie){
+cookiestring= document.cookie;
+var ipos = cookiestring.indexOf(strcookie);
+var ipos2 = cookiestring.indexOf(';',ipos);  
+if (ipos != -1) {
+if (ipos2 == -1) ipos2 = cookiestring.length;
+return unescape(cookiestring.substring((ipos+strcookie.length+1),ipos2));
+}
+else 
+return "";
+}
+voidSigninNew(paramChk){
+	try{
+		var fbtwtUrl="";
+		Set_Ckie("frmbtm","1",1,"/",".indiatimes.com","");
+		if(paramChk=="1"){
+		 	fbtwtUrl="httpdisabled://socialappsintegrator.indiatimes.com/socialsite/OAuth?channel=indiatimes";			
+			sigintwtfb = void (fbtwtUrl,"sigintwtfb","location=1,status=1,scrollbars=1,width=670,height=380");
+			sigintwtfb.moveTo(315,250);
+		}
+		else{
+			fbtwtUrl="httpdisabled://socialappsintegrator.indiatimes.com/socialsite/OAuth/twitterrequest?channel=indiatimes";
+			sigintwtfb = void (fbtwtUrl,"sigintwtfb","location=1,status=1,scrollbars=0,width=755,height=350");
+			sigintwtfb.moveTo(275,200);
+		}
+	}
+	catch(ex){}
+}
+function clipWindow1(params){
+	var isLogged1 = getCVal('MSCSAuth');
+	var username1=getCVal('MSCSAuthDetails').split('=')[1];
+	if(isLogged1 == "" || isLogged1 == null){
+		//void('http://timesofindia.indiatimes.com/login.cms?newlook=1&TferURL=http://timesofindia.indiatimes.com/showclips.cms','','');
+	}
+	else{
+		//void('http://timesofindia.indiatimes.com/showclips.cms','Clippings','height=400,width=575,toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=yes,resizable=1');
+		if(params=='5' || params=='6'){
+			loaddisabledPopup1('6');
+		}
+		else{
+			loaddisabledPopup1('5');
+		}
+	}
+}
+
+function tpbar_glbl(){
+var isLogged = getCVal('MSCSAuth');
+var username="";
+var tmpUfNVal1="";
+	var tmpUfN1="";
+	var tmpUlN1="";
+	var tmpUFullN1="";
+	tmpUfNVal1=getCVal('MSCSAuthDetail');
+	if((getCVal('MSCSAuthDetail')!=null) && (getCVal('MSCSAuthDetail')!='')){
+		tmpUfNVal1=tmpUfNVal1.split("~");
+		if(tmpUfNVal1[4].split('=')[1]!=null){
+			tmpUfN1=tmpUfNVal1[4].split('=')[1];
+			if(tmpUfN1=="null"){
+				tmpUfN1="";
+			}		
+		}
+		else {
+		tmpUfN1="";
+		}
+		if(tmpUfNVal1[5].split('=')[1]!=null){
+			tmpUlN1=tmpUfNVal1[5].split('=')[1];	
+			if(tmpUlN1=="null")	{
+				tmpUlN1="";
+			}
+		}
+		else {
+		tmpUlN1="";
+		}
+		
+		tmpUFullN1=tmpUfN1+tmpUlN1;		
+		
+		if(tmpUFullN1!="")
+		{
+			username=tmpUfN1+" "+tmpUlN1;
+		}
+		else 
+		{
+			if(getCVal('MSCSAuthDetails')!=null){
+				username=getCVal('MSCSAuthDetails').split('=')[1];
+			}
+		}
+		username=username.replace("+"," ");
+	}
+
+var tmpstr="";
+if(isLogged == "" || isLogged == null){
+tmpstr+="<a href=\"voidSigninNew('1');\" class=newtop pg=TbPos4><img style=vertical-align:bottom src=/photo/6713473.cms border=0 alt=Facebook title=Facebook pg=TbPos4></img></a><span>|</span>";
+tmpstr+="<a href=\"javascript:loaddisabledPopup1('1');\" class=newtop pg=bePos4>Log In</a><span>|</span>";
+tmpstr+="<a href=\"javascript:loaddisabledPopup1('2');\" pg=bePos5>Join</a><span>|</span>";
+document.getElementById("topbardiv").innerHTML = tmpstr;
+}else{
+tmpstr='<span style="color:#000000;font-weight:bold;font-size:11px;">Welcome:<span><a style="color:#000000;font-weight:bold;">'+username;
+if(username.indexOf('@') == -1)
+{
+//tmpstr=tmpstr+'@indiatimes.com';
+} 
+tmpstr=tmpstr+'</a><span>|</span><a href=\"javascript:clipWindow1(2);\">My Page</a><span>|</span>';
+//tmpstr=tmpstr+'<a href="httpdisabled://www1.indiatimes.com/logout.cms?tfrout=http://www.indiatimes.com" target="_top">Sign out</a><span>|</span>';
+tmpstr=tmpstr+'<a href=\"javascript:signOut();\" target="_top">Log Out</a><span>|</span>';
+document.getElementById("topbardiv").innerHTML = tmpstr;
+}
+}
+function signOut(){
+	Delete_Ckie("setfocus","/",".indiatimes.com");
+	Delete_Ckie("fbcheck","/",".indiatimes.com");
+	Delete_Ckie("twtcheck","/",".indiatimes.com");
+	Delete_Ckie("usercomt","/",".indiatimes.com");
+	Delete_Ckie("ifrmval","/",".indiatimes.com");
+	Delete_Ckie("frmbtm","/",".indiatimes.com");
+	FB.logout(function(response) {
+	});
+	var tmpvar="httpdisabled://www.facebook.com/logout.php?app_key=47255beefd20a79f1f2e244087a0dcc7&session_key="+usersessionkey+"&next=http://www.indiatimes.com\default_beta1.cms";
+	if(usersessionkey!="")
+	document.getElementById('imgLogout').src=tmpvar;
+	setTimeout('meLogOut()',2000);
+}
+function meLogOut(){
+	document.location.href="httpdisabled://www1.indiatimes.com/logout.cms?tfrout=http://www.indiatimes.com";
+}
+
+
+ 

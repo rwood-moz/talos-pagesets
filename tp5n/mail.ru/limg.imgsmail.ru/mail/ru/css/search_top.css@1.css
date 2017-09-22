@@ -1,0 +1,43 @@
+/* Other */
+td.on div div div {padding:0 !important;}
+td.on div div {padding: 2px 5px;}
+.search_bare {width:99%;}
+.search_bare td{vertical-align:middle; color: #FFFFFF;}
+.search_bare .inp{width:50%;}
+.search_bare input{margin:0pt;width:100%;}
+.pl20 {padding-left: 20px;}
+/* dolotov: воткнул, чтобы попробовать реальный размер шрифта в поисковой строке */
+.search_form .input input {font-size: 1.2em;}
+/* Suggest */
+#mail_ru_Suggest {z-index: 1000;}
+#mail_ru_Suggest .sWrap {}
+#mail_ru_Suggest .sCrnTR, #mail_ru_Suggest .sCrnBL, #mail_ru_Suggest .sCrnBR, #mail_ru_Suggest .sBrdR, #mail_ru_Suggest .sBrdB {position: absolute; display: block; overflow: hidden;}
+#mail_ru_Suggest .sCrnTR, #mail_ru_Suggest .sCrnBL {width: 12px; height: 12px;}
+#mail_ru_Suggest .sCrnBR {width: 17px; height: 17px;}
+#mail_ru_Suggest .sCrnTR, #mail_ru_Suggest .sCrnBR, #mail_ru_Suggest .sBrdR {right: -12px;}
+#mail_ru_Suggest .sCrnBL, #mail_ru_Suggest .sCrnBR, #mail_ru_Suggest .sBrdB {bottom: -12px;}
+#mail_ru_Suggest .sCrnTR {background: url('../../../../limg4.imgsmail.ru/mail/ru/images/gogo/shd_crn_tr.png') 0 0 no-repeat; top: 0;}
+#mail_ru_Suggest .sCrnBL {background: url('../../../../limg2.imgsmail.ru/mail/ru/images/gogo/shd_crn_bl.png') 0 0 no-repeat; left: auto;}
+#mail_ru_Suggest .sCrnBR {background: url('../../../../limg3.imgsmail.ru/mail/ru/images/gogo/shd_crn_br.png') 0 0 no-repeat;}
+#mail_ru_Suggest .sBrdR {background: url('../../../../limg1.imgsmail.ru/mail/ru/images/gogo/shd_brd_r.png') 0 0 repeat-y; width: 12px; top: 0; bottom: 0; margin-top: 12px; margin-bottom: 5px;}
+#mail_ru_Suggest .sBrdB {background: url('../../../../limg4.imgsmail.ru/mail/ru/images/gogo/shd_brd_b.png') 0 0 repeat-x; height: 12px; left: 0; right: 0; margin-left: 12px; margin-right: 5px;}
+#mail_ru_Suggest .sCrnTR, #mail_ru_Suggest .sCrnBL, #mail_ru_Suggest .sCrnBR, #mail_ru_Suggest .sBrdR, #mail_ru_Suggest .sBrdB {_background: none;}
+#mail_ru_Suggest .sCrnTR {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://limg4.imgsmail.ru/mail/ru/images/gogo/shd_crn_tr.png',sizingMethod='crop');}
+#mail_ru_Suggest .sCrnBL {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://limg2.imgsmail.ru/mail/ru/images/gogo/shd_crn_bl.png',sizingMethod='crop');}
+#mail_ru_Suggest .sCrnBR {_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://limg3.imgsmail.ru/mail/ru/images/gogo/shd_crn_br.png',sizingMethod='crop');}
+#mail_ru_Suggest .sBrdR {_height: expression((parentNode.offsetHeight-17)); _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://limg1.imgsmail.ru/mail/ru/images/gogo/shd_brd_r.png',sizingMethod='scale');}
+#mail_ru_Suggest .sBrdB {_width: expression((parentNode.offsetWidth-17)); _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://limg4.imgsmail.ru/mail/ru/images/gogo/shd_brd_b.png',sizingMethod='scale');}
+#mail_ru_Suggest .sInnr {background: #FFFFFF; border: #666666 1px solid; padding: 1px; overflow: hidden;}
+#mail_ru_Suggest .sWrap table.sList {width: 100%;}
+#mail_ru_Suggest .sWrap table.sList tr a {display: block; color: #5C6566; font-size: 11px; line-height: 16px; padding-left: 8px; margin-top: -2px;}
+#mail_ru_Suggest .sWrap table.sList tr.ra a {color: #5C6566;}
+#mail_ru_Suggest .sWrap table.sList tr a:hover {color: #5C6566; text-decoration: none;}
+#mail_ru_Suggest .sWrap table.sList tr.link td {}
+#mail_ru_Suggest .sWrap table.sList tr.rn, #mail_ru_Suggest .sWrap table.sList tr.ra {cursor: pointer; _cursor: hand;}
+#mail_ru_Suggest .sWrap table.sList tr.rn td {background: #FFFFFF;}
+#mail_ru_Suggest .sWrap table.sList tr.ra td {background: #DEDFE3;}
+#mail_ru_Suggest .sWrap table.sList td.squery {padding: 1px 5px; color: #262A2A; font-size: 12px; text-align: left;}
+#mail_ru_Suggest .sWrap table.sList td.squery div {width: 336px; overflow: hidden; white-space: nowrap;}
+#mail_ru_Suggest div.sClose {padding: 0px 6px 2px; font-size: 11px; text-align: right;}
+#mail_ru_Suggest div.sShadow {width: 100%; height: 11px;}
+#mail_ru_Suggest a.sClose {cursor: pointer; _cursor: hand;}

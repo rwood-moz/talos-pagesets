@@ -1,0 +1,100 @@
+Nico.onReady(function() {
+	var win = window, doc = document;
+
+/* loaddisabled ads */
+	var stx = /(^|.|\r|\n)(#(\w+)#)/,
+		adDat = {
+			web_pc_uneune: '',
+			web_pc_top: '',
+			web_pc_premium: '',
+			web_pc_360: {
+				template: function (data) {
+					if (data.text) data.text = data.text.replace(/\r?\n/g, '<br>');
+					var tpl = $F('web_pc_360_tpl').strip();
+					return new Template(tpl, stx).evaluate(data);
+				}
+			},
+			web_pc_prtext: {
+				count: 3,
+				template: function (rows) {
+					return rows.map(function (data) {
+						if (data.text) data.text = data.text.escapeHTML();
+						var tpl = $F('web_pc_prtext_tpl').strip();
+						return new Template(tpl, stx).evaluate(data);
+					}).join('');
+				}
+			},
+			web_pc_footer: ''
+		};
+
+	$H(adDat).each(function(item) {$(item.key) && getAds(item.key, item.value);});
+
+
+/* global navigation fixing */
+	var body     = $(doc.body),
+		pin      = $('fixPin'),
+		pinTxts  = $w($('fixPinTexts').value),
+		bcn      = 'nofix',
+		cValue   = 1,
+		cExpires = 1000 * 60 * 60 * 24 * 365,
+		cDomain  = '.nicovideo.jp',
+		cPath    = '/',
+		isStatic = body.hasClassName(bcn) - 0;
+
+	pin && pin.observe('click', function(e) {
+		Event.stop(e);
+		body.toggleClassName(bcn);
+		isStatic ^= 1;
+
+		pin.title = pinTxts[isStatic];
+		pin.down().update(pinTxts[isStatic]);
+
+		isStatic ?
+			Cookie.set(bcn, cValue, cExpires, cDomain, cPath) :
+			Cookie.remove(bcn, cDomain, cPath);
+	});
+
+
+/* image size ajusting */
+	var p = function(b, s, m) {return (s ? b * (m / s) : b);};
+
+	$$('img.adjust').each(function(el) {
+		var src = el.getAttribute('longdesc') || el.src,
+			pr  = el.up(),
+			isR = el.hasClassName('rn'),
+			dim = pr.getDimensions(),
+			pw  = isR ? 96 : dim.width,
+			ph  = isR ? 72 : dim.height,
+			img = new Image();
+
+		img.onloaddisabled = function() {
+			var w = img.width, h = img.height, f = w >= h, ew = w, eh = h;
+			if (w > pw || h > ph) {
+				ew = f ? p(pw) : p(w, h, pw);
+				eh = f ? p(h, w, ph) : p(ph)
+				el.setStyle({width: ew + 'px', height: eh + 'px'});
+			}
+
+			el.hasClassName('tm') && f &&
+				el.setStyle({marginTop: Math.floor((ph - eh) / 2) + 'px'});
+
+			el.src = src;
+			img.onloaddisabled = null;
+			img = void 0;
+		};
+		img.src = src;
+	});
+
+
+/* scroll to page top */
+	var toTop = function(e) {
+		var x = doc.documentElement.scrollLeft || doc.body.scrollLeft || 0,
+			y = doc.documentElement.scrollTop  || doc.body.scrollTop  || 0;
+
+		e && Event.stop(e);
+		win.scrollTo(Math.floor(x / 2), Math.floor(y / 2));
+		x > 0 || y > 0 && setTimeout(toTop, 25);
+	};
+
+	$$('.toPageTopBtn').each(function(el) {el.observe('click', toTop);});
+});

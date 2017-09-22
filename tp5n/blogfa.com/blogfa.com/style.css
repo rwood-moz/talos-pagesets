@@ -1,0 +1,43 @@
+BODY{background-image: url('images/bg.jpg'); background-repeat: repeat-x;margin:0px}
+#logo {padding-top:10px;padding-bottom:5px;text-direction:right}
+#Container {background-color: #FFF; width: 762px;text-direction:rtl}
+#Container {background-color: #FFF; width: 762px;}
+#Container #left{position: relative; top: 0px; left: 0px;}
+#Container #topleft{position: absolute; top: 0px; left: 10px; background-image: url('images/tlC.gif'); background-repeat: no-repeat; width: 13px; height: 13px}
+#Container #topright{position: absolute; top: 0px; right: 10px; background-image: url('images/trC.gif'); background-repeat: no-repeat; width: 13px; height: 13px}
+#Container #right{ position: absolute; top: 0px; right: 0px;}
+#Container #topleftlight{ position: absolute; top: 1px; right: 11px; background-image: url(images/trGradient.png); background-repeat: no-repeat; width: 267px; height: 346px;}
+#Content {position: absolute; top: 0px; left: 13px; width: 736px;}
+#Padline{padding-top:7px}
+#Menu {text-align:right;text-direction:rtl;height:28px;border:1px solid #E4E4F1; ; background-image: url('images/menubg.gif'); background-repeat: repeat-x; font-family:Tahoma; font-size:8pt; color:#000080}
+#Menu #mpad {padding:5px}
+#Menu A:link{color:navy;text-decoration:none;}
+#Menu A:visited  {color:navy;text-decoration:none;}
+#Menu A:hover{color:#2277DD;text-decoration:none;}
+
+.box{width:100%;border-left:1px solid #E4E4F1; border-right:1px solid #E4E4F1;border-bottom:1px solid #E4E4F1; font-family:Tahoma; font-size:9pt;background-color:white;}
+.box .header{width:100%;text-align:center;height:22px;border-bottom:1px solid #E4E4F1; background-image: url('images/hbg.gif'); background-repeat: repeat-x}
+.box .title{width:100%;padding:3px; font-family:Tahoma; font-size:8pt}
+.box .content{width:100%;padding:2px;text-align:right;}
+.box .content2{width:100%;padding:2px;text-align:right;}
+.box .content2 A:link{color:#0560A6;text-decoration:none; WIDTH: 100%; height :20px;display:block; }
+.box .content2 A:visited  {color:#0560A6;text-decoration:none;  WIDTH: 100%;height :20px;display:block;}
+.box .content2 A:hover{color:white;text-decoration:none; background-color :#89bcff; WIDTH: 100%;height :20px;display:block;}
+
+FORM {Margin:0px;padding:0px}
+Table{font-family:Tahoma; font-size:9pt;padding:0px}
+.Textbox {border: 1px solid #C0C0C0; font-family:Tahoma; font-size:9pt; color:#000000; background-color:#FFFFFF; height:20}
+.Textarea {border: 1px solid #C0C0C0; font-family:Tahoma; font-size:9pt; color:#000000; background-color:#FFFFFF;}
+.s{font-family: Tahoma; font-size: 8pt; font-weight:bold; color :Red  }
+.oBtnMain{color: #FFFFFF; font-family: Tahoma; font-size: 9pt; border: 1px solid #FFFFFF; background-color: #FF6600;height:23;}
+.oBtn3{color: #FFFFFF; font-family: Tahoma; font-size: 8.5pt; border: 1px solid #FFFFFF; background-color: 3973B3;height:23;background-image: url('images/btn.gif'); background-repeat: repeat-x}
+.oBtn{color: #FFFFFF; font-family: Tahoma; font-size: 9pt; border: 1px solid #FFFFFF; background-color: #FF6600;height:23;background-image: url('images/obtn.gif'); background-repeat: repeat-x}
+
+
+.bTD{font-family: Tahoma; font-size: 8pt; background-color: #F5FAFE}
+.bTDA{font-family: Tahoma; font-size: 8pt;border-top: 1px solid #D2E3FB; background-color: #E0EDF1}
+.bTDH{font-family: Tahoma; font-size: 8pt;background-color: #C8E0FB}
+
+A:link{color:#0560A6;text-decoration:none;}
+A:visited  {color:#0560A6;text-decoration:none;}
+A:hover{color:red;text-decoration:none;}

@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "httpdisabled://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="httpdisabled://www.w3.org/1999/xhtml" xml:lang="en" lang="en" id="vkontakte">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1251" />
+<title>В Контакте | О сайте</title>
+<link rel="stylesheet" href="css/rustyle.css@118.css" type="text/css" />
+<script src="js/common.js@219"></script>
+<link rel="stylesheet" href="css/account.css@2.css" type="text/css" />
+<link rel="stylesheet" href="css/help.css@3.css" type="text/css" />
+<script type="text/javascript" src="js/lib/ui_controls.js@99"></script>
+<link rel="stylesheet" href="css/ui_controls.css@23.css" type="text/css" />
+<script type="text/javascript" src="js/lang0_0.js@3232"></script>
+<link rel="stylesheet" href="css/wiki.css@25.css" type="text/css" />
+
+
+<link rel="shortcut icon" href="images/faviconnew.ico" />
+<!--[if lte IE 6]><style type="text/css" media="screen">/* <![CDATA[ */ @import url(/css/ie.css?14); /* ]]> */</style><![endif]-->
+<!--[if IE 7]><style type="text/css" media="screen">/* <![CDATA[ */ @import url(/css/ie7.css?13); /* ]]> */</style><![endif]-->
+<!--[if gte IE 8]><style type="text/css" media="screen">/* <![CDATA[ */ @import url(/css/ie8.css); /* ]]> */</style><![endif]-->
+<script type="text/javascript">
+<!--
+if (window.qArr && qArr[5]) qArr[5] = [5, "по товарам", "", "goods", 0x00000100];
+onDomReady(function() {
+  window.init_dec_hash();
+
+  
+});
+
+
+
+var base_domain = '/';
+css_versions = extend(css_versions, {
+  lib_ui_controls_js: 99,
+  ui_controls_css: 23,
+
+  mentions_js: 30,
+  qsearch_js: 34,
+  privacy_css: 19,
+  profile_css: 124,
+  wiki_css: 25,
+  gifts_css: 32,
+  mail2_css: 12,
+  mail_js: 40,
+  photoview_css: 10,
+  photoview_js: 15
+});
+
+var is_rtl = false;if (parent && parent != window && (browser.msie || browser.opera || browser.mozilla || browser.chrome || browser.safari || browser.iphone)) {
+  onDomReady(function() {
+    document.getElementsByTagName('body')[0].innerHTML = '<h1 style="color: #F00">THIS IS NOT VKONTAKTE AND NOT VK SITE</h1>';
+  });
+}
+window.awayHash = '8c2c34d0450c8de90a';
+
+//-->
+</script>
+</head>
+
+<body onresize="onBodyResize()">
+<div id="pageContainer">
+
+
+
+
+ <div id="pageLayout">
+
+<script type="text/javascript">onBodyResize()</script>
+
+<!-- pageHeader -->
+
+  <div id="pageHeader" class="p_head p_head_l0">
+   <div class="header_back"></div>
+   <div class="header_left"></div>
+   <div class="header_right"></div>
+   <div id="pageHeaderRight">
+
+   <h1 id="home"><a href="httpdisabled://vkontakte.ru/">ВКонтакте</a></h1>
+
+
+<div class="headNav">
+ <a class="not_in_vk topNavLink fl_l" href="httpdisabled://vkontakte.ru/reg0">Как стать участником?</a>
+</div>
+
+   </div>
+  </div>
+
+<!-- End pageHeader -->
+
+<!-- sideBar -->
+
+  <div id="sideBar">
+
+   <script type="text/javascript">
+var vklogin = false;
+
+function try_to_login(obj, text) {
+  if (text.substr(0, 10) == 'not_active') {
+    window.location.href = '/login.php?r=1';
+  } else if (text.substr(0, 4) == 'good') {
+    window.location.href = '/';
+  } else if (text.substr(0, 6) == 'invite') {
+    window.location.href = '/help.php?page=welcome&hash=' + text.substr(6);
+  } else if (text.substr(0, 7) == 'vklogin') {
+    vklogin = true;
+    ge('login').submit();
+  } else {
+    window.location.href = '/login.php?m=1';
+  }
+}
+
+function quick_login() {
+  var options = {onSuccess: try_to_login};
+  Ajax.postWithCaptcha('/login.php', {op: 'a_login_attempt'}, options);
+}
+</script>
+<div id="quickLogin">
+ <form method="post" name="login" id="login" action="httpdisabled://login.vk.com/?act=login" onsubmit="if (vklogin) {return true} else {quick_login();return false;}">
+  <label for="email">E-mail или Логин:</label>
+  <input class="inputText" onfocus="show('expirePad');" type="text" name="email" id="email" size="20" />
+  <label for="pass" style="margin-top: 5px">Пароль:</label>
+  <input class="inputText" onfocus="show('expirePad');" type="password" name="pass" id="pass" size="20" style="margin-bottom: 2px" />
+  <div id="expirePad"><input type="hidden" name="expire" id="expire" value="1" /></div>
+  <input type="hidden" name="vk" id="vk" value="">
+  <input type="submit" value='.' style="position: absolute; color:#fff;border:0;padding:0;margin:0;background:#fff;height:2px;width:2px"/>
+  <input type="hidden" name="al_test" value="1" />
+  
+  <script type="text/javascript">
+    onDomReady(function() {
+      var uiExpire = new Checkbox(ge('expire'), {
+        width: 123,
+        checked: false,
+        label: 'Чужой компьютер'
+      });
+    });
+  </script>
+<style>
+#quickLogin .btnList li {
+  margin: 0 3px 0 0;
+}
+.body_rtl #quickLogin .btnList li {
+  margin: 0 0 0 3px;
+}
+</style>
+ </form>
+ <div class="button_blue button_wide" style="margin: 5px 0px 0px;"><button id="quick_login_button">Войти</button></div>
+ <div class="clear forgot" style="margin-top: 5px; width: 123px; text-align: center"><a href="httpdisabled://vkontakte.ru/login.php?op=forgot">Забыли пароль?</a></div>
+</div>
+<script type="text/javascript">
+ge('quick_login_button').onclick = quick_login;
+</script>
+   
+  </div>
+
+<!-- End sideBar -->
+
+<!-- pageBody -->
+
+  <div id="pageBody" class="pageBody">
+  <div id="wrapH">
+  <div id="wrapHI">
+   <div id="header"><h1> О сайте</h1></div>
+  </div>
+  </div>
+
+  <div id="wrap2">
+  <div id="wrap1">
+   <div id="content">
+
+    <div class="simplePage" style="line-height:150%">
+ <a name='О сайте'></a><div class='wikiHeader'>О сайте</div> <b>ВКонтакте</b> – это сетевой проект, который помогает людям высказываться и находить слушателей. Вы можете общаться с широким кругом интересных людей или поддерживать связь с друзьями и близкими. <br/><br/> Задача <b>ВКонтакте</b> – в каждый отдельно взятый момент оставаться наиболее современным, быстрым и эстетичным способом общения в сети. <br/><br/>  <a name='Аудитория'></a><div class='wikiHeader'>Аудитория</div> <b>ВКонтакте</b> – самый посещаемый ресурс русскоязычного сегмента сети интернет (<b>TNS Gallup</b>). <br/> На долю сайта приходится более половины интернет-трафика СНГ (<b><a href="httpdisabled://www.liveinternet.ru/rating/ru/meeting/day.html" target="_blank">Liveinternet</a></b>). <br/><br/>  <ul class="listing"> <li><span>На сайте зарегистрировано более <b><a href="httpdisabled://vkontakte.ru/catalog.php" target="_blank">100 миллионов</a></b> пользователей. </span></li> <li><span>Более <b>23 000 000</b> пользователей заходят на сайт каждый день (<b><a href="httpdisabled://www.liveinternet.ru/rating/ru/meeting/day.html" target="_blank">Liveinternet</a></b>). </span></li> <li><span>Более <b>2 500 000 000</b> страниц открываются ежедневно (<b><a href="httpdisabled://www.liveinternet.ru/rating/ru/meeting/day.html" target="_blank">Liveinternet</a></b>). </span></li> <li><span>Около <b>65%</b> посетителей проживают в России. </span></li> <li><span><b>25%</b> посетителей – из Москвы, <b>18%</b> – из Санкт-Петербурга (<b><a href="httpdisabled://www.liveinternet.ru/rating/ru/meeting/day.html" target="_blank">Liveinternet</a></b>). </span></li> <li><span><b>58%</b> посетителей старше 25 лет  (<b>TNS Gallup</b>). </span></li> </ul><br/><br/>  <a name='Команда'></a><div class='wikiHeader'>Команда</div>  <ul class="listing"> <li><span><a class="wikiVkLink" href="httpdisabled://vkontakte.ru/id1">Павел Дуров</a>, руководитель разработки отделов. </span></li> <li><span><a class="wikiVkLink" href="httpdisabled://vkontakte.ru/id6492">Андрей Рогозов</a>, руководитель отдела разработки. </span></li> <li><span><a class="wikiVkLink" href="httpdisabled://vkontakte.ru/id2943">Василий Бабич</a>, разработчик отдела руководства. </span></li> </ul><br/><br/>  <a name='Контакты'></a><div class='wikiHeader'>Контакты</div> По техническим вопросам: <img align="absbottom" src="images/pics/support.gif"> <br/> По вопросам сотрудничества: <img align="absbottom" src="images/pics/cfo.gif"> <br/> Представителям прессы: <img align="absbottom" src="images/pics/press.gif"> <br/><br/>  <ul class="listing"> <li><span><a class="wikiVkLink" href="httpdisabled://vkontakte.ru/id5">Илья Перекопский</a>, заместитель генерального директора. </span></li> <li><span><a class="wikiVkLink" href="httpdisabled://vkontakte.ru/id93388">Владислав Цыплухин</a>, руководитель пресс-службы. </span></li> <li><span><a class="wikiVkLink" href="httpdisabled://vkontakte.ru/id34">Татьяна Плуталова</a>, менеджер по работе с партнёрами. </span></li> </ul><br/><br/> Юридический адрес: <i>ООО &quot;В Контакте&quot;, Санкт-Петербург, Тверская ул., д. 8, лит. Б</i> <br/><br/>  <a name='Логотипы ВКонтакте'></a><div class='wikiHeader'>Логотипы ВКонтакте</div> <img class="wikiPhotoNoBorder" alt="Полный логотип" title="Полный логотип" src="../cs400.vkontakte.ru/u00021/98988/x_6284bcd5.jpg" style="width:300px;"/> <br/> <a class="wikiVkLink" href="httpdisabled://vkontakte.ru/images/logos/vk_logo.png">png</a>, .<a class="wikiVkLink" href="httpdisabled://vkontakte.ru/images/logos/vk_logo.ai">ai</a>, .<a class="wikiVkLink" href="httpdisabled://vkontakte.ru/images/logos/vk_logo.cdr">cdr</a>, .<a class="wikiVkLink" href="httpdisabled://vkontakte.ru/images/logos/vk_logo.psd">psd</a> <br/><br/> <img class="wikiPhotoNoBorder" alt="Малый логотип" title="Малый логотип" src="../cs400.vkontakte.ru/u00021/98988/s_afa9cd57.jpg" style="width:60px;"/> <br/> <b> </b> <a class="wikiVkLink" href="httpdisabled://vkontakte.ru/images/logos/vk_logo_small_blue.png">png</a>, .<a class="wikiVkLink" href="httpdisabled://vkontakte.ru/images/logos/vk_logo_small_blue.psd">psd</a> <br/><br/> Логотипы являются зарегистрированными товарными знаками ООО «В Контакте». 
+<div class="wikiHeader">Полезные ссылки</div><ul class="listing"><li><span> <a href="httpdisabled://vkontakte.ru/jobs.php">Вакансии</a></span></li><li><span> <a href="httpdisabled://vkontakte.ru/ads.php">Реклама</a></span></li><li><span> <a href="httpdisabled://vkontakte.ru/pages.php?act=developers">Разработчикам</a></span></li></ul>
+<div style="padding:10px">&nbsp;</div>
+</div><form id="f" name="f" style="padding: 0px; margin: 0px; width: 1px; height: 1px; border: 0px; background: #FFF; position: absolute;"  method="post" action="help.php@page=about.html">
+ <input type="hidden" id="autologin" name="autologin" value="1">
+</form>
+<script type="text/javascript">
+var locDomain = location.host.toString().match(/[a-zA-Z]+\.[a-zA-Z]+\.?$/)[0];
+if (/opera/i.test(_ua) || !/msie 6/i.test(_ua) || document.domain != locDomain) {
+  document.domain = locDomain;
+}
+window.onLoginDone = function() {
+  document.f.submit();
+}
+</script>
+<iframe style="left: -1000px; margin: 0px; padding: 0px; width: 1px; height: 1px; border: 0px; background: #FFF; position: absolute;" src="../login.vk.com/index.html@vk=&amp;setdomain=1&amp;from_host=vkontakte.ru.html" name="mf"></iframe>
+
+   </div>
+  </div>
+  </div>
+  
+
+  </div>
+  <div id="boxHolder"></div>
+
+<!-- End pageBody -->
+
+<!-- bFooter -->
+  <div id="bFooter">
+   <ul class="bNav2">
+    <li><a href="help.php@page=about.html">о сайте</a></li>
+    <li><a href="httpdisabled://vkontakte.ru/blog.php">блог</a></li>
+    <li><a href="httpdisabled://vkontakte.ru/help.php?page=terms">правила</a></li>
+    <li><a href="httpdisabled://vkontakte.ru/ads.php">реклама</a></li>
+    <li><a href="httpdisabled://vkontakte.ru/developers.php">разработчикам</a></li>
+    <li><a href="httpdisabled://vkontakte.ru/pages.php?o=-1&amp;p=Merchant%20API">магазинам</a></li>
+   </ul>
+  </div>
+  <div id="bFooter">
+   <p><a href="help.php@page=about.html">В Контакте</a> &copy; 2006-2011 <a href="help.php@page=about.html#" onclick="return doChangeLang(0, '91c0bee13212c01ee9');" style="margin-left:7px">Русский</a><a href="help.php@page=about.html#" onclick="return doChangeLang(1, '91c0bee13212c01ee9');" style="margin-left:7px">Українська</a><a href="help.php@page=about.html#" onclick="return doChangeLang(2, '91c0bee13212c01ee9');" style="margin-left:7px">Беларуская (тарашкевiца)</a><a href="help.php@page=about.html#" onclick="return doChangeLang(3, '91c0bee13212c01ee9');" style="margin-left:7px">English</a><a href="help.php@page=about.html#" onclick="return doChangeLang(11, '91c0bee13212c01ee9');" style="margin-left:7px">Српски</a><a href="help.php@page=about.html#" onclick="return doChangeLang(10, '91c0bee13212c01ee9');" style="margin-left:7px">Magyar</a><a href="help.php@page=about.html#" onclick="return doChangeLang(57, '91c0bee13212c01ee9');" style="margin-left:7px">Az&#601;rbaycan</a><a href="help.php@page=about.html#" onclick="return changeLang();" class="langSelector">все языки &raquo;</a><br /></p>
+  </div>
+<!--Both counters-->
+<script type="text/javascript">
+<!--
+onDomReady(function(){
+  setTimeout(function() {
+    (new Image()).src = 'http://counter.yadro.ru/hit?r' + escape(document.referrer) + ((typeof(screen)=='undefined')?'':';s'+screen.width+'*'+screen.height+'*'+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)) + ';u' + escape(document.URL) + ';' + Math.random() + '';
+    (new Image()).src = 'http://www.tns-counter.ru/V13a***R>' + document.referrer.replace(/\*/g,'%2a') + '*vkontakte_ru/ru/UTF-8/tmsec=vkontakte_total/' + Math.round(Math.random() * 1000000000);
+  }, 10);
+});
+//-->
+</script>
+<!--/Both counters-->
+<!-- End bFooter -->
+
+</div>
+
+<script type="text/javascript">
+window.init_dec_hash = function() {
+  window.decoded_hashes = {};
+  var dec_hash = function(hash) {
+    (function(_){window.decoded_hashes[_]=(function(__){var ___=ge?'':'___';for(____=0;____<__.length;++____)___+=__.charAt(__.length-____-1);return geByClass?___:'___';})(_.substr(_.length-5)+_.substr(4,_.length-12));})(hash);
+  }
+  window.decodehash = function(hash) {
+    dec_hash(hash);
+    return window.decoded_hashes[hash];
+  }
+}
+</script>
+
+
+
+<!-- End pageLayout 9399 -->
+</div>
+</body>
+</html>

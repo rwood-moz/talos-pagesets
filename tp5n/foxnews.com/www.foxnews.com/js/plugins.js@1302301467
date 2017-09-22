@@ -1,0 +1,869 @@
+/********** Custom widgets ***********//*
+Updated: 06/10/2010
+***************************************/	
+(function($){
+
+// fox namespace declaration
+if (typeof window.fox==="object") {
+	if (!fox.widgets) {
+		window.fox.widgets = {}; // create widget object instance
+	}
+} else {
+	// override any non-object fox declaration. 
+	// fox is always the highest object declared namespace convention
+	window.fox = { 
+		widgets:{}
+	};
+}
+
+$(document).ready(function(){
+	fox.widgets.headlines.set(); // headlines
+	fox.widgets.regionalNews.set(); // regional news
+	fox.widgets.weatherWidget.set(); // weather right rail
+	if (window.carouselOFF) {
+	} else {
+	//	fox.widgets.carousel.spotlight(); // spotlight
+	}
+	
+	// fox.widgets.carousel.spotlight(); // spotlight
+	fox.widgets.breakingNewsAlerts();
+});
+
+
+fox.widgets.weatherWidget = {
+	set: function() {
+		
+		if (!$("body").data("weather-rendered")) {
+			if (typeof weather_service!=="undefined") {
+				weather_service.displayHeader("httpdisabled://www.foxnews.com");
+			} else {
+				$(document).ready(function(){
+					if (typeof weather_service!=="undefined") {
+						weather_service.displayHeader("httpdisabled://www.foxnews.com");
+					}
+				});
+			}
+		}
+		
+	}
+};
+
+
+fox.widgets.headlines = {
+	set: function() {
+		var elm =  $(".slide.slide-2 .content");
+		if (elm.size()===0) { return false; }
+		
+		this.renderFeed(elm);
+		// set up carousel
+		fox.widgets.carousel.headlines(elm);
+	},
+	renderFeed: function(elm) {
+		// feed here
+	}
+};
+
+fox.widgets.regionalNews = {
+	set: function() {
+		var elm = $("#regional-news");
+		if (elm.size()===0) { return false; }
+		
+		var selectElm = elm.children("form:first").find("select");
+		var listItems = elm.children("ul.list");
+		
+		selectElm.children("option").each(function(i){
+			$(this).attr("value",i);
+		});
+		
+		selectElm.change(function(){
+			var id = parseInt($(this).attr("value"),10);
+			
+			listItems.each(function(z){
+				var item = $(this);
+				if (z===id) {
+					item.addClass("active");
+				} else {
+					item.removeClass("active");
+				}
+			});
+			
+		});
+	}
+};
+
+fox.widgets.carousel = {
+	randomShow: function(){
+		var spotLtUl =  $('#fox-spotlight').find('.slideshow ul');
+		var spotLtControls = $('#fox-spotlight').find('.controls');
+		function randomizer(max){
+			return Math.floor((Math.random() * max));
+		}		
+		var max = spotLtUl.find("li").size();
+
+		var rand = randomizer(max);	
+		spotLtUl.find('li:eq('+ rand +')').css("display","block");
+		spotLtControls.css("display","none");
+	},
+	spotlight: function() {
+		var sLcontent = $('#fox-spotlight').find('.content li');
+		sLcontent.css("display","none");
+		/*
+		var cfg = {
+			elm: $(".slide.slide-3 .content"),
+			slide: 'horizontal', // horizontal or vertical
+			scroll: 1, // number of items to scroll per event
+			speed: 400, // scroll speed
+			show: 1, // items shown
+			rotate: false
+		};
+		this.render(cfg);
+		*/
+	
+		this.randomShow()
+	},
+	headlines: function(elm) {
+		var cfg = {
+			elm: elm,
+			slide: 'horizontal', // horizontal or vertical
+			scroll: 1, // number of items to scroll per event
+			speed: "fast", // scroll speed
+			show: 1, // items shown
+			rotate: false
+		};
+		this.render(cfg);
+	},
+	render: function(cfg) {
+		
+		function createCarouselButtons(obj) {	
+			var list = [];
+			for (var x=1;x<=obj.batch.max;x++) {
+				list.push('<li><a href="#">&nbsp;</a></li>');
+			}
+			return list.join('');
+		}
+		
+		cfg.elm.scrollLeft(0).scrollTop(0);
+		cfg.elm.each(function(i){
+			var maxNum = 0;
+			var carousel = $(this);
+			
+			if (carousel.data("carousel_initialized")) { return false; } // don't re-init if already initialized
+			
+			var buttonElm = carousel.find("ol");
+			var nav = {
+				prev: carousel.find(".prev"),
+				next: carousel.find(".next"),
+				first: carousel.find(".first-page"),
+				last: carousel.find(".last-page")
+			}
+
+			var config = {
+				auto: { set:false,speed:3000 }, // auto scroll
+				slide: cfg.slide,
+				scroll: cfg.scroll,
+				show: cfg.show,
+				speed: cfg.speed,
+				rotate: cfg.rotate, 
+				eventCallback: function(obj) { // callback function for all carousel events
+
+					if (obj.event === 'init') { 
+						maxNum = obj.batch.max;
+						buttonElm.html(createCarouselButtons(obj)); // create the buttons 
+						buttonElm.children(":first").addClass("active"); // set the first one as always active
+
+						carousel.data("carousel_initialized",true); // set this carousel as initialized
+
+					} else {
+						buttonElm.children().each(function(i){ // button highlight listener
+							if (i+1 == obj.batch.current) {
+								$(this).addClass("active");
+							} else {
+								$(this).removeClass("active");
+							}
+						});
+					}
+
+					// setting up the navigation classes
+					if (obj.batch.current === 1) { 
+						nav.prev.addClass("inactive-prev");
+						nav.first.addClass("inactive-first");
+					} else {
+						nav.prev.removeClass("inactive-prev");
+						nav.first.removeClass("inactive-first");
+					}
+
+					if (obj.batch.current === obj.batch.max) {
+						nav.next.addClass("inactive-next");
+						nav.last.addClass("inactive-last");
+					} else {
+						nav.next.removeClass("inactive-next");
+						nav.last.removeClass("inactive-last");
+					}
+
+				},
+				controlsCallback: function(control) { // callback to set up controls
+
+					buttonElm.children().find("a").each(function(i){ // buttons links
+						$(this).click(function(){
+							control.stopAutoScroll();
+							control.scrollToBatch(i+1);
+							return false;
+						});
+					});
+
+					nav.first.click(function(){ // first-page link
+						control.stopAutoScroll();
+						control.scrollToItem(1);
+						return false;
+					});
+
+					nav.prev.click(function(){ // previous link
+						control.stopAutoScroll();
+						control.slide('prev');
+						return false;
+					});
+
+					nav.next.click(function(){ // next link
+						control.stopAutoScroll();
+						control.slide('next')
+						return false;
+					});
+
+					nav.last.click(function(){ // last-page link
+						control.stopAutoScroll();
+						control.scrollToItem(maxNum);
+						return false;
+					});
+
+				}
+			};
+
+			carousel.jfoxCarousel(config);
+
+		});
+	}
+};
+
+fox.widgets.breakingNewsAlerts = function() {
+	// Listener for Breaking News Alerts Sign-up
+	BNAEmailAlerts.init({
+		elm: $("#newsAlertsEmailSignup"),
+		reqURL: '/portal/newsalertsubscribe', 
+		cookie: { set:true,name:'breakingNewsAlertSubmit',expires:3 },
+		SLID: {
+			BreakingNews:'C2F278094FACCEA62391025B7A52D8EB',
+			BusinessNews:'5C84B893BD6D939E84FAE1A8E6E9525A',
+			GretaWire: '3DC725E303A24F8D9EB9149EA8D0FDB1',
+			DailyNewsletter:'D98A625593049BD2CBFB283F5508AF71',
+			BestOfBusiness: '3DC725E303A24F8D39740C7B45D15F45',
+			TopHeadlines: '3DC725E303A24F8DB05092D232355E43',
+			MonthlyPolitics: '3DC725E303A24F8D836CEAE9B885C87D',
+			LeisureLedger: '3DC725E303A24F8D02B1F9D9AAF16982',
+			Fox411: '3DC725E303A24F8D9C92271F5026F381',
+			BestOfOpinion: '3DC725E303A24F8D95ACD1C9C0564C20'
+		}
+	});
+};
+
+fox.widgets.marketSnapShot = function() {
+	marketSnapShot.init();
+};
+
+/*******************************                                                          ****************/
+fox.widgets.strategyRoomSchedule = function(){
+	strategyRoomSchedule.init();
+};
+/*******************************                                                          ****************/
+
+
+/***** Global Functions *****//* 
+- window scope functions/objects
+- general functions available to the closure
+******************************/
+
+// legacy functions
+function cleanStr(str) {
+	return str.toLowerCase().replace(/ /g,"-").replace(/[^-a-zA-Z0-9]/g, "");
+}
+
+function videoPlayerScript(id,playlistId,title,prefix,newWindow) {
+	id = id || "";
+	playlistId = playlistId || "";
+	title = title || "";
+	prefix = prefix || "/";
+	newWindow = newWindow || false;
+	
+	if (id.length>0) {
+		var linkArr = [];
+		linkArr.push("httpdisabled://video.foxnews.com"+prefix+id);
+		if (title.length>0) { linkArr.push("/"+cleanStr(title)); }
+		if (playlistId.length>0) { linkArr.push("/?playlist_id="+playlistId); }
+		if (newWindow) {
+			void(linkArr.join(""),"_blank");
+		} else {
+			window.location = linkArr.join("");
+		}
+		
+	}
+}
+
+
+
+function videoPlayer(vidFile,headline,format,hd,category,relID,channel,duration) {
+	var vidUrlFile = "";
+	var sLiveStream = "";
+	var category = category.replace(/'/g, "&#39;");
+	var channel = (typeof channel==="undefined") ? "" : channel.replace(/'/g, "&#39;");
+	var duration = (typeof duration==="undefined") ? 180 : duration;
+	
+	if (!hd || hd=="") { hd = "acc"; }
+	if (format==="Campaign_Carl" || format==="5_-_You_Decide") { hd = "elec"; }
+	if (vidUrlFile=="") { vidUrlFile = "resize05.html"; }
+	
+	sLiveStream = vidFile.split("_::_");
+	var h = (sLiveStream[0]==="liveSiteStream" && sLiveStream[2]==="chat") ? 700 : 325;
+	var winState = (screen.width > 1000 && !$.browser.opera) ? "exp" : "col";
+	
+	var qStr = [];
+	qStr.push(vidFile).push(escape(format)).push(escape(headline)).push(escape(hd)).push(escape(category)).push(relID).push(escape(channel)).push(duration).push(winState);
+	var vidUrl = fnDomain + "/video2/" + vidUrlFile + "?" + qStr.join("&");
+	var winl = ((screen.width - 700) / 2) - 5;
+	var winprops = "height="+h+",width=700,top=5,left="+winl;
+	var fncVidWin = void(vidUrl, 'fncVidPlayer', winprops);
+	if (fncVidWin) { fncVidWin.focus(); }
+}
+
+var foxGrabPlayer = window.foxGrabPlayer = function(id,playlistId,title) {
+	var prefix = "/v/";
+	videoPlayerScript(id,playlistId,title,prefix,true); // added additional argument as last argument to trigger new window
+	return false;
+};
+
+var foxVideoPlayer = window.foxVideoPlayer = function(id,playlistId,title) {
+	videoPlayerScript(id,playlistId,title);
+	return false;
+}
+
+var videoMPlayer = window.videoMPlayer = function(id,playlistId){
+	videoPlayerScript(id,playlistId);
+	return false;
+}
+
+
+// streaming video
+var siteStreamFlashPlayer = window.siteStreamFlashPlayer = function(n, site) {
+	var s = typeof(n) == 'undefined' ? 1 : n;
+	var d = typeof(site) == 'undefined' ? 'foxnews' : site;
+	var w = 850;
+	var h = 506;
+	var left = (screen.width-w)/2;
+	var top = (screen.height-h)/2;
+	var settings = "height="+h+",width="+w+",top="+top+",left="+left+",toolbar=no,location=no,scrollbars=no,status=no,resizable=no,fullscreen=no";
+	var win = void('http://interactive.' + d + '.com/livestream/live.html?chanId='+s+'voidAIR=true','livePlayer',settings);
+	win.focus();
+};
+
+// Live Site Stream
+var siteStreamPlayer = window.siteStreamPlayer = function(n, sChat){
+	if(typeof n==="undefined"){
+		liveFile = 'liveSiteStream';
+	} else{
+		liveFile = 'liveSiteStream_::_'+n+'_::_'+sChat;
+	}
+	videoPlayer(liveFile,'Live%20Stream','Live_Site_Stream','acc','Live%20Stream','-1','News',180);
+}
+
+
+})(jQuery);
+
+function setDefault() {}
+function clearDefault() {}
+
+// Breaking News Alerts. Updated: 11/03/2009
+// Dependencies: jQuery, jQuery.cookie plugin
+(function($){
+
+function EmailAlerts() {
+	this.statusText = {
+		defaultEmail:'Enter Your Email Address:'
+	}
+	this.statusHtml = {
+		email:'<h2>Invalid email address.</h2><p class="try-again">Please <a href="#">click here</a> to try again.</p>',
+		checkBox:'<h2>Choose at least one news alert.</h2>',
+		submitted:'<h2>You have already submitted.</h2><p class="try-again">Please <a href="#">click here</a> to try again.</p>',
+		error:'<h2>Request Error.</h2><p class="try-again">Please <a href="#">click here</a> to try again.</p>',
+		thankyou: '<p class="submitted">Thank you. Your subscription has been submitted.</p>'
+	};
+	this.SLID = { // default id's
+		NewsBrief:'3DC725E303A24F8D33D4EE9EA486023C',
+		BreakingNews:'6700EAF45F07D38EABE36F2E8EE267CE'
+	};
+	this.cloneElm = { // holder for cloned elmements
+		submission: false 
+	}; 
+}
+
+EmailAlerts.prototype = {
+	init: function(config) {
+		var EA = this;
+		for (i in config) {
+			if (i==="SLID") {
+				for (e in config[i]) { EA.SLID[e] = config[i][e]; }
+			} else {
+				this["_"+i] = config[i];
+			}
+		}
+		this.status.root = this.cookie.root = this;
+		
+		var elm = this._elm;
+		
+		this.elmObj = {
+			elm: elm,
+			form: elm.find("form"),
+			status: elm.find(".status"),
+			options: elm.find("form fieldset div.option")
+		};
+		if (typeof $.cookie!=="undefined") { // if plugin does not exist, disable cookie settings
+			this._cookie.set = false;
+			//showToConsole("[email.alert] cookie plugin not set."); 
+		}
+		
+		this.setListeners();
+	},
+	setListeners: function() {
+		var EA = this;
+		var formElm = this.elmObj.form;
+		var statusElm = this.elmObj.status;
+		var options = this.elmObj.options;
+		
+		// status elmement
+		statusElm.css({ display:"block",opacity:"0" }); // control by opacity
+		
+		// options
+		options.each(function(){
+			var item = $(this)
+			var checkbox = item.find("input[type='checkbox']").attr("checked","");
+			var label = item.find("label");
+			label.click(function(){
+				checkbox.click(); // extend label click 
+			});
+		});
+		
+		// email focus/blur
+		formElm.find("input[name='email']").attr("value",EA.statusText.defaultEmail).blur(function(){
+			var elm = $(this);
+			var val = elm.attr("value");
+			elm.attr("value",(val==="")?EA.statusText.defaultEmail:val);
+		}).focus(function(){
+			var elm = $(this);
+			var val = elm.attr("value");
+			elm.attr("value",(val===EA.statusText.defaultEmail)?"":val);
+			EA.status.hide();
+		});
+		
+		// form submission
+		formElm.submit(function(){
+			EA.validate();
+			return false;
+		});
+		
+		// on enter from any input tag, submit
+		formElm.find("input").keypress(function(e){ 
+			if (e.which===13) { EA.validate(); }
+		});
+		
+		// check via cookie if already signed up
+		// TODO: stopped here
+		if (!EA.cookie.isExpired()) {
+			
+			var config = EA._cookie;
+			formElm.find("fieldset").children("div:not(.option):not(.status)").hide();
+			EA.status.show(EA.statusHtml.submitted); 
+		}
+		
+	},
+	reset:function() {
+		var EA = this;
+		var formElm = this.elmObj.form;
+		var options = this.elmObj.options;
+		
+		// input text
+		var emailElm = formElm.find("input[name='email']");
+		var emailVal = emailElm.attr("value");
+		
+		if ($.trim(emailVal).length===0) {
+			emailElm.attr("value",EA.statusText.defaultEmail);
+		}
+		
+		// hide status
+		EA.status.hide();
+		
+	},
+	validate: function() {
+		var EA = this;
+		var elm = this.elmObj.elm;
+		var formElm = this.elmObj.form;
+		var options = this.elmObj.options;
+		
+		function chkEmail() {
+			var email = formElm.find("input[name='email']").attr("value");
+			if (!checkEmail(email)) {
+				var html = $(EA.statusHtml.email);
+				html.find("a").click(function(){
+					EA.reset();
+					return false;
+				});
+				EA.status.show(html);
+				return false;
+			} 
+			elm.data("info-email",email);
+			return true;
+		}
+		
+		function chkBoxes() {
+			var nameArr = [];
+			showToConsole(options)
+			options.find("input[type='checkbox']").each(function(){
+				var item = $(this);
+				if (item.attr("checked")) {
+					//var name = item.attr("name");
+					var name = item.attr("id"); // this needs to be changed to name
+					nameArr.push(name);
+				}
+			});
+
+			if (nameArr.length===0) {
+				EA.status.show(EA.statusHtml.checkBox);
+				return false;
+			} else {
+				var idArr = [];
+				// TODO: stopped here.. endless loop error
+				for (var x = 0; x < nameArr.length; x++) {
+					var name = nameArr[x];
+					if (EA.SLID[name]) {
+						idArr.push(EA.SLID[name]);
+					}
+				}
+				
+				showToConsole(idArr)
+				
+				elm.data("info-slid",idArr.join(",")); // save id's in element data
+				return true;
+			}
+
+		}
+		
+		if (chkEmail()) {
+			if (chkBoxes()) {
+				EA.submit();
+			}
+			
+		}
+		
+	},
+	submit: function() {
+		var EA = this;
+		var elm = this.elmObj.elm;
+		var formElm = this.elmObj.form;
+		
+		var req = this._reqURL;
+		var query = "slids=" + elm.data("info-slid") + "&email=" + elm.data("info-email");
+		
+		function parseXML(xml) {
+			var obj = {};
+			$(xml).find('list').each(function(){ obj[$(this).attr("slid")]=$.trim($(this).text()); });
+			return obj;
+		}
+		
+		function submitSuccess() {
+		// set the cookie
+			EA.cookie.set();
+			formElm.find("fieldset").children("div:not(.option):not(.status)").hide();
+			EA.status.show(EA.statusHtml.thankyou);
+		}
+		
+		function submitError() {
+			var html = $(EA.statusHtml.error);
+			html.find("a").click(function(){
+				EA.reset();
+				return false;
+			});
+			EA.status.show(html);
+			
+		}
+		
+		//submitSuccess(); return false;
+		
+		$.ajax({
+			url: req,
+			data: query,
+			cache: false,
+			success: function(response) {
+				var obj = parseXML(response);
+				var hasError = false;
+				for (i in obj) {
+					if (obj[i].indexOf('ok')<0) { hasError = true; break; }
+				}
+				if (!hasError) {
+					submitSuccess();
+				} else {
+					submitError();
+				}
+			},
+			error: function(status,response) {
+				showToConsole("[email.submit] response: " + response);
+				showToConsole(status);
+				submitError();
+			}
+		});
+
+	}
+	
+};
+
+EmailAlerts.prototype.status = {
+	show: function(html) {
+		html = html || false;
+		var root = this.root;
+		if (html) { root.elmObj.status.html(html); }
+		root.elmObj.status.animate({ opacity:"1" },300,"swing");
+	},
+	hide: function() {
+		this.root.elmObj.status.animate({ opacity:"0" },300,"swing");
+	}
+};
+
+EmailAlerts.prototype.cookie = {
+	set: function() {
+		var root = this.root;
+		var config = root._cookie;
+		
+		if (config.set) {
+			$.cookie(config.name,true,{ expires: config.expires });
+		}
+	},
+	remove: function() {
+		var root = this.root;
+		var config = root._cookie;
+		
+		if (config.set) {
+			$.cookie(config.name,null);
+		}
+	},
+	isExpired: function() {
+		var root = this.root;
+		var config = root._cookie;
+		
+		if (config.set) {
+			return ($.cookie(config.name)) ? false : true;
+		}
+		return true;
+	}
+}
+
+function checkEmail(email) { // Email check
+	 var pattern = /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
+	return (pattern.test(email))?true:false;
+}
+/*
+function clearDefault(el) {
+	if (el.value == "Enter Email Address:") { el.value = ""; }
+}
+
+function setDefault(el) {
+	if (el.value == "") { el.value = "Enter Email Address:"; }
+}
+*/
+
+function showToConsole(str) {
+	if (typeof window.console==='object') { console.log(str); }
+}
+
+var BNAEmailAlerts = window.BNAEmailAlerts = new EmailAlerts();
+
+})(jQuery);
+
+// V5 Market Snapshot. Updated: 06/10/2010
+(function($){
+
+window.marketSnapShot = {
+						
+	stock : function (data) {
+		var obj = {
+			symbol: data.symbol,
+			index: data.index,
+			percentChange: data.percentChange,
+			netChange: data.netChange,
+			current: data.current,
+			percentChangeNumber:0
+
+		};
+		return obj;			
+	},
+	getContextData : function(jQueryContainer){	
+		thisObj = this;
+		var syms = "I:DJI,I:COMP,INX";							
+	 	var event = new AjaxGetEvent({context:jQueryContainer}, 
+			 function(data, eventdata){
+			        var doc = thisObj.ParseJSON(data);
+			        var eventdata = eventdata.context;
+					eventdata.jparse(doc);
+					var pData = eventdata.qData;
+					eventdata.displayMarket('I:DJI');
+					eventdata.displayMarket('I:COMP');
+					eventdata.displayMarket('INX');
+			 }
+		 );
+		event.get("/ajax/quote/"+syms.toLowerCase(),{},'text');
+	},
+	ParseJSON : function(text){
+         var text = $.trim(text);
+         var jsonDoc = eval('(' + text + ')');
+         return jsonDoc;
+	},
+	jparse : function(data) {
+		thisObj = this;		
+		if (typeof data==='undefined') { return; }
+		this.qData = {};
+		function insert(item) {
+			var obj = {
+				source: item['@attributes']['source'],
+				current: item.current,
+				description: item.description,
+				netChange: item.netChange,
+				percentChange: item.percentChange,
+				ticker: item.ticker,
+				volume: item.volume
+			};
+			thisObj.qData[obj.source.toUpperCase()] = obj;
+		}
+		
+		if ($(data.quote).size()>1) {
+			$.each(data.quote,function(i,item){ insert(item); });
+		} else { 
+			insert(data.quote);
+		}		
+	},		
+			
+	
+	displayMarket : function(symbol){
+		thisObj = this;		
+		var symId = "#"+symbol.replace(":","").toLowerCase();
+		var symObj = $(symId);
+		
+		if(thisObj.qData[symbol].netChange > 0){
+			symObj.find("dd").addClass("market-up");
+			symObj.addClass("market-arrow-up");
+		}
+		else{
+			symObj.find("dd").addClass("market-down");
+			symObj.addClass("market-arrow-down");
+		}
+		
+		symObj.find(".current").text(thisObj.qData[symbol].current);
+		symObj.find(".net-change").text(thisObj.qData[symbol].netChange);
+		symObj.find(".net-percentage").text(thisObj.qData[symbol].percentChange);
+		symObj.bind("click",function(){ window.location = "httpdisabled://quote.foxbusiness.com/symbol/"+symbol+"/snapshot"; }); 
+	},	
+ init : function(){
+		this.getContextData(this);
+ }
+};
+ 
+})(jQuery);
+
+//Strategy Room
+(function($){
+
+window.strategyRoomSchedule = {
+	gblData : [],
+	namespace : 'strategyRoomSchedule',
+	numberOfShows: 1,
+	numberOfDays : 5,
+	serverUrl : '/schedule/fox-news-live/',
+	strategyRoomUrl : 'http://live.foxnews.com/',
+	targetElement: "#strategyroom ul.list-ext-5",
+	allowTimeExceptions : true,
+	onExceptionsWordsArr : ["replay"],
+	init: function(){
+		this.getShowsDataJSON();
+	},
+	getShowsDataJSON : function(){
+		var obj = this;
+		var urlStr = obj.serverUrl + "?limit="+obj.numberOfShows+"&days="+obj.numberOfDays;
+		$.ajax({ 
+			url: urlStr,
+			type: "GET",
+			dataType: "json",
+			success: function(data){
+				try {
+					obj.gblData = data;
+					obj.setShows();
+				} catch(err) {
+					showToConsole("Strategy Room parse error: " + err);
+				}
+			}
+		});
+	},
+	setShows : function(){
+		var obj = this;
+		var showData = obj.gblData;
+		obj.now =  new Date(showData[0].now);
+		
+		var strLiElems = '';
+		for (var s = 0; s < showData.length; s++) {
+			var startShowTime = new Date(showData[s].episode_start_time); 
+			var endShowTime = new Date(showData[s].episode_end_time); 
+			var show_is_live = false;
+			if((obj.now >= startShowTime) && (obj.now < endShowTime) ){
+				show_is_live = true;
+			}
+			strLiElems += obj.populateDiv(showData[s], s, show_is_live);
+		}
+		$(obj.targetElement).append(strLiElems);
+	},
+	populateDiv: function(showDataObj, index, islive ){
+		var obj = this;
+		var thisLi = [];
+		var isReply = false, exceptiords = obj.onExceptionsWordsArr.length, expandSummary = '';
+		thisLi.push((index === 0) ? '<li class="first">' : '<li>');
+		
+		for(var i = exceptiords; i > 0 ; --i ){;
+			if(showDataObj.episode_title.toLowerCase().indexOf(obj.onExceptionsWordsArr[i-1]) > -1 ){
+				isReply = true;
+			}
+		}
+		if(obj.allowTimeExceptions && isReply){
+			expandSummary = 'style="width:230px;"';
+		}else{
+			thisLi.push('<p class="time">'+showDataObj.show_start_time+''+showDataObj.show_time_meridiem.substring(0,1).toLowerCase()+'<span>et</span><br />');
+			if(islive) {
+				thisLi.push('<span class="live">&nbsp;</span></p>');
+			}
+		}
+		if(islive) {
+			thisLi.push('<h3><a href="'+obj.strategyRoomUrl+'">'+showDataObj.episode_title+'</a></h3>');
+		}else{	
+			var nowDay = obj.now.toDateString().substring(0,3);
+			var showDay = showDataObj.show_day.substring(0,3);
+			var day = ( nowDay.toLowerCase() != showDay.toLowerCase() ) ? showDay : '';
+			thisLi.push('<span class="day">'+ day + '</span></p>');
+			thisLi.push('<h3><a href="'+showDataObj.show_channel_link+'">'+showDataObj.episode_title+'</a></h3>');
+		}
+		
+		 thisLi.push('<p class="summary" '+ expandSummary +'>'+showDataObj.episode_short_description.replace('x3cpx3e', '').replace('x3c/px3e', '') +'</p>');
+		if (islive) { thisLi.push('<p class="btn-smll"><a href="'+obj.strategyRoomUrl+'">Watch</a></p>'); }
+		thisLi.push('</li>');
+		
+		return thisLi.join("");	
+
+	}
+};
+
+function showToConsole(str) {
+	if (typeof window.console==='object') { console.log(str); }
+}
+
+})(jQuery);
+
+

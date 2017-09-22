@@ -1,0 +1,91 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<title>Indiatimes</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<style>.textbold {font-size:14px; font-family:Arial; color:#4d4d4d;font-weight:bold;}
+				.textnormal {font-size:12px; font-family:Arial; color:#4d4d4d;}</style>
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table cellpadding="0" cellspacing="0" border="0" width="90">
+<tr>
+<td valign="top">
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr>
+<td valign="top" colspan="2" align="left" width="90">
+<div id="ddata">
+<table width="100" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+<td id="sensex1" onClick="sense('sensex')" style="padding-bottom:15">
+<table border="0" cellpadding="0" cellspacing="0" width="90">
+<tr>
+<td valign="middle" align="left" class="textbold" width="75" height="42">BSE 	<img border="0" width="13" height="13" src="photo/5351091.cms"><br><span valign="middle" align="left" class="textnormal">19451.45<br><span style="font-size:12px; font-family:Arial, Helvetica, sans-serif; color:#ee0000;font-weight:normal;">-139.73</span></span></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td id="nifty1" onClick="sense('nifty')">
+<table border="0" cellpadding="0" cellspacing="0" width="90">
+<tr>
+<td valign="middle" align="left" width="75" class="textbold" height="42">NSE  <img border="0" width="13" height="13" src="photo/5351091.cms"><br><span valign="middle" align="left" class="textnormal">5842.00<br><span style="font-size:12px; font-family:Arial, Helvetica, sans-serif; color:#ee0000;font-weight:normal;">-43.70</span></span></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><script language="javascript">
+function mailtrim(mvalue){
+var temp1 = mvalue;
+var obj = /^(\s*)([\W\w]*)(\b\s*$)/;
+if (obj.test(temp1)) { temp1 = temp1.replace(obj, '$2'); }
+var obj = /  /g;
+while (temp1.match(obj)) { temp1 = temp1.replace(obj, " "); }
+return temp1;
+}
+
+function changeForm(){
+	if(mailtrim(document.marketform.ticker1.value)==false || mailtrim(document.marketform.ticker1.value)=='Get Quote'){	
+		alert('Please enter any symbol');
+		document.marketform.ticker1.value="";
+		document.marketform.ticker1.focus();
+		return false;
+	}else{
+		var c = escape(document.marketform.ticker1.value);
+		document.marketform.ticker.value =c
+		document.marketform.action="httpdisabled://economictimes.indiatimes.com/currentquote.cms";
+		document.marketform.ticker1.value = "";
+		return true;
+	}
+}
+
+function sense(para){
+var dallas;
+if(para=="nifty"){				
+
+
+dallas="httpdisabled://marketgraphs.economictimes.indiatimes.com/charting/PriceSummary.aspx?indexid=2369&page=home&width=240&height=74";
+document.getElementById("marketidd").src=dallas;
+document.getElementById("nifty1").className="current";
+document.getElementById("sensex1").className="none";}
+else {					
+
+
+dallas="httpdisabled://marketgraphs.economictimes.indiatimes.com/charting/PriceSummary.aspx?indexid=2365&page=home&width=240&height=74";
+document.getElementById("marketidd").src=dallas;
+document.getElementById("sensex1").className="current";
+document.getElementById("nifty1").className="none";}
+}
+function changeClass(id){
+if(id==sensex){}
+if(id==nifty){}
+}					
+function make_blank(){document.marketform.ticker1.value=""}
+ </script></body>
+</html>

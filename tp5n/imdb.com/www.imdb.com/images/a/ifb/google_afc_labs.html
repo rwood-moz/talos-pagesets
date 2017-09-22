@@ -1,0 +1,80 @@
+<html>
+<head>
+
+<script type="text/javascript">
+var loc = document.location.toString();
+var args_idx = loc.indexOf("#");
+if (args_idx != -1) {
+    var args_str = loc.substring(args_idx + 1);
+
+    var args = args_str.split(";");
+    for (var i=0; i<args.length; i++) {
+        var key_val = args[i].split(":");
+
+        if (key_val[0] == "key") {
+            slot = key_val[1];
+            afc_div = parent.document.getElementById("sponsored_links_afc_div_" + slot);
+            title = parent.afc_data[slot].title;
+            help = parent.afc_data[slot].help;
+            google_language = parent.afc_data[slot].language;
+            google_ad_channel = parent.afc_data[slot].channel;
+            google_ad_client = parent.afc_data[slot].client;
+            google_hints = parent.afc_data[slot].hints;
+        }
+    }
+}
+
+function google_ad_request_done(google_ads) {
+    if (google_ads.length == 0)
+        return;
+
+    if (!afc_div || !title || !help)
+        return;
+
+    afc_div.className = 'sponsored_links';
+
+    var s = '';
+    s += '<h2>' + title + 
+         '&nbsp;&nbsp;<span class="help">' +
+         '(<a href="http://www.imdb.com/help/show_leaf?sponsoredlinks" target="_blank">' +
+                 help + '</a>)</span></h2><ul>';
+
+    for (var i=0; i<google_ads.length; ++i) {
+        s += 
+            '<li>' + 
+            '<a href="' + google_ads[i].url + '" ' + 'target="_top" ' +
+            'onmouseout="window.status=\'\'" ' +
+            'onmouseover="window.status=\'go to ' + google_ads[i].visible_url +
+            '\';return true;" ' + 'style="text-decoration:none">' +
+            '<span class="link_title">' +
+            google_ads[i].line1 + '</span></a>&nbsp;&nbsp;' +
+            '<span class="description">' +
+            google_ads[i].line2 + ' ' + google_ads[i].line3 + '</span>' + 
+            '<a href="http://www.imdb.com/images/a/ifb/'%20+%20google_ads[i].url%20+%20'" ' + 'target="_top" ' +
+            'style="text-decoration:none">' +
+            '<span class="sponsor">' + 
+            google_ads[i].visible_url + '</span></a></li>';
+    }
+    s += '</ul>';
+    afc_div.innerHTML = s;
+    return;
+}
+
+google_ad_output = 'js';
+google_max_num_ads = '3';
+google_ad_type = 'text'; // type of ads to display
+google_language = 'en';
+google_encoding = 'utf8';
+google_safe = 'high';
+google_adtest = 'off';
+google_ad_section = 'default';
+</script>
+
+<script type="text/javascript"
+src="../../../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</head>
+
+<body></body>
+</html>

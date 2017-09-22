@@ -1,0 +1,169 @@
+/* $Id: theme-hills_green.css 79046 2008-04-21 17:09:32Z stanimoto $ */
+
+@import url("theme-hills.css");
+
+
+/* basic page elements */
+
+a { color: #5e9ad2; }
+
+#banner a { color: #5e9ad2; }
+
+.entry-header a { color: #5e9ad2; }
+
+.module-header,
+.trackbacks-header,
+.comments-header,
+.void-header,
+.archive-header
+{
+	color: #5e9ad2;
+}
+
+
+/* page layout */
+
+body
+{
+	background-color: #fff;
+	background-image: url(./body-bg.gif);
+}
+
+#banner
+{
+	border-top-color: #5283b1;
+	background-color: #ceeaff;
+	background-image: url(http://static.typepad.com/.shared:v20110414.01-0-g3974e09:typepad:en_us/themes/vox/theme-hills_green/header.png);
+}
+
+#banner-header { color: #5e9ad2; }
+
+#banner-description { color: #999; }
+
+.entry { background-image: url(http://static.typepad.com/.shared:v20110414.01-0-g3974e09:typepad:en_us/themes/vox/theme-hills_green/post-ornament.gif); }
+
+.entry-header { color: #5e9ad2; }
+
+.entry-footer { border-top-color: #e0ebd6; }
+
+.content-header { color: #5e9ad2; }
+
+/* nav */
+
+#nav
+{
+	background: #eee url(./nav.gif) repeat-x top left;
+}
+
+.nav-list
+{
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+
+.nav-list-item
+{
+	border-right: 1px solid #ddd;
+}
+
+.nav-list-item a
+{
+	font-size: 11px;
+	padding: 6px 11px;
+}
+
+
+/* modules */
+
+.module-powered .module-content
+{
+	border-color: #e0ebd6;
+	background-color: #f5eacc;
+	background-image: url(http://static.typepad.com/.shared:v20110414.01-0-g3974e09:typepad:en_us/themes/vox/theme-hills_green/gradient-bg.gif);
+}
+
+.module-powered .module-content, .module-powered .module-content a { color: #333; }
+
+.typelist-thumbnailed .module-list-item
+{
+	border-color: #e0ebd6;
+	background-color: #f5eacc;
+	background-image: url(http://static.typepad.com/.shared:v20110414.01-0-g3974e09:typepad:en_us/themes/vox/theme-hills_green/gradient-bg.gif);
+}
+
+.typelist-thumbnail { background: #e0ebd6; }
+
+.module-recent-photos .module-list-item a:hover { border-color: #7aaa41; }
+
+
+/* calendar tweaks */
+
+	.layout-calendar #pagebody-inner { background-image: url(http://static.typepad.com/.shared:v20110414.01-0-g3974e09:typepad:en_us/themes/vox/theme-hills_green/body-bg-artistic.gif); }
+
+	.module-mmt-calendar .module-header,
+	.layout-timeline .module-recent-photos .module-header
+	{
+		background-color: #7aaa41;
+	}
+
+	.module-mmt-calendar table
+	{
+		background-color: #7aaa41;
+	}
+
+	.module-mmt-calendar th
+	{
+		border-right-color: #e0ebd6;
+	}
+
+	.module-mmt-calendar td
+	{
+		border-right-color: #e0ebd6;
+		background-color: #f5eacc;
+		background-image: url(http://static.typepad.com/.shared:v20110414.01-0-g3974e09:typepad:en_us/themes/vox/theme-hills_green/gradient-bg.gif);
+	}
+
+	.day-photo a:hover { border-color: #7aaa41; }
+
+
+/* artistic tweaks */
+
+	.layout-artistic #pagebody-inner { background-image: url(http://static.typepad.com/.shared:v20110414.01-0-g3974e09:typepad:en_us/themes/vox/theme-hills_green/body-bg-artistic.gif); }
+
+
+/* moblog1 tweaks */
+
+	.layout-moblog1 #pagebody-inner { background-image: url(./body-bg-twt.gif); }
+
+
+/* moblog2 tweaks */
+
+	.layout-moblog2 #pagebody-inner { background-image: url(http://static.typepad.com/.shared:v20110414.01-0-g3974e09:typepad:en_us/themes/vox/theme-hills_green/body-bg-moblog2.gif); }
+
+
+/* timeline tweaks */
+
+	.layout-timeline #pagebody-inner { background-image: url(http://static.typepad.com/.shared:v20110414.01-0-g3974e09:typepad:en_us/themes/vox/theme-hills_green/body-bg-timeline.gif); }
+
+
+/* one-column tweaks */
+
+
+/* two-column-left tweaks */
+
+	.layout-two-column-left #pagebody-inner { background-image: url(http://static.typepad.com/.shared:v20110414.01-0-g3974e09:typepad:en_us/themes/vox/theme-hills_green/body-bg-tw.gif); }
+
+
+/* two-column-right tweaks */
+
+	.layout-two-column-right #pagebody-inner { background-image: url(http://static.typepad.com/.shared:v20110414.01-0-g3974e09:typepad:en_us/themes/vox/theme-hills_green/body-bg-wt.gif); }
+
+
+/* three-column tweaks */
+
+	.layout-three-column #pagebody-inner { background-image: url(./body-bg-twt.gif); }
+
+
+/* three-column-right tweaks */
+
+	.layout-three-column-right #pagebody-inner { background-image: url(http://static.typepad.com/.shared:v20110414.01-0-g3974e09:typepad:en_us/themes/vox/theme-hills_green/body-bg-wtt.gif); }

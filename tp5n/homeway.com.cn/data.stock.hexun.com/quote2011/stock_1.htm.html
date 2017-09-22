@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "httpdisabled://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="httpdisabled://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+	<title>股票行情 - 沪市行情</title>
+	<link href="css/hqnew.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="hqnewmod">
+<div class="hqnmenu">
+<ul>
+<li class="current">股市</li>
+<li><a href="httpdisabled://data.stock.hexun.com/quote2011/fund_1.htm">基金</a></li>
+<li><a href="httpdisabled://data.stock.hexun.com/quote2011/future_1.htm" >期货</a></li>
+<li><a href="httpdisabled://data.stock.hexun.com/quote2011/bond_1.htm">债券</a></li>
+<li><a href="httpdisabled://data.stock.hexun.com/quote2011/forex_1.htm" >外汇</a></li>
+<li><a href="httpdisabled://data.stock.hexun.com/quote2011/licai_1.htm">理财</a></li>
+<li><a href="httpdisabled://quote.hexun.com/default.htm#xianhuo" target="_blank">现货</a></li>
+</ul>
+</div>
+
+<div class="hqncont" >
+<ul class="hqntab">
+<li class="current" ><a href="stock_1.htm.html">沪市</a></li>
+<li><a href="httpdisabled://data.stock.hexun.com/quote2011/stock_2.htm">深市</a></li>
+<li><a href="httpdisabled://data.stock.hexun.com/quote2011/stock_3.htm">港股</a></li>
+<li style="width:53px;"><a href="httpdisabled://data.stock.hexun.com/quote2011/stock_4.htm">全球指数</a></li>
+<li style="width:53px;"><a href="httpdisabled://data.stock.hexun.com/quote2011/stock_5.htm" style="color:red">股指期货</a></li>
+</ul>
+<!--沪市 b-->
+<div style="width:214px;height:146px">
+<script src="js/flashChart.js" language="javascript"></script>
+<script language="JavaScript">
+	miniChartUrl = "httpdisabled://minpic.quote.stock.hexun.com/Stock_QTMI/QTMI_1_000001.xml";
+</script>
+		<objectdisabled classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+				id="miniChart" width="214" height="146"
+				codebase="httpdisabled://downloaddisabled.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" VIEWASTEXT>
+			<param name="movie" value="/flash/miniStock.swf" />
+			<param name="quality" value="high" />
+			<param name="bgcolor" value="#ffffff" />
+			<param name="wmode" value="Opaque" />
+			<param name="allowScriptAccess" value="always" />
+			<embeddisabled src="../flash/miniStock.swf" quality="high" bgcolor="#ffffff" wmode="Opaque"
+				   width="214" height="146" name="miniChart" align="middle"
+				   play="true" loop="false" allowScriptAccess="always"
+				   type="application/x-shockwave-flash"
+				   pluginspage="httpdisabled://www.macromedia.com/go/getflashplayer">
+			</embed>
+		</object>
+</div>
+<div class="hqnsbox">
+<form id="formSearch" name="sb_form" onsubmit="return Auto_Submit()" action="httpdisabled://data.stock.hexun.com/search/default.aspx" method="post" target="_blank">
+  <input type="text" id="ajaxinput" name="msn_stockid" value="股票代码/简称/拼音首字母" class="hqtxt"  style="color:gray;" onfocus="if(this.value=='股票代码/简称/拼音首字母') this.value='';this.style.color='black';" />
+  <a onclick="StockSearch_Submit()"><img src="img/btnsc.gif"  alt="查询" style="Cursor:pointer"/></a>
+  
+<script src="../js/stocksearch.js" language="javascript" type="text/javascript"></script>
+</form>
+</div>
+
+<!--沪市 e-->
+
+</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("httpdisabledsdisabled:" == document.location.protocol) ? "httpdisabledsdisabled://ssl." : "httpdisabled://www.");
+void(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try 
+{
+ var pageTracker = _gat._getTracker("UA-2167933-39");
+ pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+</body>
+</html>

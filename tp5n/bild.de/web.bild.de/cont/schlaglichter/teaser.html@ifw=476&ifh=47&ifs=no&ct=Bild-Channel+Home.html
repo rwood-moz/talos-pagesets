@@ -1,0 +1,645 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"httpdisabled://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="httpdisabled://www.w3.org/1999/xhtml" xml:lang="de">
+<head>
+	<title>Newsticker - Bild.de</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="content-language" content="de" />
+	<meta name="author" content="Bild.de" />
+	<style type="text/css">
+	
+@charset "utf-8";
+
+/* globals */
+* {
+	margin: 0px;
+	padding: 0px;
+}
+html, body {
+	background-color: #fff;
+	color: #000;
+	font-size: 13px;
+	font-family: Arial, Helvetica, Tahoma, sans-serif;
+	line-height: 17px;
+	text-rendering: optimizelegibility;
+	-webkit-font-smoothing: antialiased;
+}
+img {
+	border: none;
+	-ms-interpolation-mode: bicubic;
+}
+a {
+	color: #000;
+	text-decoration: none;
+}
+a:active {
+	outline: none;
+}
+a:hover,
+a:active,
+a:focus {
+	cursor: pointer;
+}
+.aside a {
+	color: #666;
+}
+li {
+	list-style-type: none;
+}
+.hide {
+	display: none;
+}
+.unhide {
+	display: block;
+}
+.skip {
+	position: absolute;
+	top: -999px;
+	left: -999px;
+}
+.skip:focus, .skip:active {
+	background: #d00;
+	position: absolute;
+	z-index: 1501;
+	top: 1px;
+	left: 5px;
+	padding: 0 5px;
+	color: #000;
+	font-size: 12px;
+	line-height: 16px;
+}
+.hidden {
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+}
+.cl {
+	clear: both;
+}
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+.clearfix {
+	display: block;
+}
+* + html .clearfix {
+	display: inline-block;
+}
+* html .clearfix {
+	height: 1%;
+}
+/* /globals */
+
+/* Grundgeruest Buehne */
+#outerWrapper {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 793px;
+	z-index: 1000;
+	background-color: #fff;
+	padding: 0px 0px 0px 5px;
+}
+#innerWrapper {
+	position: relative;
+	width: 792px;
+	z-index: 1000;
+	background-color: #fff;
+}
+#contentWrapper {
+	position: relative;
+	width: 792px;
+	z-index: 1000;
+	background: #fff url(http://web.bild.de/img/bg/bg-content.gif) repeat-x;
+}
+#nav {
+	position: relative;
+	height: 105px;
+	width: 792px;
+	z-index: 1500;
+	margin: 0px 0px 2px 0px;
+	background-color: #fff;
+}
+#breadcrumb {
+	position: relative;
+	height: 27px;
+	width: 792px;
+	z-index: 1000;
+	overflow: hidden;
+	background: #fff url(http://web.bild.de/img/bg/bg-breadcrumb.gif) repeat-x;
+	border-bottom: 1px solid #e5e5e5;
+}
+#footer {
+	position: relative;
+	width: 792px;
+	z-index: 1000;
+	overflow: hidden;
+	margin: 24px 0px 0px 0px;
+	padding: 0 0 60px 0;
+	background: #f5f5f5 url(http://web.bild.de/img/bg/bg-footer.gif) repeat-x;
+}
+/* /Grundgeruest Buehne */
+
+/* Grundgeruest Fotogalerie und Video */
+#video #outerWrapper {
+	width: 994px;
+}
+#video #innerWrapper, #video #contentWrapper, #video #nav, #video #breadcrumb, #video #footer {
+	width: 993px;
+}
+/* /Grundgeruest Fotogalerie und Video */
+
+/* Spalten */
+.sLast {
+	overflow: hidden;
+}
+* html .sLast {
+	float: left;
+	display: inline;
+}
+.s1, .s2, .s3, .s4, .s5, .s6, .s7, .s8, .s9, .s10, .s11, .s12, .s13, .s14 {
+	float: left;
+	margin-right: 12px;
+	display: inline;
+	overflow: hidden;
+	min-height: 1px;
+}
+.s1  {width:  55px;}
+.s2  {width: 122px;}
+.s3  {width: 189px;}
+.s4  {width: 256px;}
+.s5  {width: 323px;}
+.s6  {width: 390px;}
+.s7  {width: 457px;}
+.s8  {width: 524px;}
+.s9  {width: 591px;}
+.s10 {width: 658px;}
+.s11 {width: 725px;}
+.s12 {width: 792px;}
+.s13 {width: 859px;}
+.s14 {width: 926px;}
+/* /Spalten */
+
+/* Werbemittel */
+#fullBanner {
+	position: relative;
+	margin-bottom: 1px;
+	z-index: 2000;
+	zoom: 1;
+}
+#skyscraper {
+	position: absolute;
+	top: 0px;
+	left: 793px;
+	z-index: 2000;
+}
+#fullBanner .mark {
+	float: left;
+	display: inline;
+	height: 90px;
+	width: 0px;
+	padding: 0px 12px 0px 0px;
+	background: #f5f5f5 url(http://web.bild.de/img/bg/anzeige.gif) no-repeat 2px 22px;
+}
+* html #fullBanner .mark {
+	margin: 0px -3px 0px 0px;
+}
+#skyscraper .mark {
+	display: block;
+	height: 12px;
+	padding: 0px 0px 0px 2px;
+	font-size: 10px;
+	line-height: 12px;
+	color: #ccc;
+	text-transform: uppercase;
+}
+#badge, .contentbar {
+	position: relative;
+	text-align: center;
+	zoom: 1;
+	z-index: 1000;
+}
+#article .contentbar {
+	margin: 12px 0px;
+}
+#contentWrapper .contentbar .mark, #badge .mark {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 32px;
+	height: 90px;
+	background: url(http://web.bild.de/img/bg/anzeige.gif) no-repeat 12px 22px;
+	border: 0px;
+	margin: 0px;
+}
+.contentbar img, .contentbar object, #badge img, #badge object {
+	display: block;
+	margin: auto;
+}
+#richmedia, #takeOverO {
+	position: relative;
+	z-index: 2000;
+}
+#rectangle {
+	position: relative;
+	zoom: 1;
+	z-index: 2000;
+}
+.rectangle {
+	width: 300px;
+	height: 271px;
+	border: 1px solid #ccc;
+	margin: 11px 0px;
+	padding: 0px 11px 10px 10px;
+	z-index: 2000;
+}
+#rectangle .exp, .rectangle .exp {
+	position: absolute;
+	z-index: 2000;
+}
+#contentWrapper .rectangle .mark {
+	display: block;
+	line-height: 21px;
+	height: 21px;
+	border: 0px;
+	margin: 0px;
+}
+#video #rectangle_1 {
+	margin: 350px 0 0 0;
+	background: #fff;
+	position: absolute;
+}
+#video .rectangle {
+	margin: 43px 0 0 0;
+	background: #fff;
+}
+#contentWrapper .lead #rectangle .mark {
+	position: absolute;
+	top: -10px;
+	left: 0px;
+	border: 0px;
+	margin: 0px;
+	height: auto;
+}
+/* /Werbemittel */
+
+/* Partner globals */
+.affiliate {
+    border: 1px solid #d8d8d8;
+    background: #fff url(_img/partner/affiliate-fade.png) bottom left no-repeat;
+    padding: 5px 10px;
+    overflow: hidden;
+	position: relative;
+}
+.affiliate h4 {
+    padding: 0 0 7px;
+    color: #d00;
+    font-size: 11px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #d8d8d8;
+}
+.affiliate-icon {
+	position: absolute;
+	top: 3px;
+	right: 10px;
+	font-size: 10px;
+	color: #888;
+	text-align: right;
+}
+.affiliate-icon img {
+	display: inline;
+	vertical-align: middle;
+	margin: 0 0 0 4px;
+}
+/* /Partner globals */
+/* Partner form globals */
+.pmform,
+.pmform fieldset {
+    display: block;
+    border: 0;
+    position: relative;
+    color: #666;
+    font-size: 11px;
+    line-height: 16px;
+}
+.pmform legend {
+    position: relative;
+    left: 0;
+    font-weight: bold;
+}
+/* resets legend position in IEs to left: 0px */
+* html .pmform legend {
+    margin-left: -7px;
+}
+* + html .pmform legend {
+    margin-left: -7px;
+}
+/* height 1% given for IE to gain layout - reset on column label */
+.pmform label {
+    float: left;
+    display: inline;
+    margin: 0 5px 0 0;
+    position: relative;
+    cursor: pointer;
+    vertical-align: top;
+    font-weight: bold;
+    color: #666;
+    line-height: 21px;
+    height: 1%;
+}
+.pmform label.hidden {
+    position: absolute;
+}
+.pmform .column label {
+    height: auto;
+}
+.pmform label em {
+    font-weight: bold;
+    color: #d00;
+}
+.pmform a {
+    color: #000;
+    text-decoration: underline;
+}
+.pmform a:hover,
+.pmform label a:hover,
+.pmform a:active,
+.pmform label a:active,
+.pmform a:focus,
+.pmform label a:focus,
+.pmform div.error span {
+    color: #d00;
+}
+.pmform input,
+.pmform button {
+    vertical-align: top;
+    border: 0;
+    font-size: 11px;
+}
+.pmform input:hover,
+.pmform input:focus,
+.pmform input:active,
+.pmform textarea:hover,
+.pmform textarea:active,
+.pmform textarea:focus {
+    border-color: #000;
+}
+.pmform .column div {
+    float: left;
+    display: inline;
+}
+.pmradio, .pmcheck {
+    margin-bottom: 9px;
+    zoom: 1;
+}
+.pmradio label,
+.pmcheck label {
+    display: block;
+    float: none;
+    margin: 0;
+    font-weight: normal;
+    padding-left: 20px;
+    line-height: 14px;
+}
+* html .pmradio label,
+* html .pmcheck label {
+    padding: 0;
+}
+* + html .pmradio label,
+* + html .pmcheck label {
+    padding: 0;
+}
+.pmradio input,
+.pmcheck input {
+    float: left;
+    clear: left;
+    display: inline;
+}
+/* Adjustment to fit line-height of label */
+* html .pmradio input,
+* html .pmcheck input {
+    margin-top: -2px;
+}
+* + html .pmradio input,
+* + html .pmcheck input {
+    margin-top: -2px;
+}
+.pmtext input,
+.pmfile input {
+    border: 1px solid #ccc;
+    color: #000;
+    height: 19px;
+    line-height: 14px;
+    padding: 0;
+    display: block;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+    font-size: 11px;
+}
+.pmselect select {
+    color: #000;
+    height: 21px;
+    line-height: 21px;
+    display: block;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+    font-size: 11px;
+}
+.pmtextarea textarea {
+    border: 1px solid #ccc;
+    color: #000;
+    line-height: 16px;
+    padding: 2px 0 0;
+    display: block;
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+    font-size: 11px;
+}
+.error input,
+.error textarea {
+    border-color: #d00;
+}
+input.disabled,
+textarea.disabled,
+select.disabled {
+    background: #e4e2e2;
+    border: 1px solid #ccc;
+    color: #666;
+}
+/* Button Globals */
+.pmform .pmbutton input {
+    overflow: visible;
+    text-transform: uppercase;
+    color: #fff;
+    height: 17px;
+    text-align: center;
+    background: #d00 url(http://web.bild.de/img/partner/affiliate-button-sprite.gif) top left repeat-x;
+    cursor: pointer;
+    padding-bottom: 1px;
+    font-size: 10px;
+    font-weight: bold;
+	font-family: Arial, Verdana, Tahoma, sans-serif;
+}
+/* Button Hover,Active,Focus */
+.pmform .pmbutton input:hover,
+.pmform .pmbutton input:active,
+.pmform .pmbutton input:focus {
+    background-position: bottom left;
+}
+/* /Buttons */
+p.hint {
+    font-size: 11px;
+    line-height: 12px;
+    background: #e5e5e5;
+    border: 1px solid #ccc;
+    padding: 10px;
+    color: #000;
+    margin-bottom: 15px;
+}
+p.success {
+    font-size: 11px;
+    line-height: 12px;
+    background: #b9e4b6;
+    border: 1px solid #08b000;
+    padding: 10px;
+    color: #000;
+    margin-bottom: 15px;
+}
+p.error {
+    font-size: 11px;
+    line-height: 12px;
+    background: #ed9f9f;
+    border: 1px solid #dc0100;
+    padding: 10px;
+    color: #000;
+    margin-bottom: 15px;
+}
+/* /Partner form globals */
+/* DPA Ticker */
+.pm156 {
+	border: none;
+	width: 456px;
+	height: 175px;
+}
+.pm156-2 {
+	position: relative;
+	width: 435px;
+	height: 104px;
+	padding: 6px 10px 0;
+}
+.pm156 h4,
+.pm156-2 h4 {
+	border: none;
+	padding: 0 0 6px;
+	height: 27px;
+	line-height: 28px;
+}
+.pm156-2 h4 {
+	height: 20px;
+	line-height: 15px;
+}
+.pm156 .overview,
+.pm156-2 .overview {
+	position: absolute;
+	right: 10px;
+	top: 12px;
+	text-align: right;
+	font-size: 10px;
+	font-weight: bold;
+	text-decoration: underline;
+	color: #666;
+}
+.pm156-2 .overview {
+	top: 6px;
+}
+.pm156 ol,
+.pm156-2 ol {
+	width: 100%;
+}
+.pm156 ol li,
+.pm156-2 ol li {
+	float: left;
+	display: inline;
+	border-top: 1px solid #d8d8d8;
+	width: 100%;
+	height: 25px;
+}
+.pm156-2 ol li {
+	height: 24px;
+}
+.pm156 ol li a,
+.pm156-2 ol li a {
+	display: block;
+	border-top: 1px solid #fff;
+	height: 24px;
+	line-height: 25px;
+	font-size: 12px;
+	font-weight: bold;
+	overflow: hidden;
+}
+.pm156-2 ol li a {
+	height: 23px;
+    line-height: 23px;
+}
+.pm156 ol li a span,
+.pm156-2 ol li a span {
+	margin: 0 7px 0 0;
+	color: #d00;
+}
+.pm156 ol li a:hover,
+.pm156 ol li a:active,
+.pm156 ol li a:focus,
+.pm156-2 ol li a:hover,
+.pm156-2 ol li a:active,
+.pm156-2 ol li a:focus,
+.pm156-3 ol li a:hover,
+.pm156-3 ol li a:active,
+.pm156-3 ol li a:focus {
+	color: #d00;
+}
+.pm156-3 {
+	background: #fff url(_img/bg/nt-bg.gif) no-repeat 0 0;
+	border: 0;
+	padding: 0;
+	font-size: 12px;
+    font-weight: bold;
+    height: 47px;
+	width: 476px;
+    line-height: 15px;
+    overflow: hidden;
+    position: relative;
+}
+.pm156-3 ol {
+	padding: 2px 0 0 94px;
+	zoom: 1;
+}
+.pm156-3 li {
+	height: 15px;
+    overflow: hidden;
+}
+.pm156-3 span {
+	color: #d00;
+}
+/* /DPA Ticker */
+	<!-- * {margin:0; padding:0;} -->
+	
+	</style>
+</head>
+<body>
+<div class="affiliate pm156-3">
+	<ol>
+			<li>
+			<a href="httpdisabled://www.bild.de/newsticker-meldungen/schlaglichter/newsticker/telegramm-17053722,iurl=http_3A_2F_2Fweb.bild.de_2Fcont_2Fschlaglichter_2F12264070_2Ehtml.bild.html" target="_top"><span class="timestamp">00:02 Uhr</span> Verwaltungsstillstand in USA rückt immer näher</a>
+		</li>
+			<li>
+			<a href="httpdisabled://www.bild.de/newsticker-meldungen/schlaglichter/newsticker/telegramm-17053722,iurl=http_3A_2F_2Fweb.bild.de_2Fcont_2Fschlaglichter_2F12264069_2Ehtml.bild.html" target="_top"><span class="timestamp">23:50 Uhr</span> Explosion in Wahlzentrale in Nigeria</a>
+		</li>
+			<li>
+			<a href="httpdisabled://www.bild.de/newsticker-meldungen/schlaglichter/newsticker/telegramm-17053722,iurl=http_3A_2F_2Fweb.bild.de_2Fcont_2Fschlaglichter_2F12264068_2Ehtml.bild.html" target="_top"><span class="timestamp">23:32 Uhr</span> Sieg Nummer drei: Wolfsburg erreicht DEL-Finale</a>
+		</li>
+		</ol>
+</div>
+</body>
+</html>

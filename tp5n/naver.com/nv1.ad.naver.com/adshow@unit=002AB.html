@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "httpdisabled://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="httpdisabled://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><meta http-equiv="Content-Script-Type" content="text/javascript" /><meta http-equiv="Content-Style-Type" content="text/css" />
+<title>네이버 :: 세상의 모든 지식, 네이버</title><link rel="stylesheet" type="text/css" href="../adcreative.naver.com/ad3/css/adcast_v4.css@110329.css"/></head>
+<body onloaddisabled="initAd()">
+<div id="ad_cast">
+	<div class="content">		
+		<div class="info"><h2><strong>현대해운</strong><span>귀국이사 국제택배</span></h2></div>
+		<div id="addiv" class="ad"><noscript><span class="msg">현재 사용중인 환경에서는 스크립트 동작이 활성화 되지 않아 AD캐스트를 이용할 수 없습니다.</span></noscript></div>
+	</div>	
+	<div class="page"><a href="adshow@unit=002AB.html#ac_ctrl_pre_h" id="ac_ctrl_pre_a"><img src="../adcreative.naver.com/ad3/system/adcast/img/btn_pre10.gif" title="이전 광고" alt="이전 AD캐스트 광고" width="16" height="17"/></a><img id="ac_ctrl_off_i" src="../adcreative.naver.com/ad3/system/adcast/img/btn_stop_off.gif" title="광고 멈춤" alt="AD캐스트 광고 멈춤" width="16" height="17" style="display:none"/><a href="adshow@unit=002AB.html#ac_ctrl_off_h" id="ac_ctrl_off_a" style="display:none"><img src="../adcreative.naver.com/ad3/system/adcast/img/btn_stop_off.gif" title="광고 멈춤" alt="AD캐스트 광고 멈춤" width="16" height="17" /></a><a href="adshow@unit=002AB.html#ac_ctrl_stop_h" id="ac_ctrl_stop_a"><img src="../adcreative.naver.com/ad3/system/adcast/img/btn_stop.gif" title="광고 멈춤" alt="AD캐스트 광고 멈춤" width="16" height="17" /></a><a href="adshow@unit=002AB.html#ac_ctrl_play_h" id="ac_ctrl_play_a" style="display:none"><img src="../adcreative.naver.com/ad3/system/adcast/img/btn_play.gif" title="광고 재생" alt="AD캐스트 광고 재생" width="16" height="17" /></a><a href="adshow@unit=002AB.html#ac_ctrl_next_h" id="ac_ctrl_next_a" class="next"><img src="../adcreative.naver.com/ad3/system/adcast/img/btn_next10.gif" title="다음 광고" alt="다음 AD캐스트 광고" width="16" height="17"/></a></div>
+	<div id="ac_help2_layer" class="help" style="display:none;"><p>현재 사용중인<br />환경에서는 정상적으로<br /> 동작하지 않습니다.</p><div class="close"><a href="adshow@unit=002AB.html#ac_help2_close_h" id="ac_help2_close_a"><img src="../adcreative.naver.com/ad3/system/adcast/img/btn_close7.gif" alt="닫기" width="7" height="7" /></a></div></div>
+</div>
+<script type="text/javascript" src="../adcreative.naver.com/ad3/js/da.js@090219"></script>
+<script type="text/javascript" charset="euc-kr" src="../adcreative.naver.com/ad3/js/adcast/a100325.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+document.domain = "naver.com";
+function DaZeus (sType) {
+	this.viewType = sType;
+}
+DaZeus.prototype = new AdCast();
+DaZeus.prototype.superclass = AdCast;
+DaZeus.prototype.constructor = DaZeus;
+DaZeus.prototype.takeoffUI = function() {
+	try {
+		this.superclass.prototype.takeoffUI.apply(this);
+	}catch(e) {}	
+	if (this.isLoadFlash) {
+		switch (this.viewType) {
+			case "I1" :
+				if (this.isCtrl) {
+					if (this.runMode==1) {
+						this.bindButton("ac_ctrl_stop_a", function(e){
+							Da.$("fuit_adcast").stopAdCast();
+							AdCastAction.nimp("httpdisabled://spt.ad.naver.com/cast.nhn?unit=002AC&ac=3286945&c=1059428&act=s");
+							Da.SE(e);
+							return false;
+						});
+						this.bindButton("ac_ctrl_play_a", function(e){
+							Da.$("fuit_adcast").playAdCast();
+							AdCastAction.nimp("httpdisabled://spt.ad.naver.com/cast.nhn?unit=002AC&ac=3286945&c=1059428&act=p");
+							Da.SE(e);
+							return false;
+						});						
+					} else {
+						AdCastAction.displayButton("ac_ctrl_off_i", ["ac_ctrl_stop_a", "ac_ctrl_play_a", "ac_ctrl_off_a"]);
+					}
+				} else {
+					AdCastAction.displayButton("ac_ctrl_off_a", ["ac_ctrl_stop_a", "ac_ctrl_play_a"]);
+				}
+				break;
+			case "I2" :
+				AdCastAction.displayButton("ac_ctrl_off_i",["ac_ctrl_stop_a","ac_ctrl_play_a","ac_ctrl_off_a"]);
+				break;
+		}
+	} else {
+		AdCastAction.displayButton("ac_ctrl_off_i",["ac_ctrl_stop_a","ac_ctrl_play_a","ac_ctrl_off_a"]);
+	}
+	Da.AE(Da.$("ac_ctrl_pre_a"),"click",function(){
+		AdCastAction.goCast("httpdisabled://nv.ad.naver.com/castshow?unit=002AC&d=p&c=1059428");
+		return false;
+	});
+	Da.AE(Da.$("ac_ctrl_next_a"),"click",function(){
+		AdCastAction.goCast("httpdisabled://nv.ad.naver.com/castshow?unit=002AC&d=n&c=1059428");
+		return false;
+	});
+	Da.AE(Da.$("ac_home_a"),"click",function(){
+		AdCastAction.nimp("httpdisabled://spt.ad.naver.com/castclk.nhn?pos=h");
+	});	
+}
+var dz = new DaZeus ("I1");
+function initAd() {	
+	dz.initUI();
+	Da.SH(Da.$("addiv"), Da.MF("httpdisabled://adcreative.naver.com/ad3/system/adcast/usual/110215.swf", "fuit_adcast", 475, 100, "transparent", ["xmlData","runmode"], [Da.EF("<adz><src>http://adcreative.naver.com/ad3/1027/1027277/ad_cyhds0324_475100_1.swf</src><click><![CDATA[http://nv.ad.naver.com/adclick?unit=002AC&ac=3286945&src=1359624&br=1337985&c=1059428]]></click><init>onLoad</init><play>onPlay</play><stop>onStop</stop><type>I1</type><view>adshow</view></adz>"), dz.runMode]));	
+}
+function onLoad(b) {	
+	if(!dz.isLoadFlash) dz.loaddisablededFlash(b);
+	dz.takeoffUI();
+}
+function onPlay() {	
+	if (dz.isLoadFlash && dz.isCtrl && dz.runMode==1) AdCastAction.displayButton("ac_ctrl_stop_a", ["ac_ctrl_off_a", "ac_ctrl_play_a"]);
+}
+function onStop() {
+	if (dz.isLoadFlash && dz.isCtrl && dz.runMode==1) AdCastAction.displayButton("ac_ctrl_play_a", ["ac_ctrl_off_a", "ac_ctrl_stop_a"]);	
+}
+//]]>
+</script></body></html>

@@ -1,0 +1,88 @@
+@charset "EUC-JP";
+
+/* ------------------------------------------- CSS Information
+ File Name:	area_announce.css
+ UpdatedBy: 	20110407-12:00
+ Style Info:	area_announce
+ CreatedBy:	Mirei Soma
+----------------------------------------------------------- */
+
+/* riEmgArea-top
+---------------------------------------- */
+div#riEmgArea-top {
+	margin:          0px auto 10px auto;
+	padding:         10px 15px 3px 15px;
+	border:          1px solid #cecece;
+	background:      #ffffff;
+}
+div#riEmgArea-top a:link    { color: #1d54a7; text-decoration: none; }
+div#riEmgArea-top a:visited { color: #1d54a7; text-decoration: none; }
+div#riEmgArea-top a:hover   { color: #c00000; text-decoration: underline; }
+div#riEmgArea-top a:active  { color: #c00000; text-decoration: underline; }
+
+/* riEmg-header */
+div#riEmgArea-top div#riEmg-header{
+	display:         none;
+}
+
+/* riEmg-content */
+div#riEmgArea-top div.riEmg-content{
+}
+div#riEmgArea-top div.riEmg-cont-header{
+	font-weight:     bold;
+}
+div#riEmgArea-top div.riEmg-cont-header h3{
+	display:         inline;
+	font-size:       100%;
+	line-height:     1.8;
+}
+div#riEmgArea-top div.riEmg-content div.riEmg-cont-header h3.riEmg-title-keyword{
+	display:         none;
+}
+div#riEmgArea-top div.riEmg-cont-header p.riEmg-update{
+	display:         inline;
+	padding:         0 0 0 20px;
+}
+div#riEmgArea-top div.riEmg-cont-items{
+	font-size:       100%;
+	line-height:     1.6;
+}
+div#riEmgArea-top div.riEmg-cont-items h4{
+	display:         inline;
+	margin:          0 0.3em 0 0;
+	font-weight:     normal;
+	color:           #bf0000;
+}
+div#riEmgArea-top div.riEmg-cont-items ul{
+	display:         inline;
+	margin:          0;
+	padding:         0;
+}
+div#riEmgArea-top div.riEmg-cont-items li{
+	display:         inline;
+	margin:          0 0.2em 0 0;
+	letter-spacing:  -1px;
+}
+
+/* riEmg-footer */
+div#riEmgArea-top div#riEmg-footer{
+	margin:          5px 0 0 0;
+	padding:         5px 0 0 0;
+	font-size:       100%;
+	line-height:     1.6;
+	background:      url(../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201008/dot_01.gif) repeat-x 0 0;
+}
+div#riEmgArea-top div#riEmg-footer ul{
+	display:         inline;
+	float:           right;
+	margin:          0;
+	padding:         0;
+	list-style-type: none;
+}
+div#riEmgArea-top div#riEmg-footer li{
+	display:         inline;
+	margin:          0 0 0 0.7em;
+	padding:         0 0 0 7px;
+	background:      url(../../../../../../../../image.rakuten.co.jp/com/img/home/beta/201008/tri_f2ab00.gif) no-repeat 0 3px;
+}
+/* ---------------------------------------- */

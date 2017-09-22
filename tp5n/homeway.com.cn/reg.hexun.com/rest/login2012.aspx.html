@@ -1,0 +1,131 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "httpdisabled://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    
+        <script language="javascript">
+ 
+function CheckLoginForm()
+{
+	
+	if(Frm.username.value==''||Frm.username.value=='用户名/邮箱/手机')
+	{
+		alert('请填写登录名！');
+		Frm.username.focus();
+		return false;
+	}
+	else if(Frm.password.value=='')
+	{
+		alert('请填写密码！');
+		Frm.password.focus();
+		return false;
+	}
+	//debugger;
+	if(Frm.selSubType.value == '2')
+	{
+ 
+	    Frm.gourl.value = "httpdisabled://mail.hexun.com";
+	}
+	return true;
+}
+function AllSelect(e)
+{
+	e.focus();
+	e.select();
+}
+/*
+function SetGourl()
+{
+	
+	if (document.all["gourl"] != null)
+	{
+		document.all["gourl"].value=location.href;
+		alert(document.all["gourl"].value);
+	}
+}
+*/
+    </script>
+<!-- 091213 -->
+<style type="text/css"> 
+<!--
+	body{background:#101630 url(addmbg.gif) repeat-x 0 0;font-size:12px;color:#c7e1fc; padding: 0; margin:0}
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,dl,dt,dd,p{margin:0;padding:0;border:0;}
+	a:link {text-decoration: none;color:#c7e1fc;}
+	a:visited {text-decoration: none;color:#c7e1fc;}
+	a:hover {text-decoration:underline;}
+	.input{height:15px; border:0; font-size:12px; padding:2px 0px 0px 2px;color:#666666; background: transparent;}
+	.user_name{ background: url(img/ifr_load1217.gif) no-repeat 0 0; height: 22px; overflow: hidden; width: 104px; padding: 3px 0 0 3px; }
+	.user_pas{ background: url(img/ifr_load1217.gif) no-repeat 0 -48px; height: 24px; overflow: hidden; width: 52px; padding: 1px 0 0 3px; }
+	.logIn{ padding-top:10px;color:#434c69; text-align: right }
+	.logIn b{ font-weight: normal; color: #c7e1fc;  }
+-->
+</style>
+<!-- 091213 -->
+
+</head>
+<body>
+    <form name="Frm" onsubmit="return CheckLoginForm();" action="httpdisabledsdisabled://reg.hexun.com/login.aspx"
+        method="post">
+        <div id="MyPanel">
+	
+	
+            <table border="0">
+                <tr>
+                    <td>
+                     <div class="user_name">
+                        <input id="gourl" type="hidden" name="gourl"><input class="input" onmouseover="AllSelect(this);"
+                            onclick="javascript:this.value='';" style="width: 100px" type="text" value="用户名/邮箱/手机"
+                            name="username">
+
+                            </div>
+                    </td>
+                    <td>
+                     <div class="user_pas">
+                        <input class="input" onfocus="this.select();this.focus();" onclick="javascript:this.value='';"
+                            style="width: 50px" type="password" value="******" name="password">
+                            </div>
+                    </td>
+                    <td  style="display:none">
+                        <select id="selSubType"><option value="1">个人门户</option><option value="2">邮箱</option></select>
+
+                    </td>
+                    <td>
+                      <label  for="LoginStateAuto"><input type="checkbox" name="LoginStateAuto" value="1" id="LoginStateAuto"  />自动</label>
+                    </td>
+                    <td>
+                        <input style="cursor: pointer;" type="image" alt="" src="img/ifr_but1217.gif"
+                            align="absMiddle"></td>
+                    <td>
+                        <div style="padding: 5px 0px 0px 5px;">
+
+                            <a href="httpdisabled://reg.hexun.com/regname.aspx?fromhost=HX_WEB&urlReferrerhost=http%3a%2f%2fwww.hexun.com%2f" target="_blank">注册</a>
+                            <a href="httpdisabled://reg.hexun.com/GetPasswordPre.aspx" target="_blank">找回密码</a><a id="homepage"
+                                href="javascript:defaul_homepage();"></a></div>
+                    </td>
+                </tr>
+            </table>
+           
+
+            <script language="javascript"> document.Frm.gourl.value =document.location + "?submitsign=1"; </script>
+
+        
+
+        
+</div>
+         <div class="logIn">
+              
+        </div>
+
+       <script language="javascript">
+		
+        </script>
+        <input type="hidden" name="hiddenReferrer" id="hiddenReferrer" value="httpdisabled://www.hexun.com/" />
+        <input type=hidden id="LoginStateName" name="LoginStateName" value="1" />
+    </form>
+
+</body>
+
+</html>

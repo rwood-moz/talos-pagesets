@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="filetype" content="0">
+<meta name="publishedtype" content="1">
+<meta name="pagetype" content="2">
+<meta name="catalogs" content="487">
+<script type="text/javascript">
+function showtab(m,n,count){
+	for(var i=1;i<=count;i++){
+		if (i==n){			
+			if (i==count){getObject("td_"+m+"_"+i).className="libg limar";}
+			else {getObject("td_"+m+"_"+i).className="libg";}
+					
+			getObject("tab_"+m+"_"+i).className="show";			
+			}
+		else {
+			if (i==count) {getObject("td_"+m+"_"+i).className="limar";}
+			else {getObject("td_"+m+"_"+i).className="";}
+			getObject("tab_"+m+"_"+i).className="hidden";
+			}
+	}
+}
+
+function getObject(objectId) {
+    if(document.getElementById && document.getElementById(objectId)) {
+	// W3C DOM
+	return document.getElementById(objectId);
+    } else if (document.all && document.all(objectId)) {
+	// MSIE 4 DOM
+	return document.all(objectId);
+    } else if (document.layers && document.layers[objectId]) {
+	// NN 4 DOM.. note: this won't find nested layers
+	return document.layers[objectId];
+    } else {
+	return false;
+    }	
+}
+</script>
+<title>中国文明网</title>
+<style type="text/css">
+<!--
+body {
+	margin: 0px;
+	padding:0;
+	font-size:12px;
+	font-family:"宋体";
+}
+#main {
+	width:230px;
+	height:152px;
+	text-align:center;
+	background:#F8FBFF;
+}
+#main dl {
+	padding:0;
+	margin:0;
+}
+#main dl dt {
+	line-height:26px;
+	background:#F6F6F6;
+	font-size:14px;
+	font-weight:bold;
+	border-bottom:1px solid #b0b1b3;
+	height:26px;
+	overflow:hidden;
+} 
+#main dl dt a {
+	color:#C00000;
+	text-decoration:none;
+}
+#main dl dt a:hover {
+	color:#D90000;
+	text-decoration:none;
+}
+#main dl dd {
+	line-height:22px;
+	padding:0 10px;
+	text-align:left;
+	margin:0;
+	height:22px;
+	overflow:hidden;
+} 
+#main dl dd a {
+	color:#1E1E1E;
+	text-decoration:none;
+}
+#main dl dd a:hover {
+	color:#D90000;
+	text-decoration:underline;
+}
+#td_1_1,
+#td_1_2{
+	width:96px;
+	text-align:center;
+	float:left;
+	position:absolute;
+}
+#td_1_1{
+	left:9px;
+	top:0px;
+}
+#td_1_2{
+	left:105px;
+	top:0px;
+	border-left:0px;
+}
+#td_1_1.libg,
+#td_1_2.libg{
+	height:26px;
+	background:#FFF;
+	border:1px solid #b0b1b3;
+	border-bottom:1px solid #FFF;
+}
+#td_1_2.libg{
+	border-left:1px solid #b0b1b3;
+}
+.hidden{
+	display:none;
+}
+#tab_1_1,
+#tab_1_2{
+	width:230px;
+	height:110px;
+	clear:both;
+}
+.title{
+	height:27px;
+	overflow:hidden;
+	position:relative;
+	margin-bottom:10px;
+}
+-->
+</style></head>
+
+<body>
+  <div id="main">
+    <dl>
+    <div class="title">
+
+	  <dt><div class="font libg"  id="td_1_1" onmouseover="showtab(1,1,2)"><a href="http://www.wenming.cn/" target="_blank">文明之窗</a></div><div class="font"  id="td_1_2" onmouseover="showtab(1,2,2)"><a href="http://www.chinapeace.org.cn/" target="_blank">平安之窗</a></div></dt></div>
+      <div id="tab_1_1" class="show">
+	   
+	     <dd>·<a href="http://www.wenming.cn/ft_pd/zb/201205lfjswst/" target="_blank">中宣部举行弘扬雷锋精神网上座谈会</a></dd>
+	   
+	     <dd>·<a href="http://www.wenming.cn/xj_pd/yw/201205/t20120518_666036.shtml" target="_blank">中宣部直属单位2012年招聘面试公告</a></dd>
+	   
+	     <dd>·<a href="http://www.wenming.cn/ll_pd/zthd_ll/201205/t20120523_671300.shtml" target="_blank">[策划]文化"为人民":不朽的延安命题</a></dd>
+	   
+	     <dd>·<a href="http://kejiao.cntv.cn/program/C37380/fangtan/index.shtml" target="_blank">访谈：文明城市贵阳市委书记话文明</a></dd>
+	   
+	     <dd>·<a href="http://hb.wenming.cn/zt/bdytg/index.html" target="_blank">"良心油条哥"刘洪安:诚信经营不吃亏</a></dd>
+	   
+      </div>
+      <div id="tab_1_2" class="hidden">
+		<iframe scrolling="no" height="100%" frameborder="0" width="100%" target="_blank" hspace="0" vspace="0" marginheight="0" marginwidth="0" src="../../../../xhwsyqz.htm"></iframe>
+      </div>
+	  </dl>
+    </div>
+	<div style="display:none;"><script src="../../../../footer110614.js" language="javascript"></script></div>
+</body>
+</html>

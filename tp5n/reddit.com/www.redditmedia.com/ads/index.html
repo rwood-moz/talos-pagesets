@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "httpdisabled://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title></title>
+    <style type="text/css">
+      #ad {
+      background-color: white; width: 100%; text-align: center;
+      font: normal small verdana, arial, sans-serif}
+      #adlink {
+      background-color: white; width: 100%; text-align: center;
+      font: normal small verdana, arial, sans-serif}
+      #adlink {width: 100%; text-align: center;}
+      #adlink a {color: #336699; text-decoration: none}
+      #adlink a:hover {text-decoration: underline}
+    </style>
+    <script language="javascript" type="text/javascript">
+      //<![CDATA[
+      function rwt(a) {
+        var ad = document.getElementById("ad")
+        var s = ad.getElementsByTagName("embed")[0]
+        if (!s) {
+          var iframes = ad.getElementsByTagName("iframe");
+          for(var i = 0; i < iframes.length; i++) {
+             /* if pubmatic. there will be a tracking beacon with a unique ID*/
+             if (iframes[i].getAttribute('name') == 'pbeacon') {
+               var url = iframes[i].src;
+               url = url.split('?');
+               if (url[1]) {
+                 var x = url[1].split('&');
+                 for(var j = 0; j < x.length; j++) {
+                    var y = x[j].split('=');
+                    if (y[0] == 'adId') {
+                      s = url[0] + "?" + x[j];
+                      a.href = "httpdisabled://ads.reddit.com/submit?url=" + encodeURIComponent(s);
+                      return true;
+                    }
+                 }
+               }
+             } else if(iframes[i].offsetHeight > 100 && 
+                       iframes[i].offsetWidth > 100) {
+                s = iframes[i];
+                break;
+             }
+          }
+        }
+        if (!s) s = ad.getElementsByTagName("img")[0]
+        if (s) a.href = "httpdisabled://ads.reddit.com/submit?url=" + encodeURIComponent(s.src);
+        else a.target = ""
+        return true;
+      }
+      //]]>
+    </script>
+  </head>
+  <body style="padding: 0; margin: 0;">
+    <div id="ad">
+      <!-- begin ad tag  (tile=1)  -->
+      <script language="JavaScript" type="text/javascript">
+        //<![CDATA[
+ord=Math.random()*10000000000000000;
+void('<script language="JavaScript" src="../../ad.doubleclick.net/adj/reddit.dart/reddit.com" type="text/javascript"></scr' + 'ipt>');
+//]]>
+      </script>
+      <noscript><a href="httpdisabled://ad.doubleclick.net/jump/reddit.dart/reddit.com;kw=reddit.com;tile=1;sz=300x250;ord=123456789?" target="_blank"><img src="../../s0.2mdn.net/viewad/2022670/2-Hanna_Banners_300x250_Now.jpg" width="300" height="250" border="0" alt=""/></a></noscript>
+    </div>
+    <div id="adlink">
+      <a target="_top" href="index.html#" onmousedown="rwt(this)">
+        reddit this ad
+      </a>
+    </div>
+    <script language="JavaScript" type="text/javascript">
+      //<![CDATA[
+      void("<img alt='' src='../../pixel.reddit.com/pixel/of_defenestration.png@hash=a8ababd2e4912c8b21d72252ad18ebb5d8e27ea3&amp;id=dart_reddit.com&amp;random=%2522&#32;+&#32;Math.random()%252A10000000000000000&#32;+&#32;%2522'/>");
+     //]]>
+    </script>
+  </body>
+</html>
